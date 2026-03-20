@@ -2,9 +2,24 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ditt Almedalsprogram | Reform Society",
+  title: "Almedalsdata | Reform Society",
   description:
-    "Svara på fem frågor och få ett personligt program för Almedalsveckan 2026 — skapat av AI.",
+    "Analys av Almedalsveckan 2022–2026. Makt, ämnen, nätverk och sentiment — visualiserat.",
+  openGraph: {
+    title: "Almedalsdata | Reform Society",
+    description: "Analys av Almedalsveckan 2022–2026. Makt, ämnen, nätverk och sentiment — visualiserat.",
+    url: "https://almedalsdata.se",
+    siteName: "Almedalsdata",
+    images: [{ url: "/og", width: 1200, height: 630 }],
+    locale: "sv_SE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Almedalsdata | Reform Society",
+    description: "Analys av Almedalsveckan 2022–2026.",
+    images: ["/og"],
+  },
 };
 
 export default function RootLayout({

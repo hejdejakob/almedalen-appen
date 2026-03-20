@@ -195,6 +195,14 @@ Klickbar för att se vilka aktörer som driver respektive ämne.
 kanter = delade paneldeltaganden. Kantens tjocklek = frekvens. Kluster =
 informella allianser. Brokers = noder med kopplingar till flera kluster.
 
+**Arena-nätverksgraf:** Bipartit force-directed graf med två nodtyper:
+arenor (större noder med streckad ring) och organisationer (mindre cirklar,
+färgade per sektor). Kanter visar att en organisation arrangerat 2+ events
+på arenan. Topp 30 arenor efter antal unika arrangörer. Venue-normalisering
+via `ARENA_OVERRIDES` i `route.ts` mappar ~100 adressvarianter till ~50
+kanoniska arenanamn (t.ex. "Donnersgatan 6" → "Hansaplatsen",
+"Strandvägen 4.1" → "Dagens industris arena", "S:t Hansplan 2" → "Folkhälsodalen").
+
 **A-listan:** Rankad talarlista med tre dimensioner: volym (antal paneler),
 kontinuitet (antal år i rad), bredd (antal unika arrangörer). Visar
 Almedalens evergreens vs debutanter.
@@ -253,6 +261,16 @@ Org-namn-som-talare rensade (492 felaktiga poster borttagna).
 
 **Enrichment gjordes med Claude Code-agenter (inte API-credits) — Haiku för parsning, Sonnet för granskning.**
 
+### Talaruppdatering — mars 2026
+- [x] Uppdaterade titlar och organisationer för A-listans 489 talare (topp 50 per kategori)
+- [x] Websökning via Sonnet-subagenter (10 parallella) för alla 489 personer
+- [x] 371 talare fick uppdaterade titlar/organisationer, 118 oförändrade, 0 fel
+- **Script:** `export-a-listan-speakers.js` (export), `restore-and-update-speakers.js` (uppdatering)
+- **Temporära filer:** `tmp/speakers-*-updated.json` (websökta resultat per kategori)
+- **Exempel på korrigeringar:** Mikael Damberg (finansminister → riksdagsledamot S),
+  Acko Ankarberg Johansson (sjukvårdsminister → landshövding Västmanlands län),
+  Michael Claesson (C INS → Överbefälhavare), PM Nilsson (DI → VD Timbro)
+
 ### Fas 3 — Visualiseringar — KLART
 - [x] Makt-dashboard (bubbeldiagram + area-graf)
 - [x] Ämnes-dashboard (alluvial + sparklines + valårseffekt)
@@ -280,14 +298,15 @@ rivalanalys, rapport-generator) raderades.
 - **Styling:** Tailwind CSS 4
 - **Databas:** Supabase (Postgres) via @supabase/supabase-js
 - **Enrichment:** Claude Code-agenter (Haiku för parsning/klassificering, Sonnet för granskning)
-- **AI SDK:** @anthropic-ai/sdk (för Almedalspegeln rapportgenerering)
+- **AI SDK:** @anthropic-ai/sdk
 - **Batch-runner:** Node.js-scripts + Claude Code subagenter
 - **Scraping:** Playwright (eventdetalj-sidor för medverkande + kontaktpersoner)
 - **Modeller:** claude-haiku-4-5-20251001 (klassificering/sentiment/parsning),
   claude-sonnet-4-6 (granskning, rapport)
 - **Visualisering:** React + Chart.js 4 + react-chartjs-2 + D3 7 (alluvial via d3-sankey, nätverksgraf, arenanätverk)
 - **Karta:** Leaflet + react-leaflet + CartoDB light tiles
-- **Markdown:** marked (för rendering av AI-genererade rapporter)
+- **Markdown:** marked
+- **Repo:** github.com/reform-society/almedalen-appen (privat)
 - **Estimerad API-kostnad:** < 10 USD totalt för enrichment av ~4 000 events
 
 ---

@@ -248,7 +248,7 @@ function SpeakersContent() {
               Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025
             </p>
           </div>
-          <a href="/dashboard" style={{
+          <a href="/" style={{
             color: '#ff6632',
             textDecoration: 'none',
             fontSize: '0.9rem',

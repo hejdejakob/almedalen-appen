@@ -54,8 +54,9 @@ export async function GET(request: Request) {
     } else {
       return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network' }, { status: 400 });
     }
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    console.error("Dashboard API error:", err instanceof Error ? err.message : err);
+    return NextResponse.json({ error: "Något gick fel. Försök igen senare." }, { status: 500 });
   }
 }
 
