@@ -1,0 +1,1084 @@
+{
+  "Klinttorget 4": {
+    "lat": 57.6397218,
+    "lng": 18.2988927,
+    "locations": [
+      "Klinttorget 4"
+    ]
+  },
+  "Hamnplan": {
+    "lat": 57.6389,
+    "lng": 18.2883,
+    "locations": [
+      "Hamnplan, H205",
+      "Hamnplan, H235",
+      "Hamnplan, H204",
+      "Hamnplan, H223",
+      "Hamnplan, H201",
+      "Hamnplan, H202",
+      "Hamnplan, H209",
+      "Hamnplan, H231",
+      "Hamnplan, H203",
+      "Hamnplan, H207",
+      "Hamnplan, H214",
+      "Hamnplan, H215",
+      "Hamnplan, H232",
+      "Hamnplan, H200",
+      "Hamnplan, H208",
+      "Hamnplan, H241",
+      "Hamnplan, H211",
+      "Hamnplan, H218",
+      "Hamnplan, H246",
+      "Hamnplan, H210",
+      "Hamnplan, H216",
+      "Hamnplan, H220"
+    ]
+  },
+  "Strandvägen": {
+    "lat": 57.6413,
+    "lng": 18.2898,
+    "locations": [
+      "Strandvägen, H534A",
+      "Strandvägen, H520",
+      "Strandvägen, H535",
+      "Strandvägen, H521",
+      "Strandvägen, H530",
+      "Strandvägen, H550",
+      "Strandvägen, H531",
+      "Strandvägen, H553",
+      "Strandvägen, H517",
+      "Strandvägen, H519",
+      "Strandvägen, H533",
+      "Strandvägen, H555",
+      "Strandvägen, H534",
+      "Strandvägen, H518"
+    ]
+  },
+  "B-huset, Uppsala universitet, Huvudentré Cramérgatan 3": {
+    "lat": 57.6396,
+    "lng": 18.2889,
+    "locations": [
+      "B-huset, Uppsala universitet, Huvudentré Cramérgatan 3"
+    ]
+  },
+  "Strandgatan": {
+    "lat": 57.6418,
+    "lng": 18.2922,
+    "locations": [
+      "Strandgatan 22",
+      "Strandgatan 19",
+      "Strandgatan 20",
+      "Strandgatan 16",
+      "Strandgatan 30",
+      "Strandgatan 13",
+      "Strandgatan 42",
+      "Strandgatan 11",
+      "Strandgatan 10",
+      "Strandgatan 35"
+    ]
+  },
+  "Donnersgatan 6": {
+    "lat": 57.6394995,
+    "lng": 18.2908479,
+    "locations": [
+      "Donnersgatan 6"
+    ]
+  },
+  "Cramérgatan": {
+    "lat": 57.6394,
+    "lng": 18.2893,
+    "locations": [
+      "Cramérgatan, H316",
+      "Cramérgatan, H314",
+      "Cramérgatan, H330",
+      "Cramérgatan, H313",
+      "Cramérgatan, H321",
+      "Cramérgatan, H318B",
+      "Cramérgatan, H333",
+      "Cramérgatan, H319",
+      "Cramérgatan, H326",
+      "Cramérgatan, H320",
+      "Cramérgatan, H308",
+      "Cramérgatan, H302",
+      "Cramérgatan, H315",
+      "Cramérgatan, H303",
+      "Cramérgatan, H306",
+      "Cramérgatan, H324",
+      "Cramérgatan, H317",
+      "Cramérgatan, H331",
+      "Cramérgatan, H311",
+      "Cramérgatan, H322"
+    ]
+  },
+  "Hamngatan": {
+    "lat": 57.6389,
+    "lng": 18.2906,
+    "locations": [
+      "Hamngatan, H409",
+      "Hamngatan, H412",
+      "Hamngatan, H400",
+      "Hamngatan, H411",
+      "Hamngatan, H413",
+      "Hamngatan, H401",
+      "Hamngatan, H420"
+    ]
+  },
+  "D-huset, Uppsala universitet, Kaserngatan 1": {
+    "lat": 57.6392,
+    "lng": 18.2882,
+    "locations": [
+      "D-huset, Uppsala universitet, Kaserngatan 1"
+    ]
+  },
+  "E-huset, Uppsala universitet, Huvudentré Cramérgatan 3": {
+    "lat": 57.6397,
+    "lng": 18.2886,
+    "locations": [
+      "E-huset, Uppsala universitet, Huvudentré Cramérgatan 3"
+    ]
+  },
+  "fartyg, Teaterskeppet": {
+    "lat": 57.6375,
+    "lng": 18.2862,
+    "locations": [
+      "fartyg, Teaterskeppet"
+    ]
+  },
+  "Donnersgatan": {
+    "lat": 57.6395,
+    "lng": 18.2908,
+    "locations": [
+      "Donnersgatan",
+      "Donnersgatan, H441",
+      "Donnersgatan, H440"
+    ]
+  },
+  "Hamnplan, plats 207, Ukrainska Hubben": {
+    "lat": 57.639144856443096,
+    "lng": 18.288374894519496,
+    "locations": [
+      "Hamnplan, plats 207, Ukrainska Hubben"
+    ]
+  },
+  "Adelsgatan 43, Vårdklockans kyrka": {
+    "lat": 57.6375,
+    "lng": 18.2945,
+    "locations": [
+      "Adelsgatan 43, Vårdklockans kyrka"
+    ]
+  },
+  "S:t Hansgatan": {
+    "lat": 57.6384,
+    "lng": 18.2925,
+    "locations": [
+      "S:t Hansgatan 21",
+      "S:t Hansgatan 18",
+      "S:t Hansgatan 24",
+      "S:t Hansgatan 22",
+      "S:t Hansgatan 12",
+      "S:t Hansgatan 27",
+      "S:t Hansgatan 31",
+      "S:t Hansgatan 39"
+    ]
+  },
+  "Hästgatan": {
+    "lat": 57.638508,
+    "lng": 18.2936833,
+    "locations": [
+      "Hästgatan 13",
+      "Hästgatan 12",
+      "Hästgatan 17",
+      "Hästgatan 24"
+    ]
+  },
+  "Strandgatan 9, Supper": {
+    "lat": 57.64177701008228,
+    "lng": 18.292054455107614,
+    "locations": [
+      "Strandgatan 9, Supper",
+      "Strandgatan 9, Supper ,"
+    ]
+  },
+  "Strandvägen 4.1": {
+    "lat": 57.6413027,
+    "lng": 18.2898464,
+    "locations": [
+      "Strandvägen 4.1"
+    ]
+  },
+  "Strandgatan 6, Clarion Hotel Wisby": {
+    "lat": 57.641832113779614,
+    "lng": 18.292203921458277,
+    "locations": [
+      "Strandgatan 6, Clarion Hotel Wisby"
+    ]
+  },
+  "Adelsgatan": {
+    "lat": 57.6368,
+    "lng": 18.294,
+    "locations": [
+      "Adelsgatan 25",
+      "Adelsgatan 33"
+    ]
+  },
+  "Annan plats": {
+    "lat": 57.639,
+    "lng": 18.29,
+    "locations": [
+      "Annan plats"
+    ]
+  },
+  "Mellangatan": {
+    "lat": 57.6391,
+    "lng": 18.2929,
+    "locations": [
+      "Mellangatan 27",
+      "Mellangatan 29",
+      "Mellangatan 56",
+      "Mellangatan 45",
+      "Mellangatan 15"
+    ]
+  },
+  "Donners plats 1, Donnerska huset": {
+    "lat": 57.639,
+    "lng": 18.2914,
+    "locations": [
+      "Donners plats 1, Donnerska huset"
+    ]
+  },
+  "Strandvägen 4.2": {
+    "lat": 57.6413027,
+    "lng": 18.2898464,
+    "locations": [
+      "Strandvägen 4.2"
+    ]
+  },
+  "Cramérgatan 5, Almedalsbiblioteket": {
+    "lat": 57.6396,
+    "lng": 18.2895,
+    "locations": [
+      "Cramérgatan 5, Almedalsbiblioteket",
+      "Cramérgatan 5, Almedalsbiblioteket, E22"
+    ]
+  },
+  "S:ta Katarinagatan 6": {
+    "lat": 57.6405113,
+    "lng": 18.2951011,
+    "locations": [
+      "S:ta Katarinagatan 6"
+    ]
+  },
+  "S:t Hansplan 2, S:t Hans Café": {
+    "lat": 57.6384,
+    "lng": 18.293,
+    "locations": [
+      "S:t Hansplan 2, S:t Hans Café"
+    ]
+  },
+  "Strandgatan 14, Gotlands museum": {
+    "lat": 57.6415,
+    "lng": 18.292,
+    "locations": [
+      "Strandgatan 14, Gotlands museum"
+    ]
+  },
+  "Hamngatan 1, trädgården": {
+    "lat": 57.63868220665503,
+    "lng": 18.290530912006382,
+    "locations": [
+      "Hamngatan 1, trädgården"
+    ]
+  },
+  "Skeppsbron 24, Joda Bar och kök": {
+    "lat": 57.6375,
+    "lng": 18.287,
+    "locations": [
+      "Skeppsbron 24, Joda Bar och kök"
+    ]
+  },
+  "Hamnplan 5, Nedre plan": {
+    "lat": 57.63879297682185,
+    "lng": 18.28846912458907,
+    "locations": [
+      "Hamnplan 5, Nedre plan"
+    ]
+  },
+  "Skeppsbron": {
+    "lat": 57.6371,
+    "lng": 18.2868,
+    "locations": [
+      "Skeppsbron, H110",
+      "Skeppsbron, H115",
+      "Skeppsbron, H116",
+      "Skeppsbron, H117",
+      "Skeppsbron 12",
+      "Skeppsbron, H112",
+      "Skeppsbron, H106",
+      "Skeppsbron, H118",
+      "Skeppsbron, H111",
+      "Skeppsbron, H101",
+      "Skeppsbron, H119",
+      "Skeppsbron, H120",
+      "Skeppsbron, H113"
+    ]
+  },
+  "Hamngatan 3": {
+    "lat": 57.6389397,
+    "lng": 18.2905098,
+    "locations": [
+      "Hamngatan 3"
+    ]
+  },
+  "Strandvägen 4, Strands veranda": {
+    "lat": 57.6408,
+    "lng": 18.2895,
+    "locations": [
+      "Strandvägen 4, Strands veranda"
+    ]
+  },
+  "Klinttorget 4, Gotland Soldathem": {
+    "lat": 57.63694176933719,
+    "lng": 18.290803346706102,
+    "locations": [
+      "Klinttorget 4, Gotland Soldathem"
+    ]
+  },
+  "Donnersgatan, plats 441, Expressens scen": {
+    "lat": 57.63971028828882,
+    "lng": 18.290779714901515,
+    "locations": [
+      "Donnersgatan, plats 441, Expressens scen"
+    ]
+  },
+  "Strandgatan 27, trädgården": {
+    "lat": 57.64162218931494,
+    "lng": 18.292285517047585,
+    "locations": [
+      "Strandgatan 27, trädgården"
+    ]
+  },
+  "Almedalen, scen": {
+    "lat": 57.6387,
+    "lng": 18.289,
+    "locations": [
+      "Almedalen, scen"
+    ]
+  },
+  "Stora Torget 16, Bolaget": {
+    "lat": 57.6397,
+    "lng": 18.2952,
+    "locations": [
+      "Stora Torget 16, Bolaget"
+    ]
+  },
+  "Strandgatan 26, Värdshuset Lindgården": {
+    "lat": 57.64184133147609,
+    "lng": 18.292234697871454,
+    "locations": [
+      "Strandgatan 26, Värdshuset Lindgården"
+    ]
+  },
+  "Hamnplan, plats": {
+    "lat": 57.63871799841817,
+    "lng": 18.28842533375323,
+    "locations": [
+      "Hamnplan, plats 208",
+      "Hamnplan, plats 400",
+      "Hamnplan, plats 213",
+      "Hamnplan, plats 212",
+      "Hamnplan, plats 216",
+      "Hamnplan, plats 214",
+      "Hamnplan, plats 207",
+      "Hamnplan, plats 202"
+    ]
+  },
+  "Donnersgatan 1, Kårhuset Rindi": {
+    "lat": 57.639516439045444,
+    "lng": 18.290998274712493,
+    "locations": [
+      "Donnersgatan 1, Kårhuset Rindi"
+    ]
+  },
+  "S:t Hansgatan 32, S:t Hansskolan": {
+    "lat": 57.637,
+    "lng": 18.2925,
+    "locations": [
+      "S:t Hansgatan 32, S:t Hansskolan"
+    ]
+  },
+  "Hästgatan 9": {
+    "lat": 57.638508,
+    "lng": 18.2936833,
+    "locations": [
+      "Hästgatan 9"
+    ]
+  },
+  "Mellangatan 7, Mediescenen": {
+    "lat": 57.63922718753073,
+    "lng": 18.293079822621994,
+    "locations": [
+      "Mellangatan 7, Mediescenen"
+    ]
+  },
+  "Bredgatan 10, Länsteatern": {
+    "lat": 57.638,
+    "lng": 18.292,
+    "locations": [
+      "Bredgatan 10, Länsteatern"
+    ]
+  },
+  "Slottsterrassen 6": {
+    "lat": 57.6362047,
+    "lng": 18.2871754,
+    "locations": [
+      "Slottsterrassen 6"
+    ]
+  },
+  "Fiskargränd 5": {
+    "lat": 57.6428147,
+    "lng": 18.2928311,
+    "locations": [
+      "Fiskargränd 5"
+    ]
+  },
+  "Cramérgatan, plats": {
+    "lat": 57.6394229573601,
+    "lng": 18.289214899052062,
+    "locations": [
+      "Cramérgatan, plats 321",
+      "Cramérgatan, plats 300",
+      "Cramérgatan, plats 316",
+      "Cramérgatan, plats 322",
+      "Cramérgatan, plats 332",
+      "Cramérgatan, plats 312",
+      "Cramérgatan, plats 310",
+      "Cramérgatan, plats 306",
+      "Cramérgatan, plats 320",
+      "Cramérgatan, plats 325",
+      "Cramérgatan, plats 334"
+    ]
+  },
+  "Fordonsexpo": {
+    "lat": 57.6388,
+    "lng": 18.288,
+    "locations": [
+      "Fordonsexpo, H52",
+      "Fordonsexpo, H51",
+      "Fordonsexpo, H54",
+      "Fordonsexpo, H53",
+      "Fordonsexpo, H50",
+      "Fordonsexpo, H56"
+    ]
+  },
+  "Volters gränd 8": {
+    "lat": 57.6387502,
+    "lng": 18.2917385,
+    "locations": [
+      "Volters gränd 8"
+    ]
+  },
+  "Skeppsbron 24, Björkanderska": {
+    "lat": 57.63730980013645,
+    "lng": 18.28689018421573,
+    "locations": [
+      "Skeppsbron 24, Björkanderska"
+    ]
+  },
+  "Mellangatan 9": {
+    "lat": 57.6390827,
+    "lng": 18.292922,
+    "locations": [
+      "Mellangatan 9"
+    ]
+  },
+  "Donnersgatan 2, Wisby Strand Congress & Event": {
+    "lat": 57.639720335347,
+    "lng": 18.290734083342702,
+    "locations": [
+      "Donnersgatan 2, Wisby Strand Congress & Event"
+    ]
+  },
+  "Strandvägen 4.4": {
+    "lat": 57.6413027,
+    "lng": 18.2898464,
+    "locations": [
+      "Strandvägen 4.4"
+    ]
+  },
+  "Skeppsbron 6, Fenomenalen science center": {
+    "lat": 57.63730086069599,
+    "lng": 18.286823187351246,
+    "locations": [
+      "Skeppsbron 6, Fenomenalen science center"
+    ]
+  },
+  "Klockgränd 4": {
+    "lat": 57.6377469,
+    "lng": 18.2944838,
+    "locations": [
+      "Klockgränd 4"
+    ]
+  },
+  "Strandgatan 14, Gotlands museum, SäkerhetsArenan": {
+    "lat": 57.64163844144649,
+    "lng": 18.292282666757696,
+    "locations": [
+      "Strandgatan 14, Gotlands museum, SäkerhetsArenan"
+    ]
+  },
+  "Specks": {
+    "lat": 57.6422143,
+    "lng": 18.2926557,
+    "locations": [
+      "Specksrum 4",
+      "Specksrum 5",
+      "Specksrum 6"
+    ]
+  },
+  "Klosterbrunnsgatan 5": {
+    "lat": 57.6400282,
+    "lng": 18.2953272,
+    "locations": [
+      "Klosterbrunnsgatan 5"
+    ]
+  },
+  "Cramérgatan, Uppsala universitet, B-huset, Huvudentré": {
+    "lat": 57.63949053624637,
+    "lng": 18.289335073553676,
+    "locations": [
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B23",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, B24",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B11",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B24",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, B23",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B14",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B22",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, B51",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, B15",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B15",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, B25",
+      "Cramérgatan, Uppsala universitet, B-huset, Huvudentré, Sal B51"
+    ]
+  },
+  "Södra kyrkogatan 3": {
+    "lat": 57.6399238,
+    "lng": 18.2964851,
+    "locations": [
+      "Södra kyrkogatan 3"
+    ]
+  },
+  "Strandgatan 34, Best Western Strand Hotel": {
+    "lat": 57.64187452533244,
+    "lng": 18.29229081891776,
+    "locations": [
+      "Strandgatan 34, Best Western Strand Hotel"
+    ]
+  },
+  "Strandvägen, plats 535, Mötesplats Jönköpings län": {
+    "lat": 57.64140313658337,
+    "lng": 18.289878719598004,
+    "locations": [
+      "Strandvägen, plats 535, Mötesplats Jönköpings län"
+    ]
+  },
+  "Novgorodgränd 1": {
+    "lat": 57.639197,
+    "lng": 18.2923893,
+    "locations": [
+      "Novgorodgränd 1"
+    ]
+  },
+  "Västra Kyrkogatan 2, S:ta Maria domkyrka": {
+    "lat": 57.639,
+    "lng": 18.295,
+    "locations": [
+      "Västra Kyrkogatan 2, S:ta Maria domkyrka"
+    ]
+  },
+  "Volters gränd 8, Swedbank och Sparbankernas hus": {
+    "lat": 57.63886437949754,
+    "lng": 18.291511404472168,
+    "locations": [
+      "Volters gränd 8, Swedbank och Sparbankernas hus"
+    ]
+  },
+  "Cramérgatan, plats 327, Samarbetsplattformen: Sverige & Ukraina": {
+    "lat": 57.63946658709738,
+    "lng": 18.289145358583543,
+    "locations": [
+      "Cramérgatan, plats 327, Samarbetsplattformen: Sverige & Ukraina"
+    ]
+  },
+  "Korsgatan 4": {
+    "lat": 57.6374122,
+    "lng": 18.2884614,
+    "locations": [
+      "Korsgatan 4"
+    ]
+  },
+  "Strandgatan 1b, SpelAlmedalen": {
+    "lat": 57.64181368082077,
+    "lng": 18.29241824004325,
+    "locations": [
+      "Strandgatan 1b, SpelAlmedalen"
+    ]
+  },
+  "Almedalen, mötestält": {
+    "lat": 57.6385,
+    "lng": 18.2888,
+    "locations": [
+      "Almedalen, mötestält"
+    ]
+  },
+  "Tranhusgatan 6, S:t Clemens ruin": {
+    "lat": 57.6442,
+    "lng": 18.296,
+    "locations": [
+      "Tranhusgatan 6, S:t Clemens ruin"
+    ]
+  },
+  "Adelsgatan 39, Folkets Bio": {
+    "lat": 57.63673361200177,
+    "lng": 18.293822513614927,
+    "locations": [
+      "Adelsgatan 39, Folkets Bio"
+    ]
+  },
+  "Klosterbrunnsgatan 5, Framtidens trädgård": {
+    "lat": 57.63993138308264,
+    "lng": 18.295229272302013,
+    "locations": [
+      "Klosterbrunnsgatan 5, Framtidens trädgård"
+    ]
+  },
+  "Donnergatan 1, Kårhuset Rindi": {
+    "lat": 57.6393,
+    "lng": 18.2905,
+    "locations": [
+      "Donnergatan 1, Kårhuset Rindi"
+    ]
+  },
+  "Mellangatan 19, Gotlands museum, Sävesalen": {
+    "lat": 57.639323633286914,
+    "lng": 18.293132478700183,
+    "locations": [
+      "Mellangatan 19, Gotlands museum, Sävesalen"
+    ]
+  },
+  "Kilgränd 1": {
+    "lat": 57.6382377,
+    "lng": 18.2910347,
+    "locations": [
+      "Kilgränd 1"
+    ]
+  },
+  "Mellangatan 54, Bryggarsalen": {
+    "lat": 57.6395,
+    "lng": 18.2935,
+    "locations": [
+      "Mellangatan 54, Bryggarsalen"
+    ]
+  },
+  "Hästgatan 2": {
+    "lat": 57.6389114,
+    "lng": 18.2917566,
+    "locations": [
+      "Hästgatan 2"
+    ]
+  },
+  "Donnersgatan 6, Hansaplatsen": {
+    "lat": 57.63935972310548,
+    "lng": 18.2909746994309,
+    "locations": [
+      "Donnersgatan 6, Hansaplatsen"
+    ]
+  },
+  "Hamnplan, plats 209, Barnrättstorget": {
+    "lat": 57.63883093727482,
+    "lng": 18.288462748356935,
+    "locations": [
+      "Hamnplan, plats 209, Barnrättstorget"
+    ]
+  },
+  "Strandgatan 27, trädgården, Skandias trädgård": {
+    "lat": 57.64183449166528,
+    "lng": 18.292198430206856,
+    "locations": [
+      "Strandgatan 27, trädgården, Skandias trädgård"
+    ]
+  },
+  "Donnersgatan 2.2": {
+    "lat": 57.6394995,
+    "lng": 18.2908479,
+    "locations": [
+      "Donnersgatan 2.2"
+    ]
+  },
+  "Strandvägen, plats 521, Europahuset": {
+    "lat": 57.64154685264029,
+    "lng": 18.289818535258288,
+    "locations": [
+      "Strandvägen, plats 521, Europahuset"
+    ]
+  },
+  "Cramérgatan 3, Campus Gotland": {
+    "lat": 57.63943347664472,
+    "lng": 18.289453773894277,
+    "locations": [
+      "Cramérgatan 3, Sal B15, Campus Gotland",
+      "Cramérgatan 3, Campus Gotland, sal E30",
+      "Cramérgatan 3, Campus Gotland, Sal D23",
+      "Cramérgatan 3, Campus Gotland, lokal B22",
+      "Cramérgatan 3, Campus Gotland, sal D23",
+      "Cramérgatan 3, Campus Gotland, sal E31",
+      "Cramérgatan 3, Campus Gotland, Lokal B22",
+      "Cramérgatan 3, Campus Gotland, sal B22",
+      "Cramérgatan 3, Campus Gotland, sal D22",
+      "Cramérgatan 3, Campus Gotland, Sal E31",
+      "Cramérgatan 3, Campus Gotland, sal B23",
+      "Cramérgatan 3, Campus Gotland, sal B11"
+    ]
+  },
+  "Mellangatan 1": {
+    "lat": 57.6390827,
+    "lng": 18.292922,
+    "locations": [
+      "Mellangatan 1"
+    ]
+  },
+  "Strandgatan 9, Supper, Business Arena Almedalen": {
+    "lat": 57.641778189001634,
+    "lng": 18.2923257329573,
+    "locations": [
+      "Strandgatan 9, Supper, Business Arena Almedalen"
+    ]
+  },
+  "Strandvägen 4, Strands veranda, Aerospace Almedalen": {
+    "lat": 57.641093231780815,
+    "lng": 18.28972233655194,
+    "locations": [
+      "Strandvägen 4, Strands veranda, Aerospace Almedalen"
+    ]
+  },
+  "Donnergatan 2, Wisby Strand Congress & Event": {
+    "lat": 57.6392,
+    "lng": 18.29,
+    "locations": [
+      "Donnergatan 2, Wisby Strand Congress & Event"
+    ]
+  },
+  "Mellangatan 7": {
+    "lat": 57.6381634,
+    "lng": 18.2913047,
+    "locations": [
+      "Mellangatan 7"
+    ]
+  },
+  "Södra Kyrkogatan": {
+    "lat": 57.6399238,
+    "lng": 18.2964851,
+    "locations": [
+      "Södra Kyrkogatan 15"
+    ]
+  },
+  "Klosterbrunnsgatan 3": {
+    "lat": 57.6400789,
+    "lng": 18.295211,
+    "locations": [
+      "Klosterbrunnsgatan 3"
+    ]
+  },
+  "Strandgatan 16, Altinget Arena": {
+    "lat": 57.64165417714606,
+    "lng": 18.292133396052698,
+    "locations": [
+      "Strandgatan 16, Altinget Arena"
+    ]
+  },
+  "Talarplats, Donners plats": {
+    "lat": 57.639,
+    "lng": 18.291,
+    "locations": [
+      "Talarplats, Donners plats"
+    ]
+  },
+  "Södertorg 12, innergården": {
+    "lat": 57.6358,
+    "lng": 18.2948,
+    "locations": [
+      "Södertorg 12, innergården"
+    ]
+  },
+  "Strandvägen 4.1, Dagens industris scen": {
+    "lat": 57.64128648536616,
+    "lng": 18.289915494824903,
+    "locations": [
+      "Strandvägen 4.1, Dagens industris scen"
+    ]
+  },
+  "Cramérgatan, plats 315, JAG-tältet": {
+    "lat": 57.63926756616785,
+    "lng": 18.28953002722553,
+    "locations": [
+      "Cramérgatan, plats 315, JAG-tältet"
+    ]
+  },
+  "Södra kyrkogatan": {
+    "lat": 57.6399238,
+    "lng": 18.2964851,
+    "locations": [
+      "Södra kyrkogatan 11"
+    ]
+  },
+  "Kinbergs plats 5": {
+    "lat": 57.6370845,
+    "lng": 18.2922283,
+    "locations": [
+      "Kinbergs plats 5"
+    ]
+  },
+  "Donners plats 1, Donnerska huset, Civilsamhällesarenan": {
+    "lat": 57.63923072268065,
+    "lng": 18.291281034461644,
+    "locations": [
+      "Donners plats 1, Donnerska huset, Civilsamhällesarenan"
+    ]
+  },
+  "Strandgatan 6, Clarion Hotel Wisby, Forum för svensk skola": {
+    "lat": 57.64184399214915,
+    "lng": 18.29233637959821,
+    "locations": [
+      "Strandgatan 6, Clarion Hotel Wisby, Forum för svensk skola"
+    ]
+  },
+  "Blockgränd 6": {
+    "lat": 57.6376639,
+    "lng": 18.2960094,
+    "locations": [
+      "Blockgränd 6"
+    ]
+  },
+  "Strandgatan 1b": {
+    "lat": 57.6418046,
+    "lng": 18.2922316,
+    "locations": [
+      "Strandgatan 1b"
+    ]
+  },
+  "Hästgatan 1": {
+    "lat": 57.638598,
+    "lng": 18.2925135,
+    "locations": [
+      "Hästgatan 1"
+    ]
+  },
+  "Mellangatan 21, Krukmakarens hus, Frälsningsarmén": {
+    "lat": 57.639076203806816,
+    "lng": 18.292921318747872,
+    "locations": [
+      "Mellangatan 21, Krukmakarens hus, Frälsningsarmén"
+    ]
+  },
+  "Strandgatan 1": {
+    "lat": 57.637581,
+    "lng": 18.2890427,
+    "locations": [
+      "Strandgatan 1"
+    ]
+  },
+  "Norra Kyrkogatan 2, Församlingshuset Domkyrkan": {
+    "lat": 57.640397466462744,
+    "lng": 18.29377373579161,
+    "locations": [
+      "Norra Kyrkogatan 2, Församlingshuset Domkyrkan"
+    ]
+  },
+  "Strandvägen 4.3": {
+    "lat": 57.6413027,
+    "lng": 18.2898464,
+    "locations": [
+      "Strandvägen 4.3"
+    ]
+  },
+  "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré": {
+    "lat": 57.63915579489674,
+    "lng": 18.28930870358666,
+    "locations": [
+      "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré, Sal E31",
+      "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré, E31",
+      "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré, Sal B51",
+      "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré, E30",
+      "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré, E22",
+      "Cramérgatan, Uppsala Universitet, E-huset, Huvudentré, Sal E22"
+    ]
+  },
+  "Cramérgatan 5, Almedalsbiblioteket, Östersjödagarna": {
+    "lat": 57.63951763347563,
+    "lng": 18.28915213256162,
+    "locations": [
+      "Cramérgatan 5, Almedalsbiblioteket, Östersjödagarna"
+    ]
+  },
+  "Strandvägen 4.2, Dagens industris arena": {
+    "lat": 57.641370212433934,
+    "lng": 18.289958541278583,
+    "locations": [
+      "Strandvägen 4.2, Dagens industris arena"
+    ]
+  },
+  "fartyg, Belos": {
+    "lat": 57.637,
+    "lng": 18.2855,
+    "locations": [
+      "fartyg, Belos"
+    ]
+  },
+  "Donners plats 3": {
+    "lat": 57.6389665,
+    "lng": 18.291231,
+    "locations": [
+      "Donners plats 3"
+    ]
+  },
+  "Strandvägen, plats 530, Opinionstältet": {
+    "lat": 57.6411165381739,
+    "lng": 18.289985811231873,
+    "locations": [
+      "Strandvägen, plats 530, Opinionstältet"
+    ]
+  },
+  "Strandgatan 6, Clarion Hotel Wisby, Paviljongen, på hotellets innergård.": {
+    "lat": 57.64162484315974,
+    "lng": 18.29242214418855,
+    "locations": [
+      "Strandgatan 6, Clarion Hotel Wisby, Paviljongen, på hotellets innergård."
+    ]
+  },
+  "Adelsgatan 25, Fastighetshubben": {
+    "lat": 57.63662101404381,
+    "lng": 18.294008319992955,
+    "locations": [
+      "Adelsgatan 25, Fastighetshubben"
+    ]
+  },
+  "Adelsgatan 25, Svefas innergård, Fastighetshubben": {
+    "lat": 57.63678580550231,
+    "lng": 18.293796881252195,
+    "locations": [
+      "Adelsgatan 25, Svefas innergård, Fastighetshubben"
+    ]
+  },
+  "S:t Hansgatan 21, Afa Försäkrings arena": {
+    "lat": 57.63824820367838,
+    "lng": 18.292494910439277,
+    "locations": [
+      "S:t Hansgatan 21, Afa Försäkrings arena"
+    ]
+  },
+  "Birgers Gränd 4": {
+    "lat": 57.6408065,
+    "lng": 18.2924847,
+    "locations": [
+      "Birgers Gränd 4"
+    ]
+  },
+  "Rostockergränd 4": {
+    "lat": 57.6421485,
+    "lng": 18.2934031,
+    "locations": [
+      "Rostockergränd 4"
+    ]
+  },
+  "Berggränd 6": {
+    "lat": 57.6370168,
+    "lng": 18.2923879,
+    "locations": [
+      "Berggränd 6"
+    ]
+  },
+  "S:t Hansgatan 9": {
+    "lat": 57.6378858,
+    "lng": 18.2917686,
+    "locations": [
+      "S:t Hansgatan 9"
+    ]
+  },
+  "Hamngatan 3, Svenskt Näringslivs trädgård": {
+    "lat": 57.63889666978079,
+    "lng": 18.29070325543395,
+    "locations": [
+      "Hamngatan 3, Svenskt Näringslivs trädgård"
+    ]
+  },
+  "Mellangatan 9, Donners Eventhall": {
+    "lat": 57.63894364431477,
+    "lng": 18.293018523606914,
+    "locations": [
+      "Mellangatan 9, Donners Eventhall"
+    ]
+  },
+  "Skeppsbron 24, Björkanderska huset, Ship of a New Story - ingång över gården": {
+    "lat": 57.63708238282782,
+    "lng": 18.286908664184335,
+    "locations": [
+      "Skeppsbron 24, Björkanderska huset, Ship of a New Story - ingång över gården"
+    ]
+  },
+  "Cramérgatan 3": {
+    "lat": 57.6394212,
+    "lng": 18.289342,
+    "locations": [
+      "Cramérgatan 3, B24",
+      "Cramérgatan 3, E30",
+      "Cramérgatan 3, SAL B11",
+      "Cramérgatan 3",
+      "Cramérgatan 3, E35",
+      "Cramérgatan 3, B51",
+      "Cramérgatan 3, Sal B14",
+      "Cramérgatan 3, Sal 30",
+      "Cramérgatan 3, Sal B24"
+    ]
+  },
+  "Strandgatan 19, TCO-landet": {
+    "lat": 57.641912903563444,
+    "lng": 18.292295157548516,
+    "locations": [
+      "Strandgatan 19, TCO-landet"
+    ]
+  },
+  "Tage Cervins gata 5": {
+    "lat": 57.6397592,
+    "lng": 18.2917274,
+    "locations": [
+      "Tage Cervins gata 5"
+    ]
+  },
+  "Stora Torget 2, S:ta Karins kyrkoruin": {
+    "lat": 57.63959757201199,
+    "lng": 18.29513526026999,
+    "locations": [
+      "Stora Torget 2, S:ta Karins kyrkoruin"
+    ]
+  },
+  "Strandvägen 1, Kallis": {
+    "lat": 57.64136056057934,
+    "lng": 18.28976027423113,
+    "locations": [
+      "Strandvägen 1, Kallis"
+    ]
+  },
+  "Strandvägen 8, Almedalens Hotell": {
+    "lat": 57.641,
+    "lng": 18.289,
+    "locations": [
+      "Strandvägen 8, Almedalens Hotell"
+    ]
+  },
+  "Hamngatan 1, trädgården, Maritim Mötesplats": {
+    "lat": 57.63887038313851,
+    "lng": 18.290586365698857,
+    "locations": [
+      "Hamngatan 1, trädgården, Maritim Mötesplats"
+    ]
+  }
+}
