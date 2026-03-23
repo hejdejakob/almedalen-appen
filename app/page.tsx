@@ -369,15 +369,6 @@ export default function DashboardPage() {
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
               ALMEDALSDATA
             </h1>
-            <a href="/speakers" style={{
-              color: '#ff6632',
-              textDecoration: 'none',
-              fontSize: isMobile ? '0.8rem' : '0.95rem',
-              fontWeight: 600,
-              whiteSpace: 'nowrap',
-            }}>
-              Sök paneldeltagare →
-            </a>
           </div>
           <p style={{ fontSize: isMobile ? '0.85rem' : '1.1rem', opacity: 0.7, marginTop: '0.5rem' }}>
             {stats
