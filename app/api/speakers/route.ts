@@ -212,6 +212,22 @@ async function getSpeakerProfile(speakerId: number) {
     }))
     .sort((a: any, b: any) => b.year - a.year || a.title.localeCompare(b.title));
 
+  // Top organizations: count arrangers for visible events only
+  const arrangerCounts: Record<number, number> = {};
+  for (const ea of eventArrangers) {
+    if (!visibleEventIds.has(ea.event_id)) continue;
+    arrangerCounts[ea.arranger_id] = (arrangerCounts[ea.arranger_id] || 0) + 1;
+  }
+  const topArrangerEntries = Object.entries(arrangerCounts)
+    .sort((a, b) => (b[1] as number) - (a[1] as number))
+    .slice(0, 10);
+  const topOrganizations = topArrangerEntries.map(([id, count]) => ({
+    id: parseInt(id),
+    name: arrangerMap.get(parseInt(id)) || 'Unknown',
+    sector: arrangerSectorMap.get(parseInt(id)) || null,
+    eventCount: count,
+  }));
+
   // Co-panelists: find speakers sharing at least 2 events
   const coPanelists = await getCoPanelists(speakerId, Array.from(visibleEventIds));
 
@@ -234,6 +250,7 @@ async function getSpeakerProfile(speakerId: number) {
     },
     seminars,
     coPanelists,
+    topOrganizations,
   };
 }
 

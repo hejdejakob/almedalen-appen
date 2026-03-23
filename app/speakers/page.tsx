@@ -199,6 +199,7 @@ type SpeakerProfile = {
     category: string | null;
     sharedCount: number;
   }[];
+  topOrganizations: { id: number; name: string; sector: string | null; eventCount: number }[];
 };
 
 export default function SpeakersPage() {
@@ -957,7 +958,7 @@ function ProfileView({
     return <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Laddar profil...</div>;
   }
 
-  const { speaker, stats, seminars, coPanelists } = profile;
+  const { speaker, stats, seminars, coPanelists, topOrganizations } = profile;
   const years = [2022, 2023, 2024, 2025];
   const maxPanels = Math.max(...stats.perYear.map(s => s.panel_count), 1);
   const filteredSeminars = selectedYear
@@ -1254,6 +1255,70 @@ function ProfileView({
                   whiteSpace: 'nowrap',
                 }}>
                   {cp.sharedCount} gemensamma
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Organizations */}
+      {topOrganizations && topOrganizations.length > 0 && (
+        <div style={{
+          backgroundColor: '#fff',
+          padding: '2rem',
+          borderRadius: '8px',
+          border: '2px solid #000',
+          boxShadow: '4px 4px 0 #000',
+          marginBottom: '1.5rem',
+        }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+            ORGANISATIONER
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
+            Arrangörer som bjuder in {speaker.name}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {topOrganizations.map((org) => (
+              <div
+                key={org.id}
+                onClick={() => { window.location.href = '/speakers?tab=aktorer&id=' + org.id; }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.75rem 1rem',
+                  backgroundColor: '#f7f5e4',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  border: '1px solid #e0dcc8',
+                  transition: 'background-color 0.1s',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  {org.sector && (
+                    <span style={{
+                      width: '10px',
+                      height: '10px',
+                      borderRadius: '50%',
+                      backgroundColor: SECTOR_COLORS[org.sector] || '#ccc',
+                      flexShrink: 0,
+                    }} />
+                  )}
+                  <span style={{ fontWeight: 600 }}>{org.name}</span>
+                </div>
+                <span style={{
+                  backgroundColor: '#ff6632',
+                  color: '#fff',
+                  padding: '0.15rem 0.5rem',
+                  borderRadius: '10px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                }}>
+                  {org.eventCount} seminarier
                 </span>
               </div>
             ))}
@@ -2082,6 +2147,8 @@ type ArrangerProfileData = {
   perYear: { year: number; events: number; panelSlotsGiven: number }[];
   topTopics: { topic: string; count: number }[];
   topSpeakers: { id: number; name: string; title: string | null; org: string | null; category: string | null; sharedEvents: number }[];
+  topArenas: { name: string; eventCount: number }[];
+  coOrganizations: { id: number; name: string; sector: string | null; sharedEvents: number }[];
 };
 
 function AktorerTab({
@@ -2402,6 +2469,115 @@ function AktorerTab({
                         whiteSpace: 'nowrap',
                       }}>
                         {sp.sharedEvents} seminarier
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Co-organizations */}
+            {arrangerProfile.coOrganizations && arrangerProfile.coOrganizations.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  SAMARBETANDE ORGANISATIONER
+                </h3>
+                <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
+                  Organisationer som co-arrangerar seminarier med {arrangerProfile.arranger.name}
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {arrangerProfile.coOrganizations.slice(0, 15).map(org => (
+                    <div
+                      key={org.id}
+                      onClick={() => onSelectArrangerId(org.id)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: '#f7f5e4',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        border: '1px solid #e0dcc8',
+                        transition: 'background-color 0.1s',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        {org.sector && (
+                          <span style={{
+                            width: '10px',
+                            height: '10px',
+                            borderRadius: '50%',
+                            backgroundColor: SECTOR_COLORS[org.sector] || '#ccc',
+                            flexShrink: 0,
+                          }} />
+                        )}
+                        <span style={{ fontWeight: 600 }}>{org.name}</span>
+                      </div>
+                      <span style={{
+                        backgroundColor: '#ff6632',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {org.sharedEvents} gemensamma
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Arenas */}
+            {arrangerProfile.topArenas && arrangerProfile.topArenas.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  ARENOR
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {arrangerProfile.topArenas.map(arena => (
+                    <div
+                      key={arena.name}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: '#f7f5e4',
+                        borderRadius: '6px',
+                        border: '1px solid #e0dcc8',
+                      }}
+                    >
+                      <span style={{ fontWeight: 600 }}>{arena.name}</span>
+                      <span style={{
+                        backgroundColor: '#457b9d',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {arena.eventCount} seminarier
                       </span>
                     </div>
                   ))}

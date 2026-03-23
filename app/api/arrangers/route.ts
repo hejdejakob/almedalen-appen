@@ -137,20 +137,21 @@ async function getArrangerProfile(arrangerId: number) {
   const totalEvents = (yearStats || []).reduce((sum: number, s: any) => sum + (s.events_count || 0), 0);
   const agendaPower = (yearStats || []).reduce((sum: number, s: any) => sum + (s.agenda_power_index || 0), 0);
 
-  // 3. Top topics (5)
-  // Get events for this arranger
+  // 3. Get all events for this arranger (fetched once, reused below)
   const eventArrangerLinks = await fetchAll('event_arrangers', 'event_id', q =>
     q.eq('arranger_id', arrangerId)
   );
   const eventIds = eventArrangerLinks.map((ea: any) => ea.event_id);
 
+  let visibleEventIds: number[] = [];
   let topTopics: { topic: string; count: number }[] = [];
+  let topArenas: { name: string; eventCount: number }[] = [];
   if (eventIds.length > 0) {
-    // Filter to visible years
-    const events = await fetchAll('events', 'id, year', q =>
+    // Filter to visible years, include location_name for arena aggregation
+    const events = await fetchAll('events', 'id, year, location_name', q =>
       q.in('id', eventIds).in('year', VISIBLE_YEARS)
     );
-    const visibleEventIds = events.map((e: any) => e.id);
+    visibleEventIds = events.map((e: any) => e.id);
 
     if (visibleEventIds.length > 0) {
       const topics = await fetchAll('event_topics', 'event_id, topic_primary', q =>
@@ -170,17 +171,23 @@ async function getArrangerProfile(arrangerId: number) {
         .slice(0, 5)
         .map(([topic, count]) => ({ topic, count }));
     }
+
+    // Top arenas (venues)
+    const venueCounts: Record<string, number> = {};
+    for (const e of events) {
+      if (e.location_name) {
+        venueCounts[e.location_name] = (venueCounts[e.location_name] || 0) + 1;
+      }
+    }
+    topArenas = Object.entries(venueCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([name, count]) => ({ name, eventCount: count }));
   }
 
   // 4. Top speakers (10)
   let topSpeakers: any[] = [];
-  if (eventIds.length > 0) {
-    const events = await fetchAll('events', 'id, year', q =>
-      q.in('id', eventIds).in('year', VISIBLE_YEARS)
-    );
-    const visibleEventIds = events.map((e: any) => e.id);
-
-    if (visibleEventIds.length > 0) {
+  if (visibleEventIds.length > 0) {
       const eventSpeakerLinks = await fetchAll('event_speakers', 'event_id, speaker_id, role', q =>
         q.in('event_id', visibleEventIds).neq('role', 'kontaktperson')
       );
@@ -218,6 +225,42 @@ async function getArrangerProfile(arrangerId: number) {
           };
         });
       }
+  }
+
+  // 5. Co-organizations (other arrangers sharing events)
+  let coOrganizations: { id: number; name: string; sector: string | null; sharedEvents: number }[] = [];
+  if (visibleEventIds.length > 0) {
+    const allEventArrangerLinks = await fetchAll('event_arrangers', 'event_id, arranger_id', q =>
+      q.in('event_id', visibleEventIds)
+    );
+
+    const coArrangerCounts: Record<number, number> = {};
+    for (const link of allEventArrangerLinks) {
+      if (link.arranger_id === arrangerId) continue;
+      coArrangerCounts[link.arranger_id] = (coArrangerCounts[link.arranger_id] || 0) + 1;
+    }
+
+    const topCoEntries = Object.entries(coArrangerCounts)
+      .sort((a, b) => (b[1] as number) - (a[1] as number))
+      .slice(0, 15);
+
+    if (topCoEntries.length > 0) {
+      const coIds = topCoEntries.map(([id]) => parseInt(id));
+
+      const [coArrangers, coClassifications] = await Promise.all([
+        fetchAll('arrangers', 'id, name', q => q.in('id', coIds)),
+        fetchAll('arranger_classifications', 'arranger_id, sector', q => q.in('arranger_id', coIds)),
+      ]);
+
+      const coNameMap = new Map(coArrangers.map((a: any) => [a.id, a.name]));
+      const coSectorMap = new Map(coClassifications.map((c: any) => [c.arranger_id, c.sector]));
+
+      coOrganizations = topCoEntries.map(([id, count]) => ({
+        id: parseInt(id),
+        name: coNameMap.get(parseInt(id)) || 'Unknown',
+        sector: coSectorMap.get(parseInt(id)) || null,
+        sharedEvents: count as number,
+      }));
     }
   }
 
@@ -237,5 +280,7 @@ async function getArrangerProfile(arrangerId: number) {
     })),
     topTopics,
     topSpeakers,
+    topArenas,
+    coOrganizations,
   };
 }
