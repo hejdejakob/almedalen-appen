@@ -74,8 +74,12 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: 'Missing required parameter: topic' }, { status: 400 });
       }
       return NextResponse.json(await getTopicDetail(topic));
+    } else if (view === 'arena-detail') {
+      const arena = searchParams.get('arena');
+      if (!arena) return NextResponse.json({ error: 'Missing arena parameter' }, { status: 400 });
+      return NextResponse.json(await getArenaDetail(arena));
     } else {
-      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide, topic-detail' }, { status: 400 });
+      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide, topic-detail, arena-detail' }, { status: 400 });
     }
   } catch (err: unknown) {
     console.error("Dashboard API error:", err instanceof Error ? err.message : err);
@@ -1206,6 +1210,118 @@ async function getArenaGuide() {
     .slice(0, 40);
 
   return { arenas: results };
+}
+
+// --- Arena Detail ---
+
+async function getArenaDetail(arenaName: string) {
+  const [events, eventArrangerLinks, eventSpeakerLinks, eventTopics, arrangers, arrangerClassifications, speakers, speakerClassifications] = await Promise.all([
+    fetchAll('events', 'id, year, location_name'),
+    fetchAll('event_arrangers', 'event_id, arranger_id'),
+    fetchAll('event_speakers', 'event_id, speaker_id, role'),
+    fetchAll('event_topics', 'event_id, topic_primary'),
+    fetchAll('arrangers', 'id, name'),
+    fetchAll('arranger_classifications', 'arranger_id, sector'),
+    fetchAll('speakers', 'id, name, title, org_name'),
+    fetchAll('speaker_classifications', 'speaker_id, category'),
+  ]);
+
+  // Filter events to this arena in visible years
+  const arenaEventIds = new Set<number>();
+  const perYear: Record<number, number> = {};
+  for (const event of events) {
+    if (!event.location_name || !VISIBLE_YEARS.includes(event.year)) continue;
+    const normalized = normalizeVenue(event.location_name);
+    if (normalized !== arenaName) continue;
+    arenaEventIds.add(event.id);
+    perYear[event.year] = (perYear[event.year] || 0) + 1;
+  }
+
+  const totalEvents = arenaEventIds.size;
+
+  // Lookup maps
+  const arrangerMap = new Map(arrangers.map((a: any) => [a.id, a]));
+  const sectorMap = new Map(arrangerClassifications.map((c: any) => [c.arranger_id, c.sector]));
+  const speakerMap = new Map(speakers.map((s: any) => [s.id, s]));
+  const categoryMap = new Map(speakerClassifications.map((c: any) => [c.speaker_id, c.category]));
+
+  // Top arrangers
+  const arrangerCounts: Record<number, number> = {};
+  for (const ea of eventArrangerLinks) {
+    if (!arenaEventIds.has(ea.event_id)) continue;
+    arrangerCounts[ea.arranger_id] = (arrangerCounts[ea.arranger_id] || 0) + 1;
+  }
+
+  const topArrangers = Object.entries(arrangerCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 15)
+    .map(([id, count]) => {
+      const arr = arrangerMap.get(parseInt(id));
+      return {
+        id: parseInt(id),
+        name: arr?.name || 'Unknown',
+        sector: sectorMap.get(parseInt(id)) || null,
+        eventCount: count,
+      };
+    });
+
+  // Top topics
+  const topicCounts: Record<string, number> = {};
+  for (const et of eventTopics) {
+    if (!arenaEventIds.has(et.event_id)) continue;
+    if (!et.topic_primary) continue;
+    topicCounts[et.topic_primary] = (topicCounts[et.topic_primary] || 0) + 1;
+  }
+
+  const topTopics = Object.entries(topicCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([topic, count]) => ({ topic, count }));
+
+  // Top speakers (excluding kontaktperson)
+  const speakerCounts: Record<number, number> = {};
+  for (const es of eventSpeakerLinks) {
+    if (!arenaEventIds.has(es.event_id)) continue;
+    if (es.role === 'kontaktperson') continue;
+    speakerCounts[es.speaker_id] = (speakerCounts[es.speaker_id] || 0) + 1;
+  }
+
+  const topSpeakers = Object.entries(speakerCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 15)
+    .map(([id, count]) => {
+      const sp = speakerMap.get(parseInt(id));
+      return {
+        id: parseInt(id),
+        name: sp?.name || 'Unknown',
+        title: sp?.title || null,
+        org: sp?.org_name || null,
+        category: categoryMap.get(parseInt(id)) || null,
+        eventCount: count,
+      };
+    });
+
+  // Sector breakdown
+  const sectorCounts: Record<string, number> = {};
+  for (const ea of eventArrangerLinks) {
+    if (!arenaEventIds.has(ea.event_id)) continue;
+    const sector = sectorMap.get(ea.arranger_id) || 'unknown';
+    sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
+  }
+
+  const sectorBreakdown = Object.entries(sectorCounts)
+    .map(([sector, count]) => ({ sector, count }))
+    .sort((a, b) => b.count - a.count);
+
+  return {
+    arena: arenaName,
+    totalEvents,
+    perYear,
+    topArrangers,
+    topTopics,
+    topSpeakers,
+    sectorBreakdown,
+  };
 }
 
 // --- Speaker Guide ---
