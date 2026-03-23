@@ -64,8 +64,12 @@ export async function GET(request: Request) {
       return NextResponse.json(await getTopicDeep());
     } else if (view === 'arena-network') {
       return NextResponse.json(await getArenaNetwork());
+    } else if (view === 'arena-guide') {
+      return NextResponse.json(await getArenaGuide());
+    } else if (view === 'speaker-guide') {
+      return NextResponse.json(await getSpeakerGuide());
     } else {
-      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network' }, { status: 400 });
+      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide' }, { status: 400 });
     }
   } catch (err: unknown) {
     console.error("Dashboard API error:", err instanceof Error ? err.message : err);
@@ -1104,4 +1108,231 @@ async function getArenaNetwork() {
   }));
 
   return { arenaNodes, orgNodes, edges };
+}
+
+// --- Arena Guide ---
+
+const EXCLUDED_ARENAS = new Set([
+  'Okänd plats',
+  'Annan plats',
+  'Plats meddelas senare',
+]);
+
+async function getArenaGuide() {
+  const [events, eventArrangerLinks, classifications] = await Promise.all([
+    fetchAll('events', 'id, year, location_name'),
+    fetchAll('event_arrangers', 'event_id, arranger_id'),
+    fetchAll('arranger_classifications', 'arranger_id, sector'),
+  ]);
+
+  const arrangerSector = new Map(classifications.map((c: any) => [c.arranger_id, c.sector as string]));
+
+  // Map event_id → arranger_ids
+  const eventToArrangers = new Map<number, number[]>();
+  for (const link of eventArrangerLinks) {
+    if (!eventToArrangers.has(link.event_id)) eventToArrangers.set(link.event_id, []);
+    eventToArrangers.get(link.event_id)!.push(link.arranger_id);
+  }
+
+  // Aggregate per arena
+  const arenaData: Record<string, {
+    totalEvents: number;
+    arrangerIds: Set<number>;
+    sectorCounts: Record<string, number>;
+    yearCounts: Record<number, number>;
+  }> = {};
+
+  for (const event of events) {
+    if (!event.location_name || !VISIBLE_YEARS.includes(event.year)) continue;
+    const arena = normalizeVenue(event.location_name);
+    if (!arena || EXCLUDED_ARENAS.has(arena)) continue;
+
+    if (!arenaData[arena]) {
+      arenaData[arena] = {
+        totalEvents: 0,
+        arrangerIds: new Set(),
+        sectorCounts: {},
+        yearCounts: {},
+      };
+    }
+
+    const agg = arenaData[arena];
+    agg.totalEvents += 1;
+    agg.yearCounts[event.year] = (agg.yearCounts[event.year] || 0) + 1;
+
+    const arrIds = eventToArrangers.get(event.id) || [];
+    for (const arrId of arrIds) {
+      agg.arrangerIds.add(arrId);
+      const sector = arrangerSector.get(arrId);
+      if (sector) {
+        agg.sectorCounts[sector] = (agg.sectorCounts[sector] || 0) + 1;
+      }
+    }
+  }
+
+  const results = Object.entries(arenaData)
+    .map(([name, agg]) => {
+      const sectorEntries = Object.entries(agg.sectorCounts).sort((a, b) => b[1] - a[1]);
+      const totalSectorEvents = sectorEntries.reduce((s, [, n]) => s + n, 0);
+      const dominantSector = sectorEntries[0]?.[0] || 'unknown';
+      const dominantCount = sectorEntries[0]?.[1] || 0;
+      const dominantPct = totalSectorEvents > 0 ? Math.round((dominantCount / totalSectorEvents) * 100) : 0;
+      const sectorDiversity = sectorEntries.length;
+
+      let type: 'pluralistic' | 'mixed' | 'dominated';
+      if (dominantPct < 35) type = 'pluralistic';
+      else if (dominantPct > 60) type = 'dominated';
+      else type = 'mixed';
+
+      return {
+        name,
+        totalEvents: agg.totalEvents,
+        uniqueArrangers: agg.arrangerIds.size,
+        sectorBreakdown: agg.sectorCounts,
+        dominantSector,
+        dominantPct,
+        sectorDiversity,
+        yearlyEvents: agg.yearCounts,
+        type,
+      };
+    })
+    .sort((a, b) => b.totalEvents - a.totalEvents)
+    .slice(0, 40);
+
+  return { arenas: results };
+}
+
+// --- Speaker Guide ---
+
+async function getSpeakerGuide() {
+  const [speakerStats, speakers, eventSpeakers, eventTopics, events] = await Promise.all([
+    fetchAll('speaker_stats', 'speaker_id, year, panel_count, unique_arrangers, breadth_score'),
+    fetchAll('speakers', 'id, name, title, org_name'),
+    fetchAll('event_speakers', 'event_id, speaker_id'),
+    fetchAll('event_topics', 'event_id, topic_primary'),
+    fetchAll('events', 'id, year'),
+  ]);
+
+  // Build lookup maps
+  const speakerMap = new Map<number, { name: string; title: string | null; org_name: string | null }>(
+    speakers.map((s: any) => [s.id, { name: s.name, title: s.title, org_name: s.org_name }])
+  );
+
+  const eventYear = new Map<number, number>(
+    events.map((e: any) => [e.id, e.year])
+  );
+
+  // Only count topics from visible years
+  const eventTopicMap = new Map<number, string>();
+  for (const et of eventTopics) {
+    if (!eventTopicMap.has(et.event_id)) {
+      eventTopicMap.set(et.event_id, et.topic_primary);
+    }
+  }
+
+  // speaker_id -> [event_id] (only visible years)
+  const speakerEvents = new Map<number, number[]>();
+  for (const es of eventSpeakers) {
+    const year = eventYear.get(es.event_id);
+    if (!year || !VISIBLE_YEARS.includes(year)) continue;
+    if (!speakerEvents.has(es.speaker_id)) speakerEvents.set(es.speaker_id, []);
+    speakerEvents.get(es.speaker_id)!.push(es.event_id);
+  }
+
+  // Aggregate speaker_stats per speaker across years
+  const statsMap = new Map<number, {
+    totalPanels: number;
+    maxYear: number;
+    minYear: number;
+    years: number[];
+    maxUniqueArrangers: number;
+    maxBreadth: number;
+  }>();
+
+  for (const row of speakerStats) {
+    if (!VISIBLE_YEARS.includes(row.year)) continue;
+    if (!statsMap.has(row.speaker_id)) {
+      statsMap.set(row.speaker_id, {
+        totalPanels: 0,
+        maxYear: row.year,
+        minYear: row.year,
+        years: [],
+        maxUniqueArrangers: 0,
+        maxBreadth: 0,
+      });
+    }
+    const s = statsMap.get(row.speaker_id)!;
+    s.totalPanels += row.panel_count || 0;
+    if (row.year > s.maxYear) s.maxYear = row.year;
+    if (row.year < s.minYear) s.minYear = row.year;
+    if (!s.years.includes(row.year)) s.years.push(row.year);
+    if ((row.unique_arrangers || 0) > s.maxUniqueArrangers) s.maxUniqueArrangers = row.unique_arrangers;
+    if ((row.breadth_score || 0) > s.maxBreadth) s.maxBreadth = row.breadth_score;
+  }
+
+  // Build topic profile per speaker
+  function getTopTopics(speakerId: number): { topic: string; count: number }[] {
+    const eventIds = speakerEvents.get(speakerId) || [];
+    const topicCounts: Record<string, number> = {};
+    for (const eid of eventIds) {
+      const topic = eventTopicMap.get(eid);
+      if (topic) topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+    }
+    return Object.entries(topicCounts)
+      .map(([topic, count]) => ({ topic, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 3);
+  }
+
+  // Build full speaker objects
+  interface SpeakerEntry {
+    id: number;
+    name: string;
+    title: string | null;
+    org_name: string | null;
+    totalPanels: number;
+    years: number[];
+    uniqueArrangers: number;
+    breadth: number;
+    topTopics: { topic: string; count: number }[];
+    minYear: number;
+    maxYear: number;
+  }
+
+  const allSpeakers: SpeakerEntry[] = [];
+  for (const [speakerId, stats] of statsMap.entries()) {
+    const info = speakerMap.get(speakerId);
+    if (!info) continue;
+    allSpeakers.push({
+      id: speakerId,
+      name: info.name,
+      title: info.title,
+      org_name: info.org_name,
+      totalPanels: stats.totalPanels,
+      years: stats.years.sort(),
+      uniqueArrangers: stats.maxUniqueArrangers,
+      breadth: stats.maxBreadth,
+      topTopics: getTopTopics(speakerId),
+      minYear: stats.minYear,
+      maxYear: stats.maxYear,
+    });
+  }
+
+  // Categorize
+  const rising_stars = allSpeakers
+    .filter(s => s.minYear >= 2024 && s.totalPanels >= 3)
+    .sort((a, b) => b.totalPanels - a.totalPanels)
+    .slice(0, 30);
+
+  const evergreens = allSpeakers
+    .filter(s => s.totalPanels >= 15)
+    .sort((a, b) => b.totalPanels - a.totalPanels)
+    .slice(0, 30);
+
+  const high_breadth = allSpeakers
+    .filter(s => s.uniqueArrangers >= 5 && s.totalPanels < 15)
+    .sort((a, b) => b.uniqueArrangers - a.uniqueArrangers)
+    .slice(0, 30);
+
+  return { rising_stars, evergreens, high_breadth };
 }
