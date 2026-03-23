@@ -46,11 +46,13 @@ async function buildArrangerStats() {
         arranger_id: link.arranger_id,
         year,
         events_count: 0,
+        total_event_links: 0,
         panel_slots_given: 0,
         panel_slots_received: 0,
       });
     }
     const s = stats.get(key);
+    s.total_event_links++;
 
     const coArrangers = eventArrangers.get(link.event_id) || [];
     if (link.is_primary) {
@@ -69,6 +71,7 @@ async function buildArrangerStats() {
   const rows = [...stats.values()].map(s => ({
     ...s,
     events_count: Math.round(s.events_count),
+    total_event_links: s.total_event_links,
     agenda_power_index: Math.round((s.events_count + s.panel_slots_given * 0.5) * 10) / 10,
   }));
 
