@@ -200,6 +200,8 @@ type SpeakerProfile = {
     sharedCount: number;
   }[];
   topOrganizations: { id: number; name: string; sector: string | null; eventCount: number }[];
+  topTopics: { topic: string; count: number }[];
+  topArenas: { name: string; eventCount: number }[];
 };
 
 export default function SpeakersPage() {
@@ -958,7 +960,7 @@ function ProfileView({
     return <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Laddar profil...</div>;
   }
 
-  const { speaker, stats, seminars, coPanelists, topOrganizations } = profile;
+  const { speaker, stats, seminars, coPanelists, topOrganizations, topTopics, topArenas } = profile;
   const years = [2022, 2023, 2024, 2025];
   const maxPanels = Math.max(...stats.perYear.map(s => s.panel_count), 1);
   const filteredSeminars = selectedYear
@@ -1319,6 +1321,101 @@ function ProfileView({
                   whiteSpace: 'nowrap',
                 }}>
                   {org.eventCount} seminarier
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Top topics */}
+      {topTopics && topTopics.length > 0 && (
+        <div style={{
+          backgroundColor: '#fff',
+          padding: '2rem',
+          borderRadius: '8px',
+          border: '2px solid #000',
+          boxShadow: '4px 4px 0 #000',
+          marginBottom: '1.5rem',
+        }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+            VANLIGASTE ÄMNEN
+          </h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {topTopics.map(t => (
+              <div
+                key={t.topic}
+                onClick={() => { window.location.href = '/speakers?tab=amnen&topic=' + encodeURIComponent(t.topic); }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.75rem 1rem',
+                  backgroundColor: '#f7f5e4',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  border: '1px solid #e0dcc8',
+                  transition: 'background-color 0.1s',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+              >
+                <span style={{ fontWeight: 600 }}>{formatTopic(t.topic)}</span>
+                <span style={{
+                  backgroundColor: '#000',
+                  color: '#fff',
+                  padding: '0.15rem 0.5rem',
+                  borderRadius: '10px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                }}>
+                  {t.count} seminarier
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Top arenas */}
+      {topArenas && topArenas.length > 0 && (
+        <div style={{
+          backgroundColor: '#fff',
+          padding: '2rem',
+          borderRadius: '8px',
+          border: '2px solid #000',
+          boxShadow: '4px 4px 0 #000',
+          marginBottom: '1.5rem',
+        }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+            ARENOR
+          </h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {topArenas.map(arena => (
+              <div
+                key={arena.name}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.75rem 1rem',
+                  backgroundColor: '#f7f5e4',
+                  borderRadius: '6px',
+                  border: '1px solid #e0dcc8',
+                }}
+              >
+                <span style={{ fontWeight: 600 }}>{arena.name}</span>
+                <span style={{
+                  backgroundColor: '#457b9d',
+                  color: '#fff',
+                  padding: '0.15rem 0.5rem',
+                  borderRadius: '10px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                }}>
+                  {arena.eventCount} seminarier
                 </span>
               </div>
             ))}

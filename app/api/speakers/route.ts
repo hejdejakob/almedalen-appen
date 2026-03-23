@@ -228,6 +228,31 @@ async function getSpeakerProfile(speakerId: number) {
     eventCount: count,
   }));
 
+  // Top topics: aggregate from topicMap for visible events
+  const topicCounts: Record<string, number> = {};
+  for (const e of events) {
+    const topic = topicMap.get(e.id);
+    if (topic) {
+      topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+    }
+  }
+  const topTopics = Object.entries(topicCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([topic, count]) => ({ topic, count }));
+
+  // Top arenas: aggregate from events location_name
+  const venueCounts: Record<string, number> = {};
+  for (const e of events) {
+    if (e.location_name) {
+      venueCounts[e.location_name] = (venueCounts[e.location_name] || 0) + 1;
+    }
+  }
+  const topArenas = Object.entries(venueCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([name, count]) => ({ name, eventCount: count }));
+
   // Co-panelists: find speakers sharing at least 2 events
   const coPanelists = await getCoPanelists(speakerId, Array.from(visibleEventIds));
 
@@ -251,6 +276,8 @@ async function getSpeakerProfile(speakerId: number) {
     seminars,
     coPanelists,
     topOrganizations,
+    topTopics,
+    topArenas,
   };
 }
 
