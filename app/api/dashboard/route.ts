@@ -818,6 +818,200 @@ const ARENA_OVERRIDES: [string, string][] = [
   ['S:ta Karins kyrkoruin', 'S:ta Karins kyrkoruin'],
   ['S:ta Maria domkyrka', 'S:ta Maria domkyrka'],
   ['Folkets Bio', 'Folkets Bio'],
+
+  // --- Catch-all arena clusters (MUST be last — after all specific sub-rules) ---
+
+  // Hamnplan tältarenor (371 events, tält H200-H246)
+  // NOTE: comes after Bulhuset (Hamnplan 5) and Ukrainska Hubben rules
+  ['Hamnplan, plats', 'Hamnplan (tältarenorna)'],
+  ['Hamnplan, H', 'Hamnplan (tältarenorna)'],
+  ['Hamnplan 6', 'Hamnplan (tältarenorna)'],
+
+  // Strandvägen (övrigt utanför DI 4.x — Mötesplats Jönköping etc)
+  ['Strandvägen, ', 'Strandvägen (övriga)'],
+  ['Strandvägen,', 'Strandvägen (övriga)'],
+
+  // Cramérgatan (utanför Uppsala universitet & Almedalsbiblioteket)
+  ['Cramérgatan', 'Cramérgatan (övriga)'],
+
+  // Hamngatan (utanför Maritima Mötesplatsen & Svenskt Näringsliv)
+  ['Hamngatan, ', 'Hamngatan (övriga)'],
+  ['Hamngatan,', 'Hamngatan (övriga)'],
+
+  // Donnersgatan (utanför Hansaplatsen, Wisby Strand, Kårhuset Rindi)
+  ['Donnersgatan', 'Donnersgatan (övriga)'],
+
+  // Almedalen scen/mötestält/Partitorget
+  ['Almedalen, scen', 'Almedalen (stora scenen)'],
+  ['Almedalen, mötestält', 'Almedalen (mötestält)'],
+  ['Partitorget', 'Partitorget'],
+
+  // Named venues without existing overrides
+  ['Fordonsexpo', 'Fordonsexpo'],
+  ['SpelAlmedalen', 'SpelAlmedalen'],
+  ['Strandgatan 1b', 'SpelAlmedalen'],
+  ['Volters gränd 8', 'Swedbank och Sparbankernas hus'],
+  ['Sparbankernas hus', 'Swedbank och Sparbankernas hus'],
+  ['Mellangatan 27', 'Mellangatan 27'],
+  ['Slottsterrassen', 'Slottsterrassen'],
+  ['Fiskargränd 5', 'Fiskargränd 5'],
+  ['Strandgatan 22', 'Strandgatan 22'],
+  ['Klockgränd 4', 'Klockgränd 4'],
+  ['Klosterbrunnsgatan 5', 'Klosterbrunnsgatan 5'],
+  ['Södra kyrkogatan 3', 'Södra kyrkogatan 3'],
+  ['S:t Hansgatan 21', 'S:t Hansgatan 21'],
+  ['Novgorodgränd 1', 'Novgorodgränd 1'],
+  ['Kronstallgränd 4', 'Kronstallgränd 4'],
+  ['Korsgatan 4', 'Korsgatan 4'],
+  ['Mellangatan 9', 'Mellangatan 9'],
+
+  // --- Additional venues (to reach 85%+ coverage) ---
+
+  // Tranhusgatan venues
+  ['Tranhusgatan 6', 'Tranhusgatan 6 (S:t Clemens ruin)'],
+  ['S:t Clemens ruin', 'Tranhusgatan 6 (S:t Clemens ruin)'],
+  ['Tranhusgatan', 'Tranhusgatan (övriga)'],
+
+  // Kilgränd
+  ['Kilgränd 1', 'Kilgränd 1'],
+  ['Kilgränd', 'Kilgränd (övriga)'],
+
+  // Mellangatan (utanför Mediescenen 7 och Gotlands museum 19)
+  ['Mellangatan 54', 'Mellangatan 54 (Bryggarsalen)'],
+  ['Bryggarsalen', 'Mellangatan 54 (Bryggarsalen)'],
+  ['Mellangatan 1', 'Mellangatan 1'],
+  ['Mellangatan 21', 'Mellangatan 21'],
+  ['Mellangatan 56', 'Mellangatan 56'],
+  ['Mellangatan', 'Mellangatan (övriga)'],
+
+  // Hästgatan (utanför Hästgatan 13, 9, 4, 12)
+  ['Hästgatan 2', 'Hästgatan 2'],
+  ['Hästgatan 1', 'Hästgatan 1'],
+  ['Hästgatan', 'Hästgatan (övriga)'],
+
+  // Donnersplats / Talarplats
+  ['Talarplats, Donnersplats', 'Donnersplats (Talarplats)'],
+  ['Donnersplats, Talarplats', 'Donnersplats (Talarplats)'],
+  ['Talarplats, Donners plats', 'Donnersplats (Talarplats)'],
+  ['Donnersplats', 'Donnersplats'],
+  ['Donners plats 3', 'Donners plats 3'],
+
+  // Ryska gränd
+  ['Ryska gränd 18', 'Ryska gränd 18 (Grafikgruppen)'],
+  ['Grafikgruppen', 'Ryska gränd 18 (Grafikgruppen)'],
+  ['Ryska gränd', 'Ryska gränd (övriga)'],
+
+  // Kapitelhusgården / S:t Drottensgatan 8
+  ['S:t Drottensgatan 8', 'Kapitelhusgården'],
+  ['Kapitelhusgården', 'Kapitelhusgården'],
+  ['Körsbärsdalen', 'Kapitelhusgården'],
+
+  // Södra Kyrkogatan
+  ['Södra Kyrkogatan 15', 'Södra Kyrkogatan 15'],
+  ['Södra kyrkogatan 15', 'Södra Kyrkogatan 15'],
+  ['Södra Kyrkogatan 11', 'Södra Kyrkogatan 11'],
+  ['Södra kyrkogatan 11', 'Södra Kyrkogatan 11'],
+  ['Södra Kyrkogatan 7', 'Södra Kyrkogatan 7'],
+  ['Södra kyrkogatan 7', 'Södra Kyrkogatan 7'],
+  ['Södra Kyrkogatan', 'Södra Kyrkogatan (övriga)'],
+  ['Södra kyrkogatan', 'Södra Kyrkogatan (övriga)'],
+
+  // Klosterbrunnsgatan
+  ['Klosterbrunnsgatan 3', 'Klosterbrunnsgatan 3'],
+
+  // Södertorg
+  ['Södertorg 12', 'Södertorg 12'],
+  ['Södertorg', 'Södertorg (övriga)'],
+
+  // Trappgränd / S:t Hansgatan
+  ['Trappgränd 4', 'Trappgränd 4'],
+  ['S:t Hansgatan 24', 'S:t Hansgatan 24'],
+  ['S:t Hansgatan 22', 'S:t Hansgatan 22'],
+  ['S:t Hansgatan 16', 'S:t Hansgatan 16'],
+  ['S:t Hansgatan 9', 'S:t Hansgatan 9'],
+  ['S:t Hansgatan', 'S:t Hansgatan (övriga)'],
+
+  // Kinbergs plats
+  ['Kinbergs plats 5', 'Kinbergs plats 5'],
+  ['Kinbergs plats 3', 'Kinbergs plats 3'],
+  ['Kinbergs plats', 'Kinbergs plats (övriga)'],
+
+  // Blockgränd
+  ['Blockgränd 6', 'Blockgränd 6'],
+  ['Blockgränd', 'Blockgränd (övriga)'],
+
+  // Almedalen (estradvagnen och övriga)
+  ['Almedalen, Estradvagnen', 'Almedalen (Estradvagnen)'],
+  ['Estradvagnen', 'Almedalen (Estradvagnen)'],
+  ['Almedalen', 'Almedalen (övriga)'],
+
+  // Norra Kyrkogatan / Församlingshuset
+  ['Norra Kyrkogatan 2', 'Norra Kyrkogatan 2 (Församlingshuset)'],
+  ['Norra kyrkogatan 2', 'Norra Kyrkogatan 2 (Församlingshuset)'],
+  ['Församlingshuset Domkyrkan', 'Norra Kyrkogatan 2 (Församlingshuset)'],
+  ['Norra Kyrkogatan', 'Norra Kyrkogatan (övriga)'],
+
+  // Donners plats 3
+  // (already added above)
+
+  // Specksrum
+  ['Specksrum 4', 'Specksrum 4'],
+  ['Specksrum 5', 'Specksrum 5'],
+  ['Specksrum', 'Specksrum (övriga)'],
+
+  // Birgers Gränd
+  ['Birgers Gränd 4', 'Birgers Gränd 4'],
+  ['Birgers gränd 9', 'Birgers gränd 9'],
+  ['Birgers Gränd', 'Birgers Gränd (övriga)'],
+  ['Birgers gränd', 'Birgers Gränd (övriga)'],
+
+  // Rostockergränd
+  ['Rostockergränd 4', 'Rostockergränd 4'],
+  ['Rostockergränd', 'Rostockergränd (övriga)'],
+
+  // Berggränd
+  ['Berggränd 6', 'Berggränd 6'],
+  ['AI Swedens trädgård', 'Berggränd 6'],
+  ['Berggränd', 'Berggränd (övriga)'],
+
+  // Tage Cervins gata / Sveriges Radio
+  ['Tage Cervins gata', 'Tage Cervins gata (Sveriges Radio)'],
+  ['Sveriges Radio', 'Tage Cervins gata (Sveriges Radio)'],
+
+  // Strandvägen 1 (Kallis) and Strandvägen 8
+  ['Strandvägen 1', 'Strandvägen 1 (Kallis)'],
+  ['Kallis', 'Strandvägen 1 (Kallis)'],
+  ['Strandvägen 8', 'Strandvägen 8 (Almedalens Hotell)'],
+  ['Almedalens Hotell', 'Strandvägen 8 (Almedalens Hotell)'],
+  ['Strandvägen', 'Strandvägen (övriga)'],
+
+  // Syskongatan / S:t Drotten kyrkoruin
+  ['Syskongatan 1', 'Syskongatan 1 (S:t Drotten)'],
+  ['S:t Drotten', 'Syskongatan 1 (S:t Drotten)'],
+
+  // Wallers plats
+  ['Wallers plats 3', 'Wallers plats 3'],
+  ['Strykjärnshuset', 'Wallers plats 3'],
+  ['Wallers plats', 'Wallers plats (övriga)'],
+
+  // Biskopsgatan
+  ['Biskopsgatan 1A', 'Biskopsgatan 1A'],
+  ['Biskopsgatan', 'Biskopsgatan (övriga)'],
+
+  // Skeppargatan
+  ['Skeppargatan 24', 'Skeppargatan 24'],
+  ['Skeppargatan', 'Skeppargatan (övriga)'],
+
+  // Fartyg (utanför Teaterskeppet, Elida, Belos)
+  ['Michael Sars', 'Fartyg (Michael Sars)'],
+  ['fartyg', 'Fartyg (övriga)'],
+
+  // Strandgatan 1 (övriga, utanför Strandgatan 1b SpelAlmedalen)
+  ['Strandgatan 1', 'Strandgatan 1'],
+
+  // Plats meddelas senare / Annan plats (okänd plats)
+  ['Plats meddelas senare', 'Okänd plats'],
+  ['Annan plats', 'Okänd plats'],
 ];
 
 function normalizeVenue(locationName: string): string {
