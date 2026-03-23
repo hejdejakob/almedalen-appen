@@ -1,0 +1,241 @@
+import { createClient } from '@supabase/supabase-js';
+import { NextResponse } from 'next/server';
+import { rateLimitApi } from '@/lib/rate-limit';
+
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
+const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
+
+async function fetchAll(table: string, columns: string, filter?: (q: any) => any) {
+  const rows: any[] = [];
+  let from = 0;
+  while (true) {
+    let q = supabase.from(table).select(columns).range(from, from + 999);
+    if (filter) q = filter(q);
+    const { data } = await q;
+    if (!data || data.length === 0) break;
+    rows.push(...data);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return rows;
+}
+
+export async function GET(request: Request) {
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    request.headers.get('x-real-ip') ||
+    'unknown';
+  const { allowed, retryAfterMs } = rateLimitApi(ip);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: 'For many requests. Try again later.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil((retryAfterMs || 60000) / 1000)) } }
+    );
+  }
+
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get('id');
+  const q = searchParams.get('q');
+  const limit = Math.min(parseInt(searchParams.get('limit') || '30'), 100);
+
+  try {
+    if (id) {
+      return NextResponse.json(await getArrangerProfile(parseInt(id)));
+    } else {
+      return NextResponse.json(await searchArrangers(q || '', limit));
+    }
+  } catch (err: unknown) {
+    console.error("Arrangers API error:", err instanceof Error ? err.message : err);
+    return NextResponse.json({ error: "Något gick fel. Försök igen senare." }, { status: 500 });
+  }
+}
+
+async function searchArrangers(query: string, limit: number) {
+  // Get all arranger stats for visible years
+  const stats = await fetchAll('arranger_stats', 'arranger_id, year, events_count', q =>
+    q.in('year', VISIBLE_YEARS)
+  );
+
+  // Aggregate per arranger
+  const totals: Record<number, { events: number; years: Set<number> }> = {};
+  for (const s of stats) {
+    if (!totals[s.arranger_id]) totals[s.arranger_id] = { events: 0, years: new Set() };
+    totals[s.arranger_id].events += s.events_count;
+    totals[s.arranger_id].years.add(s.year);
+  }
+
+  // Filter to arrangers with events > 0
+  let candidateIds: number[];
+
+  if (query.trim()) {
+    // Search by name
+    const { data: nameResults } = await supabase
+      .from('arrangers')
+      .select('id')
+      .or(`name.ilike.%${query.trim()}%,name_normalized.ilike.%${query.trim()}%`)
+      .limit(500);
+
+    const matchedIds = new Set((nameResults || []).map((r: any) => r.id));
+
+    // Only include those with events
+    candidateIds = Array.from(matchedIds)
+      .filter(id => totals[id] && totals[id].events > 0)
+      .sort((a, b) => (totals[b]?.events || 0) - (totals[a]?.events || 0))
+      .slice(0, limit);
+  } else {
+    // No query: top arrangers by events
+    candidateIds = Object.entries(totals)
+      .filter(([, t]) => t.events > 0)
+      .sort((a, b) => b[1].events - a[1].events)
+      .slice(0, limit)
+      .map(([id]) => parseInt(id));
+  }
+
+  if (candidateIds.length === 0) return { arrangers: [] };
+
+  // Get arranger names and classifications
+  const [arrangers, classifications] = await Promise.all([
+    fetchAll('arrangers', 'id, name', q => q.in('id', candidateIds)),
+    fetchAll('arranger_classifications', 'arranger_id, sector', q => q.in('arranger_id', candidateIds)),
+  ]);
+
+  const nameMap = new Map(arrangers.map((a: any) => [a.id, a.name]));
+  const sectorMap = new Map(classifications.map((c: any) => [c.arranger_id, c.sector]));
+
+  const results = candidateIds.map(id => ({
+    id,
+    name: nameMap.get(id) || 'Unknown',
+    sector: sectorMap.get(id) || null,
+    totalEvents: totals[id]?.events || 0,
+    yearsActive: totals[id]?.years.size || 0,
+  }));
+
+  return { arrangers: results };
+}
+
+async function getArrangerProfile(arrangerId: number) {
+  // 1. Basic info
+  const [arrangerRes, classificationRes] = await Promise.all([
+    supabase.from('arrangers').select('id, name').eq('id', arrangerId).single(),
+    supabase.from('arranger_classifications').select('sector, sub_sector').eq('arranger_id', arrangerId).single(),
+  ]);
+
+  if (!arrangerRes.data) throw new Error('Arranger not found');
+
+  // 2. Per year stats
+  const { data: yearStats } = await supabase
+    .from('arranger_stats')
+    .select('year, events_count, panel_slots_given, agenda_power_index')
+    .eq('arranger_id', arrangerId)
+    .in('year', VISIBLE_YEARS)
+    .order('year');
+
+  const totalEvents = (yearStats || []).reduce((sum: number, s: any) => sum + (s.events_count || 0), 0);
+  const agendaPower = (yearStats || []).reduce((sum: number, s: any) => sum + (s.agenda_power_index || 0), 0);
+
+  // 3. Top topics (5)
+  // Get events for this arranger
+  const eventArrangerLinks = await fetchAll('event_arrangers', 'event_id', q =>
+    q.eq('arranger_id', arrangerId)
+  );
+  const eventIds = eventArrangerLinks.map((ea: any) => ea.event_id);
+
+  let topTopics: { topic: string; count: number }[] = [];
+  if (eventIds.length > 0) {
+    // Filter to visible years
+    const events = await fetchAll('events', 'id, year', q =>
+      q.in('id', eventIds).in('year', VISIBLE_YEARS)
+    );
+    const visibleEventIds = events.map((e: any) => e.id);
+
+    if (visibleEventIds.length > 0) {
+      const topics = await fetchAll('event_topics', 'event_id, topic_primary', q =>
+        q.in('event_id', visibleEventIds).not('topic_primary', 'is', null)
+      );
+
+      // Count by topic
+      const topicCounts: Record<string, number> = {};
+      for (const t of topics) {
+        if (t.topic_primary) {
+          topicCounts[t.topic_primary] = (topicCounts[t.topic_primary] || 0) + 1;
+        }
+      }
+
+      topTopics = Object.entries(topicCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([topic, count]) => ({ topic, count }));
+    }
+  }
+
+  // 4. Top speakers (10)
+  let topSpeakers: any[] = [];
+  if (eventIds.length > 0) {
+    const events = await fetchAll('events', 'id, year', q =>
+      q.in('id', eventIds).in('year', VISIBLE_YEARS)
+    );
+    const visibleEventIds = events.map((e: any) => e.id);
+
+    if (visibleEventIds.length > 0) {
+      const eventSpeakerLinks = await fetchAll('event_speakers', 'event_id, speaker_id, role', q =>
+        q.in('event_id', visibleEventIds).neq('role', 'kontaktperson')
+      );
+
+      // Count shared events per speaker
+      const speakerCounts: Record<number, number> = {};
+      for (const es of eventSpeakerLinks) {
+        speakerCounts[es.speaker_id] = (speakerCounts[es.speaker_id] || 0) + 1;
+      }
+
+      const topSpeakerEntries = Object.entries(speakerCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+
+      if (topSpeakerEntries.length > 0) {
+        const speakerIds = topSpeakerEntries.map(([id]) => parseInt(id));
+
+        const [speakers, speakerClassifications] = await Promise.all([
+          fetchAll('speakers', 'id, name, title, org_name', q => q.in('id', speakerIds)),
+          fetchAll('speaker_classifications', 'speaker_id, category', q => q.in('speaker_id', speakerIds)),
+        ]);
+
+        const speakerMap = new Map(speakers.map((s: any) => [s.id, s]));
+        const categoryMap = new Map(speakerClassifications.map((c: any) => [c.speaker_id, c.category]));
+
+        topSpeakers = topSpeakerEntries.map(([id, count]) => {
+          const sp = speakerMap.get(parseInt(id));
+          return {
+            id: parseInt(id),
+            name: sp?.name || 'Unknown',
+            title: sp?.title || null,
+            org: sp?.org_name || null,
+            category: categoryMap.get(parseInt(id)) || null,
+            sharedEvents: count,
+          };
+        });
+      }
+    }
+  }
+
+  return {
+    arranger: {
+      id: arrangerRes.data.id,
+      name: arrangerRes.data.name,
+      sector: classificationRes.data?.sector || null,
+      subSector: classificationRes.data?.sub_sector || null,
+      totalEvents,
+      agendaPower,
+    },
+    perYear: (yearStats || []).map((s: any) => ({
+      year: s.year,
+      events: s.events_count,
+      panelSlotsGiven: s.panel_slots_given || 0,
+    })),
+    topTopics,
+    topSpeakers,
+  };
+}

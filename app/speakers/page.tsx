@@ -216,15 +216,42 @@ function SpeakersContent() {
   const initialId = searchParams.get('id');
   const initialTab = searchParams.get('tab');
 
-  const [mode, setMode] = useState<'search' | 'talarkollen'>(
-    initialTab === 'talarkollen' ? 'talarkollen' : 'search'
+  const [mode, setMode] = useState<'search' | 'talarkollen' | 'amnen' | 'aktorer'>(() => {
+    if (initialTab === 'talarkollen') return 'talarkollen';
+    if (initialTab === 'amnen') return 'amnen';
+    if (initialTab === 'aktorer') return 'aktorer';
+    return 'search';
+  });
+
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(searchParams.get('topic'));
+  const [selectedArrangerId, setSelectedArrangerId] = useState<number | null>(
+    initialTab === 'aktorer' && searchParams.get('id') ? parseInt(searchParams.get('id')!) : null
   );
 
-  const switchMode = (m: 'search' | 'talarkollen') => {
+  const switchMode = (m: 'search' | 'talarkollen' | 'amnen' | 'aktorer') => {
     setMode(m);
-    router.replace(m === 'talarkollen' ? '/speakers?tab=talarkollen' : '/speakers', { scroll: false });
+    if (m === 'talarkollen') router.replace('/speakers?tab=talarkollen', { scroll: false });
+    else if (m === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
+    else if (m === 'aktorer') router.replace('/speakers?tab=aktorer', { scroll: false });
+    else router.replace('/speakers', { scroll: false });
     setProfile(null);
     setEventDetail(null);
+    if (m !== 'amnen') setSelectedTopic(null);
+    if (m !== 'aktorer') setSelectedArrangerId(null);
+  };
+
+  const openTopic = (topic: string) => {
+    setMode('amnen');
+    setSelectedTopic(topic);
+    router.replace(`/speakers?tab=amnen&topic=${topic}`, { scroll: false });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const openArrangerProfile = (id: number) => {
+    setMode('aktorer');
+    setSelectedArrangerId(id);
+    router.replace(`/speakers?tab=aktorer&id=${id}`, { scroll: false });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const [query, setQuery] = useState('');
@@ -324,7 +351,10 @@ function SpeakersContent() {
       return;
     }
     setProfile(null);
-    router.replace(mode === 'talarkollen' ? '/speakers?tab=talarkollen' : '/speakers', { scroll: false });
+    if (mode === 'talarkollen') router.replace('/speakers?tab=talarkollen', { scroll: false });
+    else if (mode === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
+    else if (mode === 'aktorer') router.replace('/speakers?tab=aktorer', { scroll: false });
+    else router.replace('/speakers', { scroll: false });
     if (mode === 'search' && !hasSearched) searchSpeakers('');
   };
 
@@ -346,11 +376,11 @@ function SpeakersContent() {
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
-              {mode === 'talarkollen' ? 'TALARKOLLEN' : 'TALARSÖK'}
+              {mode === 'talarkollen' ? 'TALARKOLLEN' : mode === 'amnen' ? 'ÄMNESSÖK' : mode === 'aktorer' ? 'AKTÖRSSÖK' : 'TALARSÖK'}
             </h1>
             {!isMobile && (
               <p style={{ fontSize: '1rem', opacity: 0.7, marginTop: '0.5rem' }}>
-                {mode === 'talarkollen' ? 'Vem ska du ha på scen?' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
+                {mode === 'talarkollen' ? 'Vem ska du ha på scen?' : mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
               </p>
             )}
           </div>
@@ -375,10 +405,13 @@ function SpeakersContent() {
           gap: 0,
           borderBottom: '2px solid #ddd',
           backgroundColor: '#f7f5e4',
+          overflowX: 'auto',
         }}>
           {([
             { key: 'search' as const, label: 'Talarsök' },
             { key: 'talarkollen' as const, label: 'Talarkollen' },
+            { key: 'amnen' as const, label: 'Ämnessök' },
+            { key: 'aktorer' as const, label: 'Aktörssök' },
           ]).map(tab => (
             <button
               key={tab.key}
@@ -394,6 +427,8 @@ function SpeakersContent() {
                 borderBottom: mode === tab.key ? '3px solid #ff6632' : '3px solid transparent',
                 marginBottom: '-2px',
                 fontFamily: 'var(--body-text)',
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
               }}
             >
               {tab.label}
@@ -535,6 +570,30 @@ function SpeakersContent() {
             )}
             {mode === 'talarkollen' && (
               <TalarkollenTab onOpenProfile={openProfile} />
+            )}
+            {mode === 'amnen' && (
+              <AmnesTab
+                onOpenProfile={openProfile}
+                onOpenArrangerProfile={openArrangerProfile}
+                selectedTopic={selectedTopic}
+                onSelectTopic={(t) => {
+                  setSelectedTopic(t);
+                  if (t) router.replace(`/speakers?tab=amnen&topic=${t}`, { scroll: false });
+                  else router.replace('/speakers?tab=amnen', { scroll: false });
+                }}
+              />
+            )}
+            {mode === 'aktorer' && (
+              <AktorerTab
+                onOpenProfile={openProfile}
+                onOpenTopic={openTopic}
+                selectedArrangerId={selectedArrangerId}
+                onSelectArrangerId={(id) => {
+                  setSelectedArrangerId(id);
+                  if (id) router.replace(`/speakers?tab=aktorer&id=${id}`, { scroll: false });
+                  else router.replace('/speakers?tab=aktorer', { scroll: false });
+                }}
+              />
             )}
           </>
         )}
@@ -1538,6 +1597,882 @@ function EventDetailView({
             </div>
           )}
         </div>
+      )}
+    </div>
+  );
+}
+
+// --- AmnesTab ---
+
+type TopicListItem = {
+  topic: string;
+  totalEvents: number;
+  latestYoY: number | null;
+  avgSentiment: number;
+  years: { year: number; event_count: number }[];
+};
+
+type TopicDetailData = {
+  topic: string;
+  totalEvents: number;
+  perYear: { year: number; count: number }[];
+  topSpeakers: { id: number; name: string; title: string | null; org: string | null; category: string | null; eventCount: number }[];
+  topArrangers: { id: number; name: string; sector: string | null; eventCount: number }[];
+  sectorBreakdown: { sector: string; count: number }[];
+};
+
+const SECTOR_LABELS: Record<string, string> = {
+  näringsliv: 'Näringsliv',
+  konsult_pr: 'Konsult & PR',
+  arbetsgivar_branschorg: 'Arbetsgivar/bransch',
+  fackförbund: 'Fackförbund',
+  civilsamhälle: 'Civilsamhälle',
+  tänketank_stiftelse: 'Tänketank/stiftelse',
+  offentlig_sektor: 'Offentlig sektor',
+  parti: 'Parti',
+  media: 'Media',
+  akademi: 'Akademi',
+};
+
+function AmnesTab({
+  onOpenProfile,
+  onOpenArrangerProfile,
+  selectedTopic,
+  onSelectTopic,
+}: {
+  onOpenProfile: (id: number) => void;
+  onOpenArrangerProfile: (id: number) => void;
+  selectedTopic: string | null;
+  onSelectTopic: (topic: string | null) => void;
+}) {
+  const [topics, setTopics] = useState<TopicListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [detail, setDetail] = useState<TopicDetailData | null>(null);
+  const [detailLoading, setDetailLoading] = useState(false);
+  const abortRef = useRef<AbortController | null>(null);
+
+  // Load topic list on mount
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch('/api/dashboard?view=topics', { signal: controller.signal })
+      .then(r => r.json())
+      .then(d => {
+        setTopics(d.topics || []);
+        setLoading(false);
+      })
+      .catch(e => {
+        if (e instanceof DOMException && e.name === 'AbortError') return;
+        setLoading(false);
+      });
+    return () => controller.abort();
+  }, []);
+
+  // Load detail when selectedTopic changes
+  useEffect(() => {
+    if (!selectedTopic) {
+      setDetail(null);
+      return;
+    }
+    if (abortRef.current) abortRef.current.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setDetailLoading(true);
+    setDetail(null);
+    fetch(`/api/dashboard?view=topic-detail&topic=${encodeURIComponent(selectedTopic)}`, { signal: controller.signal })
+      .then(r => r.json())
+      .then(d => {
+        if (!controller.signal.aborted) {
+          setDetail(d);
+          setDetailLoading(false);
+        }
+      })
+      .catch(e => {
+        if (e instanceof DOMException && e.name === 'AbortError') return;
+        if (!controller.signal.aborted) setDetailLoading(false);
+      });
+    return () => controller.abort();
+  }, [selectedTopic]);
+
+  if (selectedTopic) {
+    // Detail view
+    return (
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <button
+          onClick={() => onSelectTopic(null)}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: '#ff6632',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+            cursor: 'pointer',
+            padding: '0',
+            marginBottom: '1.5rem',
+          }}
+        >
+          ← Tillbaka till alla ämnen
+        </button>
+
+        {detailLoading || !detail ? (
+          <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Laddar ämnesdata...</div>
+        ) : (
+          <>
+            {/* Header */}
+            <div style={{
+              backgroundColor: '#fff',
+              padding: '2rem',
+              borderRadius: '8px',
+              border: '2px solid #000',
+              boxShadow: '4px 4px 0 #000',
+              marginBottom: '1.5rem',
+            }}>
+              <h2 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', margin: '0 0 0.5rem' }}>
+                {formatTopic(detail.topic)}
+              </h2>
+              <p style={{ color: '#666', margin: 0, fontSize: '1.05rem' }}>
+                {detail.totalEvents} seminarier totalt (2022–2025)
+              </p>
+
+              {/* Per-year bars */}
+              {detail.perYear.length > 0 && (() => {
+                const maxCount = Math.max(...detail.perYear.map(p => p.count), 1);
+                return (
+                  <div style={{ marginTop: '1.5rem' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      Seminarier per år
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '80px' }}>
+                      {[2022, 2023, 2024, 2025].map(year => {
+                        const entry = detail.perYear.find(p => p.year === year);
+                        const count = entry?.count || 0;
+                        const height = count > 0 ? (count / maxCount) * 100 : 0;
+                        return (
+                          <div key={year} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#333', marginBottom: '2px' }}>
+                              {count > 0 ? count : ''}
+                            </div>
+                            <div style={{
+                              width: '100%',
+                              height: `${Math.max(height * 0.7, count > 0 ? 4 : 0)}px`,
+                              backgroundColor: count > 0 ? '#ff6632' : '#e0dcc8',
+                              borderRadius: '2px 2px 0 0',
+                              minHeight: count > 0 ? '4px' : '2px',
+                            }} />
+                            <div style={{ fontSize: '0.65rem', color: '#999', marginTop: '3px' }}>{year}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* Sector breakdown */}
+            {detail.sectorBreakdown.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  SEKTORFÖRDELNING
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {detail.sectorBreakdown.filter(s => s.sector !== 'unknown').map(s => {
+                    const maxSector = detail.sectorBreakdown[0]?.count || 1;
+                    const pct = (s.count / maxSector) * 100;
+                    return (
+                      <div key={s.sector} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <div style={{ width: '140px', fontSize: '0.8rem', color: '#444', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                          <span style={{
+                            width: '8px', height: '8px', borderRadius: '50%',
+                            backgroundColor: SECTOR_COLORS[s.sector] || '#ccc',
+                            display: 'inline-block', flexShrink: 0,
+                          }} />
+                          {SECTOR_LABELS[s.sector] || s.sector}
+                        </div>
+                        <div style={{ flex: 1, height: '16px', backgroundColor: '#f0ede0', borderRadius: '3px', overflow: 'hidden' }}>
+                          <div style={{
+                            height: '100%',
+                            width: `${pct}%`,
+                            backgroundColor: SECTOR_COLORS[s.sector] || '#ccc',
+                            borderRadius: '3px',
+                          }} />
+                        </div>
+                        <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#333', minWidth: '30px', textAlign: 'right' }}>
+                          {s.count}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Top speakers */}
+            {detail.topSpeakers.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  TOPP-TALARE
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {detail.topSpeakers.map(sp => (
+                    <div
+                      key={sp.id}
+                      onClick={() => onOpenProfile(sp.id)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: '#f7f5e4',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        border: '1px solid #e0dcc8',
+                        transition: 'background-color 0.1s',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+                    >
+                      <div>
+                        <span style={{ fontWeight: 600, marginRight: '0.5rem' }}>{sp.name}</span>
+                        {sp.category && (
+                          <span style={{
+                            backgroundColor: CATEGORY_COLORS[sp.category] || '#ccc',
+                            color: '#fff',
+                            padding: '0.1rem 0.4rem',
+                            borderRadius: '8px',
+                            fontSize: '0.65rem',
+                            fontWeight: 600,
+                          }}>
+                            {CATEGORY_LABELS[sp.category] || sp.category}
+                          </span>
+                        )}
+                        {(sp.title || sp.org) && (
+                          <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.2rem' }}>
+                            {[sp.title, sp.org].filter(Boolean).join(' — ')}
+                          </div>
+                        )}
+                      </div>
+                      <span style={{
+                        backgroundColor: '#ff6632',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {sp.eventCount} seminarier
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Top arrangers */}
+            {detail.topArrangers.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  TOPP-ARRANGÖRER
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {detail.topArrangers.map(arr => (
+                    <div
+                      key={arr.id}
+                      onClick={() => onOpenArrangerProfile(arr.id)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: '#f7f5e4',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        border: '1px solid #e0dcc8',
+                        transition: 'background-color 0.1s',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        {arr.sector && (
+                          <span style={{
+                            width: '10px', height: '10px', borderRadius: '50%',
+                            backgroundColor: SECTOR_COLORS[arr.sector] || '#ccc',
+                            display: 'inline-block', flexShrink: 0,
+                          }} />
+                        )}
+                        <span style={{ fontWeight: 600 }}>{arr.name}</span>
+                        {arr.sector && (
+                          <span style={{ fontSize: '0.75rem', color: '#888' }}>
+                            {SECTOR_LABELS[arr.sector] || arr.sector}
+                          </span>
+                        )}
+                      </div>
+                      <span style={{
+                        backgroundColor: '#ff6632',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {arr.eventCount} seminarier
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    );
+  }
+
+  // Grid view
+  return (
+    <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+      <p style={{
+        fontSize: '1.05rem',
+        lineHeight: 1.7,
+        marginBottom: '2rem',
+        color: '#333',
+      }}>
+        21 ämneskluster som täcker alla Almedalens seminarier. Klicka för att se vilka talare och aktörer som driver varje fråga.
+      </p>
+
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Laddar ämnen...</div>
+      ) : (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
+          gap: '1rem',
+        }}>
+          {topics.map(t => (
+            <div
+              key={t.topic}
+              onClick={() => onSelectTopic(t.topic)}
+              style={{
+                backgroundColor: '#fff',
+                padding: '1.25rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '3px 3px 0 #000',
+                cursor: 'pointer',
+                transition: 'transform 0.1s, box-shadow 0.1s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translate(-2px, -2px)';
+                e.currentTarget.style.boxShadow = '5px 5px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'none';
+                e.currentTarget.style.boxShadow = '3px 3px 0 #000';
+              }}
+            >
+              <div style={{ fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.5rem' }}>
+                {formatTopic(t.topic)}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.85rem', color: '#666' }}>
+                  {t.totalEvents} seminarier
+                </span>
+                {t.latestYoY !== null && t.latestYoY !== 0 && (
+                  <span style={{
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    color: t.latestYoY > 0 ? '#2a9d8f' : '#e63946',
+                  }}>
+                    {t.latestYoY > 0 ? '▲' : '▼'} {Math.abs(Math.round(t.latestYoY))}%
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// --- AktorerTab ---
+
+type ArrangerListItem = {
+  id: number;
+  name: string;
+  sector: string | null;
+  totalEvents: number;
+  yearsActive: number;
+};
+
+type ArrangerProfileData = {
+  arranger: {
+    id: number;
+    name: string;
+    sector: string | null;
+    subSector: string | null;
+    totalEvents: number;
+    agendaPower: number;
+  };
+  perYear: { year: number; events: number; panelSlotsGiven: number }[];
+  topTopics: { topic: string; count: number }[];
+  topSpeakers: { id: number; name: string; title: string | null; org: string | null; category: string | null; sharedEvents: number }[];
+};
+
+function AktorerTab({
+  onOpenProfile,
+  onOpenTopic,
+  selectedArrangerId,
+  onSelectArrangerId,
+}: {
+  onOpenProfile: (id: number) => void;
+  onOpenTopic: (topic: string) => void;
+  selectedArrangerId: number | null;
+  onSelectArrangerId: (id: number | null) => void;
+}) {
+  const [query, setQuery] = useState('');
+  const [arrangers, setArrangers] = useState<ArrangerListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [arrangerProfile, setArrangerProfile] = useState<ArrangerProfileData | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
+  const searchArrangers = useCallback(async (q: string) => {
+    if (abortRef.current) abortRef.current.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setLoading(true);
+    try {
+      const params = new URLSearchParams();
+      if (q.trim()) params.set('q', q.trim());
+      params.set('limit', '30');
+      const res = await fetch(`/api/arrangers?${params}`, { signal: controller.signal });
+      const data = await res.json();
+      if (!controller.signal.aborted) {
+        setArrangers(data.arrangers || []);
+        setLoading(false);
+        setHasSearched(true);
+      }
+    } catch (e) {
+      if (e instanceof DOMException && e.name === 'AbortError') return;
+      if (!controller.signal.aborted) {
+        setArrangers([]);
+        setLoading(false);
+        setHasSearched(true);
+      }
+    }
+  }, []);
+
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      searchArrangers(value);
+    }, 300);
+  };
+
+  // Load initial list or profile
+  useEffect(() => {
+    if (selectedArrangerId) {
+      loadArrangerProfile(selectedArrangerId);
+    } else {
+      searchArrangers('');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Load profile when selectedArrangerId changes externally
+  useEffect(() => {
+    if (selectedArrangerId) {
+      loadArrangerProfile(selectedArrangerId);
+    } else {
+      setArrangerProfile(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedArrangerId]);
+
+  const loadArrangerProfile = async (id: number) => {
+    if (abortRef.current) abortRef.current.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setProfileLoading(true);
+    setArrangerProfile(null);
+    try {
+      const res = await fetch(`/api/arrangers?id=${id}`, { signal: controller.signal });
+      const data = await res.json();
+      if (!controller.signal.aborted) {
+        setArrangerProfile(data);
+        setProfileLoading(false);
+      }
+    } catch (e) {
+      if (e instanceof DOMException && e.name === 'AbortError') return;
+      if (!controller.signal.aborted) {
+        setArrangerProfile(null);
+        setProfileLoading(false);
+      }
+    }
+  };
+
+  if (selectedArrangerId) {
+    // Profile view
+    return (
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <button
+          onClick={() => onSelectArrangerId(null)}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: '#ff6632',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+            cursor: 'pointer',
+            padding: '0',
+            marginBottom: '1.5rem',
+          }}
+        >
+          ← Tillbaka till sökning
+        </button>
+
+        {profileLoading || !arrangerProfile ? (
+          <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Laddar aktörsprofil...</div>
+        ) : (
+          <>
+            {/* Header */}
+            <div style={{
+              backgroundColor: '#fff',
+              padding: '2rem',
+              borderRadius: '8px',
+              border: '2px solid #000',
+              boxShadow: '4px 4px 0 #000',
+              marginBottom: '1.5rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                <h2 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', margin: 0 }}>
+                  {arrangerProfile.arranger.name}
+                </h2>
+                {arrangerProfile.arranger.sector && (
+                  <span style={{
+                    backgroundColor: SECTOR_COLORS[arrangerProfile.arranger.sector] || '#ccc',
+                    color: '#fff',
+                    padding: '0.2rem 0.7rem',
+                    borderRadius: '12px',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                  }}>
+                    {SECTOR_LABELS[arrangerProfile.arranger.sector] || arrangerProfile.arranger.sector}
+                  </span>
+                )}
+              </div>
+
+              {/* Stat cards */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+                {[
+                  { label: 'Seminarier totalt', value: arrangerProfile.arranger.totalEvents },
+                  { label: 'År aktiv', value: arrangerProfile.perYear.length },
+                  { label: 'Agendakraft', value: arrangerProfile.arranger.agendaPower.toFixed(1) },
+                ].map(item => (
+                  <div key={item.label} style={{
+                    backgroundColor: '#f7f5e4',
+                    padding: '1rem',
+                    borderRadius: '6px',
+                    textAlign: 'center',
+                    border: '1px solid #e0dcc8',
+                  }}>
+                    <div style={{ fontFamily: 'var(--font-formula)', fontSize: '1.8rem', color: '#ff6632', fontWeight: 700 }}>
+                      {item.value}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.25rem' }}>
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Sparkline */}
+              {arrangerProfile.perYear.length > 0 && (() => {
+                const maxEvents = Math.max(...arrangerProfile.perYear.map(p => p.events), 1);
+                return (
+                  <div>
+                    <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      Seminarier per år
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '60px' }}>
+                      {[2022, 2023, 2024, 2025].map(year => {
+                        const entry = arrangerProfile.perYear.find(p => p.year === year);
+                        const count = entry?.events || 0;
+                        const height = count > 0 ? (count / maxEvents) * 100 : 0;
+                        return (
+                          <div key={year} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div style={{ fontSize: '0.7rem', fontWeight: 600, color: '#333', marginBottom: '2px' }}>
+                              {count > 0 ? count : ''}
+                            </div>
+                            <div style={{
+                              width: '100%',
+                              height: `${Math.max(height * 0.5, count > 0 ? 4 : 0)}px`,
+                              backgroundColor: count > 0 ? '#ff6632' : '#e0dcc8',
+                              borderRadius: '2px 2px 0 0',
+                              minHeight: count > 0 ? '4px' : '2px',
+                            }} />
+                            <div style={{ fontSize: '0.65rem', color: '#999', marginTop: '3px' }}>{year}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* Top topics */}
+            {arrangerProfile.topTopics.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  VANLIGASTE ÄMNEN
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {arrangerProfile.topTopics.map(t => (
+                    <div
+                      key={t.topic}
+                      onClick={() => onOpenTopic(t.topic)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: '#f7f5e4',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        border: '1px solid #e0dcc8',
+                        transition: 'background-color 0.1s',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+                    >
+                      <span style={{ fontWeight: 600 }}>{formatTopic(t.topic)}</span>
+                      <span style={{
+                        backgroundColor: '#000',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {t.count} seminarier
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Top speakers */}
+            {arrangerProfile.topSpeakers.length > 0 && (
+              <div style={{
+                backgroundColor: '#fff',
+                padding: '2rem',
+                borderRadius: '8px',
+                border: '2px solid #000',
+                boxShadow: '4px 4px 0 #000',
+                marginBottom: '1.5rem',
+              }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                  VANLIGASTE TALARE
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {arrangerProfile.topSpeakers.map(sp => (
+                    <div
+                      key={sp.id}
+                      onClick={() => onOpenProfile(sp.id)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: '#f7f5e4',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        border: '1px solid #e0dcc8',
+                        transition: 'background-color 0.1s',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#edeadc'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f7f5e4'; }}
+                    >
+                      <div>
+                        <span style={{ fontWeight: 600, marginRight: '0.5rem' }}>{sp.name}</span>
+                        {sp.category && (
+                          <span style={{
+                            backgroundColor: CATEGORY_COLORS[sp.category] || '#ccc',
+                            color: '#fff',
+                            padding: '0.1rem 0.4rem',
+                            borderRadius: '8px',
+                            fontSize: '0.65rem',
+                            fontWeight: 600,
+                          }}>
+                            {CATEGORY_LABELS[sp.category] || sp.category}
+                          </span>
+                        )}
+                        {(sp.title || sp.org) && (
+                          <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.2rem' }}>
+                            {[sp.title, sp.org].filter(Boolean).join(' — ')}
+                          </div>
+                        )}
+                      </div>
+                      <span style={{
+                        backgroundColor: '#ff6632',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {sp.sharedEvents} seminarier
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    );
+  }
+
+  // Search view
+  return (
+    <div>
+      <div style={{ marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => handleQueryChange(e.target.value)}
+          placeholder="Sök bland arrangörer..."
+          autoFocus
+          style={{
+            width: '100%',
+            padding: '1rem 1.5rem',
+            fontSize: '1.3rem',
+            border: '3px solid #000',
+            borderRadius: '8px',
+            fontFamily: 'inherit',
+            backgroundColor: '#fff',
+            boxShadow: '4px 4px 0 #000',
+            outline: 'none',
+          }}
+        />
+      </div>
+
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Söker...</div>
+      ) : (
+        <>
+          {!query.trim() && arrangers.length > 0 && (
+            <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
+              Mest aktiva organisationer i Almedalen
+            </p>
+          )}
+          {query.trim() && arrangers.length === 0 && hasSearched && (
+            <p style={{ textAlign: 'center', color: '#666', padding: '2rem' }}>
+              Inga träffar för &quot;{query}&quot;
+            </p>
+          )}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
+            gap: '1rem',
+          }}>
+            {arrangers.map(a => (
+              <div
+                key={a.id}
+                onClick={() => onSelectArrangerId(a.id)}
+                style={{
+                  backgroundColor: '#fff',
+                  padding: '1.25rem',
+                  borderRadius: '8px',
+                  border: '2px solid #000',
+                  boxShadow: '3px 3px 0 #000',
+                  cursor: 'pointer',
+                  transition: 'transform 0.1s, box-shadow 0.1s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translate(-2px, -2px)';
+                  e.currentTarget.style.boxShadow = '5px 5px 0 #000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'none';
+                  e.currentTarget.style.boxShadow = '3px 3px 0 #000';
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+                  <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>{a.name}</div>
+                  <span style={{
+                    backgroundColor: '#ff6632',
+                    color: '#fff',
+                    padding: '0.15rem 0.5rem',
+                    borderRadius: '10px',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    whiteSpace: 'nowrap',
+                    marginLeft: '0.5rem',
+                  }}>
+                    {a.totalEvents} seminarier
+                  </span>
+                </div>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                  {a.sector && (
+                    <span style={{
+                      backgroundColor: SECTOR_COLORS[a.sector] || '#ccc',
+                      color: '#fff',
+                      padding: '0.1rem 0.5rem',
+                      borderRadius: '10px',
+                      fontSize: '0.7rem',
+                      fontWeight: 600,
+                    }}>
+                      {SECTOR_LABELS[a.sector] || a.sector}
+                    </span>
+                  )}
+                  <span style={{ fontSize: '0.75rem', color: '#999' }}>
+                    {a.yearsActive} år aktiv
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

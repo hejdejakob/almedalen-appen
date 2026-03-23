@@ -280,10 +280,23 @@ Org-namn-som-talare rensade (492 felaktiga poster borttagna).
 - [x] Arena-nätverksgraf (bipartit D3-graf: arenor + organisationer, kopplingar via events)
 
 **Resultat:** Sex analytiska vyer i `app/dashboard/page.tsx` med API i `app/api/dashboard/route.ts`.
-Vyer: `stats`, `topics`, `sectors`, `power`, `sentiment`, `speakers`, `network`, `locations`, `arena-network`.
+Vyer: `stats`, `topics`, `sectors`, `power`, `sentiment`, `speakers`, `network`, `locations`, `arena-network`, `topic-detail`.
 Komponenter: `SankeyChart.tsx`, `NetworkGraph.tsx`, `VisbyMap.tsx`, `ArenaNetwork.tsx`.
 Geocodning: `geocode-venues.js` → `public/venue-coordinates.json` (149 platser, 6 872 av 9 407 events).
 Kartan använder Leaflet + CartoDB-tiles, CircleMarkers med sektorfärg och sqrt-skalad radie.
+
+### Fas 3b — Talarsida med fyra flikar — KLART
+- [x] Talarsök — sök bland 16 509 talare med debounced search + AbortController
+- [x] Talarkollen — kurerade listor (Rising Stars, Evergreens, Hög Bredd) med ämnesfilter
+- [x] Ämnessök — 21 ämneskluster som kort → klicka för topptalare, toppaktörer, sektorfördelning
+- [x] Aktörssök — sök organisationer → aktörsprofil med ämnen, talare, agenda power
+- [x] Korsnavigering — klicka talare/aktör/ämne från valfri flik öppnar rätt vy
+- [x] `/talarkollen` redirectar till `/speakers?tab=talarkollen`
+
+**Resultat:** Samlad talarsida i `app/speakers/page.tsx` med fyra flikar.
+API:er: `/api/speakers` (talarsök + profil + eventdetalj), `/api/arrangers` (aktörssök + profil),
+`/api/dashboard?view=speaker-guide` (kurerade listor), `/api/dashboard?view=topic-detail` (ämnesdetalj).
+URL-params: `?tab=talarkollen`, `?tab=amnen`, `?tab=aktorer`, `?tab=amnen&topic=slug`, `?tab=aktorer&id=N`.
 
 ### Fas 4 — Almedalspegeln — BORTTAGEN
 Implementerades fullt ut men togs bort — de flesta aktörer har för få events (5–10 st)

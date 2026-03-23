@@ -68,8 +68,14 @@ export async function GET(request: Request) {
       return NextResponse.json(await getArenaGuide());
     } else if (view === 'speaker-guide') {
       return NextResponse.json(await getSpeakerGuide());
+    } else if (view === 'topic-detail') {
+      const topic = searchParams.get('topic');
+      if (!topic) {
+        return NextResponse.json({ error: 'Missing required parameter: topic' }, { status: 400 });
+      }
+      return NextResponse.json(await getTopicDetail(topic));
     } else {
-      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide' }, { status: 400 });
+      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide, topic-detail' }, { status: 400 });
     }
   } catch (err: unknown) {
     console.error("Dashboard API error:", err instanceof Error ? err.message : err);
@@ -1335,4 +1341,109 @@ async function getSpeakerGuide() {
     .slice(0, 30);
 
   return { rising_stars, evergreens, high_breadth };
+}
+
+async function getTopicDetail(topic: string) {
+  // 1. perYear from topic_year_stats
+  const perYearData = await fetchAll('topic_year_stats', 'topic, year, event_count', q =>
+    q.eq('topic', topic).in('year', VISIBLE_YEARS)
+  );
+  const perYear = perYearData
+    .map((r: any) => ({ year: r.year, count: r.event_count }))
+    .sort((a: any, b: any) => a.year - b.year);
+  const totalEvents = perYear.reduce((sum: number, r: any) => sum + r.count, 0);
+
+  // Fetch shared data
+  const [eventTopics, eventSpeakerLinks, eventArrangerLinks, events, speakers, speakerClassifications, arrangers, arrangerClassifications] = await Promise.all([
+    fetchAll('event_topics', 'event_id, topic_primary', q => q.eq('topic_primary', topic)),
+    fetchAll('event_speakers', 'event_id, speaker_id, role'),
+    fetchAll('event_arrangers', 'event_id, arranger_id'),
+    fetchAll('events', 'id, year'),
+    fetchAll('speakers', 'id, name, title, org_name'),
+    fetchAll('speaker_classifications', 'speaker_id, category'),
+    fetchAll('arrangers', 'id, name'),
+    fetchAll('arranger_classifications', 'arranger_id, sector'),
+  ]);
+
+  const eventYear = new Map(events.map((e: any) => [e.id, e.year]));
+  const visibleEventIds = new Set(
+    events.filter((e: any) => VISIBLE_YEARS.includes(e.year)).map((e: any) => e.id)
+  );
+
+  // Event IDs matching this topic in visible years
+  const topicEventIds = new Set(
+    eventTopics
+      .filter((et: any) => visibleEventIds.has(et.event_id))
+      .map((et: any) => et.event_id)
+  );
+
+  // 2. topSpeakers
+  const speakerCounts: Record<number, number> = {};
+  for (const es of eventSpeakerLinks) {
+    if (!topicEventIds.has(es.event_id)) continue;
+    if (es.role === 'kontaktperson') continue;
+    speakerCounts[es.speaker_id] = (speakerCounts[es.speaker_id] || 0) + 1;
+  }
+
+  const speakerMap = new Map(speakers.map((s: any) => [s.id, s]));
+  const categoryMap = new Map(speakerClassifications.map((c: any) => [c.speaker_id, c.category]));
+
+  const topSpeakers = Object.entries(speakerCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([id, count]) => {
+      const sp = speakerMap.get(parseInt(id));
+      return {
+        id: parseInt(id),
+        name: sp?.name || 'Unknown',
+        title: sp?.title || null,
+        org: sp?.org_name || null,
+        category: categoryMap.get(parseInt(id)) || null,
+        eventCount: count,
+      };
+    });
+
+  // 3. topArrangers
+  const arrangerCounts: Record<number, number> = {};
+  for (const ea of eventArrangerLinks) {
+    if (!topicEventIds.has(ea.event_id)) continue;
+    arrangerCounts[ea.arranger_id] = (arrangerCounts[ea.arranger_id] || 0) + 1;
+  }
+
+  const arrangerMap = new Map(arrangers.map((a: any) => [a.id, a]));
+  const sectorMap = new Map(arrangerClassifications.map((c: any) => [c.arranger_id, c.sector]));
+
+  const topArrangers = Object.entries(arrangerCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([id, count]) => {
+      const arr = arrangerMap.get(parseInt(id));
+      return {
+        id: parseInt(id),
+        name: arr?.name || 'Unknown',
+        sector: sectorMap.get(parseInt(id)) || null,
+        eventCount: count,
+      };
+    });
+
+  // 4. sectorBreakdown
+  const sectorCounts: Record<string, number> = {};
+  for (const ea of eventArrangerLinks) {
+    if (!topicEventIds.has(ea.event_id)) continue;
+    const sector = sectorMap.get(ea.arranger_id) || 'unknown';
+    sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
+  }
+
+  const sectorBreakdown = Object.entries(sectorCounts)
+    .map(([sector, count]) => ({ sector, count }))
+    .sort((a, b) => b.count - a.count);
+
+  return {
+    topic,
+    totalEvents,
+    perYear,
+    topSpeakers,
+    topArrangers,
+    sectorBreakdown,
+  };
 }
