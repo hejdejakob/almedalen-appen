@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { marked } from "marked";
-import DOMPurify from "dompurify";
 import ProgressBar from "@/components/ProgressBar";
 import Footer from "@/components/Footer";
 import {
@@ -50,8 +49,7 @@ export default function QuizPage() {
   // Parse markdown to HTML whenever streamed content changes
   useEffect(() => {
     if (streamedContent) {
-      const rawHtml = marked.parse(streamedContent, { async: false }) as string;
-      setRenderedHtml(DOMPurify.sanitize(rawHtml));
+      setRenderedHtml(marked.parse(streamedContent, { async: false }) as string);
     }
   }, [streamedContent]);
 

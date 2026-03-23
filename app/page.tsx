@@ -35,6 +35,17 @@ if (typeof window !== 'undefined') {
   });
 }
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < breakpoint);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 const SECTOR_COLORS: Record<string, string> = {
   näringsliv: '#e63946',
   konsult_pr: '#457b9d',
@@ -122,7 +133,7 @@ function AnimatedNumber({ target, duration = 1800 }: { target: number; duration?
   return <>{value.toLocaleString('sv-SE')}</>;
 }
 
-function LoadingScreen({ stats, progress, loadingStage }: { stats: Stats | null; progress: number; loadingStage: string }) {
+function LoadingScreen({ stats, progress, loadingStage, isMobile }: { stats: Stats | null; progress: number; loadingStage: string; isMobile?: boolean }) {
   const stages = [
     'Hämtar databasstatistik',
     'Laddar ämneskluster',
@@ -145,7 +156,7 @@ function LoadingScreen({ stats, progress, loadingStage }: { stats: Stats | null;
       justifyContent: 'center',
       color: '#fff',
     }}>
-      <div style={{ width: '100%', maxWidth: '700px', padding: '2rem' }}>
+      <div style={{ width: '100%', maxWidth: '700px', padding: isMobile ? '1rem' : '2rem' }}>
         <h1 style={{
           fontFamily: 'var(--font-formula)',
           fontSize: 'clamp(2.5rem, 6vw, 4rem)',
@@ -164,8 +175,8 @@ function LoadingScreen({ stats, progress, loadingStage }: { stats: Stats | null;
         {stats && (
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1.5rem 2rem',
+            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+            gap: isMobile ? '1rem' : '1.5rem 2rem',
             marginBottom: '2.5rem',
           }}>
             {[
@@ -278,6 +289,7 @@ function LoadingScreen({ stats, progress, loadingStage }: { stats: Stats | null;
 }
 
 export default function DashboardPage() {
+  const isMobile = useIsMobile();
   const [data, setData] = useState<DashboardData>({
     topics: null, topicDeep: null, power: null, sectors: null, sentiment: null, speakers: null, network: null, locations: null, arenaNetwork: null,
   });
@@ -341,7 +353,7 @@ export default function DashboardPage() {
   }, []);
 
   if (loading) {
-    return <LoadingScreen stats={stats} progress={progress} loadingStage={loadingStage} />;
+    return <LoadingScreen stats={stats} progress={progress} loadingStage={loadingStage} isMobile={isMobile} />;
   }
 
   return (
@@ -349,10 +361,10 @@ export default function DashboardPage() {
       <header style={{
         backgroundColor: '#000',
         color: '#fff',
-        padding: '2rem 0',
+        padding: isMobile ? '1.25rem 0' : '2rem 0',
         borderBottom: '4px solid #ff6632',
       }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
               ALMEDALSDATA
@@ -360,61 +372,65 @@ export default function DashboardPage() {
             <a href="/speakers" style={{
               color: '#ff6632',
               textDecoration: 'none',
-              fontSize: '0.95rem',
+              fontSize: isMobile ? '0.8rem' : '0.95rem',
               fontWeight: 600,
               whiteSpace: 'nowrap',
             }}>
               Sök paneldeltagare →
             </a>
           </div>
-          <p style={{ fontSize: '1.1rem', opacity: 0.7, marginTop: '0.5rem' }}>
+          <p style={{ fontSize: isMobile ? '0.85rem' : '1.1rem', opacity: 0.7, marginTop: '0.5rem' }}>
             {stats
-              ? `${stats.events.toLocaleString('sv-SE')} events | ${stats.arrangers.toLocaleString('sv-SE')} arrangörer | ${stats.speakers.toLocaleString('sv-SE')} paneldeltagare | ${stats.eventSpeakerLinks.toLocaleString('sv-SE')} medverkanden | 2022–2026`
+              ? isMobile
+                ? `${stats.events.toLocaleString('sv-SE')} events | ${stats.speakers.toLocaleString('sv-SE')} paneldeltagare | 2022–2026`
+                : `${stats.events.toLocaleString('sv-SE')} events | ${stats.arrangers.toLocaleString('sv-SE')} arrangörer | ${stats.speakers.toLocaleString('sv-SE')} paneldeltagare | ${stats.eventSpeakerLinks.toLocaleString('sv-SE')} medverkanden | 2022–2026`
               : 'Laddar...'}
           </p>
-          <p style={{ fontSize: '0.85rem', opacity: 0.5, marginTop: '0.75rem', maxWidth: '800px', lineHeight: '1.5' }}>
-            Samtliga seminarier, paneler och programpunkter från Almedalsveckan 2022 till 2026, samlade i en databas.
-            Data för 2025 och 2026 är hämtad direkt från Almedalsveckans webbkalendarium. Data för 2022 till 2024
-            är extraherad ur de officiella programkatalogerna i PDF-format. Arrangörer har normaliserats och
-            deduplicerats så att samma organisation räknas som en entitet oavsett namnvarianter mellan åren.
-          </p>
+          {!isMobile && (
+            <p style={{ fontSize: '0.85rem', opacity: 0.5, marginTop: '0.75rem', maxWidth: '800px', lineHeight: '1.5' }}>
+              Samtliga seminarier, paneler och programpunkter från Almedalsveckan 2022 till 2026, samlade i en databas.
+              Data för 2025 och 2026 är hämtad direkt från Almedalsveckans webbkalendarium. Data för 2022 till 2024
+              är extraherad ur de officiella programkatalogerna i PDF-format. Arrangörer har normaliserats och
+              deduplicerats så att samma organisation räknas som en entitet oavsett namnvarianter mellan åren.
+            </p>
+          )}
         </div>
       </header>
 
-      <main style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
+      <main style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '1rem' : '2rem' }}>
 
         {/* SECTION 1: Makt & utrymme */}
-        {data.power && <PowerView data={data.power} sectors={data.sectors} />}
+        {data.power && <PowerView data={data.power} sectors={data.sectors} isMobile={isMobile} />}
 
-        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: '3rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 1b: Visbykarta */}
-        {data.locations?.venues?.length > 0 && <LocationsView data={data.locations} />}
+        {data.locations?.venues?.length > 0 && <LocationsView data={data.locations} isMobile={isMobile} />}
 
-        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: '3rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 2: Ämnen & trender */}
         {data.topics && <TopicsView data={data.topics} topicDeep={data.topicDeep} />}
 
-        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: '3rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 3: Sentiment & ton */}
-        {data.sentiment && <SentimentView data={data.sentiment} />}
+        {data.sentiment && <SentimentView data={data.sentiment} isMobile={isMobile} />}
 
-        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: '3rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 4: Nätverk */}
-        {data.network && <NetworkView data={data.network} />}
+        {data.network && <NetworkView data={data.network} isMobile={isMobile} />}
 
-        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: '3rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 4b: Arenanätverk */}
-        {data.arenaNetwork && <ArenaNetworkView data={data.arenaNetwork} />}
+        {data.arenaNetwork && <ArenaNetworkView data={data.arenaNetwork} isMobile={isMobile} />}
 
-        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: '3rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 5: A-listan */}
-        {data.speakers && <SpeakersView data={data.speakers} />}
+        {data.speakers && <SpeakersView data={data.speakers} isMobile={isMobile} />}
 
       </main>
 
@@ -449,13 +465,14 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle: string })
 }
 
 function Card({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+  const isMobile = useIsMobile();
   return (
     <div style={{
       backgroundColor: '#fff',
-      padding: '2rem',
+      padding: isMobile ? '1rem' : '2rem',
       borderRadius: '8px',
       border: '2px solid #000',
-      boxShadow: '4px 4px 0 #000',
+      boxShadow: isMobile ? '2px 2px 0 #000' : '4px 4px 0 #000',
       ...style,
     }}>
       {children}
@@ -463,7 +480,7 @@ function Card({ children, style }: { children: React.ReactNode; style?: React.CS
   );
 }
 
-function AgendakraftChart({ datasets }: { datasets: any[] }) {
+function AgendakraftChart({ datasets, isMobile }: { datasets: any[]; isMobile?: boolean }) {
   // Compute data ranges for zoom presets
   const allPoints = datasets.flatMap(ds => ds.data);
   const maxX = Math.max(...allPoints.map((d: any) => d.x), 10);
@@ -480,7 +497,7 @@ function AgendakraftChart({ datasets }: { datasets: any[] }) {
   const currentZoom = ZOOM_PRESETS[zoomLevel];
 
   return (
-    <div style={{ height: '500px', position: 'relative' }}>
+    <div style={{ height: isMobile ? '350px' : '500px', position: 'relative' }}>
       <Bubble data={{ datasets }} options={{
         responsive: true,
         maintainAspectRatio: false,
@@ -499,8 +516,8 @@ function AgendakraftChart({ datasets }: { datasets: any[] }) {
         },
         plugins: {
           legend: {
-            position: 'right' as const,
-            labels: { boxWidth: 12, font: { size: 11 } },
+            position: isMobile ? 'bottom' as const : 'right' as const,
+            labels: { boxWidth: 12, font: { size: isMobile ? 10 : 11 } },
           },
           tooltip: {
             callbacks: {
@@ -548,7 +565,7 @@ function AgendakraftChart({ datasets }: { datasets: any[] }) {
   );
 }
 
-function PowerView({ data, sectors }: { data: any; sectors: any }) {
+function PowerView({ data, sectors, isMobile }: { data: any; sectors: any; isMobile?: boolean }) {
   const arrangers = data.arrangers;
 
   // Group arrangers by sector for bubble chart datasets
@@ -610,7 +627,7 @@ function PowerView({ data, sectors }: { data: any; sectors: any }) {
           upp till höger är agendasättare i dubbel bemärkelse: de arrangerar mycket och syns dessutom ofta hos andra.
           Färgen anger sektor enligt klassificeringen i teckenförklaringen.
         </p>
-        <AgendakraftChart datasets={bubbleDatasets} />
+        <AgendakraftChart datasets={bubbleDatasets} isMobile={isMobile} />
       </Card>
 
       <Card>
@@ -623,7 +640,7 @@ function PowerView({ data, sectors }: { data: any; sectors: any }) {
           primära arrangör tillhör. Seminarier med flera arrangörer från olika sektorer räknas under den
           arrangör som står som huvudarrangör.
         </p>
-        <div style={{ height: '400px' }}>
+        <div style={{ height: isMobile ? '300px' : '400px' }}>
           <Line data={{
             labels: sectors?.years || [],
             datasets: sectorAreaDatasets,
@@ -641,8 +658,8 @@ function PowerView({ data, sectors }: { data: any; sectors: any }) {
             },
             plugins: {
               legend: {
-                position: 'right' as const,
-                labels: { boxWidth: 12, font: { size: 11 } },
+                position: isMobile ? 'bottom' as const : 'right' as const,
+                labels: { boxWidth: 12, font: { size: isMobile ? 10 : 11 } },
               },
               tooltip: {
                 mode: 'index' as const,
@@ -733,6 +750,7 @@ function TopicsView({ data, topicDeep }: { data: any; topicDeep: any }) {
             konjunkturen snarare än av långsiktiga frågor. Negativ skillnad pekar på att ämnet är mer av
             vardagsfråga som tappar uppmärksamhet när valrörelsen dominerar agendan.
           </p>
+          <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
             <thead>
               <tr style={{ borderBottom: '3px solid #000' }}>
@@ -760,9 +778,10 @@ function TopicsView({ data, topicDeep }: { data: any; topicDeep: any }) {
               ))}
             </tbody>
           </table>
+          </div>
         </Card>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '1rem' }}>
           {sortedTopics.map((t: any) => {
             const sparkData = years.map((y: number) => t.years.find((yr: any) => yr.year === y)?.event_count || 0);
 
@@ -827,7 +846,7 @@ function TopicsView({ data, topicDeep }: { data: any; topicDeep: any }) {
               </div>
             ))}
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '1rem' }}>
             {topicDeep.sectorByTopic.map((item: any) => (
               <Card key={item.topic} style={{ padding: '1rem' }}>
                 <strong style={{ fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>
@@ -894,7 +913,7 @@ function NewVsReturningView({ data, years }: { data: any[]; years: number[] }) {
         <span><span style={{ display: 'inline-block', width: 10, height: 10, backgroundColor: '#264653', borderRadius: 2, marginRight: 4, verticalAlign: 'middle' }}/>Återkommande</span>
         <span><span style={{ display: 'inline-block', width: 10, height: 10, backgroundColor: '#f4a261', borderRadius: 2, marginRight: 4, verticalAlign: 'middle' }}/>Nya</span>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '1rem' }}>
         {data.map((item: any) => {
           const maxTotal = Math.max(...item.years.map((y: any) => y.total));
           const isExpanded = expandedTopic === item.topic;
@@ -997,7 +1016,7 @@ function NewVsReturningView({ data, years }: { data: any[]; years: number[] }) {
   );
 }
 
-function SentimentView({ data }: { data: any }) {
+function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
   const { yearData, heatmap } = data;
 
   const lineData = {
@@ -1041,10 +1060,10 @@ function SentimentView({ data }: { data: any }) {
         riktningen i Almedalens program.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '1rem' : '2rem', marginBottom: '2rem' }}>
         <Card>
           <h3 style={{ marginBottom: '1rem', fontWeight: 700 }}>Sentimentindex per år</h3>
-          <div style={{ height: '300px' }}>
+          <div style={{ height: isMobile ? '250px' : '300px' }}>
             <Line data={lineData} options={{
               responsive: true,
               maintainAspectRatio: false,
@@ -1058,7 +1077,7 @@ function SentimentView({ data }: { data: any }) {
 
         <Card>
           <h3 style={{ marginBottom: '1rem', fontWeight: 700 }}>Fördelning pos / neutral / neg</h3>
-          <div style={{ height: '300px' }}>
+          <div style={{ height: isMobile ? '250px' : '300px' }}>
             <Bar data={labelData} options={{
               responsive: true,
               maintainAspectRatio: false,
@@ -1134,7 +1153,7 @@ function SentimentView({ data }: { data: any }) {
   );
 }
 
-function NetworkView({ data }: { data: any }) {
+function NetworkView({ data, isMobile }: { data: any; isMobile?: boolean }) {
   return (
     <section>
       <SectionHeader title="NÄTVERK & PANELKARTLÄGGNING" subtitle="Organisationer kopplade genom delade paneldeltagare." />
@@ -1161,15 +1180,15 @@ function NetworkView({ data }: { data: any }) {
         <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1rem' }}>
           Topp 80 arrangörer, {data.edges?.length || 0} kopplingar. Dra noder för att utforska. Zooma med scrollhjul.
         </p>
-        <div style={{ height: '600px' }}>
-          <NetworkGraph nodes={data.nodes} edges={data.edges} height={600} />
+        <div style={{ height: isMobile ? '400px' : '600px' }}>
+          <NetworkGraph nodes={data.nodes} edges={data.edges} height={isMobile ? 400 : 600} />
         </div>
       </Card>
     </section>
   );
 }
 
-function LocationsView({ data }: { data: any }) {
+function LocationsView({ data, isMobile }: { data: any; isMobile?: boolean }) {
   const venues = data.venues;
 
   return (
@@ -1194,13 +1213,13 @@ function LocationsView({ data }: { data: any }) {
         <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1rem' }}>
           {venues.length} platser, {venues.reduce((s: number, v: any) => s + v.eventCount, 0).toLocaleString('sv-SE')} seminarier. Klicka på en cirkel för detaljer. Zooma med scrollhjul.
         </p>
-        <VisbyMap venues={venues} height={600} />
+        <VisbyMap venues={venues} height={isMobile ? 400 : 600} />
       </Card>
     </section>
   );
 }
 
-function ArenaNetworkView({ data }: { data: any }) {
+function ArenaNetworkView({ data, isMobile }: { data: any; isMobile?: boolean }) {
   const { arenaNodes, orgNodes, edges } = data;
 
   return (
@@ -1233,8 +1252,8 @@ function ArenaNetworkView({ data }: { data: any }) {
           {arenaNodes?.length || 0} arenor, {orgNodes?.length || 0} organisationer, {edges?.length || 0} kopplingar.
           Dra noder för att utforska. Zooma med scrollhjul.
         </p>
-        <div style={{ height: '700px' }}>
-          <ArenaNetwork arenaNodes={arenaNodes} orgNodes={orgNodes} edges={edges} height={700} />
+        <div style={{ height: isMobile ? '450px' : '700px' }}>
+          <ArenaNetwork arenaNodes={arenaNodes} orgNodes={orgNodes} edges={edges} height={isMobile ? 450 : 700} />
         </div>
       </Card>
     </section>
@@ -1265,7 +1284,7 @@ const SPEAKER_CATEGORY_COLORS: Record<string, string> = {
   offentlig_sektor: '#6a4c93',
 };
 
-function SpeakersView({ data }: { data: any }) {
+function SpeakersView({ data, isMobile }: { data: any; isMobile?: boolean }) {
   const speakers = data.speakers;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -1325,65 +1344,112 @@ function SpeakersView({ data }: { data: any }) {
       </div>
 
       <Card>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
-          <thead>
-            <tr style={{ borderBottom: '3px solid #000' }}>
-              <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>#</th>
-              <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Namn</th>
-              <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Kategori</th>
-              <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Titel</th>
-              <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Organisation</th>
-              <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Paneler</th>
-              <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>År aktiv</th>
-            </tr>
-          </thead>
-          <tbody>
+        {isMobile ? (
+          <div>
             {filtered.slice(0, 50).map((s: any, i: number) => (
-              <tr key={s.id} style={{
+              <div key={s.id} style={{
+                padding: '0.75rem 0',
                 borderBottom: '1px solid #eee',
                 backgroundColor: i < 3 ? 'rgba(255, 102, 50, 0.05)' : 'transparent',
               }}>
-                <td style={{ padding: '0.6rem 0.5rem', color: i < 3 ? '#ff6632' : '#999', fontWeight: 700, fontSize: '1rem' }}>{i + 1}</td>
-                <td style={{ padding: '0.6rem 0.5rem', fontWeight: 600 }}>
-                  <a href={`/speakers?id=${s.id}`} style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid #ccc' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#ff6632'; e.currentTarget.style.borderColor = '#ff6632'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
-                  >
-                    {s.name}
-                  </a>
-                </td>
-                <td style={{ padding: '0.6rem 0.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.25rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: i < 3 ? '#ff6632' : '#999', fontWeight: 700, fontSize: '0.9rem', flexShrink: 0 }}>{i + 1}.</span>
+                    <a href={`/speakers?id=${s.id}`} style={{ color: 'inherit', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem' }}>
+                      {s.name}
+                    </a>
+                  </div>
+                  <span style={{
+                    backgroundColor: '#ff6632',
+                    color: '#fff',
+                    padding: '0.15rem 0.5rem',
+                    borderRadius: '12px',
+                    fontWeight: 700,
+                    fontSize: '0.75rem',
+                    flexShrink: 0,
+                  }}>{s.totalPanels}</span>
+                </div>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginLeft: '1.5rem', flexWrap: 'wrap' }}>
                   {s.category && (
                     <span style={{
                       backgroundColor: SPEAKER_CATEGORY_COLORS[s.category] || '#ccc',
                       color: '#fff',
-                      padding: '0.15rem 0.5rem',
+                      padding: '0.1rem 0.4rem',
                       borderRadius: '10px',
-                      fontSize: '0.7rem',
+                      fontSize: '0.65rem',
                       fontWeight: 600,
-                      whiteSpace: 'nowrap',
                     }}>
                       {SPEAKER_CATEGORY_LABELS[s.category] || s.category}
                     </span>
                   )}
-                </td>
-                <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.title || '–'}</td>
-                <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.org || '–'}</td>
-                <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem' }}>
-                  <span style={{
-                    backgroundColor: '#ff6632',
-                    color: '#fff',
-                    padding: '0.2rem 0.6rem',
-                    borderRadius: '12px',
-                    fontWeight: 700,
-                    fontSize: '0.85rem',
-                  }}>{s.totalPanels}</span>
-                </td>
-                <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem', fontWeight: 600 }}>{s.yearsActive}</td>
-              </tr>
+                  <span style={{ color: '#666', fontSize: '0.75rem' }}>
+                    {[s.title, s.org].filter(Boolean).join(', ') || '–'}
+                  </span>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+            <thead>
+              <tr style={{ borderBottom: '3px solid #000' }}>
+                <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>#</th>
+                <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Namn</th>
+                <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Kategori</th>
+                <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Titel</th>
+                <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Organisation</th>
+                <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Paneler</th>
+                <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>År aktiv</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.slice(0, 50).map((s: any, i: number) => (
+                <tr key={s.id} style={{
+                  borderBottom: '1px solid #eee',
+                  backgroundColor: i < 3 ? 'rgba(255, 102, 50, 0.05)' : 'transparent',
+                }}>
+                  <td style={{ padding: '0.6rem 0.5rem', color: i < 3 ? '#ff6632' : '#999', fontWeight: 700, fontSize: '1rem' }}>{i + 1}</td>
+                  <td style={{ padding: '0.6rem 0.5rem', fontWeight: 600 }}>
+                    <a href={`/speakers?id=${s.id}`} style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid #ccc' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = '#ff6632'; e.currentTarget.style.borderColor = '#ff6632'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
+                    >
+                      {s.name}
+                    </a>
+                  </td>
+                  <td style={{ padding: '0.6rem 0.5rem' }}>
+                    {s.category && (
+                      <span style={{
+                        backgroundColor: SPEAKER_CATEGORY_COLORS[s.category] || '#ccc',
+                        color: '#fff',
+                        padding: '0.15rem 0.5rem',
+                        borderRadius: '10px',
+                        fontSize: '0.7rem',
+                        fontWeight: 600,
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {SPEAKER_CATEGORY_LABELS[s.category] || s.category}
+                      </span>
+                    )}
+                  </td>
+                  <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.title || '–'}</td>
+                  <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.org || '–'}</td>
+                  <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem' }}>
+                    <span style={{
+                      backgroundColor: '#ff6632',
+                      color: '#fff',
+                      padding: '0.2rem 0.6rem',
+                      borderRadius: '12px',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                    }}>{s.totalPanels}</span>
+                  </td>
+                  <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem', fontWeight: 600 }}>{s.yearsActive}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </Card>
     </section>
   );

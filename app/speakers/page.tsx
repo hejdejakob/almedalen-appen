@@ -3,6 +3,17 @@
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < breakpoint);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 const CATEGORY_LABELS: Record<string, string> = {
   politiker: 'Politiker',
   näringsliv: 'Näringsliv',
@@ -132,6 +143,7 @@ export default function SpeakersPage() {
 }
 
 function SpeakersContent() {
+  const isMobile = useIsMobile();
   const searchParams = useSearchParams();
   const router = useRouter();
   const initialId = searchParams.get('id');
@@ -236,22 +248,24 @@ function SpeakersContent() {
       <header style={{
         backgroundColor: '#000',
         color: '#fff',
-        padding: '2rem 0',
+        padding: isMobile ? '1.25rem 0' : '2rem 0',
         borderBottom: '4px solid #ff6632',
       }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
               TALARSÖK
             </h1>
-            <p style={{ fontSize: '1rem', opacity: 0.7, marginTop: '0.5rem' }}>
-              Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025
-            </p>
+            {!isMobile && (
+              <p style={{ fontSize: '1rem', opacity: 0.7, marginTop: '0.5rem' }}>
+                Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025
+              </p>
+            )}
           </div>
           <a href="/" style={{
             color: '#ff6632',
             textDecoration: 'none',
-            fontSize: '0.9rem',
+            fontSize: isMobile ? '0.8rem' : '0.9rem',
             fontWeight: 600,
             whiteSpace: 'nowrap',
           }}>
@@ -260,7 +274,7 @@ function SpeakersContent() {
         </div>
       </header>
 
-      <main style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
+      <main style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '1rem' : '2rem' }}>
         {eventDetail ? (
           <EventDetailView
             detail={eventDetail}
@@ -291,13 +305,13 @@ function SpeakersContent() {
                 autoFocus
                 style={{
                   width: '100%',
-                  padding: '1rem 1.5rem',
-                  fontSize: '1.3rem',
-                  border: '3px solid #000',
+                  padding: isMobile ? '0.75rem 1rem' : '1rem 1.5rem',
+                  fontSize: isMobile ? '1rem' : '1.3rem',
+                  border: isMobile ? '2px solid #000' : '3px solid #000',
                   borderRadius: '8px',
                   fontFamily: 'inherit',
                   backgroundColor: '#fff',
-                  boxShadow: '4px 4px 0 #000',
+                  boxShadow: isMobile ? '2px 2px 0 #000' : '4px 4px 0 #000',
                   outline: 'none',
                 }}
               />
@@ -319,7 +333,7 @@ function SpeakersContent() {
                 )}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
                   gap: '1rem',
                 }}>
                   {results.map((s) => (

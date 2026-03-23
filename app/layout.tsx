@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://almedalsdata.se"),
   title: "Almedalsdata | Reform Society",
   description:
     "Analys av Almedalsveckan 2022–2026. Makt, ämnen, nätverk och sentiment — visualiserat.",

@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import { rateLimitApi } from '@/lib/rate-limit';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -27,6 +28,18 @@ async function fetchAll(table: string, columns: string, filter?: (q: any) => any
 }
 
 export async function GET(request: Request) {
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    request.headers.get('x-real-ip') ||
+    'unknown';
+  const { allowed, retryAfterMs } = rateLimitApi(ip);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: 'För många anrop. Försök igen senare.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil((retryAfterMs || 60000) / 1000)) } }
+    );
+  }
+
   const { searchParams } = new URL(request.url);
   const view = searchParams.get('view');
 
