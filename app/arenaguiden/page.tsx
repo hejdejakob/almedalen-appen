@@ -102,7 +102,8 @@ function YearSparkline({ yearlyEvents }: { yearlyEvents: Record<string, number> 
   );
 }
 
-function TypeBadge({ type, dominantSector }: { type: ArenaData['type']; dominantSector: string }) {
+function TypeBadge({ type, dominantSector, dominantPct }: { type: ArenaData['type']; dominantSector: string; dominantPct: number }) {
+  const sectorLabel = SECTOR_LABELS[dominantSector] || dominantSector;
   if (type === 'pluralistic') {
     return (
       <span style={{
@@ -115,12 +116,11 @@ function TypeBadge({ type, dominantSector }: { type: ArenaData['type']; dominant
         fontWeight: 600,
         whiteSpace: 'nowrap',
       }}>
-        Pluralistisk
+        Pluralistisk · {sectorLabel} {dominantPct}%
       </span>
     );
   }
   if (type === 'dominated') {
-    const label = SECTOR_LABELS[dominantSector] || dominantSector;
     return (
       <span style={{
         backgroundColor: 'rgba(230, 57, 70, 0.12)',
@@ -132,7 +132,7 @@ function TypeBadge({ type, dominantSector }: { type: ArenaData['type']; dominant
         fontWeight: 600,
         whiteSpace: 'nowrap',
       }}>
-        Dominerad av {label}
+        {sectorLabel} {dominantPct}%
       </span>
     );
   }
@@ -147,7 +147,7 @@ function TypeBadge({ type, dominantSector }: { type: ArenaData['type']; dominant
       fontWeight: 600,
       whiteSpace: 'nowrap',
     }}>
-      Blandad
+      Blandad · {sectorLabel} {dominantPct}%
     </span>
   );
 }
@@ -183,7 +183,7 @@ function ArenaCard({ arena, onClick }: { arena: ArenaData; onClick: () => void }
         }}>
           {arena.name}
         </h3>
-        <TypeBadge type={arena.type} dominantSector={arena.dominantSector} />
+        <TypeBadge type={arena.type} dominantSector={arena.dominantSector} dominantPct={arena.dominantPct} />
       </div>
 
       {/* Stats row */}
