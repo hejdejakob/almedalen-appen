@@ -1649,6 +1649,8 @@ function AmnesTab({
   const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState<TopicDetailData | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
+  const [showSpeakers, setShowSpeakers] = useState(5);
+  const [showArrangers, setShowArrangers] = useState(5);
   const abortRef = useRef<AbortController | null>(null);
 
   // Load topic list on mount
@@ -1678,6 +1680,8 @@ function AmnesTab({
     abortRef.current = controller;
     setDetailLoading(true);
     setDetail(null);
+    setShowSpeakers(5);
+    setShowArrangers(5);
     fetch(`/api/dashboard?view=topic-detail&topic=${encodeURIComponent(selectedTopic)}`, { signal: controller.signal })
       .then(r => r.json())
       .then(d => {
@@ -1827,7 +1831,7 @@ function AmnesTab({
                   TOPP-TALARE
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  {detail.topSpeakers.map(sp => (
+                  {detail.topSpeakers.slice(0, showSpeakers).map(sp => (
                     <div
                       key={sp.id}
                       onClick={() => onOpenProfile(sp.id)}
@@ -1879,6 +1883,25 @@ function AmnesTab({
                     </div>
                   ))}
                 </div>
+                {showSpeakers < detail.topSpeakers.length && (
+                  <button
+                    onClick={() => setShowSpeakers(s => s + 10)}
+                    style={{
+                      display: 'block',
+                      margin: '1rem auto 0',
+                      padding: '0.5rem 1.5rem',
+                      backgroundColor: '#000',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '4px',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Visa fler talare ({detail.topSpeakers.length - showSpeakers} till)
+                  </button>
+                )}
               </div>
             )}
 
@@ -1896,7 +1919,7 @@ function AmnesTab({
                   TOPP-ARRANGÖRER
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  {detail.topArrangers.map(arr => (
+                  {detail.topArrangers.slice(0, showArrangers).map(arr => (
                     <div
                       key={arr.id}
                       onClick={() => onOpenArrangerProfile(arr.id)}
@@ -1943,6 +1966,25 @@ function AmnesTab({
                     </div>
                   ))}
                 </div>
+                {showArrangers < detail.topArrangers.length && (
+                  <button
+                    onClick={() => setShowArrangers(s => s + 10)}
+                    style={{
+                      display: 'block',
+                      margin: '1rem auto 0',
+                      padding: '0.5rem 1.5rem',
+                      backgroundColor: '#000',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '4px',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Visa fler arrangörer ({detail.topArrangers.length - showArrangers} till)
+                  </button>
+                )}
               </div>
             )}
           </>

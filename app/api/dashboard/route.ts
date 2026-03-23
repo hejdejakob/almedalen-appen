@@ -1390,7 +1390,7 @@ async function getTopicDetail(topic: string) {
 
   const topSpeakers = Object.entries(speakerCounts)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 10)
+    .slice(0, 50)
     .map(([id, count]) => {
       const sp = speakerMap.get(parseInt(id));
       return {
@@ -1415,7 +1415,7 @@ async function getTopicDetail(topic: string) {
 
   const topArrangers = Object.entries(arrangerCounts)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 10)
+    .slice(0, 50)
     .map(([id, count]) => {
       const arr = arrangerMap.get(parseInt(id));
       return {
