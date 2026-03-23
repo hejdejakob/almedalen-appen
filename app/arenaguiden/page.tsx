@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 
 const SECTOR_COLORS: Record<string, string> = {
   näringsliv: '#e63946',
@@ -341,7 +342,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
         <h3 style={{
           margin: '0 0 1rem',
           fontFamily: 'var(--font-formula)',
-          fontSize: '1rem',
+          fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
           color: '#111',
         }}>
           SEKTORFÖRDELNING
@@ -387,7 +388,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
         <h3 style={{
           margin: '0 0 1rem',
           fontFamily: 'var(--font-formula)',
-          fontSize: '1rem',
+          fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
           color: '#111',
         }}>
           TOPPAKTÖRER ({Math.min(detail.topArrangers.length, 15)})
@@ -449,7 +450,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
         <h3 style={{
           margin: '0 0 1rem',
           fontFamily: 'var(--font-formula)',
-          fontSize: '1rem',
+          fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
           color: '#111',
         }}>
           VANLIGASTE ÄMNEN ({Math.min(detail.topTopics.length, 10)})
@@ -502,7 +503,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
         <h3 style={{
           margin: '0 0 1rem',
           fontFamily: 'var(--font-formula)',
-          fontSize: '1rem',
+          fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
           color: '#111',
         }}>
           TOPPTALARE ({Math.min(detail.topSpeakers.length, 15)})
@@ -891,6 +892,7 @@ export default function ArenaGuidenPage() {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

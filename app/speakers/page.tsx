@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import Footer from '@/components/Footer';
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
@@ -602,19 +603,7 @@ function SpeakersContent() {
         )}
       </main>
 
-      <footer style={{
-        backgroundColor: '#000',
-        color: '#fff',
-        padding: '2rem 0',
-        textAlign: 'center',
-        fontSize: '0.85rem',
-        opacity: 0.7,
-        marginTop: '3rem',
-      }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
-          Reform Society | Almedalsdata 2022–2026
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -1083,7 +1072,7 @@ function ProfileView({
         boxShadow: '4px 4px 0 #000',
         marginBottom: '1.5rem',
       }}>
-        <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+        <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
           SEMINARIER ({seminars.length})
         </h3>
 
@@ -1202,7 +1191,7 @@ function ProfileView({
           border: '2px solid #000',
           boxShadow: '4px 4px 0 #000',
         }}>
-          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
             MEDPANELISTER
           </h3>
           <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
@@ -1274,7 +1263,7 @@ function ProfileView({
           boxShadow: '4px 4px 0 #000',
           marginBottom: '1.5rem',
         }}>
-          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
             ORGANISATIONER
           </h3>
           <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
@@ -1338,7 +1327,7 @@ function ProfileView({
           boxShadow: '4px 4px 0 #000',
           marginBottom: '1.5rem',
         }}>
-          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
             VANLIGASTE ÄMNEN
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -1388,7 +1377,7 @@ function ProfileView({
           boxShadow: '4px 4px 0 #000',
           marginBottom: '1.5rem',
         }}>
-          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
             ARENOR
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -1635,7 +1624,7 @@ function EventDetailView({
           boxShadow: '4px 4px 0 #000',
           marginBottom: '1.5rem',
         }}>
-          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+          <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
             MEDVERKANDE ({panelists.length})
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -1944,7 +1933,7 @@ function AmnesTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   SEKTORFÖRDELNING
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -1989,7 +1978,7 @@ function AmnesTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   TOPP-TALARE
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -2077,7 +2066,7 @@ function AmnesTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   TOPP-ARRANGÖRER
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -2464,7 +2453,7 @@ function AktorerTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   VANLIGASTE ÄMNEN
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -2514,7 +2503,7 @@ function AktorerTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   VANLIGASTE TALARE
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -2583,7 +2572,7 @@ function AktorerTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   SAMARBETANDE ORGANISATIONER
                 </h3>
                 <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
@@ -2647,7 +2636,7 @@ function AktorerTab({
                 boxShadow: '4px 4px 0 #000',
                 marginBottom: '1.5rem',
               }}>
-                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: '1.3rem', margin: '0 0 1rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
                   ARENOR
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>

@@ -17,6 +17,7 @@ import {
 } from 'chart.js';
 import { Bar, Line, Bubble } from 'react-chartjs-2';
 import dynamic from 'next/dynamic';
+import Footer from '@/components/Footer';
 
 const SankeyChart = dynamic(() => import('@/components/SankeyChart'), { ssr: false });
 
@@ -129,17 +130,7 @@ export default function DashboardPage() {
 
       </main>
 
-      <footer style={{
-        backgroundColor: '#000',
-        color: '#fff',
-        padding: '2rem',
-        textAlign: 'center',
-        fontSize: '0.85rem',
-        opacity: 0.7,
-        marginTop: '3rem',
-      }}>
-        Reform Society | Almedalsdata 2022–2026
-      </footer>
+      <Footer />
     </div>
   );
 }
