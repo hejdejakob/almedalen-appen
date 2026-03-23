@@ -1649,8 +1649,8 @@ function AmnesTab({
   const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState<TopicDetailData | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [showSpeakers, setShowSpeakers] = useState(5);
-  const [showArrangers, setShowArrangers] = useState(5);
+  const [showSpeakers, setShowSpeakers] = useState(20);
+  const [showArrangers, setShowArrangers] = useState(20);
   const abortRef = useRef<AbortController | null>(null);
 
   // Load topic list on mount
@@ -1680,8 +1680,8 @@ function AmnesTab({
     abortRef.current = controller;
     setDetailLoading(true);
     setDetail(null);
-    setShowSpeakers(5);
-    setShowArrangers(5);
+    setShowSpeakers(20);
+    setShowArrangers(20);
     fetch(`/api/dashboard?view=topic-detail&topic=${encodeURIComponent(selectedTopic)}`, { signal: controller.signal })
       .then(r => r.json())
       .then(d => {
