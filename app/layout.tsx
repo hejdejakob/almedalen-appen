@@ -3,12 +3,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://almedalsdata.se"),
-  title: "Almedalsdata | Reform Society",
+  title: {
+    default: "Almedalsdata | Reform Society",
+    template: "%s | Almedalsdata",
+  },
   description:
-    "Analys av Almedalsveckan 2022–2026. Makt, ämnen, nätverk och sentiment — visualiserat.",
+    "9 400+ seminarier, 16 500+ talare, 3 000+ arrangörer — Almedalsveckan 2022–2026 i siffror. Sök talare, utforska ämnen, kartlägg aktörer och arenor.",
   openGraph: {
     title: "Almedalsdata | Reform Society",
-    description: "Analys av Almedalsveckan 2022–2026. Makt, ämnen, nätverk och sentiment — visualiserat.",
+    description: "9 400+ seminarier, 16 500+ talare, 3 000+ arrangörer — Almedalsveckan 2022–2026 i siffror. Sök talare, utforska ämnen, kartlägg aktörer och arenor.",
     url: "https://almedalsdata.se",
     siteName: "Almedalsdata",
     images: [{ url: "/og", width: 1200, height: 630 }],
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Almedalsdata | Reform Society",
-    description: "Analys av Almedalsveckan 2022–2026.",
+    description: "9 400+ seminarier, 16 500+ talare, 3 000+ arrangörer — Almedalsveckan 2022–2026 i siffror.",
     images: ["/og"],
   },
 };

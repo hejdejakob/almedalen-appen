@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Talare i Almedalen | Reform Society",
-  description: "Sok bland 16 000+ talare i Almedalsveckan 2022–2025.",
+  title: "Talarsök, Aktörssök & Ämnessök",
+  description: "Sök bland 16 500+ paneldeltagare och 3 000+ organisationer i Almedalsveckan 2022–2026. Hitta talare, utforska ämnen och kartlägg aktörer.",
 };
 
 export default function SpeakersLayout({

@@ -11,24 +11,29 @@ export async function GET() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           backgroundColor: '#000',
-          padding: '60px',
+          padding: '60px 80px',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '20px',
-          }}
-        >
+        {/* Top */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div
             style={{
-              fontSize: '120px',
+              fontSize: '28px',
+              fontWeight: 400,
+              color: '#fff',
+              opacity: 0.5,
+              letterSpacing: '6px',
+              textTransform: 'uppercase',
+              marginBottom: '16px',
+            }}
+          >
+            Reform Society
+          </div>
+          <div
+            style={{
+              fontSize: '110px',
               fontWeight: 900,
               color: '#ff6632',
               letterSpacing: '-2px',
@@ -38,27 +43,28 @@ export async function GET() {
           >
             ALMEDALSDATA
           </div>
+        </div>
+
+        {/* Bottom */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div
             style={{
-              fontSize: '32px',
-              fontWeight: 400,
+              fontSize: '36px',
+              fontWeight: 600,
               color: '#fff',
-              opacity: 0.7,
-              letterSpacing: '4px',
-              textTransform: 'uppercase',
+              lineHeight: 1.3,
             }}
           >
-            Reform Society
+            Vem driver agendan i Almedalen?
           </div>
           <div
             style={{
               display: 'flex',
               gap: '16px',
               alignItems: 'center',
-              marginTop: '20px',
             }}
           >
-            {['2022–2026', 'Makt', 'Amnen', 'Natverk', 'Sentiment'].map(
+            {['2022–2026', '9 400+ seminarier', '16 500+ talare', '3 000+ aktörer'].map(
               (item, i) => (
                 <div
                   key={i}
@@ -80,7 +86,7 @@ export async function GET() {
                   )}
                   <span
                     style={{
-                      fontSize: '24px',
+                      fontSize: '22px',
                       color: '#fff',
                       opacity: 0.6,
                     }}
@@ -91,6 +97,8 @@ export async function GET() {
               )
             )}
           </div>
+          {/* Orange accent line */}
+          <div style={{ width: '120px', height: '4px', backgroundColor: '#ff6632' }} />
         </div>
       </div>
     ),
