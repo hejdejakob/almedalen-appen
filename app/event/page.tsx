@@ -562,7 +562,7 @@ export default function EventPage() {
         </section>
       )}
 
-      {/* Section 1: NI ÄGER DESSA FRÅGOR */}
+      {/* Section 1: ERA FRÅGOR */}
       {groupTopics.length > 0 && (
         <section style={{
           padding: '0 clamp(0.5rem, 2vw, 2rem)',
@@ -574,7 +574,7 @@ export default function EventPage() {
             color: '#ff6632',
             marginBottom: '1.5rem',
           }}>
-            NI ÄGER DESSA FRÅGOR
+            ERA FRÅGOR
           </h2>
           <div style={{
             backgroundColor: '#1a1a1a',
@@ -1415,7 +1415,7 @@ function VenueMapSection({ venueData }: { venueData: VenueItem[] }) {
     Promise.all([
       import('leaflet'),
       fetch('/venue-coordinates.json').then(r => r.json()),
-    ]).then(([L, coords]: [typeof import('leaflet'), VenueCoord[]]) => {
+    ]).then(([L, coordsObj]: [typeof import('leaflet'), Record<string, { lat: number; lng: number; locations?: string[] }>]) => {
       if (!mapRef.current) return;
 
       const map = L.map(mapRef.current, {
@@ -1432,15 +1432,21 @@ function VenueMapSection({ venueData }: { venueData: VenueItem[] }) {
 
       mapInstanceRef.current = map;
 
-      // Match venueData against coordinates
-      const coordMap = new Map<string, VenueCoord>();
-      for (const c of coords) {
-        coordMap.set(c.name.toLowerCase(), c);
+      // Build coordinate lookup from object format: { "Venue Name": { lat, lng, locations } }
+      const coordMap = new Map<string, { lat: number; lng: number }>();
+      for (const [name, data] of Object.entries(coordsObj)) {
+        coordMap.set(name.toLowerCase(), data);
+        // Also index by each location variant
+        if (data.locations) {
+          for (const loc of data.locations) {
+            coordMap.set(loc.toLowerCase(), data);
+          }
+        }
       }
 
       for (const v of venueData) {
         const vLower = v.name.toLowerCase();
-        let matched: VenueCoord | undefined;
+        let matched: { lat: number; lng: number } | undefined;
         // Exact match first
         matched = coordMap.get(vLower);
         // Partial match
