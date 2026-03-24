@@ -1,16 +1,4 @@
-'use client';
-
-import PasswordGate from '@/components/PasswordGate';
-
 export default function InsikterPage() {
-  return (
-    <PasswordGate>
-      <InsikterContent />
-    </PasswordGate>
-  );
-}
-
-function InsikterContent() {
   return (
     <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh' }}>
       <header style={{ padding: '2rem 1.5rem 1rem', maxWidth: '700px', margin: '0 auto' }}>

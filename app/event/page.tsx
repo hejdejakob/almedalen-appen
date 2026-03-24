@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import 'leaflet/dist/leaflet.css';
-import PasswordGate from '@/components/PasswordGate';
 
 type GroupTopic = { topic: string; orgs: number; events: number };
 type TrendItem = { id: number; name: string; perYear: Record<string, number>; change: number; firstYear: number; lastYear: number };
@@ -87,14 +86,6 @@ type SelectedEdge = {
 };
 
 export default function EventPage() {
-  return (
-    <PasswordGate>
-      <EventContent />
-    </PasswordGate>
-  );
-}
-
-function EventContent() {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
