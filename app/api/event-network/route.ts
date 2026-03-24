@@ -16,7 +16,7 @@ const EVENT_ARRANGER_IDS = [
   10844, // Håll Sverige Rent
   11173, // IKEM
   11424, // Njurförbundet
-  10769, // Reform Society
+  // 10769, // Reform Society — excluded (we're the host)
   10785, // Civil Rights Defenders
   13656, // Ideella Sverige
   11440, // Ellevio
@@ -59,7 +59,7 @@ const DISPLAY_NAMES: Record<number, string> = {
   10844: 'Håll Sverige Rent',
   11173: 'IKEM',
   11424: 'Njurförbundet',
-  10769: 'Reform Society',
+  // 10769: 'Reform Society', — excluded
   10785: 'Civil Rights Defenders',
   13656: 'Ideella Sverige',
   11440: 'Ellevio',
@@ -182,8 +182,18 @@ export async function GET() {
       }
     }
 
-    // 5. Compute edges: shared speakers between pairs
-    const edges: { source: number; target: number; weight: number }[] = [];
+    // 5. Fetch speaker names for resolving shared speakers
+    const allSpeakerIds = new Set<number>();
+    for (const spkSet of Object.values(arrangerSpeakers)) {
+      for (const spk of spkSet) allSpeakerIds.add(spk);
+    }
+    const speakerNames = allSpeakerIds.size > 0
+      ? await fetchAll('speakers', 'id, name, title, org_name', q => q.in('id', [...allSpeakerIds]))
+      : [];
+    const speakerNameMap = new Map(speakerNames.map((s: any) => [s.id, { name: s.name, title: s.title, org: s.org_name }]));
+
+    // 6. Compute edges: shared speakers between pairs (with names)
+    const edges: { source: number; target: number; weight: number; sharedSpeakers: { id: number; name: string; title: string | null; org: string | null }[] }[] = [];
     const ids = EVENT_ARRANGER_IDS.filter(id => arrangerEvents[id] && arrangerEvents[id].size > 0);
 
     for (let i = 0; i < ids.length; i++) {
@@ -191,17 +201,25 @@ export async function GET() {
         const a = arrangerSpeakers[ids[i]];
         const b = arrangerSpeakers[ids[j]];
         if (!a || !b) continue;
-        let shared = 0;
+        const shared: number[] = [];
         for (const spk of a) {
-          if (b.has(spk)) shared++;
+          if (b.has(spk)) shared.push(spk);
         }
-        if (shared >= 1) {
-          edges.push({ source: ids[i], target: ids[j], weight: shared });
+        if (shared.length >= 1) {
+          edges.push({
+            source: ids[i],
+            target: ids[j],
+            weight: shared.length,
+            sharedSpeakers: shared.map(id => {
+              const sp = speakerNameMap.get(id);
+              return { id, name: sp?.name || 'Okänd', title: sp?.title || null, org: sp?.org || null };
+            }),
+          });
         }
       }
     }
 
-    // 6. Get top 3 topics per org
+    // 7. Get top 3 topics per org
     const topTopicsMap: Record<number, string[]> = {};
     for (const arrangerId of EVENT_ARRANGER_IDS) {
       const evts = arrangerEvents[arrangerId];
@@ -224,16 +242,40 @@ export async function GET() {
         .map(([topic]) => topic);
     }
 
-    // 7. Build nodes
-    const nodes = EVENT_ARRANGER_IDS.map(id => ({
-      id,
-      name: DISPLAY_NAMES[id] || `Org ${id}`,
-      sector: sectorMap.get(id) || 'övrigt',
-      events: arrangerEvents[id]?.size || 0,
-      topTopics: topTopicsMap[id] || [],
-    }));
+    // 8. Build nodes with top speakers
+    const nodes = EVENT_ARRANGER_IDS.map(id => {
+      const spkIds = arrangerSpeakers[id] ? [...arrangerSpeakers[id]] : [];
+      // Count how many events each speaker appears in for this org
+      const spkEventCounts: Record<number, number> = {};
+      const evts = arrangerEvents[id];
+      if (evts) {
+        for (const eventId of evts) {
+          const spks = eventSpeakerMap[eventId];
+          if (spks) for (const spk of spks) {
+            if (spkIds.includes(spk)) spkEventCounts[spk] = (spkEventCounts[spk] || 0) + 1;
+          }
+        }
+      }
+      const topSpeakers = Object.entries(spkEventCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([spkId, count]) => {
+          const sp = speakerNameMap.get(parseInt(spkId));
+          return { id: parseInt(spkId), name: sp?.name || 'Okänd', title: sp?.title || null, org: sp?.org || null, events: count };
+        });
 
-    // 8. Stats
+      return {
+        id,
+        name: DISPLAY_NAMES[id] || `Org ${id}`,
+        sector: sectorMap.get(id) || 'övrigt',
+        events: arrangerEvents[id]?.size || 0,
+        totalSpeakers: spkIds.length,
+        topTopics: topTopicsMap[id] || [],
+        topSpeakers,
+      };
+    });
+
+    // 9. Stats
     const sectorCounts: Record<string, number> = {};
     for (const node of nodes) {
       sectorCounts[node.sector] = (sectorCounts[node.sector] || 0) + 1;

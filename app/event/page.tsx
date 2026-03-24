@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 
 const SECTOR_COLORS: Record<string, string> = {
   näringsliv: '#e63946',
@@ -52,14 +52,17 @@ const TOPIC_LABELS: Record<string, string> = {
   övrigt: 'Övrigt',
 };
 
+type Speaker = { id: number; name: string; title: string | null; org: string | null; events?: number };
 type Node = {
   id: number;
   name: string;
   sector: string;
   events: number;
   topTopics: string[];
+  topSpeakers: Speaker[];
+  totalSpeakers: number;
 };
-type Edge = { source: number; target: number; weight: number };
+type Edge = { source: number; target: number; weight: number; sharedSpeakers: Speaker[] };
 type Stats = {
   totalOrgs: number;
   totalEvents: number;
@@ -68,12 +71,21 @@ type Stats = {
   sectors: Record<string, number>;
 };
 
+type SelectedEdge = {
+  sourceName: string;
+  targetName: string;
+  sharedSpeakers: Speaker[];
+};
+
 export default function EventPage() {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
+  const [selectedEdge, setSelectedEdge] = useState<SelectedEdge | null>(null);
+  const [expandedCardId, setExpandedCardId] = useState<number | null>(null);
+  const detailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch('/api/event-network')
@@ -86,6 +98,34 @@ export default function EventPage() {
       })
       .catch(() => setLoading(false));
   }, []);
+
+  const handleNodeSelect = useCallback((node: Node | null) => {
+    setSelectedNode(node);
+    setSelectedEdge(null);
+    if (node && detailRef.current) {
+      setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+  }, []);
+
+  const handleEdgeSelect = useCallback((edge: SelectedEdge | null) => {
+    setSelectedEdge(edge);
+    setSelectedNode(null);
+    if (edge && detailRef.current) {
+      setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+  }, []);
+
+  // Get connections for a node
+  const getNodeConnections = (nodeId: number) => {
+    return edges
+      .filter(e => e.source === nodeId || e.target === nodeId)
+      .map(e => {
+        const otherId = e.source === nodeId ? e.target : e.source;
+        const otherNode = nodes.find(n => n.id === otherId);
+        return { name: otherNode?.name || 'Okänd', weight: e.weight, id: otherId };
+      })
+      .sort((a, b) => b.weight - a.weight);
+  };
 
   return (
     <div style={{
@@ -130,7 +170,7 @@ export default function EventPage() {
           marginRight: 'auto',
           lineHeight: 1.5,
         }}>
-          {stats ? stats.totalOrgs : '39'} organisationer. 4 {'\u00e5'}r av data. S{'\u00e5'} h{'\u00e4'}nger ni ihop.
+          {stats ? stats.totalOrgs : '...'} organisationer. 4 {'\u00e5'}r av data. {stats ? stats.totalConnections : '...'} kopplingar genom {stats ? stats.totalSharedSpeakers : '...'} gemensamma talare.
         </p>
       </header>
 
@@ -158,7 +198,8 @@ export default function EventPage() {
             <NetworkGraph
               nodes={nodes}
               edges={edges}
-              onNodeSelect={setSelectedNode}
+              onNodeSelect={handleNodeSelect}
+              onEdgeSelect={handleEdgeSelect}
             />
           )}
           {/* Legend */}
@@ -187,6 +228,20 @@ export default function EventPage() {
                 );
               })}
             </div>
+          )}
+        </div>
+
+        {/* Detail panels (below graph) */}
+        <div ref={detailRef}>
+          {selectedEdge && (
+            <EdgeDetailPanel edge={selectedEdge} onClose={() => setSelectedEdge(null)} />
+          )}
+          {selectedNode && (
+            <NodeDetailPanel
+              node={selectedNode}
+              connections={getNodeConnections(selectedNode.id)}
+              onClose={() => setSelectedNode(null)}
+            />
           )}
         </div>
       </section>
@@ -334,19 +389,19 @@ export default function EventPage() {
             {[...nodes]
               .sort((a, b) => b.events - a.events)
               .map(node => {
-                const connections = edges.filter(
-                  e => e.source === node.id || e.target === node.id
-                );
+                const connections = getNodeConnections(node.id);
+                const isExpanded = expandedCardId === node.id;
                 return (
                   <div
                     key={node.id}
+                    onClick={() => setExpandedCardId(isExpanded ? null : node.id)}
                     style={{
-                      backgroundColor: selectedNode?.id === node.id ? '#222' : '#1a1a1a',
-                      border: `1px solid ${selectedNode?.id === node.id ? '#ff6632' : '#333'}`,
+                      backgroundColor: isExpanded ? '#222' : '#1a1a1a',
+                      border: `1px solid ${isExpanded ? '#ff6632' : '#333'}`,
                       borderRadius: '10px',
                       padding: 'clamp(0.75rem, 2vw, 1rem)',
                       transition: 'border-color 0.2s, background-color 0.2s',
-                      cursor: 'default',
+                      cursor: 'pointer',
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
@@ -378,9 +433,10 @@ export default function EventPage() {
                       gap: '1rem',
                       fontSize: '0.75rem',
                       color: '#999',
-                      marginBottom: node.topTopics.length > 0 ? '0.5rem' : 0,
+                      marginBottom: node.topTopics.length > 0 || isExpanded ? '0.5rem' : 0,
                     }}>
                       <span><strong style={{ color: '#fff' }}>{node.events}</strong> seminarier</span>
+                      <span><strong style={{ color: '#fff' }}>{node.totalSpeakers}</strong> talare</span>
                       <span><strong style={{ color: '#fff' }}>{connections.length}</strong> kopplingar</span>
                     </div>
                     {node.topTopics.length > 0 && (
@@ -397,6 +453,88 @@ export default function EventPage() {
                             {TOPIC_LABELS[topic] || topic}
                           </span>
                         ))}
+                      </div>
+                    )}
+
+                    {/* Expanded card content */}
+                    {isExpanded && (
+                      <div style={{
+                        marginTop: '0.75rem',
+                        paddingTop: '0.75rem',
+                        borderTop: '1px solid #333',
+                      }}>
+                        {/* Top speakers */}
+                        {node.topSpeakers && node.topSpeakers.length > 0 && (
+                          <div style={{ marginBottom: '0.75rem' }}>
+                            <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem', fontWeight: 600 }}>
+                              Topptalare
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                              {node.topSpeakers.map(spk => (
+                                <div key={spk.id} style={{
+                                  backgroundColor: '#2a2a2a',
+                                  borderRadius: '6px',
+                                  padding: '0.4rem 0.6rem',
+                                  fontSize: '0.75rem',
+                                }}>
+                                  <span style={{ fontWeight: 600, color: '#fff' }}>{spk.name}</span>
+                                  {(spk.title || spk.org) && (
+                                    <span style={{ color: '#999', marginLeft: '0.4rem' }}>
+                                      {[spk.title, spk.org].filter(Boolean).join(', ')}
+                                    </span>
+                                  )}
+                                  <span style={{ color: '#ff6632', marginLeft: '0.4rem', fontSize: '0.65rem' }}>
+                                    {spk.events} event
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Connections */}
+                        {connections.length > 0 && (
+                          <div style={{ marginBottom: '0.5rem' }}>
+                            <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem', fontWeight: 600 }}>
+                              Kopplingar i nätverket
+                            </div>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+                              {connections.slice(0, 8).map(conn => (
+                                <span key={conn.id} style={{
+                                  fontSize: '0.65rem',
+                                  padding: '0.2rem 0.5rem',
+                                  borderRadius: '4px',
+                                  backgroundColor: '#2a2a2a',
+                                  color: '#ccc',
+                                  border: '1px solid #3a3a3a',
+                                }}>
+                                  {conn.name} <span style={{ color: '#ff6632' }}>({conn.weight})</span>
+                                </span>
+                              ))}
+                              {connections.length > 8 && (
+                                <span style={{ fontSize: '0.65rem', color: '#666', padding: '0.2rem 0.3rem' }}>
+                                  +{connections.length - 8} till
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Profile link */}
+                        <a
+                          href={`/speakers?tab=aktorer&id=${node.id}`}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            display: 'inline-block',
+                            marginTop: '0.3rem',
+                            fontSize: '0.75rem',
+                            color: '#ff6632',
+                            textDecoration: 'none',
+                            fontWeight: 600,
+                          }}
+                        >
+                          Se fullständig profil →
+                        </a>
                       </div>
                     )}
                   </div>
@@ -426,16 +564,251 @@ export default function EventPage() {
   );
 }
 
+/* ─── Edge Detail Panel ─── */
+
+function EdgeDetailPanel({ edge, onClose }: { edge: SelectedEdge; onClose: () => void }) {
+  return (
+    <div style={{
+      backgroundColor: '#1a1a1a',
+      borderLeft: '3px solid #ff6632',
+      borderRadius: '8px',
+      padding: '1.5rem',
+      marginTop: '1rem',
+      animation: 'fadeSlideIn 0.2s ease-out',
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+        <div>
+          <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>
+            Gemensamma talare
+          </div>
+          <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 700 }}>
+            {edge.sharedSpeakers.length} gemensamma talare mellan{' '}
+            <span style={{ color: '#ff6632' }}>{edge.sourceName}</span> och{' '}
+            <span style={{ color: '#ff6632' }}>{edge.targetName}</span>
+          </h3>
+        </div>
+        <button
+          onClick={onClose}
+          style={{
+            background: 'none',
+            border: '1px solid #444',
+            color: '#999',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            borderRadius: '4px',
+            width: '28px',
+            height: '28px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          ×
+        </button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+        {edge.sharedSpeakers.map(spk => (
+          <div key={spk.id} style={{
+            backgroundColor: '#2a2a2a',
+            borderRadius: '6px',
+            padding: '0.5rem 0.75rem',
+            fontSize: '0.8rem',
+          }}>
+            <span style={{ fontWeight: 600, color: '#fff' }}>{spk.name}</span>
+            {(spk.title || spk.org) && (
+              <span style={{ color: '#999', marginLeft: '0.5rem' }}>
+                {[spk.title, spk.org].filter(Boolean).join(', ')}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+      <style>{`
+        @keyframes fadeSlideIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/* ─── Node Detail Panel ─── */
+
+function NodeDetailPanel({
+  node,
+  connections,
+  onClose,
+}: {
+  node: Node;
+  connections: { name: string; weight: number; id: number }[];
+  onClose: () => void;
+}) {
+  return (
+    <div style={{
+      backgroundColor: '#1a1a1a',
+      borderLeft: '3px solid #ff6632',
+      borderRadius: '8px',
+      padding: '1.5rem',
+      marginTop: '1rem',
+      animation: 'fadeSlideIn 0.2s ease-out',
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700 }}>{node.name}</h3>
+          <span style={{
+            fontSize: '0.6rem',
+            fontWeight: 600,
+            padding: '0.2rem 0.5rem',
+            borderRadius: '99px',
+            backgroundColor: SECTOR_COLORS[node.sector] || '#555',
+            color: ['fackförbund', 'akademi'].includes(node.sector) ? '#000' : '#fff',
+          }}>
+            {SECTOR_LABELS[node.sector] || node.sector}
+          </span>
+        </div>
+        <button
+          onClick={onClose}
+          style={{
+            background: 'none',
+            border: '1px solid #444',
+            color: '#999',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            borderRadius: '4px',
+            width: '28px',
+            height: '28px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          ×
+        </button>
+      </div>
+
+      {/* Stats row */}
+      <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.8rem', color: '#999', marginBottom: '1rem' }}>
+        <span><strong style={{ color: '#fff' }}>{node.events}</strong> seminarier</span>
+        <span><strong style={{ color: '#fff' }}>{node.totalSpeakers}</strong> talare</span>
+        <span><strong style={{ color: '#fff' }}>{connections.length}</strong> kopplingar</span>
+      </div>
+
+      {/* Topics */}
+      {node.topTopics.length > 0 && (
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem', fontWeight: 600 }}>
+            Toppämnen
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+            {node.topTopics.map(topic => (
+              <span key={topic} style={{
+                fontSize: '0.7rem',
+                padding: '0.25rem 0.6rem',
+                borderRadius: '99px',
+                backgroundColor: '#2a2a2a',
+                color: '#ccc',
+                border: '1px solid #3a3a3a',
+              }}>
+                {TOPIC_LABELS[topic] || topic}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Top speakers */}
+      {node.topSpeakers && node.topSpeakers.length > 0 && (
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem', fontWeight: 600 }}>
+            Topptalare
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+            {node.topSpeakers.map(spk => (
+              <div key={spk.id} style={{
+                backgroundColor: '#2a2a2a',
+                borderRadius: '6px',
+                padding: '0.5rem 0.75rem',
+                fontSize: '0.8rem',
+              }}>
+                <span style={{ fontWeight: 600, color: '#fff' }}>{spk.name}</span>
+                {(spk.title || spk.org) && (
+                  <span style={{ color: '#999', marginLeft: '0.5rem' }}>
+                    {[spk.title, spk.org].filter(Boolean).join(', ')}
+                  </span>
+                )}
+                {spk.events && (
+                  <span style={{ color: '#ff6632', marginLeft: '0.5rem', fontSize: '0.7rem' }}>
+                    {spk.events} event
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Connections */}
+      {connections.length > 0 && (
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem', fontWeight: 600 }}>
+            Kopplingar i nätverket
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+            {connections.map(conn => (
+              <span key={conn.id} style={{
+                fontSize: '0.7rem',
+                padding: '0.25rem 0.6rem',
+                borderRadius: '4px',
+                backgroundColor: '#2a2a2a',
+                color: '#ccc',
+                border: '1px solid #3a3a3a',
+              }}>
+                {conn.name} <span style={{ color: '#ff6632' }}>({conn.weight})</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Link */}
+      <a
+        href={`/speakers?tab=aktorer&id=${node.id}`}
+        style={{
+          display: 'inline-block',
+          fontSize: '0.85rem',
+          color: '#ff6632',
+          textDecoration: 'none',
+          fontWeight: 600,
+        }}
+      >
+        Se fullständig profil →
+      </a>
+
+      <style>{`
+        @keyframes fadeSlideIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 /* ─── Network Graph sub-component ─── */
 
 function NetworkGraph({
   nodes,
   edges,
   onNodeSelect,
+  onEdgeSelect,
 }: {
   nodes: Node[];
   edges: Edge[];
   onNodeSelect: (node: Node | null) => void;
+  onEdgeSelect: (edge: SelectedEdge | null) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -482,7 +855,7 @@ function NetworkGraph({
       const maxEvents = Math.max(...nodes.map(n => n.events), 1);
       const radiusScale = d3.scaleSqrt().domain([0, maxEvents]).range([6, isMobile ? 24 : 30]);
       const maxWeight = Math.max(...edges.map(e => e.weight), 1);
-      const widthScale = d3.scaleLinear().domain([1, maxWeight]).range([0.5, 4]);
+      const widthScale = d3.scaleLinear().domain([1, maxWeight]).range([2, 6]);
 
       const padding = 40;
 
@@ -514,11 +887,15 @@ function NetworkGraph({
 
         link
           .attr('stroke-opacity', (l: any) =>
-            l.source.id === d.id || l.target.id === d.id ? 0.7 : 0.02
+            l.source.id === d.id || l.target.id === d.id ? 0.8 : 0.03
           )
           .attr('stroke', (l: any) =>
             l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#555'
           );
+
+        edgeLabel.attr('opacity', (l: any) =>
+          (l.source.id === d.id || l.target.id === d.id) && l.weight >= 3 ? 0.9 : 0
+        );
 
         label.attr('opacity', (n: any) => {
           if (n.id === d.id) return 1;
@@ -533,18 +910,56 @@ function NetworkGraph({
       function resetHighlight() {
         node.attr('opacity', 1);
         nodeGlow.attr('opacity', 0);
-        link.attr('stroke-opacity', 0.15).attr('stroke', '#555');
+        link.attr('stroke-opacity', 0.25).attr('stroke', '#555');
+        edgeLabel.attr('opacity', (d: any) => d.weight >= 3 ? 0.6 : 0);
         label.attr('opacity', (d: any) => d.events >= maxEvents * 0.2 ? 0.9 : 0);
       }
 
-      // Draw edges
+      // Draw edges (thicker hit area via transparent wider line)
+      const linkHitArea = g.append('g')
+        .selectAll('line')
+        .data(simEdges)
+        .join('line')
+        .attr('stroke', 'transparent')
+        .attr('stroke-width', 12)
+        .attr('cursor', 'pointer')
+        .on('click', function (_event: any, d: any) {
+          _event.stopPropagation();
+          const edgeData = edges.find(e =>
+            (e.source === d.source.id && e.target === d.target.id) ||
+            (e.source === d.target.id && e.target === d.source.id)
+          );
+          if (edgeData) {
+            const sourceNode = nodes.find(n => n.id === d.source.id);
+            const targetNode = nodes.find(n => n.id === d.target.id);
+            onEdgeSelect({
+              sourceName: sourceNode?.name || 'Okänd',
+              targetName: targetNode?.name || 'Okänd',
+              sharedSpeakers: edgeData.sharedSpeakers || [],
+            });
+          }
+        });
+
       const link = g.append('g')
         .selectAll('line')
         .data(simEdges)
         .join('line')
         .attr('stroke', '#555')
-        .attr('stroke-opacity', 0.15)
-        .attr('stroke-width', (d: any) => widthScale(d.weight));
+        .attr('stroke-opacity', 0.25)
+        .attr('stroke-width', (d: any) => widthScale(d.weight))
+        .attr('pointer-events', 'none');
+
+      // Edge weight labels (for weight >= 3)
+      const edgeLabel = g.append('g')
+        .selectAll('text')
+        .data(simEdges)
+        .join('text')
+        .attr('font-size', '8px')
+        .attr('fill', '#888')
+        .attr('text-anchor', 'middle')
+        .attr('pointer-events', 'none')
+        .attr('opacity', (d: any) => d.weight >= 3 ? 0.6 : 0)
+        .text((d: any) => d.weight);
 
       // Glow layer (behind nodes)
       const nodeGlow = g.append('g')
@@ -593,7 +1008,9 @@ function NetworkGraph({
           pinnedId = d.id;
           highlightNode(d);
           setTooltip(null);
-          onNodeSelect(d);
+          // Find the full node data (with topSpeakers etc.)
+          const fullNode = nodes.find(n => n.id === d.id);
+          onNodeSelect(fullNode || d);
         })
         .call(d3.drag<any, any>()
           .on('start', (event, d) => {
@@ -637,11 +1054,19 @@ function NetworkGraph({
           d.y = Math.max(padding + r, Math.min(actualHeight - padding - r, d.y));
         }
 
+        linkHitArea
+          .attr('x1', (d: any) => d.source.x)
+          .attr('y1', (d: any) => d.source.y)
+          .attr('x2', (d: any) => d.target.x)
+          .attr('y2', (d: any) => d.target.y);
         link
           .attr('x1', (d: any) => d.source.x)
           .attr('y1', (d: any) => d.source.y)
           .attr('x2', (d: any) => d.target.x)
           .attr('y2', (d: any) => d.target.y);
+        edgeLabel
+          .attr('x', (d: any) => (d.source.x + d.target.x) / 2)
+          .attr('y', (d: any) => (d.source.y + d.target.y) / 2);
         node
           .attr('cx', (d: any) => d.x)
           .attr('cy', (d: any) => d.y);
@@ -658,7 +1083,7 @@ function NetworkGraph({
     });
 
     return () => { destroyed = true; };
-  }, [nodes, edges, onNodeSelect]);
+  }, [nodes, edges, onNodeSelect, onEdgeSelect]);
 
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
