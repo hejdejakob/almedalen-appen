@@ -78,8 +78,10 @@ export async function GET(request: Request) {
       const arena = searchParams.get('arena');
       if (!arena) return NextResponse.json({ error: 'Missing arena parameter' }, { status: 400 });
       return NextResponse.json(await getArenaDetail(arena));
+    } else if (view === 'pension-deep') {
+      return NextResponse.json(await getPensionDeep());
     } else {
-      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide, topic-detail, arena-detail' }, { status: 400 });
+      return NextResponse.json({ error: 'Unknown view. Use: stats, topics, sectors, power, sentiment, speakers, network, locations, arena-network, arena-guide, speaker-guide, topic-detail, arena-detail, pension-deep' }, { status: 400 });
     }
   } catch (err: unknown) {
     console.error("Dashboard API error:", err instanceof Error ? err.message : err);
@@ -1561,5 +1563,154 @@ async function getTopicDetail(topic: string) {
     topSpeakers,
     topArrangers,
     sectorBreakdown,
+  };
+}
+
+async function getPensionDeep() {
+  // Fetch all needed data in parallel
+  const [events, eventSpeakerLinks, eventArrangerLinks, speakers, speakerClassifications, arrangers, arrangerClassifications, eventTopics, sentimentData] = await Promise.all([
+    fetchAll('events', 'id, year, title, description'),
+    fetchAll('event_speakers', 'event_id, speaker_id, role'),
+    fetchAll('event_arrangers', 'event_id, arranger_id'),
+    fetchAll('speakers', 'id, name, title, org_name'),
+    fetchAll('speaker_classifications', 'speaker_id, category'),
+    fetchAll('arrangers', 'id, name'),
+    fetchAll('arranger_classifications', 'arranger_id, sector'),
+    fetchAll('event_topics', 'event_id, topic_primary'),
+    fetchAll('event_sentiment', 'event_id, score, label'),
+  ]);
+
+  // Filter events mentioning "pension" in title or description, visible years only
+  const pensionEvents = events.filter((e: any) => {
+    if (!VISIBLE_YEARS.includes(e.year)) return false;
+    const title = (e.title || '').toLowerCase();
+    const desc = (e.description || '').toLowerCase();
+    return title.includes('pension') || desc.includes('pension');
+  });
+
+  const pensionEventIds = new Set(pensionEvents.map((e: any) => e.id));
+
+  // totalEvents
+  const totalEvents = pensionEvents.length;
+
+  // perYear
+  const perYearMap: Record<number, number> = {};
+  for (const e of pensionEvents) {
+    perYearMap[e.year] = (perYearMap[e.year] || 0) + 1;
+  }
+  const perYear = VISIBLE_YEARS.map(y => ({ year: y, count: perYearMap[y] || 0 }));
+
+  // topArrangers (15)
+  const arrangerCounts: Record<number, number> = {};
+  for (const ea of eventArrangerLinks) {
+    if (!pensionEventIds.has(ea.event_id)) continue;
+    arrangerCounts[ea.arranger_id] = (arrangerCounts[ea.arranger_id] || 0) + 1;
+  }
+
+  const arrangerMap = new Map(arrangers.map((a: any) => [a.id, a]));
+  const sectorMap = new Map(arrangerClassifications.map((c: any) => [c.arranger_id, c.sector]));
+
+  const topArrangers = Object.entries(arrangerCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 15)
+    .map(([id, count]) => {
+      const arr = arrangerMap.get(parseInt(id));
+      return {
+        id: parseInt(id),
+        name: arr?.name || 'Unknown',
+        sector: sectorMap.get(parseInt(id)) || null,
+        eventCount: count,
+      };
+    });
+
+  // topSpeakers (15) — exclude kontaktperson
+  const speakerCounts: Record<number, number> = {};
+  for (const es of eventSpeakerLinks) {
+    if (!pensionEventIds.has(es.event_id)) continue;
+    if (es.role === 'kontaktperson') continue;
+    speakerCounts[es.speaker_id] = (speakerCounts[es.speaker_id] || 0) + 1;
+  }
+
+  const speakerMap = new Map(speakers.map((s: any) => [s.id, s]));
+  const categoryMap = new Map(speakerClassifications.map((c: any) => [c.speaker_id, c.category]));
+
+  const topSpeakers = Object.entries(speakerCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 15)
+    .map(([id, count]) => {
+      const sp = speakerMap.get(parseInt(id));
+      return {
+        id: parseInt(id),
+        name: sp?.name || 'Unknown',
+        title: sp?.title || null,
+        org: sp?.org_name || null,
+        category: categoryMap.get(parseInt(id)) || null,
+        eventCount: count,
+      };
+    });
+
+  // topicDistribution
+  const topicEventMap = new Map(eventTopics.map((et: any) => [et.event_id, et.topic_primary]));
+  const topicCounts: Record<string, number> = {};
+  for (const e of pensionEvents) {
+    const topic = topicEventMap.get(e.id);
+    if (topic) {
+      topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+    }
+  }
+  const topicDistribution = Object.entries(topicCounts)
+    .map(([topic, count]) => ({ topic, count }))
+    .sort((a, b) => b.count - a.count);
+
+  // sectorBreakdown
+  const sectorCounts: Record<string, number> = {};
+  for (const ea of eventArrangerLinks) {
+    if (!pensionEventIds.has(ea.event_id)) continue;
+    const sector = sectorMap.get(ea.arranger_id) || 'unknown';
+    sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
+  }
+  const sectorBreakdown = Object.entries(sectorCounts)
+    .map(([sector, count]) => ({ sector, count }))
+    .sort((a, b) => b.count - a.count);
+
+  // sentiment
+  const sentimentMap = new Map(sentimentData.map((s: any) => [s.event_id, s]));
+  let scoreSum = 0;
+  let pos = 0;
+  let neu = 0;
+  let neg = 0;
+  let sentimentTotal = 0;
+  for (const e of pensionEvents) {
+    const s = sentimentMap.get(e.id);
+    if (!s) continue;
+    sentimentTotal++;
+    scoreSum += s.score;
+    if (s.label === 'positiv') pos++;
+    else if (s.label === 'neutral') neu++;
+    else if (s.label === 'negativ') neg++;
+  }
+  const sentiment = {
+    avg: sentimentTotal > 0 ? Math.round((scoreSum / sentimentTotal) * 1000) / 1000 : 0,
+    pos,
+    neu,
+    neg,
+    total: sentimentTotal,
+  };
+
+  // sampleEvents (20 latest)
+  const sampleEvents = pensionEvents
+    .sort((a: any, b: any) => b.year - a.year)
+    .slice(0, 20)
+    .map((e: any) => ({ id: e.id, year: e.year, title: e.title }));
+
+  return {
+    totalEvents,
+    perYear,
+    topArrangers,
+    topSpeakers,
+    topicDistribution,
+    sectorBreakdown,
+    sentiment,
+    sampleEvents,
   };
 }
