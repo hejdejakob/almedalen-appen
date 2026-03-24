@@ -66,6 +66,12 @@ export default function RootLayout({
             `,
           }}
         />
+        <script async src="https://plausible.io/js/pa-KXC7BZnslSIxyg39LxDRl.js" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`,
+          }}
+        />
       </head>
       <body>
         <PasswordGate>{children}</PasswordGate>
