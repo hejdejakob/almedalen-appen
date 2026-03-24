@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const SECTOR_COLORS: Record<string, string> = {
   näringsliv: '#e63946',
@@ -32,20 +32,24 @@ function formatTopic(t: string): string {
   return t.replace(/_/g, ' ').replace(/^\w/, c => c.toUpperCase());
 }
 
-type Arranger = { id: number; name: string; sector: string; events: number };
-type Speaker = { id: number; name: string; title: string | null; org: string | null; category: string | null; events: number };
+type Arranger = { id: number; name: string; sector: string; eventCount: number };
+type Speaker = { id: number; name: string; title: string | null; org: string | null; category: string | null; eventCount: number };
 type TopicItem = { topic: string; count: number };
 type SectorItem = { sector: string; count: number };
 type SampleEvent = { id: number; year: number; title: string };
 type PensionData = {
   totalEvents: number;
-  perYear: Record<string, number>;
+  perYear: Record<string, number> | { year: number; count: number }[];
   topArrangers: Arranger[];
   topSpeakers: Speaker[];
   topicDistribution: TopicItem[];
   sectorBreakdown: SectorItem[];
   sentiment: { avg: number; pos: number; neu: number; neg: number; total: number };
   sampleEvents: SampleEvent[];
+  network?: {
+    nodes: { id: number; name: string; sector: string; events: number }[];
+    edges: { source: number; target: number; weight: number }[];
+  };
 };
 
 export default function PensionerPage() {
@@ -71,8 +75,15 @@ export default function PensionerPage() {
     </div>
   );
 
+  // Normalize perYear: API may return array [{year,count}] or object {2022: N}
+  const perYearObj: Record<string, number> = {};
+  if (Array.isArray(data.perYear)) {
+    for (const item of data.perYear) perYearObj[String(item.year)] = item.count;
+  } else {
+    for (const [k, v] of Object.entries(data.perYear)) perYearObj[k] = v;
+  }
   const years = ['2022', '2023', '2024', '2025'];
-  const maxYearCount = Math.max(...years.map(y => data.perYear[y] || 0));
+  const maxYearCount = Math.max(...years.map(y => perYearObj[y] || 0));
   const maxTopicCount = Math.max(...data.topicDistribution.map(t => t.count), 1);
   const maxSectorCount = Math.max(...data.sectorBreakdown.map(s => s.count), 1);
   const top15Arrangers = data.topArrangers.slice(0, 15);
@@ -103,11 +114,24 @@ export default function PensionerPage() {
           </p>
         </header>
 
-        {/* 2. TRENDEN */}
+        {/* 2. PENSIONSNÄTVERKET */}
+        {data.network && data.network.nodes.length > 0 && (
+          <Section title="PENSIONSN&Auml;TVERKET">
+            <p style={{ color: '#999', fontSize: '0.9rem', marginTop: 0, marginBottom: '1rem', lineHeight: 1.5 }}>
+              Organisationer som delar pensionsseminarier. Linjer visar samarbeten &mdash; tjockare linje = fler gemensamma event.
+            </p>
+            <PensionNetwork
+              nodes={data.network.nodes}
+              edges={data.network.edges}
+            />
+          </Section>
+        )}
+
+        {/* 3. TRENDEN */}
         <Section title="TRENDEN">
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '1rem', height: 200, marginBottom: '1rem' }}>
             {years.map(y => {
-              const count = data.perYear[y] || 0;
+              const count = perYearObj[y] || 0;
               const height = maxYearCount > 0 ? (count / maxYearCount) * 160 : 0;
               return (
                 <div key={y} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
@@ -152,7 +176,7 @@ export default function PensionerPage() {
                   backgroundColor: '#ff6632', color: '#000', fontWeight: 700,
                   fontSize: '0.8rem', padding: '2px 8px', borderRadius: 4,
                 }}>
-                  {a.events}
+                  {a.eventCount}
                 </span>
               </div>
             ))}
@@ -194,7 +218,7 @@ export default function PensionerPage() {
                   backgroundColor: '#ff6632', color: '#000', fontWeight: 700,
                   fontSize: '0.8rem', padding: '2px 8px', borderRadius: 4,
                 }}>
-                  {s.events}
+                  {s.eventCount}
                 </span>
               </div>
             ))}
@@ -300,6 +324,200 @@ export default function PensionerPage() {
           </p>
         </footer>
       </div>
+    </div>
+  );
+}
+
+function PensionNetwork({
+  nodes,
+  edges,
+}: {
+  nodes: { id: number; name: string; sector: string; events: number }[];
+  edges: { source: number; target: number; weight: number }[];
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; name: string; sector: string; events: number } | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !nodes.length) return;
+
+    let destroyed = false;
+
+    import('d3').then((d3) => {
+      if (destroyed || !containerRef.current) return;
+
+      // Clear previous
+      containerRef.current.innerHTML = '';
+
+      const width = containerRef.current.clientWidth;
+      const height = 500;
+
+      const svg = d3.select(containerRef.current)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .style('background', '#111')
+        .style('border-radius', '8px');
+
+      const g = svg.append('g');
+
+      // Zoom
+      const zoom = d3.zoom<SVGSVGElement, unknown>()
+        .scaleExtent([0.3, 4])
+        .on('zoom', (event) => g.attr('transform', event.transform));
+      svg.call(zoom);
+
+      // Build node map for quick lookup
+      const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+      // Filter edges to only include nodes present in the data
+      const validEdges = edges.filter(e => nodeMap.has(e.source) && nodeMap.has(e.target));
+
+      // Create simulation data
+      const simNodes = nodes.map(n => ({ ...n }));
+      const simEdges = validEdges.map(e => ({ source: e.source, target: e.target, weight: e.weight }));
+
+      const maxWeight = Math.max(...validEdges.map(e => e.weight), 1);
+
+      // Force simulation
+      const simulation = d3.forceSimulation(simNodes as any)
+        .force('link', d3.forceLink(simEdges as any).id((d: any) => d.id).distance(80))
+        .force('charge', d3.forceManyBody().strength(-200))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collision', d3.forceCollide().radius((d: any) => Math.sqrt(d.events) * 3 + 4));
+
+      // Draw edges
+      const link = g.selectAll('.link')
+        .data(simEdges)
+        .join('line')
+        .attr('class', 'link')
+        .attr('stroke', '#fff')
+        .attr('stroke-opacity', 0.3)
+        .attr('stroke-width', (d: any) => Math.max(0.5, (d.weight / maxWeight) * 3));
+
+      // Draw nodes
+      const node = g.selectAll('.node')
+        .data(simNodes)
+        .join('circle')
+        .attr('class', 'node')
+        .attr('r', (d: any) => Math.sqrt(d.events) * 3)
+        .attr('fill', (d: any) => SECTOR_COLORS[d.sector] || '#666')
+        .attr('stroke', '#000')
+        .attr('stroke-width', 0.5)
+        .style('cursor', 'pointer')
+        .call(d3.drag<SVGCircleElement, any>()
+          .on('start', (event, d) => {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+          })
+          .on('drag', (event, d) => {
+            d.fx = event.x;
+            d.fy = event.y;
+          })
+          .on('end', (event, d) => {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+          }) as any);
+
+      // Labels
+      const label = g.selectAll('.label')
+        .data(simNodes)
+        .join('text')
+        .attr('class', 'label')
+        .text((d: any) => d.name)
+        .attr('font-size', 9)
+        .attr('fill', '#fff')
+        .attr('text-anchor', 'middle')
+        .attr('dy', (d: any) => -(Math.sqrt(d.events) * 3 + 4))
+        .style('pointer-events', 'none')
+        .style('user-select', 'none');
+
+      // Hover interactions
+      node.on('mouseenter', (event, d: any) => {
+        // Highlight connected edges
+        link.attr('stroke-opacity', (l: any) =>
+          l.source.id === d.id || l.target.id === d.id ? 0.9 : 0.05
+        ).attr('stroke', (l: any) =>
+          l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#fff'
+        );
+        // Dim other nodes
+        node.attr('opacity', (n: any) => {
+          if (n.id === d.id) return 1;
+          const connected = simEdges.some((e: any) =>
+            (e.source.id === d.id && e.target.id === n.id) ||
+            (e.target.id === d.id && e.source.id === n.id)
+          );
+          return connected ? 1 : 0.2;
+        });
+        label.attr('opacity', (n: any) => {
+          if (n.id === d.id) return 1;
+          const connected = simEdges.some((e: any) =>
+            (e.source.id === d.id && e.target.id === n.id) ||
+            (e.target.id === d.id && e.source.id === n.id)
+          );
+          return connected ? 1 : 0.1;
+        });
+        // Tooltip
+        const rect = containerRef.current!.getBoundingClientRect();
+        setTooltip({
+          x: event.clientX - rect.left,
+          y: event.clientY - rect.top - 10,
+          name: d.name,
+          sector: SECTOR_LABELS[d.sector] || d.sector,
+          events: d.events,
+        });
+      }).on('mouseleave', () => {
+        link.attr('stroke-opacity', 0.3).attr('stroke', '#fff');
+        node.attr('opacity', 1);
+        label.attr('opacity', 1);
+        setTooltip(null);
+      });
+
+      // Tick
+      simulation.on('tick', () => {
+        link
+          .attr('x1', (d: any) => d.source.x)
+          .attr('y1', (d: any) => d.source.y)
+          .attr('x2', (d: any) => d.target.x)
+          .attr('y2', (d: any) => d.target.y);
+        node
+          .attr('cx', (d: any) => d.x)
+          .attr('cy', (d: any) => d.y);
+        label
+          .attr('x', (d: any) => d.x)
+          .attr('y', (d: any) => d.y);
+      });
+    });
+
+    return () => {
+      destroyed = true;
+      if (containerRef.current) containerRef.current.innerHTML = '';
+    };
+  }, [nodes, edges]);
+
+  return (
+    <div style={{ position: 'relative' }}>
+      <div ref={containerRef} style={{ width: '100%', height: 500 }} />
+      {tooltip && (
+        <div style={{
+          position: 'absolute',
+          left: tooltip.x,
+          top: tooltip.y,
+          transform: 'translate(-50%, -100%)',
+          backgroundColor: 'rgba(0,0,0,0.9)',
+          border: '1px solid #ff6632',
+          borderRadius: 6,
+          padding: '6px 10px',
+          pointerEvents: 'none',
+          whiteSpace: 'nowrap',
+          zIndex: 10,
+        }}>
+          <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#fff' }}>{tooltip.name}</div>
+          <div style={{ fontSize: '0.75rem', color: '#999' }}>{tooltip.sector} &middot; {tooltip.events} event</div>
+        </div>
+      )}
     </div>
   );
 }

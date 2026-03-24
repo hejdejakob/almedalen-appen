@@ -1703,6 +1703,33 @@ async function getPensionDeep() {
     .slice(0, 20)
     .map((e: any) => ({ id: e.id, year: e.year, title: e.title }));
 
+  // Network: top 20 arrangers as nodes, edges = shared speakers on pension events
+  const top20Ids = topArrangers.slice(0, 20).map((a: any) => a.id);
+  const arrangerPensionSpeakers: Record<number, Set<number>> = {};
+  for (const arrId of top20Ids) {
+    arrangerPensionSpeakers[arrId] = new Set();
+  }
+  for (const ea of eventArrangerLinks) {
+    if (!pensionEventIds.has(ea.event_id) || !arrangerPensionSpeakers[ea.arranger_id]) continue;
+    const spks = eventSpeakerLinks.filter((es: any) => es.event_id === ea.event_id && es.role !== 'kontaktperson');
+    for (const es of spks) {
+      arrangerPensionSpeakers[ea.arranger_id].add(es.speaker_id);
+    }
+  }
+  const networkEdges: { source: number; target: number; weight: number }[] = [];
+  for (let i = 0; i < top20Ids.length; i++) {
+    for (let j = i + 1; j < top20Ids.length; j++) {
+      const a = arrangerPensionSpeakers[top20Ids[i]];
+      const b = arrangerPensionSpeakers[top20Ids[j]];
+      let shared = 0;
+      for (const spk of a) { if (b.has(spk)) shared++; }
+      if (shared >= 1) networkEdges.push({ source: top20Ids[i], target: top20Ids[j], weight: shared });
+    }
+  }
+  const networkNodes = topArrangers.slice(0, 20).map((a: any) => ({
+    id: a.id, name: a.name, sector: a.sector, events: a.eventCount,
+  }));
+
   return {
     totalEvents,
     perYear,
@@ -1712,5 +1739,6 @@ async function getPensionDeep() {
     sectorBreakdown,
     sentiment,
     sampleEvents,
+    network: { nodes: networkNodes, edges: networkEdges },
   };
 }
