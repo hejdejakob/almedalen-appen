@@ -219,12 +219,14 @@ export async function GET() {
       }
     }
 
-    // 7. Get top 3 topics per org
+    // 7. Get topics per org (full counts for groupTopics, top 3 for nodes)
     const topTopicsMap: Record<number, string[]> = {};
+    const fullTopicCountsMap: Record<number, Record<string, number>> = {};
     for (const arrangerId of EVENT_ARRANGER_IDS) {
       const evts = arrangerEvents[arrangerId];
       if (!evts || evts.size === 0) {
         topTopicsMap[arrangerId] = [];
+        fullTopicCountsMap[arrangerId] = {};
         continue;
       }
       const topics = await fetchAll(
@@ -236,6 +238,7 @@ export async function GET() {
       for (const t of topics) {
         if (t.topic_primary) counts[t.topic_primary] = (counts[t.topic_primary] || 0) + 1;
       }
+      fullTopicCountsMap[arrangerId] = counts;
       topTopicsMap[arrangerId] = Object.entries(counts)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
@@ -283,6 +286,133 @@ export async function GET() {
 
     const totalEvents = nodes.reduce((sum, n) => sum + n.events, 0);
 
+    // --- NEW FIELD 1: groupTopics (top 10 topics across all orgs) ---
+    const globalTopicAgg: Record<string, { orgs: Set<number>; events: number }> = {};
+    for (const arrangerId of EVENT_ARRANGER_IDS) {
+      const counts = fullTopicCountsMap[arrangerId];
+      if (!counts) continue;
+      for (const [topic, count] of Object.entries(counts)) {
+        if (!globalTopicAgg[topic]) globalTopicAgg[topic] = { orgs: new Set(), events: 0 };
+        globalTopicAgg[topic].orgs.add(arrangerId);
+        globalTopicAgg[topic].events += count;
+      }
+    }
+    const groupTopics = Object.entries(globalTopicAgg)
+      .map(([topic, { orgs, events }]) => ({ topic, orgs: orgs.size, events }))
+      .sort((a, b) => b.events - a.events)
+      .slice(0, 10);
+
+    // --- NEW FIELD 2: trends (top 6 activity changes) ---
+    // Build event year lookup
+    const eventYearMap = new Map(events.map((e: any) => [e.id, e.year]));
+    const trendData: { id: number; name: string; perYear: Record<number, number>; change: number; firstYear: number; lastYear: number }[] = [];
+    for (const arrangerId of EVENT_ARRANGER_IDS) {
+      const evts = arrangerEvents[arrangerId];
+      if (!evts || evts.size === 0) continue;
+      const perYear: Record<number, number> = {};
+      for (const eventId of evts) {
+        const yr = eventYearMap.get(eventId);
+        if (yr) perYear[yr] = (perYear[yr] || 0) + 1;
+      }
+      const years = Object.keys(perYear).map(Number).sort((a, b) => a - b);
+      if (years.length < 2) continue;
+      const firstYear = years[0];
+      const lastYear = years[years.length - 1];
+      const change = perYear[lastYear] - perYear[firstYear];
+      trendData.push({
+        id: arrangerId,
+        name: DISPLAY_NAMES[arrangerId] || `Org ${arrangerId}`,
+        perYear,
+        change,
+        firstYear,
+        lastYear,
+      });
+    }
+    const trends = trendData
+      .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))
+      .slice(0, 6);
+
+    // --- NEW FIELD 3: bridgePersons (top 5 speakers connecting most orgs) ---
+    const speakerOrgMap: Record<number, Set<number>> = {};
+    for (const arrangerId of EVENT_ARRANGER_IDS) {
+      const spks = arrangerSpeakers[arrangerId];
+      if (!spks) continue;
+      for (const spkId of spks) {
+        if (!speakerOrgMap[spkId]) speakerOrgMap[spkId] = new Set();
+        speakerOrgMap[spkId].add(arrangerId);
+      }
+    }
+    const bridgePersons = Object.entries(speakerOrgMap)
+      .filter(([, orgs]) => orgs.size >= 2)
+      .sort((a, b) => b[1].size - a[1].size)
+      .slice(0, 5)
+      .map(([spkIdStr, orgSet]) => {
+        const spkId = parseInt(spkIdStr);
+        const sp = speakerNameMap.get(spkId);
+        return {
+          id: spkId,
+          name: sp?.name || 'Okänd',
+          title: sp?.title || null,
+          org: sp?.org || null,
+          orgCount: orgSet.size,
+          orgs: [...orgSet].map(id => DISPLAY_NAMES[id] || `Org ${id}`),
+        };
+      });
+
+    // --- NEW FIELD 4: sentimentData (avg sentiment per org) ---
+    const sentimentRows = await fetchAll(
+      'event_sentiment',
+      'event_id, score, label',
+      q => q.in('event_id', visibleEventIdArray)
+    );
+    const sentimentByEvent = new Map(sentimentRows.map((s: any) => [s.event_id, s]));
+    const sentimentData: { id: number; name: string; avg: number; pos: number; neu: number; neg: number; total: number }[] = [];
+    for (const arrangerId of EVENT_ARRANGER_IDS) {
+      const evts = arrangerEvents[arrangerId];
+      if (!evts || evts.size === 0) continue;
+      let sum = 0, count = 0, pos = 0, neu = 0, neg = 0;
+      for (const eventId of evts) {
+        const s = sentimentByEvent.get(eventId);
+        if (!s || s.score == null) continue;
+        sum += s.score;
+        count++;
+        if (s.label === 'positiv') pos++;
+        else if (s.label === 'neutral') neu++;
+        else if (s.label === 'negativ') neg++;
+      }
+      if (count === 0) continue;
+      sentimentData.push({
+        id: arrangerId,
+        name: DISPLAY_NAMES[arrangerId] || `Org ${arrangerId}`,
+        avg: Math.round((sum / count) * 100) / 100,
+        pos,
+        neu,
+        neg,
+        total: count,
+      });
+    }
+    sentimentData.sort((a, b) => b.avg - a.avg);
+
+    // --- NEW FIELD 5: venueData (top 20 venues) ---
+    const venueEvents = await fetchAll(
+      'events',
+      'id, location_name',
+      q => q.in('id', visibleEventIdArray).not('location_name', 'is', null)
+    );
+    const venueEventMap = new Map(venueEvents.map((e: any) => [e.id, e.location_name]));
+    const venueAgg: Record<string, { events: Set<number>; orgs: Set<number> }> = {};
+    for (const link of visibleLinks) {
+      const venueName = venueEventMap.get(link.event_id);
+      if (!venueName) continue;
+      if (!venueAgg[venueName]) venueAgg[venueName] = { events: new Set(), orgs: new Set() };
+      venueAgg[venueName].events.add(link.event_id);
+      venueAgg[venueName].orgs.add(link.arranger_id);
+    }
+    const venueData = Object.entries(venueAgg)
+      .map(([name, { events: evtSet, orgs }]) => ({ name, events: evtSet.size, orgs: orgs.size }))
+      .sort((a, b) => b.events - a.events)
+      .slice(0, 20);
+
     return NextResponse.json({
       nodes,
       edges,
@@ -293,6 +423,11 @@ export async function GET() {
         totalSharedSpeakers: edges.reduce((sum, e) => sum + e.weight, 0),
         sectors: sectorCounts,
       },
+      groupTopics,
+      trends,
+      bridgePersons,
+      sentimentData,
+      venueData,
     });
   } catch (err: unknown) {
     console.error('Event network API error:', err instanceof Error ? err.message : err);
