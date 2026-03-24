@@ -1,15 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const CORRECT_PASSWORD = 'ReformSociety2026';
 const STORAGE_KEY = 'rs-auth';
 
+// Pages that are PUBLIC (no password)
+const PUBLIC_PATHS = ['/', '/om', '/dashboard', '/arenaguiden', '/quiz', '/dittprogram'];
+
 export default function PasswordGate({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [authed, setAuthed] = useState(false);
   const [input, setInput] = useState('');
   const [error, setError] = useState(false);
   const [checking, setChecking] = useState(true);
+
+  const isPublic = PUBLIC_PATHS.includes(pathname);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && sessionStorage.getItem(STORAGE_KEY) === CORRECT_PASSWORD) {
@@ -17,6 +24,9 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
     }
     setChecking(false);
   }, []);
+
+  // Public pages — no gate
+  if (isPublic) return <>{children}</>;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

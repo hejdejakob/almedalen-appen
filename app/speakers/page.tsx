@@ -657,10 +657,9 @@ function TalarkollenTopicPills({ topics }: { topics: { topic: string; count: num
   );
 }
 
-function TalarkollenSpeakerCard({ speaker, tab, onOpenProfile }: { speaker: TalarkollenEntry; tab: TalarkollenTabKey; onOpenProfile: (id: number) => void }) {
+function TalarkollenSpeakerCard({ speaker, tab }: { speaker: TalarkollenEntry; tab: TalarkollenTabKey }) {
   return (
     <div
-      onClick={() => onOpenProfile(speaker.id)}
       style={{
         backgroundColor: '#fff',
         boxShadow: '0 1px 4px rgba(0,0,0,0.10)',
@@ -670,7 +669,6 @@ function TalarkollenSpeakerCard({ speaker, tab, onOpenProfile }: { speaker: Tala
         gap: '1rem',
         alignItems: 'flex-start',
         position: 'relative',
-        cursor: 'pointer',
       }}
     >
       {/* Accent bar */}
@@ -767,7 +765,6 @@ function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void
   const [data, setData] = useState<TalarkollenData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<TalarkollenTabKey>('rising_stars');
   const [topicFilter, setTopicFilter] = useState<string>('');
 
   useEffect(() => {
@@ -786,11 +783,16 @@ function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void
       });
   }, []);
 
-  const speakers: TalarkollenEntry[] = data ? data[activeTab] : [];
+  // Merge all categories, deduplicate by id, sort by totalPanels
+  const allSpeakers: TalarkollenEntry[] = data
+    ? [...data.rising_stars, ...data.evergreens, ...data.high_breadth]
+        .filter((s, i, arr) => arr.findIndex(x => x.id === s.id) === i)
+        .sort((a, b) => b.totalPanels - a.totalPanels)
+    : [];
 
   const filtered = topicFilter
-    ? speakers.filter(s => s.topTopics.some(t => t.topic === topicFilter))
-    : speakers;
+    ? allSpeakers.filter(s => s.topTopics.some(t => t.topic === topicFilter))
+    : allSpeakers;
 
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -803,43 +805,6 @@ function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void
       }}>
         Almedalens 16&nbsp;000+ talare har olika profiler. Vissa är evergreens som dyker upp varje år,
         andra är nya röster på väg upp. Här hittar du rätt panelist för ditt seminarium.
-      </p>
-
-      {/* Sub-tabs */}
-      <div style={{
-        display: 'flex',
-        gap: 0,
-        borderBottom: '2px solid #ddd',
-        marginBottom: '1.5rem',
-      }}>
-        {TALARKOLLEN_TABS.map(tab => (
-          <button
-            key={tab.key}
-            onClick={() => setActiveTab(tab.key)}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              padding: '0.75rem 1.25rem',
-              fontSize: '0.95rem',
-              fontWeight: activeTab === tab.key ? 700 : 500,
-              color: activeTab === tab.key ? '#000' : '#666',
-              borderBottom: activeTab === tab.key ? '3px solid #ff6632' : '3px solid transparent',
-              marginBottom: '-2px',
-              fontFamily: 'var(--body-text)',
-              transition: 'color 0.15s',
-            }}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Tab description */}
-      <p style={{ fontSize: '0.9rem', color: '#555', marginBottom: '1.25rem', marginTop: '-0.5rem' }}>
-        {activeTab === 'rising_stars' && 'Talare som debuterade 2024 eller senare med minst 3 paneldeltaganden. Nya röster med momentum.'}
-        {activeTab === 'evergreens' && 'Talare med minst 15 paneldeltaganden totalt. Almedalens mest erfarna panelister.'}
-        {activeTab === 'high_breadth' && 'Talare med hög bredd — aktiva hos 5+ unika arrangörer, men under 15 paneler totalt. Eftersökta men inte överväldigande.'}
       </p>
 
       {/* Topic filter */}
@@ -918,7 +883,7 @@ function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void
                 {filtered.length} talare{topicFilter ? ` med amne "${formatTopic(topicFilter)}"` : ''}
               </div>
               {filtered.map(speaker => (
-                <TalarkollenSpeakerCard key={speaker.id} speaker={speaker} tab={activeTab} onOpenProfile={onOpenProfile} />
+                <TalarkollenSpeakerCard key={speaker.id} speaker={speaker} tab={'evergreens'} />
               ))}
             </div>
           )}

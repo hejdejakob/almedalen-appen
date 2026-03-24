@@ -437,7 +437,7 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle: string })
       <h2 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', marginBottom: '0.5rem' }}>
         {title}
       </h2>
-      <p style={{ color: '#555', marginBottom: '2rem', fontSize: '1.05rem' }}>
+      <p style={{ color: '#555', marginBottom: '1rem', fontSize: '1.05rem' }}>
         {subtitle}
       </p>
     </>

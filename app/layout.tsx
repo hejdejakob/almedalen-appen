@@ -4,6 +4,10 @@ import PasswordGate from "@/components/PasswordGate";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://almedalsdata.se"),
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
   title: {
     default: "Almedalsdata | Reform Society",
     template: "%s | Almedalsdata",
