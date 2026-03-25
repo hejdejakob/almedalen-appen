@@ -66,73 +66,6 @@ function formatTopic(topic: string): string {
   return label.charAt(0).toUpperCase() + label.slice(1);
 }
 
-// --- Talarkollen types & constants ---
-
-type TalarkollenEntry = {
-  id: number;
-  name: string;
-  title: string | null;
-  org_name: string | null;
-  totalPanels: number;
-  years: number[];
-  uniqueArrangers: number;
-  breadth: number;
-  topTopics: { topic: string; count: number }[];
-  minYear: number;
-  maxYear: number;
-};
-
-type TalarkollenData = {
-  rising_stars: TalarkollenEntry[];
-  evergreens: TalarkollenEntry[];
-  high_breadth: TalarkollenEntry[];
-};
-
-type TalarkollenTabKey = 'rising_stars' | 'evergreens' | 'high_breadth';
-
-const TALARKOLLEN_ALL_YEARS = [2022, 2023, 2024, 2025];
-
-const TALARKOLLEN_TOPICS = [
-  'arbetsmarknad_löner',
-  'välfärd_omsorg',
-  'hälsa_sjukvård',
-  'skola_utbildning_forskning',
-  'klimat_miljö_hållbarhet',
-  'energi',
-  'bostäder_samhällsbyggnad',
-  'transport_infrastruktur',
-  'ekonomi_tillväxt',
-  'skatter_offentliga_finanser',
-  'näringsliv_innovation',
-  'digitalisering_ai',
-  'försvar_säkerhet',
-  'demokrati_rättsstat',
-  'integration_migration',
-  'eu_utrikespolitik',
-  'jämställdhet_mångfald',
-  'media_kommunikation',
-  'kultur_idrott',
-  'barn_ungdom',
-  'övrigt',
-];
-
-const TALARKOLLEN_TOPIC_COLORS = [
-  '#e63946', '#457b9d', '#2a9d8f', '#e9c46a', '#f4a261',
-  '#264653', '#6a4c93', '#1982c4', '#ff595e', '#8ac926',
-];
-
-function talarkollenTopicColor(topic: string): string {
-  let hash = 0;
-  for (let i = 0; i < topic.length; i++) hash = ((hash << 5) - hash) + topic.charCodeAt(i);
-  return TALARKOLLEN_TOPIC_COLORS[Math.abs(hash) % TALARKOLLEN_TOPIC_COLORS.length];
-}
-
-const TALARKOLLEN_TABS: { key: TalarkollenTabKey; label: string }[] = [
-  { key: 'rising_stars', label: 'Rising Stars' },
-  { key: 'evergreens', label: 'Evergreens' },
-  { key: 'high_breadth', label: 'Hög Bredd' },
-];
-
 type SearchResult = {
   id: number;
   name: string;
@@ -230,8 +163,7 @@ function SpeakersContent() {
   const initialId = searchParams.get('id');
   const initialTab = searchParams.get('tab');
 
-  const [mode, setMode] = useState<'search' | 'talarkollen' | 'amnen' | 'aktorer'>(() => {
-    if (initialTab === 'talarkollen') return 'talarkollen';
+  const [mode, setMode] = useState<'search' | 'amnen' | 'aktorer'>(() => {
     if (initialTab === 'amnen') return 'amnen';
     if (initialTab === 'aktorer') return 'aktorer';
     return 'search';
@@ -242,10 +174,9 @@ function SpeakersContent() {
     initialTab === 'aktorer' && searchParams.get('id') ? parseInt(searchParams.get('id')!) : null
   );
 
-  const switchMode = (m: 'search' | 'talarkollen' | 'amnen' | 'aktorer') => {
+  const switchMode = (m: 'search' | 'amnen' | 'aktorer') => {
     setMode(m);
-    if (m === 'talarkollen') router.replace('/speakers?tab=talarkollen', { scroll: false });
-    else if (m === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
+    if (m === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
     else if (m === 'aktorer') router.replace('/speakers?tab=aktorer', { scroll: false });
     else router.replace('/speakers', { scroll: false });
     setProfile(null);
@@ -365,8 +296,7 @@ function SpeakersContent() {
       return;
     }
     setProfile(null);
-    if (mode === 'talarkollen') router.replace('/speakers?tab=talarkollen', { scroll: false });
-    else if (mode === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
+    if (mode === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
     else if (mode === 'aktorer') router.replace('/speakers?tab=aktorer', { scroll: false });
     else router.replace('/speakers', { scroll: false });
     if (mode === 'search' && !hasSearched) searchSpeakers('');
@@ -390,11 +320,11 @@ function SpeakersContent() {
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
-              {mode === 'talarkollen' ? 'TALARKOLLEN' : mode === 'amnen' ? 'ÄMNESSÖK' : mode === 'aktorer' ? 'AKTÖRSSÖK' : 'TALARSÖK'}
+              {mode === 'amnen' ? 'ÄMNESSÖK' : mode === 'aktorer' ? 'AKTÖRSSÖK' : 'TALARSÖK'}
             </h1>
             {!isMobile && (
               <p style={{ fontSize: '1rem', opacity: 0.7, marginTop: '0.5rem' }}>
-                {mode === 'talarkollen' ? 'Vem ska du ha på scen?' : mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
+                {mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
               </p>
             )}
           </div>
@@ -423,7 +353,6 @@ function SpeakersContent() {
         }}>
           {([
             { key: 'search' as const, label: 'Talarsök' },
-            { key: 'talarkollen' as const, label: 'Talarkollen' },
             { key: 'amnen' as const, label: 'Ämnessök' },
             { key: 'aktorer' as const, label: 'Aktörssök' },
           ]).map(tab => (
@@ -582,9 +511,6 @@ function SpeakersContent() {
                 )}
               </>
             )}
-            {mode === 'talarkollen' && (
-              <TalarkollenTab onOpenProfile={openProfile} />
-            )}
             {mode === 'amnen' && (
               <AmnesTab
                 onOpenProfile={openProfile}
@@ -618,290 +544,6 @@ function SpeakersContent() {
   );
 }
 
-// --- Talarkollen sub-components ---
-
-function TalarkollenYearDots({ activeYears }: { activeYears: number[] }) {
-  const activeSet = new Set(activeYears);
-  return (
-    <span style={{ display: 'inline-flex', gap: '4px', alignItems: 'center' }}>
-      {TALARKOLLEN_ALL_YEARS.map(y => (
-        <span
-          key={y}
-          title={String(y)}
-          style={{
-            display: 'inline-block',
-            width: '8px',
-            height: '8px',
-            borderRadius: '50%',
-            backgroundColor: activeSet.has(y) ? '#ff6632' : 'transparent',
-            border: '1.5px solid ' + (activeSet.has(y) ? '#ff6632' : '#aaa'),
-            flexShrink: 0,
-          }}
-        />
-      ))}
-    </span>
-  );
-}
-
-function TalarkollenTopicPills({ topics }: { topics: { topic: string; count: number }[] }) {
-  return (
-    <span style={{ display: 'inline-flex', flexWrap: 'wrap', gap: '4px' }}>
-      {topics.map(({ topic }) => (
-        <span
-          key={topic}
-          style={{
-            backgroundColor: talarkollenTopicColor(topic),
-            color: '#fff',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            padding: '2px 7px',
-            letterSpacing: '0.02em',
-            textTransform: 'uppercase',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          {formatTopic(topic)}
-        </span>
-      ))}
-    </span>
-  );
-}
-
-function TalarkollenSpeakerCard({ speaker, tab }: { speaker: TalarkollenEntry; tab: TalarkollenTabKey }) {
-  return (
-    <div
-      style={{
-        backgroundColor: '#fff',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.10)',
-        padding: '1.1rem 1.25rem',
-        marginBottom: '0.75rem',
-        display: 'flex',
-        gap: '1rem',
-        alignItems: 'flex-start',
-        position: 'relative',
-      }}
-    >
-      {/* Accent bar */}
-      <div style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        bottom: 0,
-        width: '4px',
-        backgroundColor: tab === 'rising_stars' ? '#8ac926' : tab === 'evergreens' ? '#ff6632' : '#457b9d',
-      }} />
-
-      {/* Main content */}
-      <div style={{ flex: 1, paddingLeft: '0.25rem' }}>
-        {/* Name + badge row */}
-        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.15rem' }}>
-          <span style={{ fontFamily: 'var(--headings)', fontSize: '1.1rem', fontWeight: 700, textTransform: 'uppercase' }}>
-            {speaker.name}
-          </span>
-          {tab === 'rising_stars' && (
-            <span style={{
-              backgroundColor: '#8ac926',
-              color: '#fff',
-              fontSize: '0.65rem',
-              fontWeight: 700,
-              padding: '2px 7px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-              flexShrink: 0,
-            }}>
-              Ny sedan {speaker.minYear}
-            </span>
-          )}
-        </div>
-
-        {/* Title + org */}
-        {(speaker.title || speaker.org_name) && (
-          <div style={{ fontSize: '0.875rem', color: '#555', marginBottom: '0.5rem', lineHeight: 1.4 }}>
-            {[speaker.title, speaker.org_name].filter(Boolean).join(' · ')}
-          </div>
-        )}
-
-        {/* Stats row */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          {/* Prominent stat per tab */}
-          {tab === 'evergreens' && (
-            <span style={{
-              fontFamily: 'var(--headings)',
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              color: '#ff6632',
-              lineHeight: 1,
-            }}>
-              {speaker.totalPanels}
-              <span style={{ fontSize: '0.75rem', fontFamily: 'var(--body-text)', color: '#777', fontWeight: 400, marginLeft: '3px' }}>paneler</span>
-            </span>
-          )}
-          {tab === 'high_breadth' && (
-            <span style={{
-              fontFamily: 'var(--headings)',
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              color: '#457b9d',
-              lineHeight: 1,
-            }}>
-              {speaker.uniqueArrangers}
-              <span style={{ fontSize: '0.75rem', fontFamily: 'var(--body-text)', color: '#777', fontWeight: 400, marginLeft: '3px' }}>arrangörer</span>
-            </span>
-          )}
-
-          {/* Standard stats */}
-          <span style={{ fontSize: '0.8rem', color: '#666' }}>
-            {tab !== 'evergreens' && <>{speaker.totalPanels} paneler · </>}
-            {tab !== 'high_breadth' && <>{speaker.uniqueArrangers} unika arrangörer · </>}
-            {speaker.years.length} år aktiv
-          </span>
-
-          {/* Year dots */}
-          <TalarkollenYearDots activeYears={speaker.years} />
-        </div>
-
-        {/* Topic pills */}
-        {speaker.topTopics.length > 0 && (
-          <TalarkollenTopicPills topics={speaker.topTopics} />
-        )}
-      </div>
-    </div>
-  );
-}
-
-// --- TalarkollenTab main component ---
-
-function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void }) {
-  const [data, setData] = useState<TalarkollenData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [topicFilter, setTopicFilter] = useState<string>('');
-
-  useEffect(() => {
-    fetch('/api/dashboard?view=speaker-guide')
-      .then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then(d => {
-        setData(d);
-        setLoading(false);
-      })
-      .catch(e => {
-        setError(e.message);
-        setLoading(false);
-      });
-  }, []);
-
-  // Merge all categories, deduplicate by id, sort by totalPanels
-  const allSpeakers: TalarkollenEntry[] = data
-    ? [...data.rising_stars, ...data.evergreens, ...data.high_breadth]
-        .filter((s, i, arr) => arr.findIndex(x => x.id === s.id) === i)
-        .sort((a, b) => b.totalPanels - a.totalPanels)
-    : [];
-
-  const filtered = topicFilter
-    ? allSpeakers.filter(s => s.topTopics.some(t => t.topic === topicFilter))
-    : allSpeakers;
-
-  return (
-    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-      {/* Intro */}
-      <p style={{
-        fontSize: '1.05rem',
-        lineHeight: 1.7,
-        marginBottom: '2rem',
-        color: '#333',
-      }}>
-        Almedalens 16&nbsp;000+ talare har olika profiler. Vissa är evergreens som dyker upp varje år,
-        andra är nya röster på väg upp. Här hittar du rätt panelist för ditt seminarium.
-      </p>
-
-      {/* Topic filter */}
-      <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-        <label style={{ fontSize: '0.875rem', fontWeight: 600, color: '#333', whiteSpace: 'nowrap' }}>
-          Filtrera på ämne:
-        </label>
-        <select
-          value={topicFilter}
-          onChange={e => setTopicFilter(e.target.value)}
-          style={{
-            fontSize: '0.875rem',
-            padding: '0.4rem 0.75rem',
-            border: '1.5px solid #ccc',
-            backgroundColor: '#fff',
-            color: '#000',
-            cursor: 'pointer',
-            fontFamily: 'var(--body-text)',
-            minWidth: '220px',
-          }}
-        >
-          <option value="">Alla ämnen</option>
-          {TALARKOLLEN_TOPICS.map(t => (
-            <option key={t} value={t}>{formatTopic(t)}</option>
-          ))}
-        </select>
-        {topicFilter && (
-          <button
-            onClick={() => setTopicFilter('')}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#ff6632',
-              fontSize: '0.875rem',
-              fontWeight: 600,
-              padding: '0.4rem 0',
-            }}
-          >
-            Rensa filter x
-          </button>
-        )}
-      </div>
-
-      {/* Loading / error states */}
-      {loading && (
-        <div style={{ padding: '3rem 0', textAlign: 'center', color: '#666', fontSize: '1rem' }}>
-          Laddar talardata...
-        </div>
-      )}
-
-      {error && (
-        <div style={{
-          backgroundColor: '#fee2e2',
-          border: '1px solid #fca5a5',
-          padding: '1rem',
-          color: '#991b1b',
-          fontSize: '0.9rem',
-        }}>
-          Kunde inte hamta data: {error}
-        </div>
-      )}
-
-      {/* Speaker list */}
-      {!loading && !error && (
-        <>
-          {filtered.length === 0 ? (
-            <div style={{ padding: '2rem 0', color: '#666', fontSize: '0.95rem' }}>
-              {topicFilter
-                ? `Inga talare i denna kategori har "${formatTopic(topicFilter)}" bland sina topikamnen.`
-                : 'Inga talare hittades.'}
-            </div>
-          ) : (
-            <div>
-              <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.75rem' }}>
-                {filtered.length} talare{topicFilter ? ` med amne "${formatTopic(topicFilter)}"` : ''}
-              </div>
-              {filtered.map(speaker => (
-                <TalarkollenSpeakerCard key={speaker.id} speaker={speaker} tab={'evergreens'} />
-              ))}
-            </div>
-          )}
-        </>
-      )}
-    </div>
-  );
-}
 
 // Cache for GAL-TAN comparison data
 let galtanCache: { allAvg: { lrecon: number; galtan: number }; sectorAvgs: Record<string, { lrecon: number; galtan: number }> } | null = null;
