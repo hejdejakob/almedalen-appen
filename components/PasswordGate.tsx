@@ -7,7 +7,7 @@ const CORRECT_PASSWORD = 'ReformSociety2026';
 const STORAGE_KEY = 'rs-auth';
 
 // Pages that are PUBLIC (no password)
-const PUBLIC_PATHS = ['/', '/om', '/dashboard', '/arenaguiden', '/quiz', '/dittprogram'];
+const PUBLIC_PATHS = ['/', '/om', '/dashboard', '/arenaguiden'];
 
 export default function PasswordGate({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

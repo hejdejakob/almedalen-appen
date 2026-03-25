@@ -1277,6 +1277,17 @@ function SpeakersView({ data, isMobile }: { data: any; isMobile?: boolean }) {
   return (
     <section>
       <SectionHeader title="A-LISTAN" subtitle="Almedalens mest aktiva deltagare, rankade efter volym, kontinuitet och bredd." />
+      <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+        <a href="/speakers" style={{
+          color: '#ff6632',
+          textDecoration: 'none',
+          fontWeight: 600,
+          fontSize: '0.9rem',
+          borderBottom: '1px solid #ff6632',
+        }}>
+          Talarsök, Ämnessök &amp; Aktörssök →
+        </a>
+      </div>
       <p style={{ fontSize: '0.9rem', color: '#444', lineHeight: '1.6', marginBottom: '2rem', maxWidth: '900px' }}>
         Listan visar de mest aktiva paneldeltagarna under perioden 2022 till 2025.
         Rankningen baseras i första hand på totalt antal medverkanden. Kolumnen &quot;År aktiv&quot; visar hur många av
