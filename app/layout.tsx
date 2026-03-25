@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: "9 400+ seminarier, 16 500+ talare, 3 000+ arrangörer — Almedalsveckan 2022–2026 i siffror. Sök talare, utforska ämnen, kartlägg aktörer och arenor.",
     url: "https://almedalsdata.se",
     siteName: "Almedalsdata",
-    images: [{ url: "/og", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     locale: "sv_SE",
     type: "website",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Almedalsdata | Reform Society",
     description: "9 400+ seminarier, 16 500+ talare, 3 000+ arrangörer — Almedalsveckan 2022–2026 i siffror.",
-    images: ["/og"],
+    images: ["/og-image.png"],
   },
 };
 
