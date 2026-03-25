@@ -9,6 +9,67 @@ const supabase = createClient(
 
 const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
 
+// CHES 2024 Swedish party scores
+const CHES_SCORES: Record<string, { lrecon: number; galtan: number }> = {
+  V:   { lrecon: 1.89, galtan: 2.42 },
+  SAP: { lrecon: 3.68, galtan: 4.74 },
+  C:   { lrecon: 7.84, galtan: 2.95 },
+  L:   { lrecon: 7.32, galtan: 4.47 },
+  M:   { lrecon: 7.89, galtan: 6.47 },
+  KD:  { lrecon: 7.26, galtan: 7.79 },
+  MP:  { lrecon: 3.16, galtan: 1.95 },
+  SD:  { lrecon: 6.32, galtan: 9.00 },
+};
+
+function matchParty(orgName: string | null | undefined): string | null {
+  if (!orgName) return null;
+  const lower = orgName.toLowerCase();
+  if (/moderaterna|\(m\)|moderata/.test(lower)) return 'M';
+  if (/socialdemokraterna|\(s\)\s|socialdemokrat/.test(lower)) return 'SAP';
+  if (/sverigedemokraterna|\(sd\)/.test(lower)) return 'SD';
+  if (/centerpartiet|\(c\)/.test(lower)) return 'C';
+  if (/vänsterpartiet|\(v\)/.test(lower)) return 'V';
+  if (/liberalerna|\(l\)|folkpartiet/.test(lower)) return 'L';
+  if (/kristdemokraterna|\(kd\)/.test(lower)) return 'KD';
+  if (/miljöpartiet|\(mp\)/.test(lower)) return 'MP';
+  return null;
+}
+
+function buildPoliticalProfile(
+  politicianSpeakerIds: number[],
+  speakerOrgMap: Map<number, string | null>,
+): { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number } | null {
+  const parties: Record<string, number> = {};
+  let total = 0;
+  const uniqueIds = [...new Set(politicianSpeakerIds)];
+
+  for (const sid of uniqueIds) {
+    const party = matchParty(speakerOrgMap.get(sid));
+    if (party) {
+      parties[party] = (parties[party] || 0) + 1;
+      total++;
+    }
+  }
+
+  if (total < 2) return null;
+
+  let lreconSum = 0, galtanSum = 0;
+  for (const [party, count] of Object.entries(parties)) {
+    const scores = CHES_SCORES[party];
+    if (scores) {
+      lreconSum += scores.lrecon * count;
+      galtanSum += scores.galtan * count;
+    }
+  }
+
+  return {
+    parties,
+    lrecon: Math.round((lreconSum / total) * 100) / 100,
+    galtan: Math.round((galtanSum / total) * 100) / 100,
+    totalPoliticians: total,
+  };
+}
+
 async function fetchAll(table: string, columns: string, filter?: (q: any) => any) {
   const rows: any[] = [];
   let from = 0;
@@ -256,6 +317,31 @@ async function getSpeakerProfile(speakerId: number) {
   // Co-panelists: find speakers sharing at least 2 events
   const coPanelists = await getCoPanelists(speakerId, Array.from(visibleEventIds));
 
+  // Political profile: identify politiker among co-panelists (all, not just top 20)
+  let politicalProfile: { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number } | null = null;
+  if (visibleEventIds.size > 0) {
+    // Get all co-panelist speaker IDs for visible events
+    const allCoPanelistLinks = await fetchAll('event_speakers', 'speaker_id', q =>
+      q.in('event_id', Array.from(visibleEventIds)).neq('speaker_id', speakerId)
+    );
+    const allCoPanelistIds = [...new Set(allCoPanelistLinks.map((es: any) => es.speaker_id))];
+
+    if (allCoPanelistIds.length > 0) {
+      const politicianClassifications = await fetchAll('speaker_classifications', 'speaker_id, category', q =>
+        q.in('speaker_id', allCoPanelistIds).eq('category', 'politiker')
+      );
+      const politicianIds = politicianClassifications.map((c: any) => c.speaker_id);
+
+      if (politicianIds.length > 0) {
+        const politicianSpeakers = await fetchAll('speakers', 'id, org_name', q =>
+          q.in('id', politicianIds)
+        );
+        const orgMap = new Map(politicianSpeakers.map((s: any) => [s.id, s.org_name]));
+        politicalProfile = buildPoliticalProfile(politicianIds, orgMap);
+      }
+    }
+  }
+
   // Aggregate stats
   const totalPanels = (yearStats || []).reduce((sum: number, s: any) => sum + s.panel_count, 0);
   const totalArrangers = Math.max(...(yearStats || []).map((s: any) => s.unique_arrangers), 0);
@@ -278,6 +364,7 @@ async function getSpeakerProfile(speakerId: number) {
     topOrganizations,
     topTopics,
     topArenas,
+    politicalProfile,
   };
 }
 

@@ -52,6 +52,15 @@ const SECTOR_COLORS: Record<string, string> = {
   akademi: '#8ac926',
 };
 
+const PARTY_COLORS: Record<string, string> = {
+  V: '#da291c', SAP: '#ed1b34', MP: '#83cf39', C: '#009933',
+  L: '#006ab3', M: '#1b49dd', KD: '#231977', SD: '#dddd00',
+};
+const PARTY_LABELS: Record<string, string> = {
+  V: 'Vänsterpartiet', SAP: 'Socialdemokraterna', MP: 'Miljöpartiet', C: 'Centerpartiet',
+  L: 'Liberalerna', M: 'Moderaterna', KD: 'Kristdemokraterna', SD: 'Sverigedemokraterna',
+};
+
 function formatTopic(topic: string): string {
   const label = topic.replace(/_/g, ' ');
   return label.charAt(0).toUpperCase() + label.slice(1);
@@ -203,6 +212,7 @@ type SpeakerProfile = {
   topOrganizations: { id: number; name: string; sector: string | null; eventCount: number }[];
   topTopics: { topic: string; count: number }[];
   topArenas: { name: string; eventCount: number }[];
+  politicalProfile: { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number } | null;
 };
 
 export default function SpeakersPage() {
@@ -893,6 +903,106 @@ function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void
   );
 }
 
+function PoliticalProfileSection({ profile, label }: {
+  profile: { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number };
+  label: string;
+}) {
+  const sortedParties = Object.entries(profile.parties).sort((a, b) => b[1] - a[1]);
+  const total = sortedParties.reduce((sum, [, c]) => sum + c, 0);
+
+  return (
+    <div style={{
+      backgroundColor: '#fff',
+      padding: '2rem',
+      borderRadius: '8px',
+      border: '2px solid #000',
+      boxShadow: '4px 4px 0 #000',
+      marginBottom: '1.5rem',
+    }}>
+      <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 0.25rem' }}>
+        POLITISK PROFIL
+      </h3>
+      <p style={{ margin: '0 0 1rem', fontSize: '0.85rem', color: '#666' }}>
+        Baserat p&aring; {profile.totalPoliticians} {label}
+      </p>
+
+      {/* Party bar */}
+      <div style={{ display: 'flex', width: '100%', height: '28px', borderRadius: '6px', overflow: 'hidden', marginBottom: '1rem' }}>
+        {sortedParties.map(([party, count]) => (
+          <div
+            key={party}
+            title={`${PARTY_LABELS[party] || party}: ${count}`}
+            style={{
+              width: `${(count / total) * 100}%`,
+              backgroundColor: PARTY_COLORS[party] || '#999',
+              minWidth: count > 0 ? '4px' : 0,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Party list */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '1.5rem' }}>
+        {sortedParties.map(([party, count]) => (
+          <div key={party} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
+            <span style={{
+              width: '10px', height: '10px', borderRadius: '50%',
+              backgroundColor: PARTY_COLORS[party] || '#999', flexShrink: 0,
+            }} />
+            <span style={{ fontWeight: 600 }}>{PARTY_LABELS[party] || party}:</span>
+            <span>{count}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Scores */}
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        {/* Vänster-Höger */}
+        <div style={{
+          flex: '1 1 200px', padding: '1rem', backgroundColor: '#f7f5e4',
+          borderRadius: '6px', border: '1px solid #e0dcc8',
+        }}>
+          <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem' }}>V&auml;nster&ndash;H&ouml;ger</div>
+          <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: '0.5rem' }}>{profile.lrecon.toFixed(1)}</div>
+          <div style={{ position: 'relative', height: '8px', borderRadius: '4px', background: 'linear-gradient(to right, #da291c, #ccc 50%, #1b49dd)' }}>
+            <div style={{
+              position: 'absolute', top: '-3px',
+              left: `${(profile.lrecon / 10) * 100}%`,
+              width: '14px', height: '14px', borderRadius: '50%',
+              backgroundColor: '#000', border: '2px solid #fff',
+              transform: 'translateX(-50%)',
+            }} />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#999', marginTop: '0.25rem' }}>
+            <span>0 (V&auml;nster)</span><span>10 (H&ouml;ger)</span>
+          </div>
+        </div>
+
+        {/* GAL-TAN */}
+        <div style={{
+          flex: '1 1 200px', padding: '1rem', backgroundColor: '#f7f5e4',
+          borderRadius: '6px', border: '1px solid #e0dcc8',
+        }}>
+          <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem' }}>GAL&ndash;TAN</div>
+          <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: '0.5rem' }}>{profile.galtan.toFixed(1)}</div>
+          <div style={{ position: 'relative', height: '8px', borderRadius: '4px', background: 'linear-gradient(to right, #83cf39, #ccc 50%, #6a4c93)' }}>
+            <div style={{
+              position: 'absolute', top: '-3px',
+              left: `${(profile.galtan / 10) * 100}%`,
+              width: '14px', height: '14px', borderRadius: '50%',
+              backgroundColor: '#000', border: '2px solid #fff',
+              transform: 'translateX(-50%)',
+            }} />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#999', marginTop: '0.25rem' }}>
+            <span>0 (GAL)</span><span>10 (TAN)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProfileView({
   profile,
   loading,
@@ -914,7 +1024,7 @@ function ProfileView({
     return <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>Laddar profil...</div>;
   }
 
-  const { speaker, stats, seminars, coPanelists, topOrganizations, topTopics, topArenas } = profile;
+  const { speaker, stats, seminars, coPanelists, topOrganizations, topTopics, topArenas, politicalProfile } = profile;
   const years = [2022, 2023, 2024, 2025];
   const maxPanels = Math.max(...stats.perYear.map(s => s.panel_count), 1);
   const filteredSeminars = selectedYear
@@ -1375,6 +1485,13 @@ function ProfileView({
             ))}
           </div>
         </div>
+      )}
+
+      {politicalProfile && (
+        <PoliticalProfileSection
+          profile={politicalProfile}
+          label="politiska medpanelister"
+        />
       )}
     </div>
   );
@@ -2200,6 +2317,7 @@ type ArrangerProfileData = {
   topSpeakers: { id: number; name: string; title: string | null; org: string | null; category: string | null; sharedEvents: number }[];
   topArenas: { name: string; eventCount: number }[];
   coOrganizations: { id: number; name: string; sector: string | null; sharedEvents: number }[];
+  politicalProfile: { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number } | null;
 };
 
 function AktorerTab({
@@ -2634,6 +2752,13 @@ function AktorerTab({
                   ))}
                 </div>
               </div>
+            )}
+
+            {arrangerProfile.politicalProfile && (
+              <PoliticalProfileSection
+                profile={arrangerProfile.politicalProfile}
+                label="politiker i panelerna"
+              />
             )}
           </>
         )}
