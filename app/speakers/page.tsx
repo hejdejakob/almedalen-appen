@@ -546,68 +546,41 @@ function SpeakersContent() {
 
 
 // Cache for GAL-TAN comparison data
-let galtanCache: { allAvg: { lrecon: number; galtan: number }; sectorAvgs: Record<string, { lrecon: number; galtan: number }> } | null = null;
-let galtanCachePromise: Promise<{ allAvg: { lrecon: number; galtan: number }; sectorAvgs: Record<string, { lrecon: number; galtan: number }> } | null> | null = null;
+// Hardcoded CHES averages (from /api/galtan, computed 2026-03-25)
+const GALTAN_AVERAGES = {
+  allAvg: { lrecon: 6.02, galtan: 4.89 },
+  sectorAvgs: {
+    akademi: { lrecon: 5.51, galtan: 4.77 },
+    arbetsgivar_branschorg: { lrecon: 6.19, galtan: 5.18 },
+    civilsamhälle: { lrecon: 5.91, galtan: 4.52 },
+    fackförbund: { lrecon: 5.87, galtan: 4.80 },
+    konsult_pr: { lrecon: 6.11, galtan: 4.83 },
+    media: { lrecon: 6.05, galtan: 5.36 },
+    näringsliv: { lrecon: 6.14, galtan: 5.06 },
+    offentlig_sektor: { lrecon: 6.09, galtan: 4.91 },
+    tänketank_stiftelse: { lrecon: 5.75, galtan: 4.97 },
+  } as Record<string, { lrecon: number; galtan: number }>,
+};
 
-async function fetchGaltanAverages() {
-  if (galtanCache) return galtanCache;
-  if (galtanCachePromise) return galtanCachePromise;
-  galtanCachePromise = fetch('/api/galtan')
-    .then(r => r.json())
-    .then((data: { organizations: { lrecon: number; galtan: number; sector: string | null }[] }) => {
-      const orgs = data.organizations || [];
-      if (orgs.length === 0) return null;
-      // Overall average
-      const allLrecon = orgs.reduce((s, o) => s + o.lrecon, 0) / orgs.length;
-      const allGaltan = orgs.reduce((s, o) => s + o.galtan, 0) / orgs.length;
-      // Per sector
-      const sectorGroups: Record<string, { lrecon: number[]; galtan: number[] }> = {};
-      for (const o of orgs) {
-        const sec = o.sector || 'okänd';
-        if (!sectorGroups[sec]) sectorGroups[sec] = { lrecon: [], galtan: [] };
-        sectorGroups[sec].lrecon.push(o.lrecon);
-        sectorGroups[sec].galtan.push(o.galtan);
-      }
-      const sectorAvgs: Record<string, { lrecon: number; galtan: number }> = {};
-      for (const [sec, vals] of Object.entries(sectorGroups)) {
-        sectorAvgs[sec] = {
-          lrecon: vals.lrecon.reduce((a, b) => a + b, 0) / vals.lrecon.length,
-          galtan: vals.galtan.reduce((a, b) => a + b, 0) / vals.galtan.length,
-        };
-      }
-      galtanCache = { allAvg: { lrecon: allLrecon, galtan: allGaltan }, sectorAvgs };
-      return galtanCache;
-    })
-    .catch(() => null);
-  return galtanCachePromise;
-}
 
 function PoliticalProfileSection({ profile, label, sector }: {
   profile: { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number };
   label: string;
   sector?: string | null;
 }) {
-  const [comparison, setComparison] = useState<{
-    allAvg: { lrecon: number; galtan: number };
-    sectorAvgs: Record<string, { lrecon: number; galtan: number }>;
-  } | null>(null);
-
-  useEffect(() => {
-    fetchGaltanAverages().then(d => { if (d) setComparison(d); });
-  }, []);
-
   const sortedParties = Object.entries(profile.parties).sort((a, b) => b[1] - a[1]);
   const total = sortedParties.reduce((sum, [, c]) => sum + c, 0);
 
-  const sectorAvg = sector && comparison ? comparison.sectorAvgs[sector] || null : null;
+  const comparison = GALTAN_AVERAGES;
+  const sectorAvg = sector ? comparison.sectorAvgs[sector] || null : null;
 
   // Mini scatter SVG dimensions
-  const W = 500;
-  const H = 350;
-  const PAD = 36;
+  const W = 600;
+  const H = 400;
+  const PAD = 40;
 
   const toX = (lrecon: number) => PAD + (lrecon / 10) * (W - 2 * PAD);
-  const toY = (galtan: number) => PAD + (galtan / 10) * (H - 2 * PAD); // TAN at top (high Y value = high galtan = top)
+  const toY = (galtan: number) => PAD + ((10 - galtan) / 10) * (H - 2 * PAD); // GAL (low) at bottom, TAN (high) at top
 
   return (
     <div style={{
@@ -659,7 +632,7 @@ function PoliticalProfileSection({ profile, label, sector }: {
         <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem', fontWeight: 600 }}>
           V&auml;nster&ndash;H&ouml;ger &times; GAL&ndash;TAN
         </div>
-        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', maxWidth: '100%' }}>
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', width: '100%', height: 'auto' }}>
           {/* Background */}
           <rect x={PAD} y={PAD} width={W - 2 * PAD} height={H - 2 * PAD} fill="#f7f5e4" rx="4" />
           {/* Gridlines at 5 */}
