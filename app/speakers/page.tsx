@@ -903,12 +903,69 @@ function TalarkollenTab({ onOpenProfile }: { onOpenProfile: (id: number) => void
   );
 }
 
-function PoliticalProfileSection({ profile, label }: {
+// Cache for GAL-TAN comparison data
+let galtanCache: { allAvg: { lrecon: number; galtan: number }; sectorAvgs: Record<string, { lrecon: number; galtan: number }> } | null = null;
+let galtanCachePromise: Promise<{ allAvg: { lrecon: number; galtan: number }; sectorAvgs: Record<string, { lrecon: number; galtan: number }> } | null> | null = null;
+
+async function fetchGaltanAverages() {
+  if (galtanCache) return galtanCache;
+  if (galtanCachePromise) return galtanCachePromise;
+  galtanCachePromise = fetch('/api/galtan')
+    .then(r => r.json())
+    .then((data: { organizations: { lrecon: number; galtan: number; sector: string | null }[] }) => {
+      const orgs = data.organizations || [];
+      if (orgs.length === 0) return null;
+      // Overall average
+      const allLrecon = orgs.reduce((s, o) => s + o.lrecon, 0) / orgs.length;
+      const allGaltan = orgs.reduce((s, o) => s + o.galtan, 0) / orgs.length;
+      // Per sector
+      const sectorGroups: Record<string, { lrecon: number[]; galtan: number[] }> = {};
+      for (const o of orgs) {
+        const sec = o.sector || 'okänd';
+        if (!sectorGroups[sec]) sectorGroups[sec] = { lrecon: [], galtan: [] };
+        sectorGroups[sec].lrecon.push(o.lrecon);
+        sectorGroups[sec].galtan.push(o.galtan);
+      }
+      const sectorAvgs: Record<string, { lrecon: number; galtan: number }> = {};
+      for (const [sec, vals] of Object.entries(sectorGroups)) {
+        sectorAvgs[sec] = {
+          lrecon: vals.lrecon.reduce((a, b) => a + b, 0) / vals.lrecon.length,
+          galtan: vals.galtan.reduce((a, b) => a + b, 0) / vals.galtan.length,
+        };
+      }
+      galtanCache = { allAvg: { lrecon: allLrecon, galtan: allGaltan }, sectorAvgs };
+      return galtanCache;
+    })
+    .catch(() => null);
+  return galtanCachePromise;
+}
+
+function PoliticalProfileSection({ profile, label, sector }: {
   profile: { parties: Record<string, number>; lrecon: number; galtan: number; totalPoliticians: number };
   label: string;
+  sector?: string | null;
 }) {
+  const [comparison, setComparison] = useState<{
+    allAvg: { lrecon: number; galtan: number };
+    sectorAvgs: Record<string, { lrecon: number; galtan: number }>;
+  } | null>(null);
+
+  useEffect(() => {
+    fetchGaltanAverages().then(d => { if (d) setComparison(d); });
+  }, []);
+
   const sortedParties = Object.entries(profile.parties).sort((a, b) => b[1] - a[1]);
   const total = sortedParties.reduce((sum, [, c]) => sum + c, 0);
+
+  const sectorAvg = sector && comparison ? comparison.sectorAvgs[sector] || null : null;
+
+  // Mini scatter SVG dimensions
+  const W = 300;
+  const H = 200;
+  const PAD = 24;
+
+  const toX = (lrecon: number) => PAD + (lrecon / 10) * (W - 2 * PAD);
+  const toY = (galtan: number) => PAD + (galtan / 10) * (H - 2 * PAD); // TAN at top (high Y value = high galtan = top)
 
   return (
     <div style={{
@@ -955,48 +1012,63 @@ function PoliticalProfileSection({ profile, label }: {
         ))}
       </div>
 
-      {/* Scores */}
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        {/* Vänster-Höger */}
-        <div style={{
-          flex: '1 1 200px', padding: '1rem', backgroundColor: '#f7f5e4',
-          borderRadius: '6px', border: '1px solid #e0dcc8',
-        }}>
-          <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem' }}>V&auml;nster&ndash;H&ouml;ger</div>
-          <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: '0.5rem' }}>{profile.lrecon.toFixed(1)}</div>
-          <div style={{ position: 'relative', height: '8px', borderRadius: '4px', background: 'linear-gradient(to right, #da291c, #ccc 50%, #1b49dd)' }}>
-            <div style={{
-              position: 'absolute', top: '-3px',
-              left: `${(profile.lrecon / 10) * 100}%`,
-              width: '14px', height: '14px', borderRadius: '50%',
-              backgroundColor: '#000', border: '2px solid #fff',
-              transform: 'translateX(-50%)',
-            }} />
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#999', marginTop: '0.25rem' }}>
-            <span>0 (V&auml;nster)</span><span>10 (H&ouml;ger)</span>
-          </div>
+      {/* Mini GAL-TAN scatter */}
+      <div style={{ marginBottom: '1rem' }}>
+        <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem', fontWeight: 600 }}>
+          V&auml;nster&ndash;H&ouml;ger &times; GAL&ndash;TAN
         </div>
-
-        {/* GAL-TAN */}
-        <div style={{
-          flex: '1 1 200px', padding: '1rem', backgroundColor: '#f7f5e4',
-          borderRadius: '6px', border: '1px solid #e0dcc8',
-        }}>
-          <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem' }}>GAL&ndash;TAN</div>
-          <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: '0.5rem' }}>{profile.galtan.toFixed(1)}</div>
-          <div style={{ position: 'relative', height: '8px', borderRadius: '4px', background: 'linear-gradient(to right, #83cf39, #ccc 50%, #6a4c93)' }}>
-            <div style={{
-              position: 'absolute', top: '-3px',
-              left: `${(profile.galtan / 10) * 100}%`,
-              width: '14px', height: '14px', borderRadius: '50%',
-              backgroundColor: '#000', border: '2px solid #fff',
-              transform: 'translateX(-50%)',
-            }} />
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#999', marginTop: '0.25rem' }}>
-            <span>0 (GAL)</span><span>10 (TAN)</span>
-          </div>
+        <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', maxWidth: '100%' }}>
+          {/* Background */}
+          <rect x={PAD} y={PAD} width={W - 2 * PAD} height={H - 2 * PAD} fill="#f7f5e4" rx="4" />
+          {/* Gridlines at 5 */}
+          <line x1={toX(5)} y1={PAD} x2={toX(5)} y2={H - PAD} stroke="#ddd" strokeWidth="1" strokeDasharray="4 2" />
+          <line x1={PAD} y1={toY(5)} x2={W - PAD} y2={toY(5)} stroke="#ddd" strokeWidth="1" strokeDasharray="4 2" />
+          {/* Quadrant labels */}
+          <text x={PAD + 4} y={PAD + 12} fontSize="7" fill="#bbb" fontFamily="sans-serif">Frihetlig v&auml;nster</text>
+          <text x={W - PAD - 4} y={PAD + 12} fontSize="7" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Frihetlig h&ouml;ger</text>
+          <text x={PAD + 4} y={H - PAD - 5} fontSize="7" fill="#bbb" fontFamily="sans-serif">Traditionell v&auml;nster</text>
+          <text x={W - PAD - 4} y={H - PAD - 5} fontSize="7" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Traditionell h&ouml;ger</text>
+          {/* Axis labels */}
+          <text x={PAD} y={H - 4} fontSize="8" fill="#999" fontFamily="sans-serif">V&auml;nster</text>
+          <text x={W - PAD} y={H - 4} fontSize="8" fill="#999" fontFamily="sans-serif" textAnchor="end">H&ouml;ger</text>
+          <text x={PAD - 2} y={PAD - 4} fontSize="8" fill="#999" fontFamily="sans-serif">GAL</text>
+          <text x={PAD - 2} y={H - PAD + 12} fontSize="8" fill="#999" fontFamily="sans-serif">TAN</text>
+          {/* All-org average dot */}
+          {comparison && (
+            <circle cx={toX(comparison.allAvg.lrecon)} cy={toY(comparison.allAvg.galtan)} r="6" fill="#bbb" stroke="#fff" strokeWidth="1.5" />
+          )}
+          {/* Sector average dot */}
+          {sectorAvg && (
+            <circle
+              cx={toX(sectorAvg.lrecon)}
+              cy={toY(sectorAvg.galtan)}
+              r="6"
+              fill={sector ? (SECTOR_COLORS[sector] || '#666') : '#666'}
+              stroke="#fff"
+              strokeWidth="1.5"
+            />
+          )}
+          {/* This org/person dot */}
+          <circle cx={toX(profile.lrecon)} cy={toY(profile.galtan)} r="7" fill="#ff6632" stroke="#fff" strokeWidth="2" />
+        </svg>
+        {/* Legend */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '0.5rem', fontSize: '0.75rem', color: '#666' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ff6632', display: 'inline-block', flexShrink: 0 }} />
+            Denna organisation
+          </span>
+          {sectorAvg && sector && (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: SECTOR_COLORS[sector] || '#666', display: 'inline-block', flexShrink: 0 }} />
+              Snitt {SECTOR_LABELS[sector] || sector}
+            </span>
+          )}
+          {comparison && (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#bbb', display: 'inline-block', flexShrink: 0 }} />
+              Alla organisationer
+            </span>
+          )}
         </div>
       </div>
     </div>
@@ -1491,6 +1563,7 @@ function ProfileView({
         <PoliticalProfileSection
           profile={politicalProfile}
           label="politiska medpanelister"
+          sector={speaker.category}
         />
       )}
     </div>
@@ -2758,6 +2831,7 @@ function AktorerTab({
               <PoliticalProfileSection
                 profile={arrangerProfile.politicalProfile}
                 label="politiker i panelerna"
+                sector={arrangerProfile.arranger.sector}
               />
             )}
           </>
