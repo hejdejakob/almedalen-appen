@@ -99,8 +99,12 @@ export async function GET(request: Request) {
       q.neq('role', 'kontaktperson')
     );
 
-    // 6. Get event_arrangers
-    const eventArrangers = await fetchAll('event_arrangers', 'event_id, arranger_id');
+    // 6. Get event_arrangers + event_topics
+    const [eventArrangers, eventTopics] = await Promise.all([
+      fetchAll('event_arrangers', 'event_id, arranger_id'),
+      fetchAll('event_topics', 'event_id, topic_primary'),
+    ]);
+    const eventTopicMap = new Map(eventTopics.map((t: any) => [t.event_id, t.topic_primary]));
 
     // 7. Get arranger info
     const arrangers = await fetchAll('arrangers', 'id, name');
@@ -135,7 +139,22 @@ export async function GET(request: Request) {
       politicianIds: Set<number>;
       partyBreakdown: Record<string, number>;
       eventCount: number;
+      topicCounts: Record<string, number>;
     }>();
+
+    // Build arranger total events + topics (from ALL events, not just those with politicians)
+    const arrangerTotalEvents = new Map<number, number>();
+    const arrangerTopicCounts = new Map<number, Record<string, number>>();
+    for (const ea of eventArrangers) {
+      if (!visibleEventIds.has(ea.event_id)) continue;
+      arrangerTotalEvents.set(ea.arranger_id, (arrangerTotalEvents.get(ea.arranger_id) || 0) + 1);
+      const topic = eventTopicMap.get(ea.event_id);
+      if (topic) {
+        if (!arrangerTopicCounts.has(ea.arranger_id)) arrangerTopicCounts.set(ea.arranger_id, {});
+        const tc = arrangerTopicCounts.get(ea.arranger_id)!;
+        tc[topic] = (tc[topic] || 0) + 1;
+      }
+    }
 
     for (const [eventId, politicianSet] of eventPoliticians) {
       const arrangerIds = eventArrangerMap.get(eventId);
@@ -147,6 +166,7 @@ export async function GET(request: Request) {
             politicianIds: new Set(),
             partyBreakdown: {},
             eventCount: 0,
+            topicCounts: {},
           });
         }
         const data = arrangerData.get(arrangerId)!;
@@ -188,6 +208,13 @@ export async function GET(request: Request) {
 
       if (totalWeight === 0) continue;
 
+      // Top 3 topics for this arranger
+      const tc = arrangerTopicCounts.get(arrangerId) || {};
+      const topTopics = Object.entries(tc)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([topic]) => topic);
+
       organizations.push({
         id: arrangerId,
         name,
@@ -195,8 +222,9 @@ export async function GET(request: Request) {
         lrecon: Math.round((totalLrecon / totalWeight) * 100) / 100,
         galtan: Math.round((totalGaltan / totalWeight) * 100) / 100,
         politicians: data.politicianIds.size,
-        events: data.eventCount,
+        events: arrangerTotalEvents.get(arrangerId) || data.eventCount,
         partyBreakdown: data.partyBreakdown,
+        topTopics,
       });
     }
 

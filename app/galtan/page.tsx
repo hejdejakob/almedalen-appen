@@ -40,6 +40,18 @@ const PARTY_COLORS: Record<string, string> = {
   SD: '#dddd00',
 };
 
+const TOPIC_CLUSTERS = [
+  'arbetsmarknad_löner', 'välfärd_omsorg', 'hälsa_sjukvård', 'skola_utbildning_forskning',
+  'klimat_miljö_hållbarhet', 'energi', 'bostäder_samhällsbyggnad', 'transport_infrastruktur',
+  'ekonomi_tillväxt', 'skatter_offentliga_finanser', 'näringsliv_innovation', 'digitalisering_ai',
+  'försvar_säkerhet', 'demokrati_rättsstat', 'integration_migration', 'eu_utrikespolitik',
+  'jämställdhet_mångfald', 'media_kommunikation', 'kultur_idrott', 'barn_ungdom', 'övrigt',
+] as const;
+
+function formatTopic(slug: string): string {
+  return slug.replace(/_/g, ' ').replace(/^\w/, c => c.toUpperCase());
+}
+
 type Org = {
   id: number;
   name: string;
@@ -48,6 +60,7 @@ type Org = {
   galtan: number;
   politicians: number;
   events: number;
+  topTopics?: string[];
   partyBreakdown: Record<string, number>;
 };
 
@@ -70,6 +83,8 @@ export default function GaltanPage() {
   const [selected, setSelected] = useState<Org | null>(null);
   const [hovered, setHovered] = useState<Org | null>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number } | null>(null);
+  const [sectorFilter, setSectorFilter] = useState<string>('');
+  const [topicFilter, setTopicFilter] = useState<string>('');
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -87,7 +102,7 @@ export default function GaltanPage() {
   const plotH = height - margin.top - margin.bottom;
 
   const scaleX = useCallback((v: number) => margin.left + (v / 10) * plotW, [plotW, margin.left]);
-  const scaleY = useCallback((v: number) => margin.top + (v / 10) * plotH, [plotH, margin.top]);
+  const scaleY = useCallback((v: number) => margin.top + ((10 - v) / 10) * plotH, [plotH, margin.top]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent, org: Org) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -115,11 +130,17 @@ export default function GaltanPage() {
 
   const { organizations, parties, stats } = data;
 
+  const filtered = organizations.filter(org => {
+    if (sectorFilter && org.sector !== sectorFilter) return false;
+    if (topicFilter && !(org.topTopics || []).includes(topicFilter)) return false;
+    return true;
+  });
+
   // Top lists
-  const mostGal = [...organizations].sort((a, b) => a.galtan - b.galtan).slice(0, 10);
-  const mostTan = [...organizations].sort((a, b) => b.galtan - a.galtan).slice(0, 10);
-  const mostLeft = [...organizations].sort((a, b) => a.lrecon - b.lrecon).slice(0, 10);
-  const mostRight = [...organizations].sort((a, b) => b.lrecon - a.lrecon).slice(0, 10);
+  const mostGal = [...filtered].sort((a, b) => a.galtan - b.galtan).slice(0, 10);
+  const mostTan = [...filtered].sort((a, b) => b.galtan - a.galtan).slice(0, 10);
+  const mostLeft = [...filtered].sort((a, b) => a.lrecon - b.lrecon).slice(0, 10);
+  const mostRight = [...filtered].sort((a, b) => b.lrecon - a.lrecon).slice(0, 10);
 
   // Grid lines at 5
   const centerX = scaleX(5);
@@ -153,6 +174,87 @@ export default function GaltanPage() {
           {stats.totalOrgs} organisationer &middot; {stats.totalPoliticians} politiker &middot; 2022&ndash;2025
         </p>
       </header>
+
+      {/* Filters */}
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem 0.5rem' }}>
+        <div style={{
+          backgroundColor: '#1a1a1a',
+          border: '1px solid #333',
+          borderRadius: 10,
+          padding: '1rem 1.25rem',
+        }}>
+          {/* Sector filter pills */}
+          <div style={{ marginBottom: '0.75rem' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.7rem', color: '#666', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6, display: 'block' }}>Sektor</span>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              <button
+                onClick={() => setSectorFilter('')}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: 20,
+                  border: sectorFilter === '' ? '1px solid #fff' : '1px solid #444',
+                  backgroundColor: sectorFilter === '' ? '#333' : 'transparent',
+                  color: sectorFilter === '' ? '#fff' : '#888',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.75rem',
+                  cursor: 'pointer',
+                }}
+              >
+                Alla
+              </button>
+              {Object.entries(SECTOR_LABELS).map(([key, label]) => (
+                <button
+                  key={key}
+                  onClick={() => setSectorFilter(sectorFilter === key ? '' : key)}
+                  style={{
+                    padding: '4px 12px',
+                    borderRadius: 20,
+                    border: `1px solid ${sectorFilter === key ? SECTOR_COLORS[key] : '#444'}`,
+                    backgroundColor: sectorFilter === key ? SECTOR_COLORS[key] + '33' : 'transparent',
+                    color: sectorFilter === key ? SECTOR_COLORS[key] : '#888',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.75rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Topic filter dropdown */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.7rem', color: '#666', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4, display: 'block' }}>Ämne</span>
+              <select
+                value={topicFilter}
+                onChange={e => setTopicFilter(e.target.value)}
+                style={{
+                  backgroundColor: '#111',
+                  color: '#fff',
+                  border: '1px solid #333',
+                  borderRadius: 6,
+                  padding: '6px 12px',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.8rem',
+                  cursor: 'pointer',
+                  minWidth: 200,
+                }}
+              >
+                <option value="">Alla ämnen</option>
+                {TOPIC_CLUSTERS.map(t => (
+                  <option key={t} value={t}>{formatTopic(t)}</option>
+                ))}
+              </select>
+            </div>
+
+            <div style={{ marginLeft: 'auto', fontFamily: 'Space Mono, monospace', fontSize: '0.8rem', color: '#888', alignSelf: 'flex-end' }}>
+              Visar {filtered.length} av {organizations.length} organisationer
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Scatter Plot */}
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '1rem 2rem' }} ref={containerRef}>
@@ -202,30 +304,30 @@ export default function GaltanPage() {
 
             {/* Y-axis labels */}
             <text x={15} y={margin.top + 15} fill="#aaa" fontSize={11} fontFamily="Inter, sans-serif" fontWeight={600}>
-              GAL
-            </text>
-            <text x={15} y={margin.top + 28} fill="#666" fontSize={9} fontFamily="Inter, sans-serif">
-              (progressiv)
-            </text>
-            <text x={15} y={height - margin.bottom - 15} fill="#aaa" fontSize={11} fontFamily="Inter, sans-serif" fontWeight={600}>
               TAN
             </text>
-            <text x={15} y={height - margin.bottom - 2} fill="#666" fontSize={9} fontFamily="Inter, sans-serif">
+            <text x={15} y={margin.top + 28} fill="#666" fontSize={9} fontFamily="Inter, sans-serif">
               (konservativ)
+            </text>
+            <text x={15} y={height - margin.bottom - 15} fill="#aaa" fontSize={11} fontFamily="Inter, sans-serif" fontWeight={600}>
+              GAL
+            </text>
+            <text x={15} y={height - margin.bottom - 2} fill="#666" fontSize={9} fontFamily="Inter, sans-serif">
+              (progressiv)
             </text>
 
             {/* Quadrant labels */}
             <text x={margin.left + 15} y={margin.top + 18} fill="#444" fontSize={11} fontFamily="Inter, sans-serif">
-              Frihetlig vänster
-            </text>
-            <text x={width - margin.right - 15} y={margin.top + 18} fill="#444" fontSize={11} fontFamily="Inter, sans-serif" textAnchor="end">
-              Frihetlig höger
-            </text>
-            <text x={margin.left + 15} y={height - margin.bottom - 10} fill="#444" fontSize={11} fontFamily="Inter, sans-serif">
               Traditionell vänster
             </text>
-            <text x={width - margin.right - 15} y={height - margin.bottom - 10} fill="#444" fontSize={11} fontFamily="Inter, sans-serif" textAnchor="end">
+            <text x={width - margin.right - 15} y={margin.top + 18} fill="#444" fontSize={11} fontFamily="Inter, sans-serif" textAnchor="end">
               Traditionell höger
+            </text>
+            <text x={margin.left + 15} y={height - margin.bottom - 10} fill="#444" fontSize={11} fontFamily="Inter, sans-serif">
+              Frihetlig vänster
+            </text>
+            <text x={width - margin.right - 15} y={height - margin.bottom - 10} fill="#444" fontSize={11} fontFamily="Inter, sans-serif" textAnchor="end">
+              Frihetlig höger
             </text>
 
             {/* Party markers */}
@@ -257,10 +359,10 @@ export default function GaltanPage() {
             ))}
 
             {/* Organization dots */}
-            {organizations.map(org => {
+            {filtered.map(org => {
               const isSelected = selected?.id === org.id;
               const isHovered = hovered?.id === org.id;
-              const r = Math.max(3, Math.min(8, Math.sqrt(org.politicians) * 1.5));
+              const r = Math.max(3, Math.sqrt(org.events) * 1.5);
               return (
                 <circle
                   key={org.id}
