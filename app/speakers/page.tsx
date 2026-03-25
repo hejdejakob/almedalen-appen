@@ -960,9 +960,9 @@ function PoliticalProfileSection({ profile, label, sector }: {
   const sectorAvg = sector && comparison ? comparison.sectorAvgs[sector] || null : null;
 
   // Mini scatter SVG dimensions
-  const W = 300;
-  const H = 200;
-  const PAD = 24;
+  const W = 500;
+  const H = 350;
+  const PAD = 36;
 
   const toX = (lrecon: number) => PAD + (lrecon / 10) * (W - 2 * PAD);
   const toY = (galtan: number) => PAD + (galtan / 10) * (H - 2 * PAD); // TAN at top (high Y value = high galtan = top)
@@ -1017,39 +1017,39 @@ function PoliticalProfileSection({ profile, label, sector }: {
         <div style={{ fontSize: '0.8rem', color: '#666', marginBottom: '0.5rem', fontWeight: 600 }}>
           V&auml;nster&ndash;H&ouml;ger &times; GAL&ndash;TAN
         </div>
-        <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', maxWidth: '100%' }}>
+        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', maxWidth: '100%' }}>
           {/* Background */}
           <rect x={PAD} y={PAD} width={W - 2 * PAD} height={H - 2 * PAD} fill="#f7f5e4" rx="4" />
           {/* Gridlines at 5 */}
           <line x1={toX(5)} y1={PAD} x2={toX(5)} y2={H - PAD} stroke="#ddd" strokeWidth="1" strokeDasharray="4 2" />
           <line x1={PAD} y1={toY(5)} x2={W - PAD} y2={toY(5)} stroke="#ddd" strokeWidth="1" strokeDasharray="4 2" />
           {/* Quadrant labels */}
-          <text x={PAD + 4} y={PAD + 12} fontSize="7" fill="#bbb" fontFamily="sans-serif">Frihetlig v&auml;nster</text>
-          <text x={W - PAD - 4} y={PAD + 12} fontSize="7" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Frihetlig h&ouml;ger</text>
-          <text x={PAD + 4} y={H - PAD - 5} fontSize="7" fill="#bbb" fontFamily="sans-serif">Traditionell v&auml;nster</text>
-          <text x={W - PAD - 4} y={H - PAD - 5} fontSize="7" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Traditionell h&ouml;ger</text>
+          <text x={PAD + 6} y={PAD + 16} fontSize="11" fill="#bbb" fontFamily="sans-serif">Frihetlig v&auml;nster</text>
+          <text x={W - PAD - 6} y={PAD + 16} fontSize="11" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Frihetlig h&ouml;ger</text>
+          <text x={PAD + 6} y={H - PAD - 8} fontSize="11" fill="#bbb" fontFamily="sans-serif">Traditionell v&auml;nster</text>
+          <text x={W - PAD - 6} y={H - PAD - 8} fontSize="11" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Traditionell h&ouml;ger</text>
           {/* Axis labels */}
-          <text x={PAD} y={H - 4} fontSize="8" fill="#999" fontFamily="sans-serif">V&auml;nster</text>
-          <text x={W - PAD} y={H - 4} fontSize="8" fill="#999" fontFamily="sans-serif" textAnchor="end">H&ouml;ger</text>
-          <text x={PAD - 2} y={PAD - 4} fontSize="8" fill="#999" fontFamily="sans-serif">GAL</text>
-          <text x={PAD - 2} y={H - PAD + 12} fontSize="8" fill="#999" fontFamily="sans-serif">TAN</text>
+          <text x={PAD} y={H - 4} fontSize="12" fill="#999" fontFamily="sans-serif" fontWeight="600">V&auml;nster</text>
+          <text x={W - PAD} y={H - 4} fontSize="12" fill="#999" fontFamily="sans-serif" textAnchor="end" fontWeight="600">H&ouml;ger</text>
+          <text x={PAD - 2} y={PAD - 6} fontSize="12" fill="#999" fontFamily="sans-serif" fontWeight="600">GAL</text>
+          <text x={PAD - 2} y={H - PAD + 16} fontSize="12" fill="#999" fontFamily="sans-serif" fontWeight="600">TAN</text>
           {/* All-org average dot */}
           {comparison && (
-            <circle cx={toX(comparison.allAvg.lrecon)} cy={toY(comparison.allAvg.galtan)} r="6" fill="#bbb" stroke="#fff" strokeWidth="1.5" />
+            <circle cx={toX(comparison.allAvg.lrecon)} cy={toY(comparison.allAvg.galtan)} r="8" fill="#bbb" stroke="#fff" strokeWidth="2" />
           )}
           {/* Sector average dot */}
           {sectorAvg && (
             <circle
               cx={toX(sectorAvg.lrecon)}
               cy={toY(sectorAvg.galtan)}
-              r="6"
+              r="8"
               fill={sector ? (SECTOR_COLORS[sector] || '#666') : '#666'}
               stroke="#fff"
-              strokeWidth="1.5"
+              strokeWidth="2"
             />
           )}
           {/* This org/person dot */}
-          <circle cx={toX(profile.lrecon)} cy={toY(profile.galtan)} r="7" fill="#ff6632" stroke="#fff" strokeWidth="2" />
+          <circle cx={toX(profile.lrecon)} cy={toY(profile.galtan)} r="10" fill="#ff6632" stroke="#fff" strokeWidth="2.5" />
         </svg>
         {/* Legend */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '0.5rem', fontSize: '0.75rem', color: '#666' }}>
@@ -2386,6 +2386,7 @@ type ArrangerProfileData = {
     agendaPower: number;
   };
   perYear: { year: number; events: number; panelSlotsGiven: number }[];
+  seminars: { id: number; year: number; title: string; topic: string | null; location: string | null }[];
   topTopics: { topic: string; count: number }[];
   topSpeakers: { id: number; name: string; title: string | null; org: string | null; category: string | null; sharedEvents: number }[];
   topArenas: { name: string; eventCount: number }[];
@@ -2410,6 +2411,7 @@ function AktorerTab({
   const [hasSearched, setHasSearched] = useState(false);
   const [arrangerProfile, setArrangerProfile] = useState<ArrangerProfileData | null>(null);
   const [profileLoading, setProfileLoading] = useState(false);
+  const [arrangerSelectedYear, setArrangerSelectedYear] = useState<number | null>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -2598,6 +2600,107 @@ function AktorerTab({
                 );
               })()}
             </div>
+
+            {/* Seminars list */}
+            {arrangerProfile.seminars && arrangerProfile.seminars.length > 0 && (() => {
+              const arrangerYears = [2022, 2023, 2024, 2025];
+              const filteredArrangerSeminars = arrangerSelectedYear
+                ? arrangerProfile.seminars.filter(s => s.year === arrangerSelectedYear)
+                : arrangerProfile.seminars;
+              return (
+                <div style={{
+                  backgroundColor: '#fff',
+                  padding: '2rem',
+                  borderRadius: '8px',
+                  border: '2px solid #000',
+                  boxShadow: '4px 4px 0 #000',
+                  marginBottom: '1.5rem',
+                }}>
+                  <h3 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', margin: '0 0 1rem' }}>
+                    SEMINARIER ({arrangerProfile.seminars.length})
+                  </h3>
+
+                  {/* Year filter */}
+                  <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                    <button
+                      onClick={() => setArrangerSelectedYear(null)}
+                      style={{
+                        padding: '0.3rem 0.7rem',
+                        border: '2px solid #000',
+                        borderRadius: '16px',
+                        backgroundColor: arrangerSelectedYear === null ? '#000' : '#fff',
+                        color: arrangerSelectedYear === null ? '#fff' : '#000',
+                        fontWeight: 600,
+                        fontSize: '0.75rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      Alla
+                    </button>
+                    {arrangerYears.map(y => {
+                      const count = arrangerProfile.seminars.filter(s => s.year === y).length;
+                      if (count === 0) return null;
+                      return (
+                        <button
+                          key={y}
+                          onClick={() => setArrangerSelectedYear(arrangerSelectedYear === y ? null : y)}
+                          style={{
+                            padding: '0.3rem 0.7rem',
+                            border: '2px solid #000',
+                            borderRadius: '16px',
+                            backgroundColor: arrangerSelectedYear === y ? '#000' : '#fff',
+                            color: arrangerSelectedYear === y ? '#fff' : '#000',
+                            fontWeight: 600,
+                            fontSize: '0.75rem',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {y} ({count})
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {filteredArrangerSeminars.length === 0 ? (
+                    <p style={{ color: '#999' }}>Inga seminarier för valt år.</p>
+                  ) : (
+                    <div style={{ overflowX: 'auto' }}>
+                      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+                        <thead>
+                          <tr style={{ borderBottom: '2px solid #000' }}>
+                            <th style={{ textAlign: 'left', padding: '0.5rem', fontWeight: 700, whiteSpace: 'nowrap' }}>År</th>
+                            <th style={{ textAlign: 'left', padding: '0.5rem', fontWeight: 700 }}>Titel</th>
+                            <th style={{ textAlign: 'left', padding: '0.5rem', fontWeight: 700 }}>Ämne</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {filteredArrangerSeminars.map((s, i) => (
+                            <tr key={`${s.id}-${i}`} style={{ borderBottom: '1px solid #eee' }}>
+                              <td style={{ padding: '0.5rem', fontWeight: 600, whiteSpace: 'nowrap' }}>{s.year}</td>
+                              <td style={{ padding: '0.5rem' }}>{s.title}</td>
+                              <td style={{ padding: '0.5rem', whiteSpace: 'nowrap' }}>
+                                {s.topic ? (
+                                  <span
+                                    onClick={() => onOpenTopic(s.topic!)}
+                                    style={{ cursor: 'pointer', borderBottom: '1px solid #ccc' }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.color = '#ff6632'; e.currentTarget.style.borderColor = '#ff6632'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
+                                  >
+                                    {formatTopic(s.topic)}
+                                  </span>
+                                ) : (
+                                  <span style={{ color: '#ccc' }}>—</span>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
 
             {/* Top topics */}
             {arrangerProfile.topTopics.length > 0 && (

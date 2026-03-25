@@ -207,9 +207,10 @@ async function getArrangerProfile(arrangerId: number) {
   let visibleEventIds: number[] = [];
   let topTopics: { topic: string; count: number }[] = [];
   let topArenas: { name: string; eventCount: number }[] = [];
+  let seminars: { id: number; year: number; title: string; topic: string | null; location: string | null }[] = [];
   if (eventIds.length > 0) {
     // Filter to visible years, include location_name for arena aggregation
-    const events = await fetchAll('events', 'id, year, location_name', q =>
+    const events = await fetchAll('events', 'id, year, location_name, title', q =>
       q.in('id', eventIds).in('year', VISIBLE_YEARS)
     );
     visibleEventIds = events.map((e: any) => e.id);
@@ -218,6 +219,14 @@ async function getArrangerProfile(arrangerId: number) {
       const topics = await fetchAll('event_topics', 'event_id, topic_primary', q =>
         q.in('event_id', visibleEventIds).not('topic_primary', 'is', null)
       );
+
+      // Build topic map for seminars list
+      const topicMap = new Map<number, string>();
+      for (const t of topics) {
+        if (t.topic_primary) {
+          topicMap.set(t.event_id, t.topic_primary);
+        }
+      }
 
       // Count by topic
       const topicCounts: Record<string, number> = {};
@@ -231,6 +240,17 @@ async function getArrangerProfile(arrangerId: number) {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 5)
         .map(([topic, count]) => ({ topic, count }));
+
+      // Build seminars list
+      seminars = events
+        .map((e: any) => ({
+          id: e.id,
+          year: e.year,
+          title: e.title,
+          topic: topicMap.get(e.id) || null,
+          location: e.location_name || null,
+        }))
+        .sort((a: any, b: any) => b.year - a.year || a.title.localeCompare(b.title));
     }
 
     // Top arenas (venues)
@@ -363,6 +383,7 @@ async function getArrangerProfile(arrangerId: number) {
       events: s.events_count,
       panelSlotsGiven: s.panel_slots_given || 0,
     })),
+    seminars,
     topTopics,
     topSpeakers,
     topArenas,
