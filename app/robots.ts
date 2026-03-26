@@ -16,6 +16,7 @@ export default function robots(): MetadataRoute.Robots {
           '/arenaguiden',
           '/insikter',
           '/om',
+          '/integritetspolicy',
           '/api/',
           '/og',
         ],

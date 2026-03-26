@@ -366,10 +366,27 @@ export default function DashboardPage() {
         borderBottom: '4px solid #ff6632',
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
               ALMEDALSDATA
             </h1>
+            <a href="/speakers" style={{
+              backgroundColor: '#ff6632',
+              color: '#fff',
+              padding: isMobile ? '0.5rem 1rem' : '0.6rem 1.5rem',
+              borderRadius: '4px',
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: isMobile ? '0.8rem' : '0.9rem',
+              whiteSpace: 'nowrap',
+              border: '2px solid #ff6632',
+              transition: 'opacity 0.15s',
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+            >
+              Talarsök &amp; Aktörssök
+            </a>
           </div>
           <p style={{ fontSize: isMobile ? '0.85rem' : '1.1rem', opacity: 0.7, marginTop: '0.5rem' }}>
             {stats

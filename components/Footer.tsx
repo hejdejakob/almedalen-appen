@@ -66,6 +66,11 @@ export default function Footer() {
               reformsociety.se ↗
             </a>
           </div>
+          <div>
+            <a href="/integritetspolicy" style={{ color: '#ccc', textDecoration: 'none' }}>
+              Integritetspolicy
+            </a>
+          </div>
         </div>
       </div>
 
