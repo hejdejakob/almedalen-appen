@@ -493,51 +493,13 @@ function AgendakraftChart({ datasets, isMobile }: { datasets: any[]; isMobile?: 
   const currentZoom = ZOOM_PRESETS[zoomLevel];
 
   return (
-    <div style={{ height: isMobile ? '350px' : '500px', position: 'relative' }}>
-      <Bubble data={{ datasets }} options={{
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: { duration: 400 },
-        scales: {
-          x: {
-            title: { display: true, text: 'Egna seminarier', font: { weight: 'bold' as const } },
-            min: 0,
-            max: currentZoom.xMax,
-          },
-          y: {
-            title: { display: true, text: 'Medverkan i andras event', font: { weight: 'bold' as const } },
-            min: 0,
-            max: currentZoom.yMax,
-          },
-        },
-        plugins: {
-          legend: {
-            position: isMobile ? 'bottom' as const : 'right' as const,
-            labels: { boxWidth: 12, font: { size: isMobile ? 10 : 11 } },
-          },
-          tooltip: {
-            callbacks: {
-              label: (ctx: any) => {
-                const d = ctx.raw;
-                return [
-                  d.name,
-                  `Egna event: ${d.x}`,
-                  `I andras paneler: ${d.y}`,
-                  `Agendakraft: ${d.power}`,
-                  `Panelplatser givna: ${d.given}`,
-                ];
-              },
-            },
-          },
-        },
-      }} />
+    <div>
       <div style={{
-        position: 'absolute',
-        top: '0.5rem',
-        left: '0.5rem',
         display: 'flex',
-        gap: '0.3rem',
+        gap: '0.4rem',
+        marginBottom: '1rem',
       }}>
+        <span style={{ fontSize: '0.75rem', color: '#999', alignSelf: 'center', marginRight: '0.25rem' }}>Zoom:</span>
         {ZOOM_PRESETS.map((preset, i) => (
           <button
             key={preset.label}
@@ -556,6 +518,45 @@ function AgendakraftChart({ datasets, isMobile }: { datasets: any[]; isMobile?: 
             {preset.label}
           </button>
         ))}
+      </div>
+      <div style={{ height: isMobile ? '350px' : '500px' }}>
+        <Bubble data={{ datasets }} options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 400 },
+          scales: {
+            x: {
+              title: { display: true, text: 'Egna seminarier', font: { weight: 'bold' as const } },
+              min: 0,
+              max: currentZoom.xMax,
+            },
+            y: {
+              title: { display: true, text: 'Medverkan i andras event', font: { weight: 'bold' as const } },
+              min: 0,
+              max: currentZoom.yMax,
+            },
+          },
+          plugins: {
+            legend: {
+              position: isMobile ? 'bottom' as const : 'right' as const,
+              labels: { boxWidth: 12, font: { size: isMobile ? 10 : 11 } },
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx: any) => {
+                  const d = ctx.raw;
+                  return [
+                    d.name,
+                    `Egna event: ${d.x}`,
+                    `I andras paneler: ${d.y}`,
+                    `Agendakraft: ${d.power}`,
+                    `Panelplatser givna: ${d.given}`,
+                  ];
+                },
+              },
+            },
+          },
+        }} />
       </div>
     </div>
   );
