@@ -68,7 +68,8 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1rem',
+        padding: '0.75rem',
+        overflowY: 'auto',
       }}>
         {/* Lightbox */}
         <div style={{
@@ -76,26 +77,28 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
           border: '2px solid #ff6632',
           borderRadius: '8px',
           boxShadow: '0 0 60px rgba(255, 102, 50, 0.2)',
-          padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-          maxWidth: '460px',
+          padding: 'clamp(1.25rem, 3vw, 2.5rem)',
+          maxWidth: '440px',
           width: '100%',
           textAlign: 'center',
           color: '#fff',
+          maxHeight: 'calc(100vh - 1.5rem)',
+          overflowY: 'auto',
         }}>
           {/* Brand */}
           <div style={{
             fontFamily: 'var(--font-formula)',
-            fontSize: 'clamp(1.3rem, 4vw, 2rem)',
+            fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
             color: '#ff6632',
-            marginBottom: '0.25rem',
+            marginBottom: '0.15rem',
             letterSpacing: '0.05em',
           }}>
             ALMEDALSDATA
           </div>
           <div style={{
-            fontSize: '0.8rem',
+            fontSize: 'clamp(0.65rem, 1.5vw, 0.8rem)',
             color: '#666',
-            marginBottom: '1.5rem',
+            marginBottom: 'clamp(0.75rem, 2vw, 1.5rem)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
           }}>
@@ -105,37 +108,37 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
           {/* Selling points */}
           <div style={{
             textAlign: 'left',
-            marginBottom: '1.5rem',
+            marginBottom: 'clamp(0.75rem, 2vw, 1.5rem)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.6rem',
+            gap: 'clamp(0.35rem, 1vw, 0.6rem)',
           }}>
             {SELL_POINTS.map((point, i) => (
               <div key={i} style={{
                 display: 'flex',
                 alignItems: 'flex-start',
-                gap: '0.6rem',
-                fontSize: '0.85rem',
+                gap: '0.5rem',
+                fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
                 color: '#ccc',
                 lineHeight: 1.4,
               }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#ff6632', flexShrink: 0, marginTop: '6px' }} />
+                <span style={{ width: 5, height: 5, borderRadius: '50%', backgroundColor: '#ff6632', flexShrink: 0, marginTop: '5px' }} />
                 {point}
               </div>
             ))}
           </div>
 
           {/* Divider */}
-          <div style={{ borderTop: '1px solid #333', margin: '0 0 1.25rem' }} />
+          <div style={{ borderTop: '1px solid #333', margin: '0 0 clamp(0.75rem, 2vw, 1.25rem)' }} />
 
           {/* Password form */}
           <form onSubmit={handleSubmit} style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '0.75rem',
+            gap: '0.6rem',
           }}>
-            <div style={{ fontSize: '0.85rem', color: '#999', marginBottom: '0.25rem' }}>
+            <div style={{ fontSize: 'clamp(0.75rem, 2vw, 0.85rem)', color: '#999' }}>
               Ange lösenord för att låsa upp
             </div>
             <input
@@ -145,33 +148,33 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
               placeholder="Lösenord"
               autoFocus
               style={{
-                padding: '0.75rem 1.25rem',
+                padding: '0.65rem 1rem',
                 fontSize: '1rem',
                 border: error ? '2px solid #e63946' : '2px solid #333',
                 borderRadius: '4px',
                 backgroundColor: '#111',
                 color: '#fff',
                 width: '100%',
-                maxWidth: '300px',
+                maxWidth: '280px',
                 textAlign: 'center',
                 fontFamily: 'inherit',
               }}
             />
             {error && (
-              <div style={{ color: '#e63946', fontSize: '0.85rem' }}>Fel lösenord</div>
+              <div style={{ color: '#e63946', fontSize: '0.8rem' }}>Fel lösenord</div>
             )}
             <button type="submit" style={{
-              padding: '0.65rem 2.5rem',
+              padding: '0.6rem 2rem',
               backgroundColor: '#ff6632',
               color: '#fff',
               border: 'none',
               borderRadius: '4px',
-              fontSize: '0.9rem',
+              fontSize: '0.85rem',
               fontWeight: 700,
               cursor: 'pointer',
               fontFamily: 'inherit',
               width: '100%',
-              maxWidth: '300px',
+              maxWidth: '280px',
             }}>
               Öppna
             </button>
@@ -179,11 +182,11 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
 
           {/* Contact CTA */}
           <div style={{
-            marginTop: '1.25rem',
-            padding: '0.75rem',
+            marginTop: 'clamp(0.75rem, 2vw, 1.25rem)',
+            padding: '0.6rem',
             backgroundColor: 'rgba(255, 102, 50, 0.08)',
             borderRadius: '6px',
-            fontSize: '0.8rem',
+            fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)',
             color: '#999',
             lineHeight: 1.5,
           }}>
@@ -194,8 +197,8 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
           </div>
 
           {/* Privacy link */}
-          <div style={{ marginTop: '1rem' }}>
-            <a href="/integritetspolicy" style={{ color: '#555', fontSize: '0.7rem', textDecoration: 'none' }}>
+          <div style={{ marginTop: '0.75rem' }}>
+            <a href="/integritetspolicy" style={{ color: '#555', fontSize: '0.65rem', textDecoration: 'none' }}>
               Integritetspolicy
             </a>
           </div>
