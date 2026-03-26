@@ -639,15 +639,15 @@ function PoliticalProfileSection({ profile, label, sector }: {
           <line x1={toX(5)} y1={PAD} x2={toX(5)} y2={H - PAD} stroke="#ddd" strokeWidth="1" strokeDasharray="4 2" />
           <line x1={PAD} y1={toY(5)} x2={W - PAD} y2={toY(5)} stroke="#ddd" strokeWidth="1" strokeDasharray="4 2" />
           {/* Quadrant labels */}
-          <text x={PAD + 6} y={PAD + 16} fontSize="11" fill="#bbb" fontFamily="sans-serif">Frihetlig v&auml;nster</text>
-          <text x={W - PAD - 6} y={PAD + 16} fontSize="11" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Frihetlig h&ouml;ger</text>
-          <text x={PAD + 6} y={H - PAD - 8} fontSize="11" fill="#bbb" fontFamily="sans-serif">Traditionell v&auml;nster</text>
-          <text x={W - PAD - 6} y={H - PAD - 8} fontSize="11" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Traditionell h&ouml;ger</text>
+          <text x={PAD + 6} y={PAD + 18} fontSize="14" fill="#bbb" fontFamily="sans-serif">Frihetlig v&auml;nster</text>
+          <text x={W - PAD - 6} y={PAD + 18} fontSize="14" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Frihetlig h&ouml;ger</text>
+          <text x={PAD + 6} y={H - PAD - 8} fontSize="14" fill="#bbb" fontFamily="sans-serif">Traditionell v&auml;nster</text>
+          <text x={W - PAD - 6} y={H - PAD - 8} fontSize="14" fill="#bbb" fontFamily="sans-serif" textAnchor="end">Traditionell h&ouml;ger</text>
           {/* Axis labels */}
-          <text x={PAD} y={H - 4} fontSize="12" fill="#999" fontFamily="sans-serif" fontWeight="600">V&auml;nster</text>
-          <text x={W - PAD} y={H - 4} fontSize="12" fill="#999" fontFamily="sans-serif" textAnchor="end" fontWeight="600">H&ouml;ger</text>
-          <text x={PAD - 2} y={PAD - 6} fontSize="12" fill="#999" fontFamily="sans-serif" fontWeight="600">GAL</text>
-          <text x={PAD - 2} y={H - PAD + 16} fontSize="12" fill="#999" fontFamily="sans-serif" fontWeight="600">TAN</text>
+          <text x={PAD} y={H - 2} fontSize="15" fill="#999" fontFamily="sans-serif" fontWeight="600">V&auml;nster</text>
+          <text x={W - PAD} y={H - 2} fontSize="15" fill="#999" fontFamily="sans-serif" textAnchor="end" fontWeight="600">H&ouml;ger</text>
+          <text x={PAD - 2} y={PAD - 6} fontSize="15" fill="#999" fontFamily="sans-serif" fontWeight="600">GAL</text>
+          <text x={PAD - 2} y={H - PAD + 18} fontSize="15" fill="#999" fontFamily="sans-serif" fontWeight="600">TAN</text>
           {/* All-org average dot */}
           {comparison && (
             <circle cx={toX(comparison.allAvg.lrecon)} cy={toY(comparison.allAvg.galtan)} r="8" fill="#bbb" stroke="#fff" strokeWidth="2" />

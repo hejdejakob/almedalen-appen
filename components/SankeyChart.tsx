@@ -168,7 +168,7 @@ export default function SankeyChart({
       .attr('x', d => xScale(d)!)
       .attr('y', -2)
       .attr('text-anchor', 'middle')
-      .attr('font-size', '13px')
+      .attr('font-size', '16px')
       .attr('font-weight', '700')
       .text(d => d.toString());
 
@@ -182,7 +182,7 @@ export default function SankeyChart({
       .attr('x', (d: any) => d.x1 + 6)
       .attr('y', (d: any) => (d.y0 + d.y1) / 2)
       .attr('dy', '0.35em')
-      .attr('font-size', '10px')
+      .attr('font-size', '13px')
       .attr('fill', '#333')
       .text((d: any) => {
         const label = formatTopicLabel(d.topic);

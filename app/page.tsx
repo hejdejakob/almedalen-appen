@@ -402,7 +402,7 @@ export default function DashboardPage() {
         <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
         {/* SECTION 2: Ämnen & trender */}
-        {data.topics && <TopicsView data={data.topics} topicDeep={data.topicDeep} />}
+        {data.topics && <TopicsView data={data.topics} topicDeep={data.topicDeep} isMobile={isMobile} />}
 
         <hr style={{ border: 'none', borderTop: '3px solid #000', margin: isMobile ? '2rem 0' : '3rem 0' }} />
 
@@ -437,7 +437,7 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle: string })
       <h2 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', marginBottom: '0.5rem' }}>
         {title}
       </h2>
-      <p style={{ color: '#555', marginBottom: '1rem', fontSize: '1.05rem' }}>
+      <p style={{ color: '#555', marginBottom: '1rem', fontSize: 'clamp(0.85rem, 2vw, 1.05rem)' }}>
         {subtitle}
       </p>
     </>
@@ -527,12 +527,12 @@ function AgendakraftChart({ datasets, isMobile }: { datasets: any[]; isMobile?: 
             key={preset.label}
             onClick={() => setZoomLevel(i)}
             style={{
-              padding: '0.3rem 0.7rem',
+              padding: '0.4rem 0.8rem',
               border: zoomLevel === i ? '2px solid #ff6632' : '1px solid #ccc',
               borderRadius: '4px',
               backgroundColor: zoomLevel === i ? '#ff6632' : '#fff',
               color: zoomLevel === i ? '#fff' : '#666',
-              fontSize: '0.7rem',
+              fontSize: '0.75rem',
               fontWeight: 600,
               cursor: 'pointer',
             }}
@@ -655,7 +655,7 @@ function PowerView({ data, sectors, isMobile }: { data: any; sectors: any; isMob
   );
 }
 
-function TopicsView({ data, topicDeep }: { data: any; topicDeep: any }) {
+function TopicsView({ data, topicDeep, isMobile }: { data: any; topicDeep: any; isMobile?: boolean }) {
   const years = data.years;
   const topics = data.topics;
   const [showElectionFilter, setShowElectionFilter] = useState(false);
@@ -731,24 +731,24 @@ function TopicsView({ data, topicDeep }: { data: any; topicDeep: any }) {
             vardagsfråga som tappar uppmärksamhet när valrörelsen dominerar agendan.
           </p>
           <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '0.75rem' : '0.9rem' }}>
             <thead>
               <tr style={{ borderBottom: '3px solid #000' }}>
-                <th style={{ textAlign: 'left', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Ämne</th>
-                <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Valår (snitt)</th>
-                <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Icke-valår (snitt)</th>
-                <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', fontWeight: 700 }}>Skillnad</th>
+                <th style={{ textAlign: 'left', padding: isMobile ? '0.4rem 0.3rem' : '0.75rem 0.5rem', fontWeight: 700 }}>Ämne</th>
+                <th style={{ textAlign: 'center', padding: isMobile ? '0.4rem 0.3rem' : '0.75rem 0.5rem', fontWeight: 700 }}>{isMobile ? 'Valår' : 'Valår (snitt)'}</th>
+                <th style={{ textAlign: 'center', padding: isMobile ? '0.4rem 0.3rem' : '0.75rem 0.5rem', fontWeight: 700 }}>{isMobile ? 'Övriga' : 'Icke-valår (snitt)'}</th>
+                <th style={{ textAlign: 'center', padding: isMobile ? '0.4rem 0.3rem' : '0.75rem 0.5rem', fontWeight: 700 }}>Skillnad</th>
               </tr>
             </thead>
             <tbody>
               {electionData.map((d: any) => (
                 <tr key={d.topic} style={{ borderBottom: '1px solid #eee' }}>
-                  <td style={{ padding: '0.6rem 0.5rem', fontWeight: 600 }}>{formatTopicLabel(d.topic)}</td>
-                  <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem' }}>{d.electionAvg}</td>
-                  <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem' }}>{d.nonElectionAvg}</td>
+                  <td style={{ padding: isMobile ? '0.4rem 0.3rem' : '0.6rem 0.5rem', fontWeight: 600 }}>{formatTopicLabel(d.topic)}</td>
+                  <td style={{ textAlign: 'center', padding: isMobile ? '0.4rem 0.3rem' : '0.6rem 0.5rem' }}>{d.electionAvg}</td>
+                  <td style={{ textAlign: 'center', padding: isMobile ? '0.4rem 0.3rem' : '0.6rem 0.5rem' }}>{d.nonElectionAvg}</td>
                   <td style={{
                     textAlign: 'center',
-                    padding: '0.6rem 0.5rem',
+                    padding: isMobile ? '0.4rem 0.3rem' : '0.6rem 0.5rem',
                     fontWeight: 700,
                     color: trendColor(d.diff),
                   }}>
@@ -1083,12 +1083,12 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
           mellan sektorer, eftersom språkbruk och ämnesval varierar systematiskt mellan branscher.
         </p>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '0.75rem' : '0.9rem' }}>
             <thead>
               <tr>
-                <th style={{ textAlign: 'left', padding: '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>Sektor</th>
+                <th style={{ textAlign: 'left', padding: isMobile ? '0.4rem' : '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>Sektor</th>
                 {[2022, 2023, 2024, 2025].map(y => (
-                  <th key={y} style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>{y}</th>
+                  <th key={y} style={{ textAlign: 'center', padding: isMobile ? '0.4rem' : '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>{y}</th>
                 ))}
               </tr>
             </thead>
@@ -1099,7 +1099,7 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
                 return bAvg - aAvg;
               }).map((row: any) => (
                 <tr key={row.sector}>
-                  <td style={{ padding: '0.6rem 0.75rem', borderBottom: '1px solid #eee', fontWeight: 600 }}>
+                  <td style={{ padding: isMobile ? '0.4rem' : '0.6rem 0.75rem', borderBottom: '1px solid #eee', fontWeight: 600 }}>
                     {SECTOR_LABELS[row.sector] || row.sector}
                   </td>
                   {[2022, 2023, 2024, 2025, 2026].map(y => {
@@ -1112,12 +1112,12 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
                     return (
                       <td key={y} style={{
                         textAlign: 'center',
-                        padding: '0.6rem',
+                        padding: isMobile ? '0.4rem' : '0.6rem',
                         borderBottom: '1px solid #eee',
                         backgroundColor: bg,
                         color: val !== null && Math.abs(val) > 0.15 ? '#fff' : '#333',
                         fontWeight: 700,
-                        fontSize: '0.9rem',
+                        fontSize: isMobile ? '0.75rem' : '0.9rem',
                       }}>
                         {val !== null ? val.toFixed(2) : '–'}
                       </td>

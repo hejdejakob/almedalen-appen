@@ -95,7 +95,7 @@ export default function VisbyMap({ venues, height = 600 }: { venues: Venue[]; he
         const arrangerList = venue.topArrangers.slice(0, 5).join(', ');
 
         circle.bindPopup(`
-          <div style="font-family: sans-serif; min-width: 200px;">
+          <div style="font-family: sans-serif; min-width: 160px; max-width: 250px;">
             <strong style="font-size: 14px;">${venue.name}</strong><br>
             <span style="color: #666; font-size: 12px;">${venue.eventCount} seminarier</span>
             <hr style="margin: 6px 0; border: none; border-top: 1px solid #ddd;">

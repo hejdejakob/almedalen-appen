@@ -277,7 +277,7 @@ export default function ArenaNetwork({
       {tooltip && (
         <div style={{
           position: 'absolute',
-          left: tooltip.x,
+          left: `clamp(0px, ${tooltip.x}px, calc(100% - 10px))`,
           top: tooltip.y,
           transform: 'translate(-50%, -100%)',
           backgroundColor: '#000',
@@ -288,6 +288,7 @@ export default function ArenaNetwork({
           fontWeight: 600,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
+          maxWidth: 'calc(100% - 1rem)',
           lineHeight: 1.4,
         }}>
           {tooltip.lines.map((line, i) => (

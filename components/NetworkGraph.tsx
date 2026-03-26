@@ -269,7 +269,7 @@ export default function NetworkGraph({
       {tooltip && (
         <div style={{
           position: 'absolute',
-          left: tooltip.x,
+          left: `clamp(0px, ${tooltip.x}px, calc(100% - 10px))`,
           top: tooltip.y,
           transform: 'translate(-50%, -100%)',
           backgroundColor: '#000',
@@ -280,6 +280,9 @@ export default function NetworkGraph({
           fontWeight: 600,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
+          maxWidth: 'calc(100% - 1rem)',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
         }}>
           {tooltip.text}
         </div>
@@ -289,7 +292,7 @@ export default function NetworkGraph({
           position: 'absolute',
           top: '0.5rem',
           right: '0.5rem',
-          width: '260px',
+          width: 'min(260px, calc(100% - 1rem))',
           maxHeight: `${height - 20}px`,
           overflowY: 'auto',
           backgroundColor: '#fff',
