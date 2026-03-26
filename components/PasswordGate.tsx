@@ -12,7 +12,7 @@ const PUBLIC_PATHS = ['/', '/om', '/dashboard', '/arenaguiden', '/integritetspol
 const SELL_POINTS = [
   'Sök bland 16 500+ talare och 3 000+ organisationer',
   'GAL\u2013TAN-analys på aktörer, talare och panelister',
-  'Få koll på ditt nätverk \u2014 och ditt nätverks nätverk',
+  'Få koll på ditt nätverk, och ditt nätverks nätverk',
   'Kartlägg vem som äger agendan i Almedalen',
   'Utforska 21 ämneskluster och politiska profiler',
 ];
@@ -119,7 +119,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
                 color: '#ccc',
                 lineHeight: 1.4,
               }}>
-                <span style={{ color: '#ff6632', flexShrink: 0, fontSize: '0.75rem', marginTop: '2px' }}>&#9654;</span>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#ff6632', flexShrink: 0, marginTop: '6px' }} />
                 {point}
               </div>
             ))}

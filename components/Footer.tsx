@@ -66,15 +66,10 @@ export default function Footer() {
               reformsociety.se ↗
             </a>
           </div>
-          <div>
-            <a href="/integritetspolicy" style={{ color: '#ccc', textDecoration: 'none' }}>
-              Integritetspolicy
-            </a>
-          </div>
         </div>
       </div>
 
-      {/* Copyright */}
+      {/* Copyright + privacy */}
       <div style={{
         maxWidth: '1400px',
         margin: '2rem auto 0',
@@ -82,8 +77,15 @@ export default function Footer() {
         borderTop: '1px solid #333',
         fontSize: '0.75rem',
         color: '#666',
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '0.5rem',
       }}>
-        © {new Date().getFullYear()} Reform Society
+        <span>© {new Date().getFullYear()} Reform Society</span>
+        <a href="/integritetspolicy" style={{ color: '#666', textDecoration: 'none' }}>
+          Integritetspolicy
+        </a>
       </div>
     </footer>
   );
