@@ -453,7 +453,7 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle: string })
       <h2 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', marginBottom: '0.5rem' }}>
         {title}
       </h2>
-      <p style={{ color: '#555', marginBottom: '1rem', fontSize: 'clamp(0.85rem, 2vw, 1.05rem)' }}>
+      <p style={{ color: '#555', marginBottom: '1.5rem', fontSize: 'clamp(0.85rem, 2vw, 1.05rem)' }}>
         {subtitle}
       </p>
     </>
@@ -614,8 +614,8 @@ function PowerView({ data, sectors, isMobile }: { data: any; sectors: any; isMob
       </p>
 
       <Card style={{ marginBottom: '2rem' }}>
-        <h3 style={{ marginBottom: '0.5rem', fontWeight: 700 }}>Agendakraft: topp 100 organisationer</h3>
-        <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1rem', lineHeight: '1.5' }}>
+        <h3 style={{ marginBottom: '0.75rem', fontWeight: 700 }}>Agendakraft: topp 100 organisationer</h3>
+        <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1.5rem', lineHeight: '1.5' }}>
           Varje bubbla är en organisation. Positionen på x-axeln visar hur många egna seminarier organisationen
           har arrangerat totalt under perioden. Positionen på y-axeln visar hur ofta organisationens representanter
           har medverkat i andras programpunkter. Bubblans storlek motsvarar agendakraftindexet, som väger samman
@@ -627,8 +627,8 @@ function PowerView({ data, sectors, isMobile }: { data: any; sectors: any; isMob
       </Card>
 
       <Card>
-        <h3 style={{ marginBottom: '0.5rem', fontWeight: 700 }}>Sektorbalans över tid</h3>
-        <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1rem', lineHeight: '1.5' }}>
+        <h3 style={{ marginBottom: '0.75rem', fontWeight: 700 }}>Sektorbalans över tid</h3>
+        <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1.5rem', lineHeight: '1.5' }}>
           Grafen visar varje sektors andel av det totala antalet seminarier per år, normaliserat till 100 procent.
           Syftet är att synliggöra strukturella förskjutningar: tar näringslivet en allt större del av Almedalen,
           eller växer civilsamhället? Eftersom det totala antalet seminarier varierar mellan åren säger absoluta
@@ -718,7 +718,7 @@ function TopicsView({ data, topicDeep, isMobile }: { data: any; topicDeep: any; 
         första årets värde.
       </p>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
         <h3 style={{ fontWeight: 700 }}>Trending topics</h3>
         <button
           onClick={() => setShowElectionFilter(!showElectionFilter)}
@@ -739,7 +739,7 @@ function TopicsView({ data, topicDeep, isMobile }: { data: any; topicDeep: any; 
 
       {showElectionFilter ? (
         <Card>
-          <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1rem', lineHeight: '1.5' }}>
+          <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1.5rem', lineHeight: '1.5' }}>
             Tabellen jämför det genomsnittliga antalet seminarier per ämne under valår (2022, då riksdagsvalet
             hölls i september) med genomsnittet under övriga år. En positiv skillnad innebär att ämnet får
             oproportionerligt stort utrymme under valår, vilket kan tyda på att det drivs av den politiska
@@ -828,7 +828,7 @@ function TopicsView({ data, topicDeep, isMobile }: { data: any; topicDeep: any; 
       {/* Vem äger frågan? Sektor × ämne */}
       {topicDeep?.sectorByTopic && (
         <>
-          <h3 style={{ fontWeight: 700, marginTop: '2.5rem', marginBottom: '0.5rem' }}>Vem äger frågan?</h3>
+          <h3 style={{ fontWeight: 700, marginTop: '2.5rem', marginBottom: '0.75rem' }}>Vem äger frågan?</h3>
           <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1rem', lineHeight: '1.5', maxWidth: '900px' }}>
             Varje stapel visar vilka sektorer som arrangerar seminarier inom respektive ämne.
             Förändringar mellan åren visar om nya aktörer tar över eller om samma sektorer behåller greppet.
@@ -1058,7 +1058,7 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
 
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '1rem' : '2rem', marginBottom: '2rem' }}>
         <Card>
-          <h3 style={{ marginBottom: '1rem', fontWeight: 700 }}>Sentimentindex per år</h3>
+          <h3 style={{ marginBottom: '0.75rem', fontWeight: 700 }}>Sentimentindex per år</h3>
           <div style={{ height: isMobile ? '250px' : '300px' }}>
             <Line data={lineData} options={{
               responsive: true,
@@ -1072,7 +1072,7 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
         </Card>
 
         <Card>
-          <h3 style={{ marginBottom: '1rem', fontWeight: 700 }}>Fördelning pos / neutral / neg</h3>
+          <h3 style={{ marginBottom: '0.75rem', fontWeight: 700 }}>Fördelning pos / neutral / neg</h3>
           <div style={{ height: isMobile ? '250px' : '300px' }}>
             <Bar data={labelData} options={{
               responsive: true,
@@ -1088,8 +1088,8 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
       </div>
 
       <Card>
-        <h3 style={{ marginBottom: '1rem', fontWeight: 700 }}>Sektor-heatmap</h3>
-        <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1rem', lineHeight: '1.5' }}>
+        <h3 style={{ marginBottom: '0.75rem', fontWeight: 700 }}>Sektor-heatmap</h3>
+        <p style={{ fontSize: '0.85rem', color: '#555', marginBottom: '1.5rem', lineHeight: '1.5' }}>
           Tabellen visar genomsnittlig sentimentpoäng per sektor och år. Gröna celler innebär att sektorns
           seminarier i snitt har en positivt laddad ton, röda att tonen är mer problemorienterad eller
           alarmerande. Värdet är ett genomsnitt av alla seminarier vars primärarrangör tillhör den aktuella
@@ -1173,7 +1173,7 @@ function NetworkView({ data, isMobile }: { data: any; isMobile?: boolean }) {
             </div>
           ))}
         </div>
-        <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1rem' }}>
+        <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.5rem' }}>
           Topp 80 arrangörer, {data.edges?.length || 0} kopplingar. Dra noder för att utforska. Zooma med scrollhjul.
         </p>
         <div style={{ height: isMobile ? '400px' : '600px' }}>
@@ -1206,7 +1206,7 @@ function LocationsView({ data, isMobile }: { data: any; isMobile?: boolean }) {
             </div>
           ))}
         </div>
-        <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1rem' }}>
+        <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.5rem' }}>
           {venues.length} platser, {venues.reduce((s: number, v: any) => s + v.eventCount, 0).toLocaleString('sv-SE')} seminarier. Klicka på en cirkel för detaljer. Zooma med scrollhjul.
         </p>
         <VisbyMap venues={venues} height={isMobile ? 400 : 600} />
@@ -1244,7 +1244,7 @@ function ArenaNetworkView({ data, isMobile }: { data: any; isMobile?: boolean })
             Arena
           </div>
         </div>
-        <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1rem' }}>
+        <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.5rem' }}>
           {arenaNodes?.length || 0} arenor, {orgNodes?.length || 0} organisationer, {edges?.length || 0} kopplingar.
           Dra noder för att utforska. Zooma med scrollhjul.
         </p>
