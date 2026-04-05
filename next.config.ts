@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  productionBrowserSourceMaps: false,
   async headers() {
     return [
       {
@@ -20,6 +21,10 @@ const nextConfig: NextConfig = {
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.prod.website-files.com; img-src 'self' https: data:; font-src 'self' https://cdn.prod.website-files.com; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self';",
           },
         ],
       },

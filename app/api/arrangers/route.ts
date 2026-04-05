@@ -133,11 +133,12 @@ async function searchArrangers(query: string, limit: number) {
   let candidateIds: number[];
 
   if (query.trim()) {
-    // Search by name
+    // Search by name — sanitize input to prevent PostgREST filter injection
+    const sanitized = query.trim().slice(0, 200).replace(/[%_\\,;()]/g, '');
     const { data: nameResults } = await supabase
       .from('arrangers')
       .select('id')
-      .or(`name.ilike.%${query.trim()}%,name_normalized.ilike.%${query.trim()}%`)
+      .or(`name.ilike.%${sanitized}%,name_normalized.ilike.%${sanitized}%`)
       .limit(500);
 
     const matchedIds = new Set((nameResults || []).map((r: any) => r.id));

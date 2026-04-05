@@ -85,18 +85,20 @@ export default function VisbyMap({ venues, height = 600 }: { venues: Venue[]; he
           fillOpacity: 0.7,
         }).addTo(map);
 
-        // Build popup content
+        // Build popup content — escape HTML to prevent injection
+        const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
         const sectorBreakdown = Object.entries(venue.sectors)
           .sort(([, a], [, b]) => b - a)
           .slice(0, 5)
-          .map(([s, count]) => `<span style="color:${SECTOR_COLORS[s] || '#999'}">■</span> ${SECTOR_LABELS[s] || s}: ${count}`)
+          .map(([s, count]) => `<span style="color:${SECTOR_COLORS[s] || '#999'}">■</span> ${esc(SECTOR_LABELS[s] || s)}: ${count}`)
           .join('<br>');
 
-        const arrangerList = venue.topArrangers.slice(0, 5).join(', ');
+        const arrangerList = venue.topArrangers.slice(0, 5).map(esc).join(', ');
 
         circle.bindPopup(`
           <div style="font-family: sans-serif; min-width: 160px; max-width: 250px;">
-            <strong style="font-size: 14px;">${venue.name}</strong><br>
+            <strong style="font-size: 14px;">${esc(venue.name)}</strong><br>
             <span style="color: #666; font-size: 12px;">${venue.eventCount} seminarier</span>
             <hr style="margin: 6px 0; border: none; border-top: 1px solid #ddd;">
             <div style="font-size: 12px; line-height: 1.6;">${sectorBreakdown}</div>

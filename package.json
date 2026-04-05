@@ -10,7 +10,7 @@
     "scrape": "node scrape-almedalen.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.79.0",
+    "@anthropic-ai/sdk": "^0.82.0",
     "@supabase/supabase-js": "^2.99.2",
     "@types/d3": "^7.4.3",
     "@types/d3-sankey": "^0.12.5",

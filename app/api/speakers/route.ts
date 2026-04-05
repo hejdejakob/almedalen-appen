@@ -137,7 +137,7 @@ async function searchSpeakers(query: string, limit: number) {
       const { data: ilikeResults } = await supabase
         .from('speakers')
         .select('id')
-        .ilike('name', `%${query.trim()}%`)
+        .ilike('name', `%${query.trim().slice(0, 200)}%`)
         .limit(limit);
       if (ilikeResults) {
         speakerIds = ilikeResults.map((r: any) => r.id);
