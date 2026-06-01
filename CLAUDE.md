@@ -11,6 +11,21 @@ kod, SQL, datapipeline, enrichment och rapportgenerering.
 
 ---
 
+## Utvecklingsmiljö (VIKTIGT)
+
+Jakob kör Claude Code via **SSH** mot dev-servern, som är **`jakobs-mac-mini`** (nås
+över **Tailscale**). Hans webbläsare sitter på en annan maskin i samma tailnet.
+**`localhost`-URL:er fungerar därför inte för honom.**
+
+När något ska granskas i webbläsare (dev-server, statisk HTML — en screenshot räcker inte):
+- Starta servern bunden till `0.0.0.0` (Next.js `next start`/`next dev` gör detta som default).
+- Ge honom **Tailscale-URL:en**, ALDRIG `localhost`:
+  - `http://jakobs-mac-mini:<port>/...` (MagicDNS), eller
+  - `http://100.70.74.100:<port>/...` (Tailscale-IP) om MagicDNS strular.
+- Övriga tailnet-värdar: `jakobs-macbook-pro` (laptop), `iphone181`, `rk-2473pw`.
+
+---
+
 ## Rådata — vad vi har
 
 **Källor:**
