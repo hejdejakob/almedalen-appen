@@ -1,0 +1,50 @@
+{
+  "total": 741,
+  "totalAll": {
+    "forsvar": 456,
+    "sakerhet": 158,
+    "bada": 54,
+    "oklart": 73
+  },
+  "perYear": {
+    "2022": {
+      "forsvar": 31,
+      "sakerhet": 17,
+      "bada": 5,
+      "oklart": 15
+    },
+    "2023": {
+      "forsvar": 60,
+      "sakerhet": 17,
+      "bada": 7,
+      "oklart": 9
+    },
+    "2024": {
+      "forsvar": 97,
+      "sakerhet": 23,
+      "bada": 10,
+      "oklart": 18
+    },
+    "2025": {
+      "forsvar": 136,
+      "sakerhet": 42,
+      "bada": 7,
+      "oklart": 15
+    },
+    "2026": {
+      "forsvar": 132,
+      "sakerhet": 59,
+      "bada": 25,
+      "oklart": 16
+    }
+  },
+  "family": {
+    "n": 69,
+    "tally": {
+      "forsvar": 8,
+      "sakerhet": 51,
+      "bada": 7,
+      "oklart": 3
+    }
+  }
+}

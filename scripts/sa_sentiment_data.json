@@ -1,0 +1,53 @@
+{
+  "curve": [
+    {
+      "year": 2022,
+      "n": 68,
+      "mean": -0.288,
+      "solutionPct": 8.8,
+      "problemPct": 77.9
+    },
+    {
+      "year": 2023,
+      "n": 93,
+      "mean": -0.223,
+      "solutionPct": 14,
+      "problemPct": 65.6
+    },
+    {
+      "year": 2024,
+      "n": 148,
+      "mean": -0.203,
+      "solutionPct": 19.6,
+      "problemPct": 63.5
+    },
+    {
+      "year": 2025,
+      "n": 200,
+      "mean": -0.175,
+      "solutionPct": 30,
+      "problemPct": 57
+    },
+    {
+      "year": 2026,
+      "n": 232,
+      "mean": -0.137,
+      "solutionPct": 30.6,
+      "problemPct": 55.2
+    }
+  ],
+  "compare": {
+    "customer": {
+      "n": 69,
+      "mean": -0.269,
+      "solutionPct": 20.3,
+      "problemPct": 76.8
+    },
+    "almedalen": {
+      "n": 672,
+      "mean": -0.177,
+      "solutionPct": 24.6,
+      "problemPct": 59.1
+    }
+  }
+}
