@@ -1,0 +1,175 @@
+{
+  "generated": "report-layer consolidation; Supabase source unchanged",
+  "years": [
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "macro": {
+    "defByYear": {
+      "2022": 68,
+      "2023": 93,
+      "2024": 148,
+      "2025": 200,
+      "2026": 232
+    },
+    "totByYear": {
+      "2022": 1944,
+      "2023": 1981,
+      "2024": 2048,
+      "2025": 2290,
+      "2026": 2613
+    },
+    "sharePct": {
+      "2022": 3.5,
+      "2023": 4.7,
+      "2024": 7.2,
+      "2025": 8.7,
+      "2026": 8.9
+    }
+  },
+  "family": {
+    "eventsByYear": {
+      "2022": 8,
+      "2023": 14,
+      "2024": 25,
+      "2025": 23,
+      "2026": 24
+    },
+    "total": 94,
+    "arrangerRows": 20
+  },
+  "core": {
+    "total": 34,
+    "firstYear": 2023,
+    "note": "Paraplynamnet \"Säkerhetsarenan\" användes 2023–2024; därefter taggades samma verksamhet under medlemsorganisationerna. Kärnsiffran redovisas därför kumulativt, inte som årskurva."
+  },
+  "topicMix": [
+    {
+      "topic": "försvar_säkerhet",
+      "n": 69
+    },
+    {
+      "topic": "demokrati_rättsstat",
+      "n": 18
+    },
+    {
+      "topic": "barn_ungdom",
+      "n": 3
+    },
+    {
+      "topic": "integration_migration",
+      "n": 1
+    },
+    {
+      "topic": "näringsliv_innovation",
+      "n": 1
+    },
+    {
+      "topic": "bostäder_samhällsbyggnad",
+      "n": 1
+    },
+    {
+      "topic": "kultur_idrott",
+      "n": 1
+    }
+  ],
+  "jeanette": {
+    "byYear": {
+      "2022": 0,
+      "2023": 3,
+      "2024": 12,
+      "2025": 4,
+      "2026": 5
+    },
+    "total": 24
+  },
+  "topSpeakers": [
+    {
+      "name": "Magnus Lindgren",
+      "title": "Generalsekreterare",
+      "org": "Stiftelsen Tryggare Sverige",
+      "count": 23,
+      "merged": false
+    },
+    {
+      "name": "Jeanette Lesslie Wikström",
+      "title": "VD",
+      "org": "SäkerhetsBranschen",
+      "count": 22,
+      "merged": false
+    },
+    {
+      "name": "Martina Högberg Haglund",
+      "title": "Marknads- och kommunikationsansvarig",
+      "org": "SäkerhetsBranschen",
+      "count": 19,
+      "merged": false
+    },
+    {
+      "name": "Helene Meyer",
+      "title": "Office manager och eventkoordinator",
+      "org": "SäkerhetsBranschen",
+      "count": 19,
+      "merged": false
+    },
+    {
+      "name": "Per Klingvall",
+      "title": "Chef för råd, information och samhällspåverkan",
+      "org": "SSF Stöldskyddsföreningen",
+      "count": 12,
+      "merged": false
+    },
+    {
+      "name": "Thomas Brühl",
+      "title": "VD",
+      "org": "SSF Stöldskyddsföreningen",
+      "count": 9,
+      "merged": false
+    },
+    {
+      "name": "Peter Strandell",
+      "title": "—",
+      "org": "Stiftelsen Tryggare Sverige",
+      "count": 8,
+      "merged": false
+    },
+    {
+      "name": "Pontus Lindström",
+      "title": "Näringspolitisk chef",
+      "org": "Säkerhetsföretagen",
+      "count": 7,
+      "merged": false
+    },
+    {
+      "name": "Jan Olsson",
+      "title": "Kriminalkommissarie, föreläsare och konsult",
+      "org": "—",
+      "count": 6,
+      "merged": false
+    },
+    {
+      "name": "Mats Björs",
+      "title": "Generalsekreterare",
+      "org": "Brandskyddsföreningen",
+      "count": 6,
+      "merged": false
+    },
+    {
+      "name": "Björn Eriksson",
+      "title": "Ordförande",
+      "org": "Kontantupproret",
+      "count": 4,
+      "merged": false
+    },
+    {
+      "name": "Tyra Kloth",
+      "title": "Projektledare",
+      "org": "Stiftelsen Tryggare Sverige",
+      "count": 4,
+      "merged": false
+    }
+  ]
+}

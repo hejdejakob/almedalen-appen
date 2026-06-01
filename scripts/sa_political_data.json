@@ -1,0 +1,187 @@
+{
+  "generated": "report-layer; CHES 2024 SE; matchParty mirrors arrangers route",
+  "familyEvents": 94,
+  "totalAppearances": 434,
+  "distinctSpeakers": 242,
+  "politicianAppearances": 20,
+  "distinctPoliticians": 16,
+  "partyRows": [
+    {
+      "party": "M",
+      "name": "Moderaterna",
+      "lrecon": 7.89,
+      "galtan": 6.47,
+      "block": "höger",
+      "politicians": 4,
+      "appearances": 7,
+      "people": [
+        {
+          "name": "Gunnar Strömmer",
+          "title": "partisekreterare",
+          "count": 4
+        },
+        {
+          "name": "Marléne Lund Kopparklint",
+          "title": "Ordförande Riksdagens anhörignätverk",
+          "count": 1
+        },
+        {
+          "name": "Christian Orsing",
+          "title": "Kommunstyrelsens ordf. Helsingborg",
+          "count": 1
+        },
+        {
+          "name": "Alexandra Anstrell",
+          "title": "riksdagsledamot, ledamot försvarsutskottet",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "party": "SAP",
+      "name": "Socialdemokraterna",
+      "lrecon": 3.68,
+      "galtan": 4.74,
+      "block": "vänster",
+      "politicians": 4,
+      "appearances": 4,
+      "people": [
+        {
+          "name": "Denis Begic",
+          "title": "Riksdagsledamot",
+          "count": 1
+        },
+        {
+          "name": "Laila Naraghi",
+          "title": "Riksdagsledamot",
+          "count": 1
+        },
+        {
+          "name": "Evelina Fahlesson",
+          "title": "Kommunalråd Skellefteå",
+          "count": 1
+        },
+        {
+          "name": "Teresa Carvalho",
+          "title": "Riksdagsledamot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "party": "C",
+      "name": "Centerpartiet",
+      "lrecon": 7.84,
+      "galtan": 2.95,
+      "block": "höger",
+      "politicians": 2,
+      "appearances": 2,
+      "people": [
+        {
+          "name": "Ola Johansson",
+          "title": "bostadspolitisk talesperson",
+          "count": 1
+        },
+        {
+          "name": "Anders Karlsson",
+          "title": "riksdagsledamot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "party": "SD",
+      "name": "Sverigedemokraterna",
+      "lrecon": 6.32,
+      "galtan": 9,
+      "block": "höger",
+      "politicians": 2,
+      "appearances": 2,
+      "people": [
+        {
+          "name": "Ulrika Liljeberg",
+          "title": "rättspolitisk talesperson",
+          "count": 1
+        },
+        {
+          "name": "Roger Hedlund",
+          "title": "Riksdagsledamot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "party": "V",
+      "name": "Vänsterpartiet",
+      "lrecon": 1.89,
+      "galtan": 2.42,
+      "block": "vänster",
+      "politicians": 1,
+      "appearances": 2,
+      "people": [
+        {
+          "name": "Jonas Lindberg",
+          "title": "Sjukvårdspoliti talesperson",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "party": "KD",
+      "name": "Kristdemokraterna",
+      "lrecon": 7.26,
+      "galtan": 7.79,
+      "block": "höger",
+      "politicians": 1,
+      "appearances": 1,
+      "people": [
+        {
+          "name": "Larry Söder",
+          "title": "riksdagsledamot, bostadspolitisk talesperson",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "party": "MP",
+      "name": "Miljöpartiet",
+      "lrecon": 3.16,
+      "galtan": 1.95,
+      "block": "vänster",
+      "politicians": 1,
+      "appearances": 1,
+      "people": [
+        {
+          "name": "Jacob Risberg",
+          "title": "Riksdagsledamot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "party": "L",
+      "name": "Liberalerna",
+      "lrecon": 7.32,
+      "galtan": 4.47,
+      "block": "höger",
+      "politicians": 1,
+      "appearances": 1,
+      "people": [
+        {
+          "name": "Jan Jönsson",
+          "title": "lämnat Liberalerna och politiken (tidigare oppositionsborgarråd Stockholm)",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "weighted": {
+    "lrecon": 5.99,
+    "galtan": 5.36,
+    "n": 20
+  },
+  "blockApp": {
+    "vänster": 7,
+    "höger": 13
+  }
+}

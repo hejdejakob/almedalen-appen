@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// HTTP Basic Auth-skydd för talarsidan och dess privata API:er.
+// HTTP Basic Auth-skydd för talarsidan, dess privata API:er och
+// kundrapporten /sakerhetsarenan.html (innehåller kunddata).
 // Lösenordet ligger i env-variabeln SPEAKERS_PASSWORD (sätts lokalt i .env
-// och i Vercel). Användarnamnet ignoreras — endast lösenordet kontrolleras.
+// och i Vercel). Användarnamnet ignoreras, endast lösenordet kontrolleras.
 // /api/dashboard gatas INTE: det delas av publika sidor (start, pensioner,
-// arenaguiden, dashboard).
+// arenaguiden, dashboard). Rapportens assets under /assets/sa-report/ är
+// inte känsliga och lämnas öppna (datan ligger inbäddad i HTML-filen).
 
-const REALM = 'Almedalsdata - Talare';
+const REALM = 'Almedalsdata - skyddat';
 
 function unauthorized() {
   return new NextResponse('Autentisering krävs.', {
@@ -47,5 +49,6 @@ export const config = {
     '/api/speakers/:path*',
     '/api/arrangers',
     '/api/arrangers/:path*',
+    '/sakerhetsarenan',
   ],
 };

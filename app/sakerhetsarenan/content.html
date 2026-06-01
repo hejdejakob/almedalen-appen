@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Säkerheten tar plats · Almedalen 2022–2026 · Reform Society</title>
+<style>
+  @font-face {
+    font-family: "Formula Condensed";
+    src: url("/assets/sa-report/FormulaCondensed-Bold.otf") format("opentype");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("/assets/sa-report/Inter-Variable.ttf") format("truetype");
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Space Mono";
+    src: url("/assets/sa-report/SpaceMono-Regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Space Mono";
+    src: url("/assets/sa-report/SpaceMono-Bold.ttf") format("truetype");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --orange: #fb531a;
+    --morkrod: #610000;
+    --rosa: #ffa59d;
+    --ljusgron: #d3efc8;
+    --morkbla: #210051;
+    --offwhite: #f7f5e4;
+    --vit: #ffffff;
+    --svart: #000000;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--offwhite);
+    color: var(--svart);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  h1, h2, h3 { font-family: "Formula Condensed", "Inter", sans-serif; font-weight: 700; text-transform: uppercase; line-height: 0.94; letter-spacing: 0.01em; }
+
+  .mono { font-family: "Space Mono", monospace; }
+
+  /* ---------- HERO ---------- */
+  .hero { background: var(--orange); color: var(--offwhite); padding: 0 0 64px; }
+  .hero-top { display: flex; justify-content: space-between; align-items: center; padding: 26px 0 0; }
+  .hero-top img { height: 30px; }
+  .eyebrow {
+    font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--offwhite); opacity: 0.92;
+  }
+  .hero h1 { font-size: clamp(3.4rem, 11vw, 8.2rem); margin: 38px 0 0; color: var(--offwhite); }
+  .hero .sub {
+    font-size: clamp(1.1rem, 2.4vw, 1.55rem); max-width: 640px; margin-top: 26px;
+    line-height: 1.4; font-weight: 400;
+  }
+  .hero .addr { margin-top: 30px; font-family: "Space Mono", monospace; font-size: 0.78rem; letter-spacing: 0.04em; opacity: 0.9; }
+
+  /* ---------- STAT BAND ---------- */
+  .statband { background: var(--morkbla); color: var(--offwhite); }
+  .statband .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .stat { padding: 34px 24px; border-right: 1px solid rgba(247,245,228,0.18); }
+  .stat:last-child { border-right: none; }
+  .stat .num { font-family: "Formula Condensed", sans-serif; font-weight: 700; font-size: 3.4rem; line-height: 0.9; color: var(--orange); }
+  .stat .lbl { font-family: "Space Mono", monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; opacity: 0.92; }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 72px 0; }
+  .kicker { font-family: "Space Mono", monospace; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
+  h2.big { font-size: clamp(2.2rem, 5.5vw, 4rem); color: var(--morkbla); max-width: 14ch; }
+  .lead { font-size: 1.15rem; max-width: 620px; margin-top: 20px; }
+  .lead.tight { margin-top: 14px; }
+
+  .chart-card { background: var(--vit); border: 2px solid var(--svart); margin-top: 40px; padding: 32px 28px 22px; }
+  .chart-card .ctitle { font-family: "Space Mono", monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .chart-card .cnote { font-size: 0.85rem; color: #444; margin-top: 16px; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .bar-label { font-family: "Space Mono", monospace; font-size: 12px; fill: var(--svart); }
+  .bar-val { font-family: "Formula Condensed", sans-serif; font-weight: 700; font-size: 20px; }
+
+  /* dark callout */
+  .callout { background: var(--morkrod); color: var(--offwhite); }
+  .callout .kicker { color: var(--rosa); }
+  .callout h2.big { color: var(--offwhite); }
+  .callout .lead { color: var(--offwhite); }
+  .callout .mini { font-family: "Space Mono", monospace; font-size: 0.82rem; background: rgba(247,245,228,0.1); padding: 18px 20px; margin-top: 28px; border-left: 4px solid var(--orange); }
+
+  /* highlight person */
+  .person { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 36px; background: var(--ljusgron); border: 2px solid var(--svart); }
+  .person .pinner { padding: 34px 30px; }
+  .person .ptag { font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--morkrod); }
+  .person .pname { font-family: "Formula Condensed", sans-serif; font-weight: 700; text-transform: uppercase; font-size: 2.6rem; line-height: 0.95; margin: 8px 0 4px; color: var(--svart); }
+  .person .prole { font-size: 1rem; color: var(--svart); }
+  .person .pstat { margin-top: 18px; font-size: 1.05rem; color: var(--svart); }
+  .person .pstat b { font-family: "Formula Condensed", sans-serif; font-size: 1.6rem; color: var(--morkrod); }
+
+  /* table */
+  table { width: 100%; border-collapse: collapse; margin-top: 34px; background: var(--vit); border: 2px solid var(--svart); color: var(--svart); }
+  thead th { background: var(--svart); color: var(--offwhite); font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; text-align: left; padding: 12px 16px; }
+  thead th.r { text-align: right; }
+  tbody td { padding: 11px 16px; border-bottom: 1px solid #e4e0c8; font-size: 0.95rem; vertical-align: middle; color: var(--svart); }
+  tbody td strong { color: var(--svart); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #fbfaf0; }
+  td.rank { font-family: "Formula Condensed", sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--orange); width: 48px; }
+  td.cnt { text-align: right; font-family: "Space Mono", monospace; font-weight: 700; }
+  td .org { color: #555; font-size: 0.85rem; }
+  tr.you td { background: var(--rosa) !important; }
+  tr.you td.rank { color: var(--morkrod); }
+  .youtag { font-family: "Space Mono", monospace; font-size: 0.6rem; letter-spacing: 0.1em; background: var(--morkrod); color: var(--offwhite); padding: 2px 6px; margin-left: 8px; text-transform: uppercase; vertical-align: middle; }
+
+  /* topic chips */
+  .topics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .chip { font-family: "Space Mono", monospace; font-size: 0.82rem; border: 2px solid var(--svart); padding: 8px 14px; display: flex; gap: 10px; align-items: baseline; }
+  .chip b { font-family: "Formula Condensed", sans-serif; font-size: 1.2rem; }
+  .chip.lead-topic { background: var(--orange); color: var(--offwhite); border-color: var(--orange); }
+
+  /* footer */
+  footer { background: var(--svart); color: var(--offwhite); padding: 56px 0; }
+  footer img { height: 26px; margin-bottom: 22px; }
+  footer .ftxt { font-family: "Space Mono", monospace; font-size: 0.78rem; line-height: 1.7; opacity: 0.85; max-width: 760px; }
+  footer a { color: var(--orange); }
+
+  @media (max-width: 760px) {
+    .statband .grid { grid-template-columns: repeat(2, 1fr); }
+    .stat { border-bottom: 1px solid rgba(247,245,228,0.18); }
+    .stat:nth-child(2) { border-right: none; }
+    .hero h1 { font-size: 3.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="eyebrow">Datarapport · ej publik</span>
+      <img src="/assets/sa-report/rs-logo-horizontal-white.svg" alt="Reform Society">
+    </div>
+    <h1>Säkerheten<br>tar plats</h1>
+    <p class="sub">Hur försvars- och säkerhetsfrågorna växte från en nisch till ett av Almedalens största samtalsämnen 2022–2026, och var SäkerhetsArenan står i den rörelsen.</p>
+    <div class="addr">Framtagen av Reform Society för SäkerhetsBranschen · juni 2026</div>
+  </div>
+</header>
+
+<!-- ===================== STAT BAND ===================== -->
+<div class="statband">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat"><div class="num">3,4×</div><div class="lbl">Fler säkerhets-<br>seminarier 2022→2026</div></div>
+      <div class="stat"><div class="num">94</div><div class="lbl">Seminarier i er<br>säkerhetsfamilj totalt</div></div>
+      <div class="stat"><div class="num">24</div><div class="lbl">Framträdanden av<br>er vd Jeanette</div></div>
+      <div class="stat"><div class="num">8,9&nbsp;%</div><div class="lbl">Av hela Almedalen<br>handlar om säkerhet 2026</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MACRO TREND ===================== -->
+<section class="block">
+  <div class="wrap">
+    <div class="kicker">01 · Makrotrenden</div>
+    <h2 class="big">Från 68 till 232 seminarier</h2>
+    <p class="lead">Du hade helt rätt i din magkänsla. Försvar och säkerhet som huvudämne har vuxit varje enskilt år sedan 2022, både i antal seminarier och som andel av hela Almedalen. Det är en av de starkaste ämnesrörelserna i veckan.</p>
+
+    <div class="chart-card">
+      <div class="ctitle">Seminarier med försvar/säkerhet som huvudämne, per år</div>
+      <svg id="macroChart" viewBox="0 0 980 360" role="img" aria-label="Stapeldiagram över säkerhetsseminarier per år"></svg>
+      <div class="cnote">Andel av alla Almedalsseminarier: 3,5 % (2022) → 4,7 % → 7,2 % → 8,7 % → 8,9 % (2026). 2026 års siffra bygger på det publicerade programmet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAMILY FOOTPRINT ===================== -->
+<section class="block" style="background:var(--ljusgron);">
+  <div class="wrap">
+    <div class="kicker">02 · Er roll</div>
+    <h2 class="big">Ni red vågen tidigt</h2>
+    <p class="lead">SäkerhetsBranschen och de sex partnerorganisationerna bakom SäkerhetsArenan har tillsammans arrangerat <b>94 seminarier</b> under perioden. Er aktivitet tredubblades fram till 2024 och ligger sedan kvar på en hög, stabil nivå. Ni var med och drev tillväxten innan ämnet blev hett.</p>
+
+    <div class="chart-card">
+      <div class="ctitle">Seminarier arrangerade av er säkerhetsfamilj, per år</div>
+      <svg id="familyChart" viewBox="0 0 980 360" role="img" aria-label="Stapeldiagram över familjens seminarier per år"></svg>
+      <div class="cnote">”Säkerhetsfamiljen” = SäkerhetsBranschen samt partnerorganisationerna Stöldskyddsföreningen, Brandskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen och Företagsuniversitetet. Varumärket <b>SäkerhetsArenan</b> har funnits med sedan 2023 och samlar <b>34 seminarier</b> under perioden (se metodnoten nedan om hur arenan räknas).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POLITICAL PROFILE ===================== -->
+<section class="block callout">
+  <div class="wrap">
+    <div class="kicker">03 · Politiken på era scener</div>
+    <h2 class="big">Mitten, med högertyngd</h2>
+    <p class="lead">Vi placerade de politiker som talat på era seminarier på två axlar, ekonomisk vänster–höger och GAL–TAN, med partiernas forskningsbaserade positioner (CHES). Tyngdpunkten ligger strax höger om mitten på den ekonomiska axeln och nära mitten på GAL–TAN: era scener lockar bredd, men med övervikt åt regeringsunderlaget.</p>
+
+    <div class="chart-card" style="background:var(--vit);">
+      <div class="ctitle" style="color:var(--svart);">Partiernas position · bubbelstorlek = framträdanden på era seminarier</div>
+      <svg id="politChart" viewBox="0 0 980 560" role="img" aria-label="Höger-vänster- och GAL-TAN-diagram över partier på seminarierna"></svg>
+      <div class="cnote">Vänster–höger (x) och GAL–TAN (y) enligt Chapel Hill Expert Survey 2024. Bubbelstorlek = antal framträdanden av partiets politiker på era seminarier. Partitillhörighet härleds ur talarnas angivna organisation; <b>16 politiker / 20 framträdanden</b> kunde identifieras av totalt 242 talare. Resten är bransch-, myndighets- och expertröster. Bilden är därför indikativ, inte en fullständig partiräkning.</div>
+    </div>
+
+    <div class="topics" id="blockChips" style="margin-top:26px;"></div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC MIX ===================== -->
+<section class="block">
+  <div class="wrap">
+    <div class="kicker">04 · Vad ni pratar om</div>
+    <h2 class="big">Tryggt fokus</h2>
+    <p class="lead">Era seminarier håller sig nära kärnan. Av de 94 seminarierna klassas <b>69</b> som försvar/säkerhet och <b>18</b> som demokrati/rättsstat, tillsammans nästan allt. Ni är en tydlig röst, inte en spretig sådan.</p>
+    <div class="topics" id="topicChips"></div>
+  </div>
+</section>
+
+<!-- ===================== PEOPLE ===================== -->
+<section class="block" style="background:var(--morkbla); color:var(--offwhite);">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--rosa);">05 · Era ansikten</div>
+    <h2 class="big" style="color:var(--offwhite);">Vem syns mest</h2>
+    <p class="lead" style="color:var(--offwhite);">Du frågade hur er vd står sig. Här är svaret, räknat på alla seminarier i er familj, med två dubbletter av Jeanette i systemet hopslagna till en korrekt siffra.</p>
+
+    <div class="person">
+      <div class="pinner">
+        <div class="ptag">Er vd</div>
+        <div class="pname">Jeanette Lesslie Wikström</div>
+        <div class="prole">Vd, SäkerhetsBranschen</div>
+        <div class="pstat"><b>24</b> framträdanden 2023–2026 · näst flest i hela er säkerhetsfamilj, bara generalsekreteraren för Tryggare Sverige ligger före.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th class="r">#</th><th>Namn</th><th>Roll</th><th class="r">Framträdanden</th></tr>
+      </thead>
+      <tbody id="speakerRows"></tbody>
+    </table>
+    <p class="cnote mono" style="color:var(--offwhite); opacity:0.7; margin-top:18px; font-size:0.78rem;">Räknat på samtliga seminarier arrangerade av er säkerhetsfamilj 2022–2026. Talare med namnvarianter i systemet är hopslagna.</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <img src="/assets/sa-report/rs-logo-horizontal-white.svg" alt="Reform Society">
+    <div class="ftxt">
+      <b>Metod &amp; källa.</b> Underlaget är Almedalsdata.se:s databas över Almedalsveckans program 2022–2026 (9&nbsp;407 seminarier 2022–2025 samt det publicerade 2026-programmet). Ämnesklassificering är gjord maskinellt och granskad. ”Säkerhetsfamiljen” är en sammanslagning på rapportnivå av 20 arrangörsposter som rör SäkerhetsBranschen och de sex SäkerhetsArenan-partnerna; källdatan är oförändrad. SäkerhetsArenan redovisas som kumulativ totalsiffra eftersom paraplynamnet inte användes konsekvent efter 2024. Framtagen av Reform Society för SäkerhetsBranschen, juni 2026. Ej för publicering utan överenskommelse.
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = {
+  macro: { years:[2022,2023,2024,2025,2026], def:[68,93,148,200,232], share:[3.5,4.7,7.2,8.7,8.9] },
+  family: { years:[2022,2023,2024,2025,2026], ev:[8,14,25,23,24] },
+  topics: [
+    {t:"Försvar & säkerhet", n:69, lead:true},
+    {t:"Demokrati & rättsstat", n:18},
+    {t:"Barn & ungdom", n:3},
+    {t:"Integration & migration", n:1},
+    {t:"Näringsliv & innovation", n:1},
+    {t:"Bostäder & samhällsbyggnad", n:1},
+    {t:"Kultur & idrott", n:1}
+  ],
+  parties: [
+    {p:"M",  name:"Moderaterna",        lr:7.89, gt:6.47, app:7, block:"höger"},
+    {p:"SAP",name:"Socialdemokraterna", lr:3.68, gt:4.74, app:4, block:"vänster"},
+    {p:"C",  name:"Centerpartiet",      lr:7.84, gt:2.95, app:2, block:"höger"},
+    {p:"SD", name:"Sverigedemokraterna",lr:6.32, gt:9.00, app:2, block:"höger"},
+    {p:"V",  name:"Vänsterpartiet",     lr:1.89, gt:2.42, app:2, block:"vänster"},
+    {p:"KD", name:"Kristdemokraterna",  lr:7.26, gt:7.79, app:1, block:"höger"},
+    {p:"MP", name:"Miljöpartiet",       lr:3.16, gt:1.95, app:1, block:"vänster"},
+    {p:"L",  name:"Liberalerna",        lr:7.32, gt:4.47, app:1, block:"höger"}
+  ],
+  blocks: { höger:13, vänster:7 },
+  weighted: { lr:5.99, gt:5.36 },
+  speakers: [
+    {n:"Magnus Lindgren", r:"Generalsekreterare", o:"Stiftelsen Tryggare Sverige", c:23},
+    {n:"Jeanette Lesslie Wikström", r:"Vd", o:"SäkerhetsBranschen", c:22, you:true},
+    {n:"Martina Högberg Haglund", r:"Marknads- & kommunikationsansvarig", o:"SäkerhetsBranschen", c:19, you:true},
+    {n:"Helene Meyer", r:"Office manager & eventkoordinator", o:"SäkerhetsBranschen", c:19, you:true},
+    {n:"Per Klingvall", r:"Chef råd, information & samhällspåverkan", o:"SSF Stöldskyddsföreningen", c:12},
+    {n:"Thomas Brühl", r:"Vd", o:"SSF Stöldskyddsföreningen", c:9},
+    {n:"Peter Strandell", r:"—", o:"Stiftelsen Tryggare Sverige", c:8},
+    {n:"Pontus Lindström", r:"Näringspolitisk chef", o:"Säkerhetsföretagen", c:7},
+    {n:"Jan Olsson", r:"Kriminalkommissarie & föreläsare", o:"—", c:6},
+    {n:"Mats Björs", r:"Generalsekreterare", o:"Brandskyddsföreningen", c:6},
+    {n:"Björn Eriksson", r:"Ordförande", o:"Kontantupproret", c:4},
+    {n:"Tyra Kloth", r:"Projektledare", o:"Stiftelsen Tryggare Sverige", c:4}
+  ]
+};
+const ORANGE="#fb531a", MORKBLA="#210051", MORKROD="#610000", SVART="#000";
+
+function barChart(svgId, years, values, opts={}){
+  const svg=document.getElementById(svgId);
+  const W=980,H=360, padL=46,padR=20,padT=30,padB=46;
+  const cw=W-padL-padR, ch=H-padT-padB;
+  const max=Math.max(...values)*1.12;
+  const n=values.length, gap=24, bw=(cw-gap*(n-1))/n;
+  let s="";
+  // baseline
+  s+=`<line x1="${padL}" y1="${padT+ch}" x2="${W-padR}" y2="${padT+ch}" stroke="${SVART}" stroke-width="2"/>`;
+  values.forEach((v,i)=>{
+    const x=padL+i*(bw+gap);
+    const h=v/max*ch;
+    const y=padT+ch-h;
+    const fill=opts.fills ? opts.fills[i] : ORANGE;
+    s+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${fill}"/>`;
+    s+=`<text class="bar-val" x="${x+bw/2}" y="${y-9}" text-anchor="middle" fill="${opts.valColor||SVART}">${v}</text>`;
+    s+=`<text class="bar-label" x="${x+bw/2}" y="${padT+ch+26}" text-anchor="middle">${years[i]}</text>`;
+  });
+  svg.innerHTML=s;
+}
+
+barChart("macroChart", DATA.macro.years, DATA.macro.def);
+// family chart: last 3 years slightly muted to honor the "plateau after the climb" story, but all orange
+barChart("familyChart", DATA.family.years, DATA.family.ev, { fills: [MORKBLA,MORKBLA,ORANGE,ORANGE,ORANGE] });
+
+// topic chips
+document.getElementById("topicChips").innerHTML = DATA.topics
+  .map(t=>`<div class="chip ${t.lead?'lead-topic':''}"><b>${t.n}</b> ${t.t}</div>`).join("");
+
+// political scatter: x = lrecon (0 vänster → 10 höger), y = galtan (0 GAL/botten → 10 TAN/topp)
+function politScatter(){
+  const svg=document.getElementById("politChart");
+  if(!svg) return;
+  const W=980,H=560, padL=70,padR=30,padT=30,padB=64;
+  const cw=W-padL-padR, ch=H-padT-padB;
+  const X=v=>padL+(v/10)*cw;
+  const Y=v=>padT+ch-(v/10)*ch; // higher galtan = higher up
+  const r=a=>10+Math.sqrt(a)*13;
+  let s="";
+  // quadrant guide lines at midpoint 5
+  s+=`<line x1="${X(5)}" y1="${padT}" x2="${X(5)}" y2="${padT+ch}" stroke="#000" stroke-width="1" stroke-dasharray="4 5" opacity="0.35"/>`;
+  s+=`<line x1="${padL}" y1="${Y(5)}" x2="${padL+cw}" y2="${Y(5)}" stroke="#000" stroke-width="1" stroke-dasharray="4 5" opacity="0.35"/>`;
+  // axis frame
+  s+=`<line x1="${padL}" y1="${padT+ch}" x2="${padL+cw}" y2="${padT+ch}" stroke="#000" stroke-width="2"/>`;
+  s+=`<line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT+ch}" stroke="#000" stroke-width="2"/>`;
+  // axis labels
+  const lab=(x,y,t,anchor,rot)=>`<text x="${x}" y="${y}" text-anchor="${anchor}" class="bar-label" ${rot?`transform="rotate(-90 ${x} ${y})"`:''}>${t}</text>`;
+  s+=lab(padL,padT+ch+34,"← Ekonomisk vänster","start");
+  s+=lab(padL+cw,padT+ch+34,"Ekonomisk höger →","end");
+  s+=lab(padL-46,padT+8,"TAN ↑","middle");
+  s+=lab(padL-46,padT+ch,"↓ GAL","middle");
+  // weighted centroid marker
+  s+=`<circle cx="${X(DATA.weighted.lr)}" cy="${Y(DATA.weighted.gt)}" r="6" fill="none" stroke="#fff" stroke-width="2"/>`;
+  // party bubbles
+  for(const d of DATA.parties){
+    const cx=X(d.lr), cy=Y(d.gt), rad=r(d.app);
+    const fill = d.block==="höger" ? "#fb531a" : "#8880ff";
+    s+=`<circle cx="${cx}" cy="${cy}" r="${rad}" fill="${fill}" fill-opacity="0.82" stroke="#fff" stroke-width="2"/>`;
+    s+=`<text x="${cx}" y="${cy+5}" text-anchor="middle" class="bar-val" font-size="15" fill="#fff">${d.p}</text>`;
+  }
+  svg.innerHTML=s;
+}
+politScatter();
+
+// block summary chips
+(function(){
+  const el=document.getElementById("blockChips"); if(!el) return;
+  const b=DATA.blocks;
+  el.innerHTML =
+    `<div class="chip lead-topic"><b>${b.höger}</b> framträdanden från högerblocket</div>`+
+    `<div class="chip" style="background:#8880ff;color:#fff;border-color:#8880ff;"><b>${b.vänster}</b> från vänsterblocket</div>`+
+    `<div class="chip"><b>16</b> politiker av 242 talare</div>`;
+})();
+
+// speaker rows
+document.getElementById("speakerRows").innerHTML = DATA.speakers.map((s,i)=>`
+  <tr class="${s.you?'you':''}">
+    <td class="rank">${i+1}</td>
+    <td><strong>${s.n}</strong>${s.you?'<span class="youtag">Ni</span>':''}<br><span class="org">${s.o}</span></td>
+    <td>${s.r}</td>
+    <td class="cnt">${s.c}</td>
+  </tr>`).join("");
+</script>
+</body>
+</html>

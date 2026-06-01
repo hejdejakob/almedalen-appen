@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
+  // Säkerställ att kundrapportens HTML buntas med route-funktionen på Vercel.
+  outputFileTracingIncludes: {
+    "/sakerhetsarenan": ["./app/sakerhetsarenan/content.html"],
+  },
   async headers() {
     return [
       {
