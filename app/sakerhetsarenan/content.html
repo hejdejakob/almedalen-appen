@@ -48,6 +48,7 @@
     color: var(--svart);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
@@ -120,6 +121,8 @@
   td.rank { font-family: "Formula Condensed", sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--orange); width: 48px; }
   td.cnt { text-align: right; font-family: "Space Mono", monospace; font-weight: 700; }
   td .org { color: #555; font-size: 0.85rem; }
+  .role-mobile { display: none; }
+  .cnt-short { display: none; }
   tr.you td { background: var(--rosa) !important; }
   tr.you td.rank { color: var(--morkrod); }
   .youtag { font-family: "Space Mono", monospace; font-size: 0.6rem; letter-spacing: 0.1em; background: var(--morkrod); color: var(--offwhite); padding: 2px 6px; margin-left: 8px; text-transform: uppercase; vertical-align: middle; }
@@ -138,9 +141,22 @@
 
   @media (max-width: 760px) {
     .statband .grid { grid-template-columns: repeat(2, 1fr); }
-    .stat { border-bottom: 1px solid rgba(247,245,228,0.18); }
+    .stat { border-bottom: 1px solid rgba(247,245,228,0.18); padding: 26px 18px; }
     .stat:nth-child(2) { border-right: none; }
+    .stat .num { font-size: 2.8rem; word-break: break-word; }
+    .stat .lbl { overflow-wrap: anywhere; }
     .hero h1 { font-size: 3.4rem; }
+
+    /* Topplista: dölj Roll-kolumnen, visa rollen som rad under namnet */
+    .col-roll { display: none; }
+    .role-mobile { display: block; color: #555; font-size: 0.82rem; margin-top: 2px; }
+    .cnt-long { display: none; }
+    .cnt-short { display: inline; }
+    thead th { padding: 10px 8px; }
+    tbody td { padding: 10px 8px; font-size: 0.9rem; }
+    td.rank { width: 26px; font-size: 1.1rem; padding-left: 8px; padding-right: 4px; }
+    td.cnt { white-space: nowrap; }
+    td .org, .role-mobile { overflow-wrap: anywhere; }
   }
 </style>
 </head>
@@ -164,7 +180,7 @@
   <div class="wrap">
     <div class="grid">
       <div class="stat"><div class="num">3,4×</div><div class="lbl">Fler säkerhets-<br>seminarier 2022→2026</div></div>
-      <div class="stat"><div class="num">94</div><div class="lbl">Seminarier från er<br>och partnerorganisationerna</div></div>
+      <div class="stat"><div class="num">94</div><div class="lbl">Seminarier från er<br>och era partner</div></div>
       <div class="stat"><div class="num">24</div><div class="lbl">Framträdanden av<br>er vd Jeanette</div></div>
       <div class="stat"><div class="num">8,9&nbsp;%</div><div class="lbl">Av hela Almedalen<br>handlar om säkerhet 2026</div></div>
     </div>
@@ -277,7 +293,7 @@
 
     <table>
       <thead>
-        <tr><th class="r">#</th><th>Namn</th><th>Roll</th><th class="r">Framträdanden</th></tr>
+        <tr><th class="r">#</th><th>Namn</th><th class="col-roll">Roll</th><th class="r col-cnt-head"><span class="cnt-long">Framträdanden</span><span class="cnt-short">Antal</span></th></tr>
       </thead>
       <tbody id="speakerRows"></tbody>
     </table>
@@ -453,8 +469,8 @@ politScatter();
 document.getElementById("speakerRows").innerHTML = DATA.speakers.map((s,i)=>`
   <tr class="${s.you?'you':''}">
     <td class="rank">${i+1}</td>
-    <td><strong>${s.n}</strong>${s.you?'<span class="youtag">Ni</span>':''}<br><span class="org">${s.o}</span></td>
-    <td>${s.r}</td>
+    <td><strong>${s.n}</strong>${s.you?'<span class="youtag">Ni</span>':''}<br><span class="org">${s.o}</span><span class="role-mobile">${s.r!=="—"?s.r:""}</span></td>
+    <td class="col-roll">${s.r}</td>
     <td class="cnt">${s.c}</td>
   </tr>`).join("");
 </script>
