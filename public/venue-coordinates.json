@@ -1080,5 +1080,47 @@
     "locations": [
       "Hamngatan 1, trädgården, Maritim Mötesplats"
     ]
+  },
+  "S:t Hansplan": {
+    "lat": 57.6384,
+    "lng": 18.293,
+    "locations": [
+      "S:t Hansplan, plats 450, Folkhälsodalen, St Hans Café"
+    ]
+  },
+  "Strandgatan 34": {
+    "lat": 57.64187452533244,
+    "lng": 18.29229081891776,
+    "locations": [
+      "Strandgatan 34, parkering Stora Strandgatan, Diplomat Garden"
+    ]
+  },
+  "Visborgsgatan 5": {
+    "lat": 57.63576,
+    "lng": 18.28897,
+    "locations": [
+      "Visborgsgatan 5, SwedenBIO-huset"
+    ]
+  },
+  "Strandgatan 15B": {
+    "lat": 57.64158,
+    "lng": 18.29207,
+    "locations": [
+      "Strandgatan 15B"
+    ]
+  },
+  "Hamnplan 2": {
+    "lat": 57.6389,
+    "lng": 18.2883,
+    "locations": [
+      "Hamnplan 2, Hamnplan, plats 200, Medicon Village, Life Science-dagen"
+    ]
+  },
+  "Hästgatan 13": {
+    "lat": 57.638508,
+    "lng": 18.2936833,
+    "locations": [
+      "Hästgatan 13, Sällsynta Almedalen"
+    ]
   }
 }

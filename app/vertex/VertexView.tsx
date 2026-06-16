@@ -68,7 +68,7 @@ export default function VertexView({ seminars, people }: { seminars: Seminar[]; 
           <section style={{ padding: '2.2rem 0 0.5rem' }}>
             <h2 style={h2}>Prioriterade pass på kartan</h2>
             <p style={lead}>De nio prioriterade passen geografiskt i Visby. Klicka på en markör för titel och tid.</p>
-            <VertexMap points={mapPoints} />
+            <VertexMap points={mapPoints} total={core.length} />
           </section>
         )}
 
