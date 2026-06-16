@@ -348,3 +348,20 @@ rivalanalys, rapport-generator) raderades.
 5. **Confidence-flaggning** — < 0.8 hamnar i review-kö, slås aldrig ihop automatiskt
 6. **Arrangörsnormalisering är grunden** — allt nätverks- och maktanalys
    förutsätter att samma organisation är samma entitet varje år
+
+---
+
+## Kundsidor (avgränsade kundvyer)
+
+Utöver de publika analysvyerna finns **kundspecifika, avgränsade sidor** under `app/<namn>/`
+(t.ex. `/better-shelter`, `/sakerhetsarenan`, `/vertex`). Mönster:
+
+- Publika men `noindex`, **ogatade** (ligger utanför `middleware.ts`-matchern, som bara skyddar `/speakers`).
+- Reform Society-brand (svart/orange `#fb531a`/creme, Formula Condensed, skarpa hörn).
+- Serverkomponent för innehåll + ev. liten klient-ö för interaktiva delar (karta = leaflet, `ssr:false`).
+  OBS: hela appens sidor renderas annars klient-side via flight/hydrering — det är appens normala mönster.
+- Förbyggd, deterministisk data i `source/<namn>_*.json` (kuratordata committas; mellanfiler i `tmp/` gitignoreras).
+- Deploy: `npm run build && npx vercel --prod --yes` → `almedalsdata.se/<namn>`.
+
+Dokumenterade kundsidor:
+- **Vertex Almedalskarta 2026** — se [`docs/vertex-almedalskarta.md`](docs/vertex-almedalskarta.md).

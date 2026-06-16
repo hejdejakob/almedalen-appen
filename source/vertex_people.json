@@ -1,0 +1,757 @@
+[
+ {
+  "name": "Carl-Johan Schiller",
+  "title": "Region Stockholm",
+  "org": "(KD)",
+  "category": "politiker",
+  "n_relevant": 4,
+  "n_core": 0,
+  "events": [
+   "Framtidens kunskapsstyrning – från administrativ pappersprodukt till verklig patientnytta",
+   "Växla upp – nyttiggör medicinteknik för jämlik vård, kortare vårdköer och stärkt konkurrenskraft",
+   "Från innovation till konkurrenskraft – hur stärker Sverige attraktionskraften för FoU?",
+   "Har regionen tagit tillbaka kontrollen och hur har detta i så fall påverkat patienterna?"
+  ]
+ },
+ {
+  "name": "Janette Olsson",
+  "title": "Regionråd Västra Götalandsregionen",
+  "org": "Vice ordförande i psykiatriberedningen, (S)",
+  "category": "politiker",
+  "n_relevant": 3,
+  "n_core": 1,
+  "events": [
+   "Migrän – en ofta förbisedd kvinnosjukdom: Varför får så få tillgång till rätt behandling?",
+   "Framtidens kunskapsstyrning – från administrativ pappersprodukt till verklig patientnytta",
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård"
+  ]
+ },
+ {
+  "name": "Christian Carlsson",
+  "title": "riksdagsledamot, ordförande socialutskottet",
+  "org": "Kristdemokraterna",
+  "category": "politiker",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Från innovation till patient: Vilka reformer krävs för att medicinsk innovation ska nå patienterna?",
+   "Vägen till jämlik hjärt-kärlvård – vad måste ingå i nya planen?",
+   "Hur möter vi de nya utmaningarna för life science?"
+  ]
+ },
+ {
+  "name": "Mikael Dahlqvist",
+  "title": "riksdagsledamot",
+  "org": "(S) Riksdagen",
+  "category": "politiker",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Vägen till jämlik hjärt-kärlvård – vad måste ingå i nya planen?",
+   "Hur säkerställer vi rätt läkemedelskompetens när systemen sätts på prov i kris och krig?",
+   "Hur möter vi de nya utmaningarna för life science?"
+  ]
+ },
+ {
+  "name": "Lina Nordquist",
+  "title": "riksdagsledamot, gruppledare i riksdagen",
+  "org": "Liberalerna",
+  "category": "politiker",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Vägen till jämlik hjärt-kärlvård – vad måste ingå i nya planen?",
+   "Hur säkerställer vi rätt läkemedelskompetens när systemen sätts på prov i kris och krig?",
+   "Från strategi till verklighet – hur får vi innovationer att göra verklig skillnad för patienterna?"
+  ]
+ },
+ {
+  "name": "Emmy Ahlstedt",
+  "title": "Regionråd",
+  "org": "Region Kalmar län (C)",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Ska postnumret avgöra om du får en fast läkare?",
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård"
+  ]
+ },
+ {
+  "name": "Christofer Bergenblock",
+  "title": "Riksdagsledamot",
+  "org": "SoU, Centerpartiet",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Särläkemedel i valet – från löften till lösningar",
+   "En smärtsköterska på varje vårdcentral"
+  ]
+ },
+ {
+  "name": "Anna Mannfalk",
+  "title": "ordförande",
+  "org": "(M) i Hälso-och sjukvårdsnämnden i Region Skåne, regionrepresentant Nationella Screeningrådet",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Sveriges läkemedelsval – Hur tar vi täten?",
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård"
+  ]
+ },
+ {
+  "name": "Malin Höglund",
+  "title": "Ledamot",
+  "org": "M-ledamot i riksdagens socialutskott",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Vägen till jämlik hjärt-kärlvård – vad måste ingå i nya planen?",
+   "Från strategi till verklighet – hur får vi innovationer att göra verklig skillnad för patienterna?"
+  ]
+ },
+ {
+  "name": "Marie-Louise Hänel Sandström",
+  "title": "Suppleant",
+  "org": "(M) Socialutskottet",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Hur möter vi de nya utmaningarna för life science?",
+   "Växla upp – nyttiggör medicinteknik för jämlik vård, kortare vårdköer och stärkt konkurrenskraft"
+  ]
+ },
+ {
+  "name": "Christine Lorne",
+  "title": "Ordförande Folkhälsoberedningen",
+  "org": "(C) Region Stockholm",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Framtidens kunskapsstyrning – från administrativ pappersprodukt till verklig patientnytta",
+   "Har regionen tagit tillbaka kontrollen och hur har detta i så fall påverkat patienterna?"
+  ]
+ },
+ {
+  "name": "Nicklas Sandström",
+  "title": "Oppositionsråd",
+  "org": "Region Västerbotten, Moderaterna",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Framtidens kunskapsstyrning – från administrativ pappersprodukt till verklig patientnytta",
+   "Från genetisk data till behandling: hur bygger vi en jämlik cancervård i hela landet?"
+  ]
+ },
+ {
+  "name": "Oliver Rosengren",
+  "title": "Kommunalråd Växjö",
+  "org": "Moderaterna",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Innovation eller stagnation: Sveriges vägval för patienterna 2035",
+   "Vad krävs för att lyckas när regionerna bygger världsledande life science-kluster?"
+  ]
+ },
+ {
+  "name": "Jakob Forssmed",
+  "title": "socialminister",
+  "org": "Regeringen",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Från strategi till verklighet – hur får vi innovationer att göra verklig skillnad för patienterna?",
+   "Trumps nya läkemedelspolitik – har Sverige en plan när spelreglerna ritas om?"
+  ]
+ },
+ {
+  "name": "Jonas Lindberg",
+  "title": "Sjukvårdspoliti talesperson",
+  "org": "Vänsterpartiet",
+  "category": "politiker",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Låt fler komma tillbaka till livet",
+   "Har regionen tagit tillbaka kontrollen och hur har detta i så fall påverkat patienterna?"
+  ]
+ },
+ {
+  "name": "Anna-Lena Hogerud",
+  "title": "Regionråd",
+  "org": "(S) Region Skåne",
+  "category": "politiker",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Dyra mirakel - hur fördelar vi kostnaderna för framtidens läkemedel?"
+  ]
+ },
+ {
+  "name": "Amelie Tarschys Ingre",
+  "title": "oppositionsregionråd",
+  "org": "ledam hälso-och sjukvårdsnämnden, Region Stockholm (L)",
+  "category": "politiker",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Vem tar ansvar för att göra akademiska ATMP-behandlingar tillgängliga när industrin avstår?"
+  ]
+ },
+ {
+  "name": "Tobias Lundin Gerdås",
+  "title": "Statssekreterare",
+  "org": "(S), Socialdepartementet",
+  "category": "politiker",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Särläkemedel i valet – från löften till lösningar"
+  ]
+ },
+ {
+  "name": "Sofia Wallström",
+  "title": "Generaldirektör",
+  "org": null,
+  "category": "tjansteman",
+  "n_relevant": 8,
+  "n_core": 0,
+  "events": [
+   "Glappet: När medicinsk utveckling springer ifrån vårdens resurser",
+   "Obesitas – nu finns det en lösning, men hur ska samhället ha råd?",
+   "Hur möter vi de nya utmaningarna för life science?",
+   "Sverige vid vägvalet: snabbare implementering av cancerläkemedel för ökad konkurrenskraft"
+  ]
+ },
+ {
+  "name": "Anna Alassaad",
+  "title": "regionkoordinator och projektledare",
+  "org": "TLV-Tandvårds-och läkemedelsförmånsverket",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 3,
+  "events": [
+   "Dyra mirakel - hur fördelar vi kostnaderna för framtidens läkemedel?",
+   "Vem tar ansvar för att göra akademiska ATMP-behandlingar tillgängliga när industrin avstår?",
+   "Vilka reformer behöver Sverige för att förbättra livet för personer med en sällsynt sjukdom?"
+  ]
+ },
+ {
+  "name": "Jean-Luc af Geijerstam",
+  "title": "Generaldirektör",
+  "org": "Myndigheten för vård- och omsorgsanalys",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 1,
+  "events": [
+   "Ska postnumret avgöra om du får en fast läkare?",
+   "Från vision till verkstad – patientfokus i nationella strategier",
+   "Cancerstrategin är beslutad – men hur mäter vi om den lyckas?"
+  ]
+ },
+ {
+  "name": "Max Herulf",
+  "title": "Stabschef",
+  "org": "E-Hälsomyndigheten",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "AI i sjukvården – hur får vi bättre vård och mindre klimatavtryck?",
+   "Hur säkerställer vi rätt läkemedelskompetens när systemen sätts på prov i kris och krig?",
+   "Patienten har rätt till sin data – men även rätt till erfarenheterna från andras"
+  ]
+ },
+ {
+  "name": "Boubou Hallberg",
+  "title": "Sjukhusdirektör",
+  "org": "Sahlgrenska Universitetssjukhuset",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Universitetssjukvården – Sveriges fönster mot världen för klinisk forskning",
+   "Kompetensförsörjningen avgör Sveriges life science-position – vad krävs nu?",
+   "Vad krävs för att lyckas när regionerna bygger världsledande life science-kluster?"
+  ]
+ },
+ {
+  "name": "Marie Morell",
+  "title": "regionstyrelsens ordförande, ordförande SKR:s sjukvårdsdelegation",
+  "org": "Region Östergötland, Moderaterna",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Vägen till jämlik hjärt-kärlvård – vad måste ingå i nya planen?",
+   "Migrän – en ofta förbisedd kvinnosjukdom: Varför får så få tillgång till rätt behandling?",
+   "Sveriges läkemedelsval – Hur tar vi täten?"
+  ]
+ },
+ {
+  "name": "Magnus Thyberg",
+  "title": "Generaldirektör",
+  "org": "TLV",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Obesitas – nu finns det en lösning, men hur ska samhället ha råd?",
+   "Innovation eller stagnation: Sveriges vägval för patienterna 2035",
+   "När läkemedel förändrar samhället – obesitas, viktminskningsbehandling och vägen framåt"
+  ]
+ },
+ {
+  "name": "Kjell Ivarsson",
+  "title": "Nationell cancersamordnare",
+  "org": "Regionala cancercentrum i samverkan (RCC) / SKR",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Ojämlik vård vid gyncancer – vem tar ansvar för lika tillgång till testning och behandling?",
+   "Sverige vid vägvalet: snabbare implementering av cancerläkemedel för ökad konkurrenskraft",
+   "Från strategi till verklighet – hur får vi innovationer att göra verklig skillnad för patienterna?"
+  ]
+ },
+ {
+  "name": "Lars Almroth",
+  "title": " Direktör för verksamhetsområde sjukvård",
+  "org": "Socialstyrelsen",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 2,
+  "events": [
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård",
+   "Vilka reformer behöver Sverige för att förbättra livet för personer med en sällsynt sjukdom?"
+  ]
+ },
+ {
+  "name": "Helena Proos",
+  "title": "Regionstyrelsens ordförande",
+  "org": "Region Uppsala",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Från innovation till patient: Vilka reformer krävs för att medicinsk innovation ska nå patienterna?",
+   "Vem tar ansvar för att göra akademiska ATMP-behandlingar tillgängliga när industrin avstår?"
+  ]
+ },
+ {
+  "name": "Maria Holm",
+  "title": "Verksamhetssamordnare",
+  "org": "Huvudvärksförbundet",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Prioritering av migrän – möjlighet för svensk tillväxt",
+   "Migrän – en ofta förbisedd kvinnosjukdom: Varför får så få tillgång till rätt behandling?"
+  ]
+ },
+ {
+  "name": "Martin Takac",
+  "title": "Sjukvårdsdirektör",
+  "org": "Region Jönköpings län",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Ojämlik vård vid gyncancer – vem tar ansvar för lika tillgång till testning och behandling?",
+   "Beredskap och geopolitik gör cancervård och cancerforskning till en säkerhetsfråga"
+  ]
+ },
+ {
+  "name": "Taha Alexandersson",
+  "title": "krisberedskapschef",
+  "org": "Socialstyrelsen, Sven-Erik Österberg landshövding",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Hur säkerställer vi rätt läkemedelskompetens när systemen sätts på prov i kris och krig?",
+   "Beredskap och geopolitik gör cancervård och cancerforskning till en säkerhetsfråga"
+  ]
+ },
+ {
+  "name": "Jonas Claesson",
+  "title": "Hälso- och sjukvårdsdirektör",
+  "org": "Region Örebro län",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Från strategi till resultat – hur kan Sverige stärkas som life science-nation?",
+   "Från ord till handling för fler kliniska prövningar i Sverige"
+  ]
+ },
+ {
+  "name": "Anders Ahlsson",
+  "title": "hälso-och sjukvårdsdirektör",
+  "org": "Region Stockholm",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Från ord till handling för fler kliniska prövningar i Sverige",
+   "Vad krävs för att lyckas när regionerna bygger världsledande life science-kluster?"
+  ]
+ },
+ {
+  "name": "Thomas Molén",
+  "title": "Strateg",
+  "org": "Region Västerbotten, Centrum för hälsa i glesbygd",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Nationell samverkan kring vård och hälsa i landsbygd och glesbygd – vill du vara med?",
+   "Världens bästa sjukvårdssystem – hur kommer det sig att det utvecklas i glesbygd?"
+  ]
+ },
+ {
+  "name": "Andreas Lundqvist",
+  "title": "Enhetschef",
+  "org": "Region Västerbotten, Centrum för hälsa i glesbygd",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Nationell samverkan kring vård och hälsa i landsbygd och glesbygd – vill du vara med?",
+   "Världens bästa sjukvårdssystem – hur kommer det sig att det utvecklas i glesbygd?"
+  ]
+ },
+ {
+  "name": "Pontus Holm",
+  "title": "Koordinator Programkontoret för Life Science",
+  "org": "Region Stockholm",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Hur blir vi mästare på genomförande av life science strategier?",
+   "Från innovation till konkurrenskraft – hur stärker Sverige attraktionskraften för FoU?"
+  ]
+ },
+ {
+  "name": "Anders Edsjö",
+  "title": "Överläkare",
+  "org": "sektionschef, Klinisk genetik, patologi och molekylär diagnostik, Region Skåne, GMS",
+  "category": "tjansteman",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Från genetisk data till behandling: hur bygger vi en jämlik cancervård i hela landet?",
+   "Cancerstrategin är beslutad – men hur mäter vi om den lyckas?"
+  ]
+ },
+ {
+  "name": "Stefan Volk Jovinge",
+  "title": "Forskningschef kardiologi",
+  "org": "Skånes universitetssjukhus, Region Skåne, Lund",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Dyra mirakel - hur fördelar vi kostnaderna för framtidens läkemedel?"
+  ]
+ },
+ {
+  "name": "Ann Lindberg",
+  "title": "Generaldirektör",
+  "org": "Läkemedelsverket",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Vem tar ansvar för att göra akademiska ATMP-behandlingar tillgängliga när industrin avstår?"
+  ]
+ },
+ {
+  "name": "Elin Ljungqvist",
+  "title": "Nationell screeningsamordnare",
+  "org": "Regionala cancercentrum i samverkan",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård"
+  ]
+ },
+ {
+  "name": "Anna-Lena Danielsson",
+  "title": "Hälso-och sjukvårdsnämndens ordförande",
+  "org": "Region Västerbotten",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Vilka reformer behöver Sverige för att förbättra livet för personer med en sällsynt sjukdom?"
+  ]
+ },
+ {
+  "name": "Susanne Dieroff Hay",
+  "title": "förbundsordförande",
+  "org": "Bröstcancerförbundet",
+  "category": "patientledare",
+  "n_relevant": 3,
+  "n_core": 1,
+  "events": [
+   "Sverige vid vägvalet: snabbare implementering av cancerläkemedel för ökad konkurrenskraft",
+   "Från genetisk data till behandling: hur bygger vi en jämlik cancervård i hela landet?",
+   "Från vision till verkstad – patientfokus i nationella strategier"
+  ]
+ },
+ {
+  "name": "Lars-Ingvar Johansson",
+  "title": "Vice ordförande",
+  "org": "Nätverket mot cancer",
+  "category": "patientledare",
+  "n_relevant": 3,
+  "n_core": 1,
+  "events": [
+   "Växla upp – nyttiggör medicinteknik för jämlik vård, kortare vårdköer och stärkt konkurrenskraft",
+   "Från vision till verkstad – patientfokus i nationella strategier",
+   "Beredskap och geopolitik gör cancervård och cancerforskning till en säkerhetsfråga"
+  ]
+ },
+ {
+  "name": "Oskar Ahlberg",
+  "title": "vice ordförande",
+  "org": "Riksförbundet Sällsynta diagnoser",
+  "category": "patientledare",
+  "n_relevant": 2,
+  "n_core": 2,
+  "events": [
+   "Från vision till verkstad – patientfokus i nationella strategier",
+   "Vilka reformer behöver Sverige för att förbättra livet för personer med en sällsynt sjukdom?"
+  ]
+ },
+ {
+  "name": "Tina Eliasson",
+  "title": "generalsekreterare",
+  "org": "Epilepsiförbundet",
+  "category": "patientledare",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Rätten till rätt diagnos i rätt tid",
+   "Epilepsi – en fråga som berör oss alla"
+  ]
+ },
+ {
+  "name": "Lotta Baker",
+  "title": "Eventansvarig",
+  "org": "Svenska Epilepsiförbundet",
+  "category": "patientledare",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Rätten till rätt diagnos i rätt tid",
+   "Epilepsi – en fråga som berör oss alla"
+  ]
+ },
+ {
+  "name": "Marit Jenset",
+  "title": "Generalsekreterare",
+  "org": "Bröstcancerförbundet",
+  "category": "patientledare",
+  "n_relevant": 2,
+  "n_core": 1,
+  "events": [
+   "Patienten har rätt till sin data – men även rätt till erfarenheterna från andras",
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård"
+  ]
+ },
+ {
+  "name": "Marie-Louise Olsson",
+  "title": "Ordförande",
+  "org": "Riksförbundet fibromyalgi & långvarig smärta",
+  "category": "patientledare",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "En smärtsköterska på varje vårdcentral",
+   "En smärtsköterska på varje vårdcentral"
+  ]
+ },
+ {
+  "name": "Susanne Dierhoff Hay",
+  "title": "ordförande",
+  "org": "Bröstcancerförbundet",
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "AI som game changer i bröstcancervården - från upptäckt till behandlingsbeslut"
+  ]
+ },
+ {
+  "name": "Sanna Carlsson",
+  "title": "Mamma till son med Duchennes Muskeldystrofi och ordförande i patientföreningen för Duchennes och Beckers muskeldystrofi",
+  "org": null,
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Särläkemedel i valet – från löften till lösningar"
+  ]
+ },
+ {
+  "name": "Mikaela Odemyr",
+  "title": "Astma-och Allergiförbundet",
+  "org": null,
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Från vision till verkstad – patientfokus i nationella strategier"
+  ]
+ },
+ {
+  "name": "Sven Jonsson",
+  "title": "Ordförande",
+  "org": "Njurförbundet Stockholm Gotland",
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Från vision till verkstad – patientfokus i nationella strategier"
+  ]
+ },
+ {
+  "name": "Ulrika Sundholm",
+  "title": "Generalsekreterare",
+  "org": "Riksförbundet hjärtlung ",
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Från vision till verkstad – patientfokus i nationella strategier"
+  ]
+ },
+ {
+  "name": "Elin Fernholm",
+  "title": "Policy and Patient Affairs Manager",
+  "org": "AstraZeneca",
+  "category": "konkurrent",
+  "n_relevant": 6,
+  "n_core": 3,
+  "events": [
+   "Styrning och ansvar i hälso- och sjukvården",
+   "Från vision till verkstad – en hållbar hälso- och sjukvård",
+   "Vägen till en statlig finansieringsmodell av särläkemedel",
+   "Från vision till verkstad – patientfokus i nationella strategier"
+  ]
+ },
+ {
+  "name": "Birgitta Björnek",
+  "title": null,
+  "org": "AbbVie",
+  "category": "konkurrent",
+  "n_relevant": 5,
+  "n_core": 0,
+  "events": [
+   "Vårdkris eller vårdskifte? Parkinsonpatienter väntas dubbleras till 2040– hur säkras en jämlik vård?",
+   "Prioritering av migrän – möjlighet för svensk tillväxt",
+   "En välbehandlad patient - är datasjöar och uppföljning nycklar till rätt individuell behandling?",
+   "Ojämlik vård vid gyncancer – vem tar ansvar för lika tillgång till testning och behandling?"
+  ]
+ },
+ {
+  "name": "Jeanette Edblad",
+  "title": "nationell life science-samordnare",
+  "org": "Regeringskansliet",
+  "category": "konkurrent",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "Från strategi till resultat – hur kan Sverige stärkas som life science-nation?",
+   "Hur blir vi mästare på genomförande av life science strategier?",
+   "Hur når vi netto noll, 2045? Sverige först med gemensam klimatambition för sjukvård och life science"
+  ]
+ },
+ {
+  "name": "Edvin Bernhardsson",
+  "title": "Politiskt sakkunnig hos sjukvårdsministern",
+  "org": "Regeringskansliet",
+  "category": "konkurrent",
+  "n_relevant": 3,
+  "n_core": 0,
+  "events": [
+   "MS är mer än skov – hur tar vi ansvar för hela sjukdomsresan?",
+   "Låt fler komma tillbaka till livet",
+   "Ett nationellt vaccinationsprogram för äldre – nästa steg för jämlik hälsa och beredskap"
+  ]
+ },
+ {
+  "name": "Alexandra Svanström",
+  "title": "policy & patient affairs manager",
+  "org": "AstraZeneca",
+  "category": "konkurrent",
+  "n_relevant": 2,
+  "n_core": 2,
+  "events": [
+   "Från vision till verkstad – patientfokus i nationella strategier",
+   "Höjd åldersgräns och AI i bröstcancerscreening - vägen till jämlik vård"
+  ]
+ },
+ {
+  "name": "Lina Hultqvist",
+  "title": "Policy and governmental affairs manager",
+  "org": "Roche AB",
+  "category": "konkurrent",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Från innovation till patient: Vilka reformer krävs för att medicinsk innovation ska nå patienterna?",
+   "Vad krävs för att lyckas när regionerna bygger världsledande life science-kluster?"
+  ]
+ },
+ {
+  "name": "Suzanne Håkansson",
+  "title": "Chef för samhällskontakter",
+  "org": "AstraZeneca",
+  "category": "konkurrent",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Från strategi till resultat – hur kan Sverige stärkas som life science-nation?",
+   "Från vision till verkstad – en hållbar hälso- och sjukvård"
+  ]
+ },
+ {
+  "name": "Michaela Lydecker",
+  "title": "Kommunikationschef",
+  "org": "Novo Nordisk Scandinavia aB",
+  "category": "konkurrent",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Hur når vi netto noll, 2045? Sverige först med gemensam klimatambition för sjukvård och life science",
+   "Patienten i fokus: Varför är det så svårt att gå ner i vikt?"
+  ]
+ },
+ {
+  "name": "Gabriella Brunlid",
+  "title": "Public Affairs Lead",
+  "org": "Chiesi Pharma AB",
+  "category": "konkurrent",
+  "n_relevant": 2,
+  "n_core": 0,
+  "events": [
+   "Grön konkurrenskraft: Så blir Sverige ledande i hållbar innovation inom life science",
+   "Fler behandlingsalternativ – en förutsättning för individanpassad vård och Life Science satsning"
+  ]
+ }
+]
