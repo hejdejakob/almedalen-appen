@@ -1122,5 +1122,63 @@
     "locations": [
       "Hästgatan 13, Sällsynta Almedalen"
     ]
+  },
+  "Birgers gränd 7": {
+    "lat": 57.64092,
+    "lng": 18.29249,
+    "locations": [
+      "Birgers gränd 7, trädgård med ingång från Almedalen, Novo Nordisk",
+      "Birgers gränd 7, Novo Nordisk"
+    ]
+  },
+  "Birgers gränd 9": {
+    "lat": 57.64092,
+    "lng": 18.29249,
+    "locations": [
+      "Birgers gränd 9, Victris trädgård",
+      "Birgers gränd 9, Novo Nordisk"
+    ]
+  },
+  "Tage Cervins gata 1": {
+    "lat": 57.63976,
+    "lng": 18.29173,
+    "locations": [
+      "Tage Cervins gata 1, Handelslandet Sverige"
+    ]
+  },
+  "S:t Hansgatan 18": {
+    "lat": 57.6384,
+    "lng": 18.2925,
+    "locations": [
+      "S:t Hansgatan 18, Folkhälsodalen"
+    ]
+  },
+  "S:t Hansplan 2": {
+    "lat": 57.6384,
+    "lng": 18.293,
+    "locations": [
+      "S:t Hansplan 2, S:t Hans Café, Folkhälsodalen"
+    ]
+  },
+  "Hamnplan 5": {
+    "lat": 57.63879297682185,
+    "lng": 18.28846912458907,
+    "locations": [
+      "Hamnplan 5, Nedre plan, Hjärtat i Almedalen – En mötesplats av FOKUS Patient"
+    ]
+  },
+  "Donnersplats": {
+    "lat": 57.63897,
+    "lng": 18.29123,
+    "locations": [
+      "Donnersplats, Talarplats"
+    ]
+  },
+  "Donnersgatan 1": {
+    "lat": 57.6395,
+    "lng": 18.2908,
+    "locations": [
+      "Donnersgatan 1, Kårhuset Rindi, Handelslandet Sverige"
+    ]
   }
 }

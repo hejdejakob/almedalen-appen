@@ -1,0 +1,143 @@
+[
+ {
+  "name": "Edward Riedl",
+  "title": "Riksdagsledamot",
+  "org": "Moderaterna",
+  "category": "politiker",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Smal syn på obesitasläkemedel – när vården säger nej till produktivitet"
+  ]
+ },
+ {
+  "name": "Niklas Sandström",
+  "title": "regionråd",
+  "org": "Region Västerbotten (M)",
+  "category": "politiker",
+  "n_relevant": 1,
+  "n_core": 0,
+  "events": [
+   "Var sjätte fyraåring i vissa regioner har en ohälsosam vikt - är det läge att göra något annorlunda?"
+  ]
+ },
+ {
+  "name": "Rebecka Le Moine",
+  "title": "Riksdagsledamot",
+  "org": "Miljöpartiet",
+  "category": "politiker",
+  "n_relevant": 1,
+  "n_core": 0,
+  "events": [
+   "Möss kan inte få alzheimer"
+  ]
+ },
+ {
+  "name": "Magnus Thyberg",
+  "title": "Generaldirektör",
+  "org": "TLV",
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 3,
+  "events": [
+   "Obesitas – nu finns det en lösning, men hur ska samhället ha råd?",
+   "När läkemedel förändrar samhället – obesitas, viktminskningsbehandling och vägen framåt",
+   "Vilka ska behandlas med obesitasläkemedel och vem betalar notan?"
+  ]
+ },
+ {
+  "name": "Sofia Wallström",
+  "title": "Generaldirektör",
+  "org": null,
+  "category": "tjansteman",
+  "n_relevant": 3,
+  "n_core": 3,
+  "events": [
+   "Obesitas – nu finns det en lösning, men hur ska samhället ha råd?",
+   "Smal syn på obesitasläkemedel – när vården säger nej till produktivitet",
+   "Vilka ska behandlas med obesitasläkemedel och vem betalar notan?"
+  ]
+ },
+ {
+  "name": "Emilie Värja",
+  "title": "Chefsekonom",
+  "org": "SKR",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Smal syn på obesitasläkemedel – när vården säger nej till produktivitet"
+  ]
+ },
+ {
+  "name": "Lars Almroth",
+  "title": " Direktör för verksamhetsområde sjukvård",
+  "org": "Socialstyrelsen",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 0,
+  "events": [
+   "Var sjätte fyraåring i vissa regioner har en ohälsosam vikt - är det läge att göra något annorlunda?"
+  ]
+ },
+ {
+  "name": "Olivia Wigzell",
+  "title": "Generaldirektör",
+  "org": "Folkhälsomyndigheten",
+  "category": "tjansteman",
+  "n_relevant": 1,
+  "n_core": 1,
+  "events": [
+   "Obesitas – nu finns det en lösning, men hur ska samhället ha råd?"
+  ]
+ },
+ {
+  "name": "Jenny Vinglid",
+  "title": "generalsekreterare",
+  "org": "Riksförbundet HOBS - Hälsa oberoende av storlek",
+  "category": "patientledare",
+  "n_relevant": 3,
+  "n_core": 2,
+  "events": [
+   "Var sjätte fyraåring i vissa regioner har en ohälsosam vikt - är det läge att göra något annorlunda?",
+   "När läkemedel förändrar samhället – obesitas, viktminskningsbehandling och vägen framåt",
+   "Vilka ska behandlas med obesitasläkemedel och vem betalar notan?"
+  ]
+ },
+ {
+  "name": "Anna Stigsdotter Jansson",
+  "title": "Förbundsordförande",
+  "org": " Svenska Diabetesförbundet",
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 0,
+  "events": [
+   "Primärvårdens vägval: bredd eller spets – vad gynnar patienten bäst?"
+  ]
+ },
+ {
+  "name": "Liza Kaltsouni",
+  "title": null,
+  "org": "Hjärnfonden",
+  "category": "patientledare",
+  "n_relevant": 1,
+  "n_core": 0,
+  "events": [
+   "En mer hjärnmedvetet samhälle för barn och unga med NPF med förbättrad hjärnhälsa"
+  ]
+ },
+ {
+  "name": "Michaela Lydecker",
+  "title": "Kommunikationschef",
+  "org": "Novo Nordisk Scandinavia aB",
+  "category": "konkurrent",
+  "n_relevant": 7,
+  "n_core": 0,
+  "events": [
+   "Obesitas – inte som andra sjukdomar?",
+   "Var sjätte fyraåring i vissa regioner har en ohälsosam vikt - är det läge att göra något annorlunda?",
+   "Primärvårdens vägval: bredd eller spets – vad gynnar patienten bäst?",
+   "Obesitas och arbetslivet – hur skapar vi hållbara lösningar för hälsa och produktivitet?"
+  ]
+ }
+]
