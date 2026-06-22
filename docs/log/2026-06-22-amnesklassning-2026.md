@@ -13,9 +13,14 @@
 - `topic_year_stats` innehåller nu fullständig 2026 → ämnesvyn (getTopicDetail) visar korrekt 2026.
 - Kvar oklassat: en handfull pass med trasiga `topic_pdf_original` (scrape-fragment som "för", "tt").
 
-## Ej gjort (kräver beslut)
-- **Sentiment** (`event_sentiment`): 2026 ≈ 86 %. Kräver LLM (Anthropic Batch API) — kostar på Anthropic-nyckeln.
-- **Sektor** (`arranger_classifications`): 2026 ≈ 81 % (443 arrangörer utan rad). Befintliga script träffar inte "saknar-rad"-fallet rent; kräver riktad körning.
+## Sentiment + sektor via SUBAGENTER (samma dag, ej API-nyckel)
+Enligt Jakob: LLM-klassningen ska göras av **subagenter (Max-plan)**, inte den mätta Anthropic-API-nyckeln. Upplägg: subagenter (Workflow) gör bedömningen och skriver resultatfiler i `tmp/`, deterministiska node-script validerar och upsertar till DB.
+
+- **Sentiment** (`event_sentiment`): 11 subagenter klassade 419 oklassade 2026-pass (score/label/urgency_score/framing). Validerade (alla 419, värden inom intervall) och upsertade. 2026: 86 % → **100 %**.
+- **Sektor** (`arranger_classifications`): 6 subagenter klassade 443 arrangörer aktiva 2026 utan sektor (sektor ur de 10 befintliga + sub_sector + confidence, `method='subagent'`). Validerade och upsertade. 2026-arrangörer med sektor: 81 % → **100 %**.
+
+## Slutläge 2026 (verifierat)
+ämne 100 % · sentiment 100 % · arrangör-sektor 100 %. ⇒ 2026 kan nu tas in i trendsidorna (dashboard/galtan) utan att understattas.
 
 ## Notis
 Klassningen ligger INTE i det dagliga launchd-jobbet (det hämtar program + bygger stats men kör inte map-topics/sentiment). Överväg att lägga in map-topics i refreshen så att ämnesgapet inte återkommer.
