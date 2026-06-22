@@ -531,6 +531,7 @@ function SpeakersContent() {
               <AktorerTab
                 onOpenProfile={openProfile}
                 onOpenTopic={openTopic}
+                onOpenEvent={loadEvent}
                 selectedArrangerId={selectedArrangerId}
                 onSelectArrangerId={(id) => {
                   setSelectedArrangerId(id);
@@ -2019,11 +2020,13 @@ type ArrangerProfileData = {
 function AktorerTab({
   onOpenProfile,
   onOpenTopic,
+  onOpenEvent,
   selectedArrangerId,
   onSelectArrangerId,
 }: {
   onOpenProfile: (id: number) => void;
   onOpenTopic: (topic: string) => void;
+  onOpenEvent: (eventId: number) => void;
   selectedArrangerId: number | null;
   onSelectArrangerId: (id: number | null) => void;
 }) {
@@ -2300,7 +2303,14 @@ function AktorerTab({
                             <tr key={`${s.id}-${i}`} style={{ borderBottom: '1px solid #eee' }}>
                               <td style={{ padding: '0.5rem', fontWeight: 600, whiteSpace: 'nowrap' }}>{s.year}</td>
                               <td style={{ padding: '0.5rem' }}>
-                                {s.title}
+                                <span
+                                  onClick={() => onOpenEvent(s.id)}
+                                  style={{ cursor: 'pointer', borderBottom: '1px solid #ccc' }}
+                                  onMouseEnter={(e) => { e.currentTarget.style.color = '#fb531a'; e.currentTarget.style.borderColor = '#fb531a'; }}
+                                  onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
+                                >
+                                  {s.title}
+                                </span>
                                 {s.role === 'medarrangör' && (
                                   <span style={{ marginLeft: '0.5rem', fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', color: '#8a1f1f', border: '1px solid #8a1f1f', borderRadius: '10px', padding: '1px 6px', whiteSpace: 'nowrap' }}>medarr.</span>
                                 )}
