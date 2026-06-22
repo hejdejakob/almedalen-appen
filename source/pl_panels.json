@@ -1,0 +1,22 @@
+[
+  { "eventId": 24946, "tier": "topp", "niche": "Institut & strategi", "fit": 5,
+    "angle": "Veckans enda pass som direkt debatterar dataspelsinstitut + nationell strategi, utifrån Region Skånes förstudie (Skåne-placering). Mats Berglund (MP, ordförande kulturutskottet) i panel. Här ska du synas — och äga slutsatsen." },
+  { "eventId": 34284, "tier": "topp", "niche": "Kulturpolitik", "fit": 5,
+    "angle": "'En visionär kulturpolitik för en ny tid' (Svensk Scenkonst, Sveriges Museer). Bred kulturpolitisk scen utanför spelbubblan — plantera dataspel som självklar del av en framtida kulturpolitik inför en publik som inte redan är frälst." },
+  { "eventId": 34880, "tier": "topp", "niche": "Kreativa näringar", "fit": 4,
+    "angle": "RISE om kultur och kreativitet som transformativ samhällskraft. Koppla spel till strategin för kulturella och kreativa näringar (KKN) och till forskningen — exakt institutets samordnande roll." },
+  { "eventId": 34630, "tier": "topp", "niche": "Kreativ export", "fit": 4,
+    "angle": "'Kultur, kreativitet och musikexport' (Spotify). Musikexportens resa är din bästa parallell: en exportnäring, inte ett bidragsområde. Hämta argument och allierade till spelundret." },
+  { "eventId": 35321, "tier": "bubblare", "niche": "AI & konkurrenskraft", "fit": 4,
+    "angle": "'Kod, kreativitet och konkurrenskraft: så formar AI morgondagen' (Dagens industri). Närings- och konkurrenskraftsinramningen av kreativ teknik — där spel är en spjutspets, inte 'kultur'." },
+  { "eventId": 25206, "tier": "bubblare", "niche": "Regional & kluster", "fit": 4,
+    "angle": "Regional utveckling och strukturella barriärer för spelbranschen i hela landet (SpelAlmedalen). Game Habitats kärnfråga: fortsatt klusterfinansiering och SCORE-modellen. Det enda spelspårspasset värt prioritet — för att det är policy." },
+  { "eventId": 35234, "tier": "bubblare", "niche": "Upphovsrätt & IP", "fit": 3,
+    "angle": "'En europeisk upphovsrätt – hur skyddar vi det vi skapar?' (KLYS m.fl.). Immateriella rättigheter — relevant för spelbranschens IP och en konkret del av strateginarrativet." },
+  { "eventId": 25310, "tier": "bubblare", "niche": "Kulturpolitik", "fit": 3,
+    "angle": "'Kulturens värde – i en tid som tappat sitt omdöme'. Bred kulturvärdesdebatt; bra rum för att höja dataspel som kulturform inför en kulturpublik." },
+  { "eventId": 35506, "tier": "bubblare", "niche": "Kulturpolitik", "fit": 3,
+    "angle": "'Hur påverkas kulturlivet av kulturpolitikens nya inriktning' (Konstnärernas Riksorganisation). Lyssna in var regeringens kulturlinje klämmer — och var öppningen för spel finns." },
+  { "eventId": 25478, "tier": "bubblare", "niche": "Regional", "fit": 3,
+    "angle": "'Kan AI göra regional utveckling mer träffsäker?' (Region Jönköpings län). Regional näringsutveckling + AI — angränsande allierade och argument för klustermodellen." }
+]
