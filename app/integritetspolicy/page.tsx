@@ -16,7 +16,7 @@ export default function IntegritetspolicyPage() {
         backgroundColor: '#000',
         color: '#fff',
         padding: '2rem 0',
-        borderBottom: '4px solid #ff6632',
+        borderBottom: '4px solid #fb531a',
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 2rem' }}>
           <a href="/" style={{ color: '#fff', textDecoration: 'none' }}>
@@ -38,7 +38,7 @@ export default function IntegritetspolicyPage() {
             Reform Society Company i Stockholm AB<br />
             Org.nr 556866-8973<br />
             Hornsgatan 54, 118 21 Stockholm<br />
-            <a href="mailto:jakob.ohlsson@reformsociety.se" style={{ color: '#ff6632', textDecoration: 'none' }}>
+            <a href="mailto:jakob.ohlsson@reformsociety.se" style={{ color: '#fb531a', textDecoration: 'none' }}>
               jakob.ohlsson@reformsociety.se
             </a>
           </p>
@@ -107,7 +107,7 @@ export default function IntegritetspolicyPage() {
           </ul>
           <p style={pStyle}>
             Kontakta oss på{' '}
-            <a href="mailto:jakob.ohlsson@reformsociety.se" style={{ color: '#ff6632', textDecoration: 'none' }}>
+            <a href="mailto:jakob.ohlsson@reformsociety.se" style={{ color: '#fb531a', textDecoration: 'none' }}>
               jakob.ohlsson@reformsociety.se
             </a>{' '}
             för att utöva dina rättigheter. Vi besvarar din förfrågan inom 30 dagar.
@@ -123,7 +123,7 @@ export default function IntegritetspolicyPage() {
           <p style={pStyle}>
             Integritetsskyddsmyndigheten<br />
             Box 8114, 104 20 Stockholm<br />
-            <a href="https://www.imy.se" target="_blank" rel="noopener noreferrer" style={{ color: '#ff6632', textDecoration: 'none' }}>
+            <a href="https://www.imy.se" target="_blank" rel="noopener noreferrer" style={{ color: '#fb531a', textDecoration: 'none' }}>
               www.imy.se
             </a>
           </p>

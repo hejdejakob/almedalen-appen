@@ -20,7 +20,7 @@ const TOPIC_COLORS: Record<string, string> = {
   'ekonomi_tillväxt': '#ff595e',
   'skatter_offentliga_finanser': '#8ac926',
   'näringsliv_innovation': '#e63946',
-  'digitalisering_ai': '#ff6632',
+  'digitalisering_ai': '#fb531a',
   'försvar_säkerhet': '#264653',
   'demokrati_rättsstat': '#457b9d',
   'integration_migration': '#f4a261',

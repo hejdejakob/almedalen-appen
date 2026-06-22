@@ -169,7 +169,7 @@ function LoadingScreen({ stats, progress, loadingStage, isMobile }: { stats: Sta
         <div style={{
           width: '60px',
           height: '4px',
-          backgroundColor: '#ff6632',
+          backgroundColor: '#fb531a',
           marginBottom: '2.5rem',
         }} />
 
@@ -192,7 +192,7 @@ function LoadingScreen({ stats, progress, loadingStage, isMobile }: { stats: Sta
                 <div style={{
                   fontFamily: 'var(--font-formula)',
                   fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-                  color: '#ff6632',
+                  color: '#fb531a',
                   fontWeight: 700,
                   lineHeight: 1.1,
                 }}>
@@ -229,7 +229,7 @@ function LoadingScreen({ stats, progress, loadingStage, isMobile }: { stats: Sta
                   <div style={{
                     width: '100%',
                     height: `${heightPct * 0.48}px`,
-                    backgroundColor: '#ff6632',
+                    backgroundColor: '#fb531a',
                     borderRadius: '2px 2px 0 0',
                     opacity: 0.7 + (heightPct / 100) * 0.3,
                     transition: 'height 1s ease-out',
@@ -259,7 +259,7 @@ function LoadingScreen({ stats, progress, loadingStage, isMobile }: { stats: Sta
           <div style={{
             height: '100%',
             width: `${progress}%`,
-            backgroundColor: '#ff6632',
+            backgroundColor: '#fb531a',
             transition: 'width 0.4s ease-out',
           }} />
         </div>
@@ -324,12 +324,20 @@ export default function DashboardPage() {
       ];
 
       const results: Record<string, any> = {};
+      const total = views.length;
+      let completed = 0;
+      // Fetcharna resolvar i godtycklig ordning. Driv progress på ANTAL klara
+      // (monotont — hoppar aldrig bakåt) istället för varje vys hårdkodade pct.
       const promises = views.map(async (view) => {
-        const res = await fetch(`/api/dashboard?view=${view.name}`);
-        const json = await res.json();
-        results[view.name] = json;
-        setProgress(view.pct);
-        setLoadingStage(view.label);
+        try {
+          const res = await fetch(`/api/dashboard?view=${view.name}`);
+          results[view.name] = await res.json();
+        } catch {
+          results[view.name] = null;
+        }
+        completed++;
+        setProgress(10 + Math.round((completed / total) * 90));
+        setLoadingStage(views[completed - 1].label);
       });
 
       await Promise.all(promises);
@@ -363,7 +371,7 @@ export default function DashboardPage() {
         backgroundColor: '#000',
         color: '#fff',
         padding: isMobile ? '1.25rem 0' : '2rem 0',
-        borderBottom: '4px solid #ff6632',
+        borderBottom: '4px solid #fb531a',
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem' }}>
           <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
@@ -387,14 +395,14 @@ export default function DashboardPage() {
           <a href="/speakers" style={{
             display: 'inline-block',
             marginTop: '1rem',
-            backgroundColor: '#ff6632',
+            backgroundColor: '#fb531a',
             color: '#fff',
             padding: isMobile ? '0.6rem 1.25rem' : '0.65rem 1.5rem',
             borderRadius: '4px',
             textDecoration: 'none',
             fontWeight: 700,
             fontSize: isMobile ? '0.85rem' : '0.9rem',
-            border: '2px solid #ff6632',
+            border: '2px solid #fb531a',
             transition: 'opacity 0.15s',
           }}
             onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
@@ -506,9 +514,9 @@ function AgendakraftChart({ datasets, isMobile }: { datasets: any[]; isMobile?: 
             onClick={() => setZoomLevel(i)}
             style={{
               padding: '0.4rem 0.8rem',
-              border: zoomLevel === i ? '2px solid #ff6632' : '1px solid #ccc',
+              border: zoomLevel === i ? '2px solid #fb531a' : '1px solid #ccc',
               borderRadius: '4px',
-              backgroundColor: zoomLevel === i ? '#ff6632' : '#fff',
+              backgroundColor: zoomLevel === i ? '#fb531a' : '#fff',
               color: zoomLevel === i ? '#fff' : '#666',
               fontSize: '0.75rem',
               fontWeight: 600,
@@ -935,7 +943,7 @@ function NewVsReturningView({ data, years }: { data: any[]; years: number[] }) {
                         }
                       }}
                     >
-                      <span style={{ fontSize: '0.65rem', color: isYearExpanded ? '#ff6632' : '#999', width: '32px', flexShrink: 0, fontWeight: isYearExpanded ? 700 : 400 }}>{y.year}</span>
+                      <span style={{ fontSize: '0.65rem', color: isYearExpanded ? '#fb531a' : '#999', width: '32px', flexShrink: 0, fontWeight: isYearExpanded ? 700 : 400 }}>{y.year}</span>
                       <div style={{ flex: 1, display: 'flex', height: '16px', borderRadius: '2px', overflow: 'hidden' }}>
                         <div
                           title={`Återkommande: ${y.returning}`}
@@ -1021,7 +1029,7 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
     datasets: [{
       label: 'Genomsnittligt sentiment',
       data: yearData.map((y: any) => y.avgScore),
-      borderColor: '#ff6632',
+      borderColor: '#fb531a',
       backgroundColor: 'rgba(255, 102, 50, 0.15)',
       fill: true,
       tension: 0.3,
@@ -1241,7 +1249,7 @@ function ArenaNetworkView({ data, isMobile }: { data: any; isMobile?: boolean })
             </div>
           ))}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem' }}>
-            <div style={{ width: 14, height: 14, borderRadius: '50%', border: '2px dashed #ff6632', backgroundColor: '#fff' }} />
+            <div style={{ width: 14, height: 14, borderRadius: '50%', border: '2px dashed #fb531a', backgroundColor: '#fff' }} />
             Arena
           </div>
         </div>
@@ -1296,11 +1304,11 @@ function SpeakersView({ data, isMobile }: { data: any; isMobile?: boolean }) {
       <SectionHeader title="A-LISTAN" subtitle="Almedalens mest aktiva deltagare, rankade efter volym, kontinuitet och bredd." />
       <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
         <a href="/speakers" style={{
-          color: '#ff6632',
+          color: '#fb531a',
           textDecoration: 'none',
           fontWeight: 600,
           fontSize: '0.9rem',
-          borderBottom: '1px solid #ff6632',
+          borderBottom: '1px solid #fb531a',
         }}>
           Talarsök, Ämnessök &amp; Aktörssök →
         </a>
@@ -1362,13 +1370,13 @@ function SpeakersView({ data, isMobile }: { data: any; isMobile?: boolean }) {
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.25rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: i < 3 ? '#ff6632' : '#999', fontWeight: 700, fontSize: '0.9rem', flexShrink: 0 }}>{i + 1}.</span>
+                    <span style={{ color: i < 3 ? '#fb531a' : '#999', fontWeight: 700, fontSize: '0.9rem', flexShrink: 0 }}>{i + 1}.</span>
                     <a href={`/speakers?id=${s.id}`} style={{ color: 'inherit', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem' }}>
                       {s.name}
                     </a>
                   </div>
                   <span style={{
-                    backgroundColor: '#ff6632',
+                    backgroundColor: '#fb531a',
                     color: '#fff',
                     padding: '0.15rem 0.5rem',
                     borderRadius: '12px',
@@ -1416,10 +1424,10 @@ function SpeakersView({ data, isMobile }: { data: any; isMobile?: boolean }) {
                   borderBottom: '1px solid #eee',
                   backgroundColor: i < 3 ? 'rgba(255, 102, 50, 0.05)' : 'transparent',
                 }}>
-                  <td style={{ padding: '0.6rem 0.5rem', color: i < 3 ? '#ff6632' : '#999', fontWeight: 700, fontSize: '1rem' }}>{i + 1}</td>
+                  <td style={{ padding: '0.6rem 0.5rem', color: i < 3 ? '#fb531a' : '#999', fontWeight: 700, fontSize: '1rem' }}>{i + 1}</td>
                   <td style={{ padding: '0.6rem 0.5rem', fontWeight: 600 }}>
                     <a href={`/speakers?id=${s.id}`} style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid #ccc' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = '#ff6632'; e.currentTarget.style.borderColor = '#ff6632'; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = '#fb531a'; e.currentTarget.style.borderColor = '#fb531a'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
                     >
                       {s.name}
@@ -1444,7 +1452,7 @@ function SpeakersView({ data, isMobile }: { data: any; isMobile?: boolean }) {
                   <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.org || '–'}</td>
                   <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem' }}>
                     <span style={{
-                      backgroundColor: '#ff6632',
+                      backgroundColor: '#fb531a',
                       color: '#fff',
                       padding: '0.2rem 0.6rem',
                       borderRadius: '12px',

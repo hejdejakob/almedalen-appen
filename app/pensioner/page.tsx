@@ -64,7 +64,7 @@ export default function PensionerPage() {
   }, []);
 
   if (error) return (
-    <div style={{ backgroundColor: '#000', color: '#ff6632', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui' }}>
+    <div style={{ backgroundColor: '#000', color: '#fb531a', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui' }}>
       {error}
     </div>
   );
@@ -102,7 +102,7 @@ export default function PensionerPage() {
           <h1 style={{
             fontFamily: 'var(--font-formula)',
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-            color: '#ff6632',
+            color: '#fb531a',
             margin: 0,
             lineHeight: 1.1,
             textTransform: 'uppercase',
@@ -136,7 +136,7 @@ export default function PensionerPage() {
               return (
                 <div key={y} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
                   <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: 4 }}>{count}</span>
-                  <div style={{ width: '100%', height, backgroundColor: '#ff6632', borderRadius: '4px 4px 0 0', minHeight: count > 0 ? 8 : 0 }} />
+                  <div style={{ width: '100%', height, backgroundColor: '#fb531a', borderRadius: '4px 4px 0 0', minHeight: count > 0 ? 8 : 0 }} />
                   <span style={{ fontSize: '0.85rem', color: '#999', marginTop: 6 }}>{y}</span>
                 </div>
               );
@@ -160,7 +160,7 @@ export default function PensionerPage() {
                   padding: '0.75rem 1rem', cursor: 'pointer',
                   transition: 'border-color 0.15s',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = '#ff6632')}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = '#fb531a')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = '#333')}
               >
                 <span style={{ color: '#666', fontSize: '0.8rem', minWidth: 20, textAlign: 'right' }}>{i + 1}</span>
@@ -173,7 +173,7 @@ export default function PensionerPage() {
                   <div style={{ fontSize: '0.8rem', color: '#999' }}>{SECTOR_LABELS[a.sector] || a.sector}</div>
                 </div>
                 <span style={{
-                  backgroundColor: '#ff6632', color: '#000', fontWeight: 700,
+                  backgroundColor: '#fb531a', color: '#000', fontWeight: 700,
                   fontSize: '0.8rem', padding: '2px 8px', borderRadius: 4,
                 }}>
                   {a.eventCount}
@@ -196,7 +196,7 @@ export default function PensionerPage() {
                   padding: '0.75rem 1rem', cursor: 'pointer',
                   transition: 'border-color 0.15s',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = '#ff6632')}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = '#fb531a')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = '#333')}
               >
                 <span style={{ color: '#666', fontSize: '0.8rem', minWidth: 20, textAlign: 'right' }}>{i + 1}</span>
@@ -215,7 +215,7 @@ export default function PensionerPage() {
                   </span>
                 )}
                 <span style={{
-                  backgroundColor: '#ff6632', color: '#000', fontWeight: 700,
+                  backgroundColor: '#fb531a', color: '#000', fontWeight: 700,
                   fontSize: '0.8rem', padding: '2px 8px', borderRadius: 4,
                 }}>
                   {s.eventCount}
@@ -239,7 +239,7 @@ export default function PensionerPage() {
                 <div style={{ flex: 1, height: 24, backgroundColor: '#1a1a1a', borderRadius: 4, overflow: 'hidden' }}>
                   <div style={{
                     height: '100%', width: `${(t.count / maxTopicCount) * 100}%`,
-                    backgroundColor: '#ff6632', borderRadius: 4,
+                    backgroundColor: '#fb531a', borderRadius: 4,
                     display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 8,
                     minWidth: 32,
                   }}>
@@ -305,7 +305,7 @@ export default function PensionerPage() {
                 padding: '0.6rem 0', borderBottom: '1px solid #1a1a1a',
               }}>
                 <span style={{
-                  backgroundColor: '#1a1a1a', color: '#ff6632', fontWeight: 700,
+                  backgroundColor: '#1a1a1a', color: '#fb531a', fontWeight: 700,
                   fontSize: '0.75rem', padding: '2px 6px', borderRadius: 4,
                   flexShrink: 0,
                 }}>
@@ -440,7 +440,7 @@ function PensionNetwork({
         link.attr('stroke-opacity', (l: any) =>
           l.source.id === d.id || l.target.id === d.id ? 0.9 : 0.05
         ).attr('stroke', (l: any) =>
-          l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#fff'
+          l.source.id === d.id || l.target.id === d.id ? '#fb531a' : '#fff'
         );
         // Dim other nodes
         node.attr('opacity', (n: any) => {
@@ -507,7 +507,7 @@ function PensionNetwork({
           top: tooltip.y,
           transform: 'translate(-50%, -100%)',
           backgroundColor: 'rgba(0,0,0,0.9)',
-          border: '1px solid #ff6632',
+          border: '1px solid #fb531a',
           borderRadius: 6,
           padding: '6px 10px',
           pointerEvents: 'none',
@@ -529,7 +529,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
         style={{
           fontFamily: 'var(--font-formula)',
           fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
-          color: '#ff6632',
+          color: '#fb531a',
           margin: '0 0 1rem 0',
           lineHeight: 1.2,
         }}

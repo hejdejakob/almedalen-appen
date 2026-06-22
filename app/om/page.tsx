@@ -13,10 +13,10 @@ export default function OmPage() {
         backgroundColor: '#000',
         color: '#fff',
         padding: '2rem 0',
-        borderBottom: '4px solid #ff6632',
+        borderBottom: '4px solid #fb531a',
       }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 2rem' }}>
-          <a href="/" style={{ color: '#ff6632', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600 }}>
+          <a href="/" style={{ color: '#fb531a', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600 }}>
             ← Tillbaka till dashboarden
           </a>
           <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: '0.5rem 0 0' }}>
@@ -109,7 +109,7 @@ export default function OmPage() {
           <p>
             Almedalsdata är ett projekt av <strong>Reform Society</strong>.
             <br />
-            Kontakt: <a href="mailto:jakob@reformsociety.se" style={{ color: '#ff6632' }}>jakob@reformsociety.se</a>
+            Kontakt: <a href="mailto:jakob@reformsociety.se" style={{ color: '#fb531a' }}>jakob@reformsociety.se</a>
           </p>
         </Section>
 

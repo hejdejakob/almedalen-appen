@@ -1,0 +1,1252 @@
+[
+ {
+  "id": 4044,
+  "name": "Anna Bellman",
+  "title": "Moderator och författare",
+  "org": "Bellacom",
+  "seminars": [
+   "Ras på börsen - vart går fastighetsmarknaden?",
+   "Det hybrida mötet",
+   "Vilken bostadspolitik har de olika blocken?",
+   "Får planprocesserna ta så lång tid?"
+  ],
+  "proposed": "VD:ar i media/byrå/kommunikation",
+  "orig_conf": 0.3
+ },
+ {
+  "id": 1495,
+  "name": "Göran Hägglund",
+  "title": "styrelseordförande och moderator",
+  "org": "Reform Society",
+  "seminars": [
+   "Ämnen: Alla Tillgänglighet: Alla Minska glappet – hög tid för en moder",
+   "Urinblåsecancer – varje dag räknas",
+   "På blodigt allvar",
+   "Liv till åren eller år till livet? En fråga om livskvalitet för män so"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 1495,
+  "name": "Göran Hägglund",
+  "title": "styrelseordförande och moderator",
+  "org": "Reform Society",
+  "seminars": [
+   "Ämnen: Alla Tillgänglighet: Alla Minska glappet – hög tid för en moder",
+   "Urinblåsecancer – varje dag räknas",
+   "På blodigt allvar",
+   "Liv till åren eller år till livet? En fråga om livskvalitet för män so"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 2573,
+  "name": "Karin Olsson",
+  "title": "biträdande chefredaktör",
+  "org": "Expressen",
+  "seminars": [
+   "Hur ska man hantera tabun i politiken?",
+   "Vilken är vägen framåt för skolan?",
+   "Hur mår den svenska feminismen?",
+   "Hur mår Svenska kyrkan?"
+  ],
+  "proposed": "Kommentatorer & krönikörer",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 1208,
+  "name": "Pontus Herin",
+  "title": "reporter och moderator",
+  "org": "Dagens industri",
+  "seminars": [
+   "Industrin ställer om, men politiken hindrar oss. En granskning av part",
+   "Så garanterar vi en hög säkerhet i elnäten och tillgång till stabila e",
+   "Hur framtidssäkrar vi Sveriges kompetens?",
+   "Klimatmålen och de gröna affärerna - hur påverkas investeringsviljan i"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 37,
+  "name": "Lennart Weiss",
+  "title": "chefredaktör",
+  "org": "Bostadspolitik.se",
+  "seminars": [
+   "Tät urbanism eller moderna trädgårdsstäder – vad gagnar klimatet bäst?",
+   "Lön utan lägenhet – kan en amorteringstrappa rädda ungas första bostad",
+   "Ägda bostäder – den sociala bostadspolitiken glömda resurs",
+   "Hemlösa, utsatta barn och ekonomiskt svaga blir allt fler – hur löser "
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 1926,
+  "name": "Åsa Domeij",
+  "title": "Hållbarhetschef",
+  "org": "Axfood",
+  "seminars": [
+   "Hur kan Norden säkra råvarutillgång genom ökad cirkularitet?",
+   "Kan tuffare klimatkrav öka omställningstakten för tunga transporter?",
+   "Cirkulär omställning är nödvändig för att klara klimatet – hinner vi s",
+   "Mer växtbaserat i Sverige - vad behövs från politiken?"
+  ],
+  "proposed": "Hållbarhets-/CSR-kommunikatörer",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 1820,
+  "name": "Anders Lindberg",
+  "title": "politisk chefredaktör",
+  "org": "Aftonbladet",
+  "seminars": [
+   "Brytningstid i Sverige – klimatomställning och mineralpolitik",
+   "Oro eller hopp – vad avgör valet?",
+   "Så skapar vi en infrastruktur som matchar den industriella boomen i no",
+   "Århundradets kompetensutmaning i norra Sverige"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 2874,
+  "name": "Magnus Nikkarinen",
+  "title": "Hållbarhetsansvarig",
+  "org": "Svensk Handel",
+  "seminars": [
+   "Så kan due diligence för mänskliga rättigheter och miljö stärka näring",
+   "Vi tar inte ansvar för din klimatångest – second hand vill ändra ditt ",
+   "Kläder sorteras inte ut från det övriga avfallet idag – Vad krävs?",
+   "Svenska handelsföretag tar ansvar för verksamheter i produktionsländer"
+  ],
+  "proposed": "Hållbarhets-/CSR-kommunikatörer",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 2590,
+  "name": "Stina Liljekvist",
+  "title": "Chef Strategisk Kommunikation & Marknad",
+  "org": "Skandia",
+  "seminars": [
+   "Hälsa och hjärnhälsa - så kan medvetenhet om hjärnans hälsa öka välmåe",
+   "Behövs en nationell strategi för barn och ungas trygghet och framtidst",
+   "Efterfrågad kompetens men ifrågasatt yrkesroll - hur mår kommunikation",
+   "Så kan näringsliv, stiftelser och filantroper bidra till sociala inves"
+  ],
+  "proposed": "Kommunikationschefer",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 2590,
+  "name": "Stina Liljekvist",
+  "title": "Chef Strategisk Kommunikation & Marknad",
+  "org": "Skandia",
+  "seminars": [
+   "Hälsa och hjärnhälsa - så kan medvetenhet om hjärnans hälsa öka välmåe",
+   "Behövs en nationell strategi för barn och ungas trygghet och framtidst",
+   "Efterfrågad kompetens men ifrågasatt yrkesroll - hur mår kommunikation",
+   "Så kan näringsliv, stiftelser och filantroper bidra till sociala inves"
+  ],
+  "proposed": "CMO & marknadschefer",
+  "orig_conf": 0.45
+ },
+ {
+  "id": 9459,
+  "name": "Erik Högström",
+  "title": "redaktör",
+  "org": "Kvartal",
+  "seminars": [
+   "Borde public service slaktas – eller sker det redan?",
+   "Hur mycket integration tål Sverige?",
+   "Vad tycker framtidens toppolitiker om de hetaste frågorna?",
+   "Varför känns det som om Sverige har blivit fattigt?"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 815,
+  "name": "Anna Herdenstam",
+  "title": "programledare",
+  "org": "Expressen",
+  "seminars": [
+   "Vilka är Socialdemokraternas viktigaste frågor?",
+   "Eftersnack – hur var kvällens tal?",
+   "Vilka är Moderaternas viktigaste frågor?",
+   "Eftersnack – hur var förmiddagens tal? Och hur tycker Ulf Kristersson "
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 576,
+  "name": "Minou Sadeghpour",
+  "title": "Generalsekreterare och Head of Public Affairs",
+  "org": "Allmänna Försvarsföreningen / 4C Strategies",
+  "seminars": [
+   "Nytt säkerhetspolitiskt läge – kommuners ansvar i en osäker omvärld",
+   "Kritisk infrastruktur - ett kommunalt ansvar?",
+   "Flyget - hot mot planeten eller grund för fortsatt välstånd?",
+   "Arlanda – hela landets flygplats"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 2224,
+  "name": "Kent Persson",
+  "title": "Samhällspolitisk chef (deltid)",
+  "org": "Heimstaden",
+  "seminars": [
+   "Kan vi nå fram till en bostadspolitik som gör skillnad?",
+   "Hur genomför vi hållbara renoveringar av hyresbeståndet, utan skenande",
+   "Hemlösa, utsatta barn och ekonomiskt svaga blir allt fler – hur löser ",
+   "Vilken bostadspolitik har de olika blocken?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 2607,
+  "name": "Willy Silberstein",
+  "title": "moderator och medietränare",
+  "org": "Willy Silberstein AB",
+  "seminars": [
+   "Vårt ekonomiska läge",
+   "Mobbningens samhällskostnad – kränkningar, trakasserier och utsatthete",
+   "Vägen framåt på bostadsmarknaden, för alla",
+   "Hur påverkas privatekonomin av geopolitiska och makroekonomiska läget?"
+  ],
+  "proposed": "VD:ar i media/byrå/kommunikation",
+  "orig_conf": 0.3
+ },
+ {
+  "id": 914,
+  "name": "Janne Elvelid",
+  "title": "Head of Public Policy",
+  "org": "Meta Sverige och Finland",
+  "seminars": [
+   "Utmaningar och möjligheter med metaverse",
+   "Ett öppet samtal om det öppna samtalet",
+   "Vad ska vara tillåtet och inte att posta på internet?",
+   "Att stärka och skydda varumärken i en oviss tid - vilka risker och möj"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 798,
+  "name": "Marie Trogstam",
+  "title": "Chef för hållbarhet och infrastruktur",
+  "org": "Svenskt Näringsliv",
+  "seminars": [
+   "Teknik och pengar finns. Det är politik som bromsar klimatomställninge",
+   "Hur löser vi klimatkrisen?",
+   "Kan business och bistånd gå hand i hand?",
+   "Omställning, hållbarhet och lönsam tillväxt - går den ekvationen ihop "
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.45
+ },
+ {
+  "id": 1182,
+  "name": "Mia Odabas",
+  "title": "journalist och rådgivare stakeholder relations",
+  "org": "500 Stockholm",
+  "seminars": [
+   "El till varje pris?",
+   "Hur kan vi vända trenden för psykisk ohälsa hos unga?",
+   "Våld i nära relationer ska upphöra - men vet vi hur vi ska förebygga d",
+   "Så möjliggör flytande vindkraft Sveriges stora rs industritransformati"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 1784,
+  "name": "Niklas Johansson",
+  "title": "SVP Public Affairs och External Relations",
+  "org": "LKAB",
+  "seminars": [
+   "Vätgasens betydelse för den gröna omställningen",
+   "Säkerhetspolitiska dilemman i klimatomställningens spår",
+   "Innovativ planering för snabbare kraftförsörjning",
+   "Den fossilfria industriomställningen i Norr pågår med full kraft – hur"
+  ],
+  "proposed": "Svängdörrslistan",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 6709,
+  "name": "Katarina Tracz",
+  "title": "kommunikationskonsult och moderator",
+  "org": "Solomós Communications",
+  "seminars": [
+   "Det framtida kriget – vad krävs idag för att möta morgondagen?",
+   "New insights and lessons learned from Ukraine - how can Sweden contrib",
+   "Försvarsindustrin rekryterar, hur attraheras spetskompetensen?",
+   "Follow the money – försvarsindustrin möter politikens tillväxt mot 2,6"
+  ],
+  "proposed": "Byråfolk (reklam/PR)",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 6709,
+  "name": "Katarina Tracz",
+  "title": "kommunikationskonsult och moderator",
+  "org": "Solomós Communications",
+  "seminars": [
+   "Det framtida kriget – vad krävs idag för att möta morgondagen?",
+   "New insights and lessons learned from Ukraine - how can Sweden contrib",
+   "Försvarsindustrin rekryterar, hur attraheras spetskompetensen?",
+   "Follow the money – försvarsindustrin möter politikens tillväxt mot 2,6"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 1987,
+  "name": "Sara Övreby",
+  "title": "Samhällspolitisk chef",
+  "org": "Google Sverige",
+  "seminars": [
+   "Svensk teknik i världen - hur ökar vi innovationstakten?",
+   "Den digitala accelerationen - hur håller vi ångan uppe?",
+   "Livslångt lärande - från snack till verkstad?",
+   "Digital spetskompetens – vad är det, vem behöver det och hur möter vi "
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.65
+ },
+ {
+  "id": 2090,
+  "name": "Lina Håkansdotter",
+  "title": "Chief Sustainability & Corporate Affairs Officer",
+  "org": "Stegra (f.d. H2 Green Steel)",
+  "seminars": [
+   "Från klimatåtgärder till hållbarhetsomställningar",
+   "Vindkraft vs. kärnkraft – är motsättningen nödvändig? Påverkar säkerhe",
+   "Framtidssäkras företag genom hållbarhet på agendan?",
+   "Så möjliggör flytande vindkraft Sveriges stora rs industritransformati"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 2090,
+  "name": "Lina Håkansdotter",
+  "title": "Chief Sustainability & Corporate Affairs Officer",
+  "org": "Stegra (f.d. H2 Green Steel)",
+  "seminars": [
+   "Från klimatåtgärder till hållbarhetsomställningar",
+   "Vindkraft vs. kärnkraft – är motsättningen nödvändig? Påverkar säkerhe",
+   "Framtidssäkras företag genom hållbarhet på agendan?",
+   "Så möjliggör flytande vindkraft Sveriges stora rs industritransformati"
+  ],
+  "proposed": "Kommunikationsdirektörer & CCO",
+  "orig_conf": 0.45
+ },
+ {
+  "id": 4111,
+  "name": "Mattias Johansson",
+  "title": "Head of Public Affairs",
+  "org": "Brunswick Group",
+  "seminars": [
+   "Rusta för omställning - vilken kompetens behöver chefer och medarbetar",
+   "Hur kan framtidens fordon bli mer cirkulära, med fokus på batterierna?",
+   "Arbetskraftsbrist – och samtidigt 160 000 långtidsarbetslösa",
+   "Vilken roll har hållbarhetschefen i en omställd värld?"
+  ],
+  "proposed": "Byråfolk (reklam/PR)",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 2616,
+  "name": "Sara Gorton",
+  "title": "Hållbarhetschef",
+  "org": "",
+  "seminars": [
+   "Bygg mer, förbruka mindre – vägen till ett cirkulärt samhällsbyggande",
+   "Hur bygger vi ett hållbart samhälle utan att dra på oss en koldioxidsk",
+   "De cirkulära banbrytarna visar vägen – så sätter vi fokus på återbruk",
+   "Från pilot till uppskalning – innovationer som snabbt får oss att nå e"
+  ],
+  "proposed": "Hållbarhets-/CSR-kommunikatörer",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 475,
+  "name": "Marcus Hartmann",
+  "title": "Regional Head of Sustainability & Public Affairs",
+  "org": "H&M",
+  "seminars": [
+   "Hur kan svenska företag ta ansvar för utsläpp utanför EU? Är AI ett ef",
+   "Från greenwashing till goalwashing – är företagens klimatmål realistis",
+   "Hållbar resursanvändning i en cirkulär framtid – vem ska få resurserna",
+   "Hur får vi till cirkulära affärsmodeller som går att skala?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 4555,
+  "name": "Liza Manestam",
+  "title": "Marknad & Kommunikationsdirektör",
+  "org": "Capio",
+  "seminars": [
+   "Hur mår unga i en uppkopplad värld?",
+   "En nationell vårdförmedling - hur kommer den att se ut?",
+   "Vårdval vs sjukhusvård - hur har det gått?",
+   "Globala hälsoutmaningar och humanitärt arbete - hur kan vi göra skilln"
+  ],
+  "proposed": "CMO & marknadschefer",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 773,
+  "name": "Anders Blanck",
+  "title": "Konsult (tidigare VD Lif)",
+  "org": "Gullers Group",
+  "seminars": [
+   "Hur vi sätter prevention i fokus - beredskap inför gamla och nya virus",
+   "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet de närmst",
+   "Forskning utan djurförsök - vad krävs för att nå dit?",
+   "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet de närmst"
+  ],
+  "proposed": "Byråfolk (reklam/PR)",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 773,
+  "name": "Anders Blanck",
+  "title": "Konsult (tidigare VD Lif)",
+  "org": "Gullers Group",
+  "seminars": [
+   "Hur vi sätter prevention i fokus - beredskap inför gamla och nya virus",
+   "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet de närmst",
+   "Forskning utan djurförsök - vad krävs för att nå dit?",
+   "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet de närmst"
+  ],
+  "proposed": "Life science-kommunikation",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 773,
+  "name": "Anders Blanck",
+  "title": "Konsult (tidigare VD Lif)",
+  "org": "Gullers Group",
+  "seminars": [
+   "Hur vi sätter prevention i fokus - beredskap inför gamla och nya virus",
+   "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet de närmst",
+   "Forskning utan djurförsök - vad krävs för att nå dit?",
+   "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet de närmst"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 2087,
+  "name": "Niclas Sigholm",
+  "title": "senior konsult och moderator",
+  "org": "Sigholm",
+  "seminars": [
+   "Vindkraft vs. kärnkraft – är motsättningen nödvändig? Påverkar säkerhe",
+   "Det gröna industriundret – hur får vi hela Sverige med på tåget?",
+   "Vad kan energibranschen lära sig av tech leaders?",
+   "Vad är flexibiliteten i elsystemet värd?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 3361,
+  "name": "Silvia Kakembo",
+  "title": "Moderator",
+  "org": "Arenagruppen, Representant, Kommissarie, NOA (Polisen)",
+  "seminars": [
+   "Den digitala accelerationen - hur håller vi ångan uppe?",
+   "Unik samkörning av data säkrar studieförbundens statsbidrag",
+   "Robin kom aldrig hem – nolltolerans mot dödsolyckor på arbetet",
+   "Ett skämt kollegor emellan eller ett normaliserande av kvinnohat? l i"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 3967,
+  "name": "Anna Olin Kardell",
+  "title": "moderator och kommunikationsrådgivare",
+  "org": "",
+  "seminars": [
+   "Så infiltrerar organiserad brottslighet företag och myndigheter",
+   "Energi och telekom – så skapas nya allianser för framtidens hållbara e",
+   "Vägen till nyindustrialisering för Sverige – en färdplan för elsysteme",
+   "AI-gapet och bryggan över"
+  ],
+  "proposed": "Byråfolk (reklam/PR)",
+  "orig_conf": 0.35
+ },
+ {
+  "id": 1033,
+  "name": "Anna Wikland",
+  "title": "Sverigechef",
+  "org": "Google",
+  "seminars": [
+   "Svensk teknik i världen - hur ökar vi innovationstakten?",
+   "Den digitala accelerationen - hur håller vi ångan uppe?",
+   "Livslångt lärande - från snack till verkstad?",
+   "The role of AI in society - how do we create an environment and ecosys"
+  ],
+  "proposed": "Big Tech: PA & policy",
+  "orig_conf": 0.35
+ },
+ {
+  "id": 1187,
+  "name": "Stig-Björn Ljunggren",
+  "title": "Statsvetare och politisk chefredaktör",
+  "org": "Sydöstran",
+  "seminars": [
+   "Med fokus på Moderaterna och Vänsterpartiet",
+   "Med fokus på Kristdemokraterna och Liberalerna",
+   "Står religionsfriheten emot individuella rättigheter?",
+   "Med fokus på Sverigedemokraterna och Centerpartiet"
+  ],
+  "proposed": "Kommentatorer & krönikörer",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 1187,
+  "name": "Stig-Björn Ljunggren",
+  "title": "Statsvetare och politisk chefredaktör",
+  "org": "Sydöstran",
+  "seminars": [
+   "Med fokus på Moderaterna och Vänsterpartiet",
+   "Med fokus på Kristdemokraterna och Liberalerna",
+   "Står religionsfriheten emot individuella rättigheter?",
+   "Med fokus på Sverigedemokraterna och Centerpartiet"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.45
+ },
+ {
+  "id": 6000,
+  "name": "Tina Thorsell",
+  "title": "samhällspolitisk chef",
+  "org": "Transportföretagen",
+  "seminars": [
+   "Köerna på flygplatserna – vad får det för effekter och hur länge komme",
+   "Kan transporter möjliggöra att hela Sverige kan leva?",
+   "Hållbar distribution i e-handeln - hur kan klimatsmarta leveransaltern",
+   "Uppkopplade och självkörande vägfordon – hur når vi dit?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 6056,
+  "name": "Caroline Thunved",
+  "title": "VD och generalsekreterare (tidigare)",
+  "org": "Sveriges Kommunikatörer",
+  "seminars": [
+   "I kris, krig och desinformation – vilken roll har kommunikatören i tot",
+   "Hur används kommunikatörers kompetens för att hantera nutidens samhäll",
+   "Jakten på sanningen",
+   "Hur riskfaktorer kan bli friskfaktorer – en friskare och mer hållbar k"
+  ],
+  "proposed": "VD:ar i media/byrå/kommunikation",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 6187,
+  "name": "Tove Lifvendahl",
+  "title": "Politisk chefredaktör",
+  "org": "Svenska Dagbladet",
+  "seminars": [
+   "Industriavtalet – har det levererat?",
+   "Vad mer skulle det privata kunna ta över?",
+   "Varför så tyst om barnfattigdom i glesbygden?",
+   "Duell om framtidens arbetsmarknad"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 6988,
+  "name": "Erik Helmerson",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Kan Gud göra något åt gängen?",
+   "Varför är Putin och Kirill i ohelig allians?",
+   "Att veta men inte göra – varför fixar vi inte klimatet och andra probl",
+   "Religion som privatsak – alltför djupt i folksjälen?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 444,
+  "name": "Rikard Silverfur",
+  "title": "Chef Utveckling & Hållbarhet",
+  "org": "Fastighetsägarna",
+  "seminars": [
+   "Dags för rättvisemärkning av bostäder?",
+   "Vad är fastighetsbranschens roll för att minska konsumtionsbaserade ut",
+   "Energioberoende och energieffektivisering – viktigare än någonsin i sk",
+   "Skärpta klimatkrav från EU – hur påverkas fastighetsbranschen och boen"
+  ],
+  "proposed": "Hållbarhets-/CSR-kommunikatörer",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 444,
+  "name": "Rikard Silverfur",
+  "title": "Chef Utveckling & Hållbarhet",
+  "org": "Fastighetsägarna",
+  "seminars": [
+   "Dags för rättvisemärkning av bostäder?",
+   "Vad är fastighetsbranschens roll för att minska konsumtionsbaserade ut",
+   "Energioberoende och energieffektivisering – viktigare än någonsin i sk",
+   "Skärpta klimatkrav från EU – hur påverkas fastighetsbranschen och boen"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 1817,
+  "name": "Frida Wallnor",
+  "title": "biträdande politisk redaktör",
+  "org": "Dagens industri",
+  "seminars": [
+   "Navigating a new global era–mitigating risks and assessing the impact ",
+   "The new challenges in the shadow of war in Europe",
+   "Så klarar vi hoten mot omställningen",
+   "Vårt ekonomiska läge"
+  ],
+  "proposed": "Kommentatorer & krönikörer",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 3550,
+  "name": "Sophie Nachemson-Ekwall",
+  "title": "Social Sustainability Expert",
+  "org": "PwC",
+  "seminars": [
+   "Framtidssäkras företag genom hållbarhet på agendan?",
+   "Nya förutsättningar i fastighetsbranschen",
+   "Impact investing, social finance, filantropi - samma eller olika?",
+   "Är Sverige moget för quasi-equity?"
+  ],
+  "proposed": "Big 4-konsulter",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 3599,
+  "name": "Suzanne Håkansson",
+  "title": "Chef för samhällskontakter",
+  "org": "AstraZeneca",
+  "seminars": [
+   "Outnyttjad potential att ytterligare öka den svenska hälsoexporten",
+   "Sveriges dödligaste cancer – så tar vi klivet till screening i hela la",
+   "Världsmästare i hälsa - så tar Stockholm och Sverige täten inom life s",
+   "Cancer mission hubs etableras nu i alla t medlemsländer i EU. Vad inne"
+  ],
+  "proposed": "Life science-kommunikation",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 5889,
+  "name": "Per Klingvall",
+  "title": "Chef för råd, information och samhällspåverkan",
+  "org": "SSF Stöldskyddsföreningen",
+  "seminars": [
+   "Har samhället förmåga att skapa trygghet och säkerhet?",
+   "Hur bygger vi cyberhygien i samhället?",
+   "Hur skapar vi cybersäkerhet för mindre företag?",
+   "Hur skapar vi trygghet och säkerhet i Sverige?"
+  ],
+  "proposed": "Kommunikationschefer",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 5889,
+  "name": "Per Klingvall",
+  "title": "Chef för råd, information och samhällspåverkan",
+  "org": "SSF Stöldskyddsföreningen",
+  "seminars": [
+   "Har samhället förmåga att skapa trygghet och säkerhet?",
+   "Hur bygger vi cyberhygien i samhället?",
+   "Hur skapar vi cybersäkerhet för mindre företag?",
+   "Hur skapar vi trygghet och säkerhet i Sverige?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 5981,
+  "name": "Pernilla Norlin",
+  "title": "samhällspolitisk chef",
+  "org": "tt den moderator, Företagarna",
+  "seminars": [
+   "Högskolans betydelse för akademikers livslånga lärande",
+   "Regelverk eller regelvärk? Hur minskar vi företagens regelbörda?",
+   ", Vilka reformer för tillväxt krävs för att skapa sötebrödsdagar för f",
+   "Kvinnor och kapital – hur får vi fler företag att växa?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 5981,
+  "name": "Pernilla Norlin",
+  "title": "samhällspolitisk chef",
+  "org": "tt den moderator, Företagarna",
+  "seminars": [
+   "Högskolans betydelse för akademikers livslånga lärande",
+   "Regelverk eller regelvärk? Hur minskar vi företagens regelbörda?",
+   ", Vilka reformer för tillväxt krävs för att skapa sötebrödsdagar för f",
+   "Kvinnor och kapital – hur får vi fler företag att växa?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.35
+ },
+ {
+  "id": 6088,
+  "name": "Filippa Rogvall",
+  "title": "politikredaktör",
+  "org": "Expressen",
+  "seminars": [
+   "När blir Sverige medlem i Nato?",
+   "När blir det billigare att vara svensk?",
+   "Vad vill Socialdemokraterna?",
+   "Hur hanterar rikspolischefen polisens förtroendekris?"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 6088,
+  "name": "Filippa Rogvall",
+  "title": "politikredaktör",
+  "org": "Expressen",
+  "seminars": [
+   "När blir Sverige medlem i Nato?",
+   "När blir det billigare att vara svensk?",
+   "Vad vill Socialdemokraterna?",
+   "Hur hanterar rikspolischefen polisens förtroendekris?"
+  ],
+  "proposed": "Kommentatorer & krönikörer",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 12369,
+  "name": "Linda Jerneck",
+  "title": "biträdande politisk redaktör",
+  "org": "Expressen",
+  "seminars": [
+   "er, 30 år efter apartheid – hur mår Sydafrika?",
+   "Amerika först – igen?",
+   "Vad blir höjdpunkterna i talet?",
+   "Hur var L-ledarens tal?"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 12369,
+  "name": "Linda Jerneck",
+  "title": "biträdande politisk redaktör",
+  "org": "Expressen",
+  "seminars": [
+   "er, 30 år efter apartheid – hur mår Sydafrika?",
+   "Amerika först – igen?",
+   "Vad blir höjdpunkterna i talet?",
+   "Hur var L-ledarens tal?"
+  ],
+  "proposed": "Kommentatorer & krönikörer",
+  "orig_conf": 0.45
+ },
+ {
+  "id": 850,
+  "name": "Johan Kreicbergs",
+  "title": "samhällspolitisk chef",
+  "org": "",
+  "seminars": [
+   "Hur får vi en levande glesbygd?",
+   "AI som samhällsomvandlare - så påverkas företagen, ekonomin och jobben",
+   "Stärkt konkurrenskraft? Hur kan det bli lättare för internationell kom",
+   "Vem kan egentligen ta del av omställningsstudiestödet?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 1288,
+  "name": "Åsa Julin",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Måste vi öka tempot? Idrottsrörelsen och arbetet för ökad jämlikhet",
+   "r Skärpta krav på spelreklamen – vad blir de verkliga effekterna?",
+   "Vilka principer ska gälla i pensionssystemet?",
+   "Från a-kassa till b-kassa på 40 år"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 1884,
+  "name": "Camilla Wagner",
+  "title": "Moderator",
+  "org": "vd Ledarskapsbyrån Klara K och tidigare ekonomijournalist",
+  "seminars": [
+   "Jämställdhet - lösningen för att få fler i jobb?",
+   "Ska musikbranschens prisutdelare skilja på verk och person?",
+   "En trygg skola för alla - fri från trakasserier",
+   "Var är reformerna som ökar den ekonomiska jämställdheten?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 2000,
+  "name": "Britta Wallgren",
+  "title": "Landschef",
+  "org": "Capio",
+  "seminars": [
+   "Hur går vi från sårbara till hållbara vårdorganisationer?",
+   "Förbered för det värsta och hoppas på det bästa ch den",
+   "Ödesfrågan - vad krävs för att de unga ska välja vården?",
+   "Väck med väntetiderna – från vårdutopi till vårdgaranti"
+  ],
+  "proposed": "Sverige- & landschefer",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 2544,
+  "name": "Jörgen Huitfeldt",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Teknik och pengar finns. Det är politik som bromsar klimatomställninge",
+   "Reformer för stärkt konkurrenskraft",
+   "Industriavtalet – leverans på arbetsmarknaden i en osäker tid",
+   "När arbetskraften inte räcker till, hur bibehåller vi välfärd och till"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 3089,
+  "name": "Pär Lager",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Det finsk-svenska försvarssamarbetet och den europeiska säkerheten",
+   "När krisen kommer – hur kan Sverige och Finland fördjupa samarbetet i ",
+   "The Nordic Models and the Middle East",
+   "Framtidssäkra din kompetens il"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 7100,
+  "name": "Catarina Rolfsdotter-Jansson",
+  "title": "hållbarhetsexpert",
+  "org": "moderator",
+  "seminars": [
+   "Hållbar hälsa – hur bygger vi en resilient hälso-och sjukvård idag och",
+   "Hot och våld mot tjänstemän i offentlig sektor – hur stoppar vi hotet ",
+   "Hur når vi ekonomisk jämställdhet? - om normer och reformer",
+   "Är dålig inomhusmiljö skolans och förskolans dolda hot?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 1546,
+  "name": "Malin Thorsén",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Kan Sveriges fjärr-och kraftvärme klara nettonollutsläpp och bli en ko",
+   "Kapacitet för hela Sverige - hur löser vi flaskhalsarna för en trygg e",
+   "Vad vill politiken i energifrågorna?",
+   "Energiåtervinning av avfall – klimatbov eller hjälte?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 2296,
+  "name": "Thomas Frostberg",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Hur lyckas Skellefteå skapa hållbar samhällsutveckling när tillväxten ",
+   "Så kan due diligence för mänskliga rättigheter och miljö stärka näring",
+   "Digitalisering och digifiering - hur får vi stärkt hållbarhetstänk i t",
+   "Tillväxten och klimatet i luven på varandra - hur ska de samexistera?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 3052,
+  "name": "Hillevi Priscar",
+  "title": "Landschef Sverige",
+  "org": "OX2",
+  "seminars": [
+   "Vätgasens roll för Sveriges omställning - hur snabbar vi på processern",
+   "Vem har nycklarna till framtidens integrerade energisystem?",
+   "Investeringsförutsättningar för svensk havsbaserad vindkraft i interna",
+   "Långsiktig energiöverenskommelse för våra kommande generationer"
+  ],
+  "proposed": "Sverige- & landschefer",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 6314,
+  "name": "Beata Wickbom",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Vi har effekten Sverige behöver – så designar vi framtidens cirkulära ",
+   "Hot och utpressning – ny verklighet för chefer?",
+   "How to tackle changing conditions for sustainable business in Asia",
+   "Så skapar vi impact – samarbete och dess betydelse för framgång"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.7
+ },
+ {
+  "id": 10096,
+  "name": "Elin Ahldén",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Skam - privatekonomi och psykisk ohälsa",
+   "Hur skapar vi ett tryggt och motståndskraftigt digitalt samhälle?",
+   "Hur bör samhället möta hotet från cyberkriminalitet?",
+   "Samhällsviktiga verksamheter får bakläxa på cybersäkerheten – vem bär "
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 12477,
+  "name": "Anna Frankzén Starrin",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Energy och Cleantech – hur löser vi framtidens globala energiutmaninga",
+   "Climate, Logistics and Manufacturing – vad krävs för att göra hållbara",
+   "Biotech, Medicin och Hälsa – vilka är innovationerna som formar framti",
+   "AI and Consumer – vilka är AI-lösningarna som kan förbättra ditt liv?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.65
+ },
+ {
+  "id": 386,
+  "name": "Réka Tolnai",
+  "title": "Opinionsstrateg",
+  "org": "Almega",
+  "seminars": [
+   "Varför ska unga personer engagera sig - Unga röster om politik",
+   "För eller emot - Unga röster om politik",
+   "Vilka frågor ska lyftas - Unga röster om politik",
+   "som Framtidens politik kräver fler kompromisser"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 811,
+  "name": "Lena Malmberg",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Förstatliga skolan och lägg ner regionerna",
+   "Integration, trygghet, klan – hur hänger de ihop?",
+   "Demokratiskt underskott, skatteslöseri och brist på meritokrati - hur ",
+   "Varför såg ingen energikrisen komma?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 2142,
+  "name": "Johanna Alskog",
+  "title": "redaktör",
+  "org": "Altinget",
+  "seminars": [
+   "Så klarar vi hoten mot omställningen",
+   "Så möjliggör flytande vindkraft Sveriges stora rs industritransformati",
+   "Vindkraften omstridd i Norden – varför och hur löser vi upp knutarna? ",
+   "Tillit, kunskap och motståndskraft – studieförbunden stärker samhället"
+  ],
+  "proposed": "Mediechefer & chefredaktörer",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 2494,
+  "name": "Nina Ahlstrand",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Hållbar finansiering - hur grönt är tillräckligt grönt i finansbransch",
+   "The planet is a stakeholder",
+   "Vilken roll har hållbarhetschefen i en omställd värld?",
+   "Hållbarhetkrav i finansbranschen – var står vi idag och vilken verklig"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 3666,
+  "name": "Frida Orring",
+  "title": "samhällspolitisk chef",
+  "org": "",
+  "seminars": [
+   "Det nya hotet - om Sveriges cybersäkerhet i skuggan av Nato medlemskap",
+   "To Net-Zero and Beyond - how do we make the corporate quest for perman",
+   "Hur kan företag investera i och satsa på jämställdhet?",
+   "Att lita på fakta, information och nyheter i en AI-driven värld"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 3878,
+  "name": "Emelie Löthgren",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Hur kommer vi till rätta med byggkris och kriminalitet? n",
+   "Hur kan fastighetsbranschen bli mer digital-och klimatmogen?",
+   "Hur grön är din stad - hur kan träd klimatsäkra städer och bidra till ",
+   "Framtidens fastighetsbransch - möjligheter och utmaningar för en hållb"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 4082,
+  "name": "Sandra Elvin",
+  "title": "National Security Officer",
+  "org": "Microsoft",
+  "seminars": [
+   "h Cybersäkerhet, är Sverige förberett för att stå emot en attack?",
+   "Cybersäkerhet och digital suveränitet – lärdomar från senaste årens cy",
+   "Att upprätthålla en digital nation",
+   "Malign information influence during the 2024 super election year"
+  ],
+  "proposed": "Big Tech: PA & policy",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 6368,
+  "name": "Håkan Larsson",
+  "title": "Samhällspolitisk chef",
+  "org": "Villaägarna",
+  "seminars": [
+   "Hur ökar vi takten på energieffektivisering?",
+   "Hur kan EU förenkla de hållbara valen av byggprodukter?",
+   "Vem ansvarar för att energieffektiviseringen blir av i Sverige?",
+   "Ska det behövas en doktorsexamen för att förstå sin elräkning?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 8807,
+  "name": "Ann-Louise Lökholm Klasson",
+  "title": "Sverigechef",
+  "org": "Sweco",
+  "seminars": [
+   "Nyckeln till framtidssäkrat samhällsbyggande - innovativt ledarskap oc",
+   "Den smarta staden och framtidens energi",
+   "Halkar Sverige efter i AI-utvecklingen? Att främja samarbete mellan mä",
+   "Vad innebär investeringsskulden för svensk motståndskraft?"
+  ],
+  "proposed": "Sverige- & landschefer",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 9387,
+  "name": "Åsa Almesjö",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Alternativ finansiering - en nyckelfråga för upprustningen av kritisk ",
+   "Sveriges första alternativa privata finansiering för infrastruktur gäl",
+   "Hur ska Sverige utveckla kapaciteter och förmågor för infrastruktur i ",
+   "Hur kan långsiktigt kapital bygga Sverige?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 9647,
+  "name": "Marcus Wangel",
+  "title": "Policyexpert Miljöfrågor",
+  "org": "",
+  "seminars": [
+   "Nu blir handeln cirkulär – är din verksamhet redo för produktpass?",
+   "Hur kan smart och uppkopplad bioteknik minska de tunga transporterna i",
+   "Kan innovationer från skogen skapa en hållbar svensk textilindustri?",
+   "Hur kan vi kravställa cirkulära byggmaterial och tjänster i offentlig "
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 11540,
+  "name": "Mathias Mellgren Helge",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Är fjällen för alla?",
+   "Friluftslivets värde för folkhälsan",
+   "Den enkla rörelsen – en livsviktig skillnad",
+   "Rörelse och naturkontakt som lösning på dalande skolresultat"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 417,
+  "name": "Lisa Bondesson",
+  "title": "samhällspolitisk chef",
+  "org": "Svenska Kommunalarbetarförbundet",
+  "seminars": [
+   "Jämställdhet - lösningen för att få fler i jobb?",
+   "Vi behöver en halv miljon nya kollegor - så klarar vi välfärden",
+   "Vad säger politikerna egentligen om pensionerna? Och vad får det för k",
+   "Vad händer när välfärdsarbetarna säger det ifrån?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 2043,
+  "name": "Johan Hakelius",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Den stora pensionsdebatten",
+   "SMS låna eller spara till pensionen? Vad ska politiken uppmuntra?",
+   "tt Den stora pensionsdebatten - är det slut med pensionspopulismen?",
+   "Kan pensionspengarna lösa energikrisen?"
+  ],
+  "proposed": "Kommentatorer & krönikörer",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 2043,
+  "name": "Johan Hakelius",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Den stora pensionsdebatten",
+   "SMS låna eller spara till pensionen? Vad ska politiken uppmuntra?",
+   "tt Den stora pensionsdebatten - är det slut med pensionspopulismen?",
+   "Kan pensionspengarna lösa energikrisen?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.4
+ },
+ {
+  "id": 2898,
+  "name": "Magnus Hedberg",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Bristen på ekonomisk kunskap – en skuldfälla",
+   "En skuldsatt generation – livet på kredit",
+   "Köp nu, betala sen - ansvarsfull kreditgivning?",
+   "Skuldsatta unga: priset vi betalar för konsumtionssamhället"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.5
+ },
+ {
+  "id": 3381,
+  "name": "Helena Blomquist",
+  "title": "Moderator",
+  "org": "",
+  "seminars": [
+   "Många med demenssjukdom kommer att behöva vårdas i hemmet - klarar Sve",
+   "Hur kan vi ge alla barn en jämlik uppväxt?",
+   "Krisens första offer – tuffare ekonomisk vardag kostar i ohälsa och ut",
+   "Hur bygger och driver vi motståndskraftiga betalsystem i osäkra tider?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 16146,
+  "name": "Sverker Olofsson",
+  "title": "moderator",
+  "org": "",
+  "seminars": [
+   "Skogens avtagande tillväxt – vad finns det för vägar framåt?",
+   "Ett konkurrenskraftigt jordbruk är bästa beredskapen – men hur?"
+  ],
+  "proposed": "Moderatorer & programledare",
+  "orig_conf": 0.75
+ },
+ {
+  "id": 16283,
+  "name": "Susanna Stubberöd",
+  "title": "Marknads- och kommunikationschef",
+  "org": "Samhall",
+  "seminars": [
+   "Ledarskap i förändring och utveckling – innovation, digitalisering och",
+   "Ledarskap och demokrati – hur stärker vi tilliten och breddar vår mång"
+  ],
+  "proposed": "CMO & marknadschefer",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 16317,
+  "name": "Jessica W Sandberg",
+  "title": "#3 Sveriges 150 Superkommuniktatörer. PR-chef för Original-Fröken Snusk. Driver PR-och kommunikationsbyrån Besvärlig sedan 1977. Styrelseledamot IQ-initiativet.",
+  "org": "Besvärlig sedan 1977 AB och ledamot i IQ-initiativet AB",
+  "seminars": [
+   "Stolta samarbeten eller oetiskt reklam?",
+   "Illegal IPTV – hur ändrar vi beteenden och opinion?"
+  ],
+  "proposed": "Pressansvariga & talespersoner",
+  "orig_conf": 0.55
+ },
+ {
+  "id": 16410,
+  "name": "Johan Krallis Anell",
+  "title": "Moderator Ansvarig Stakeholder Engagement",
+  "org": "Lidl Sverige",
+  "seminars": [
+   "Vill svenska kommuner ha höga matpriser?",
+   "Hur kan det vara köttbrist när konsumenten vill grilla?"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.6
+ },
+ {
+  "id": 17238,
+  "name": "Pelle Bengtsberg",
+  "title": "policy & påverkan",
+  "org": "Reformaten",
+  "seminars": [
+   "Allt finns i tallriken – politiska lösningar för hälsa, klimat, rättvi",
+   "Så förändrar vi samhället med forskningsförankrad kunskap"
+  ],
+  "proposed": "Public Affairs & lobbyister",
+  "orig_conf": 0.55
+ }
+]

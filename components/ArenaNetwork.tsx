@@ -116,7 +116,7 @@ export default function ArenaNetwork({
           .attr('stroke-opacity', (l: any) =>
             l.source.id === d.id || l.target.id === d.id ? 0.7 : 0.03)
           .attr('stroke', (l: any) =>
-            l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#999');
+            l.source.id === d.id || l.target.id === d.id ? '#fb531a' : '#999');
         arenaNodeSelection
           .attr('stroke-width', (a: any) =>
             simEdges.some((e: any) =>
@@ -158,7 +158,7 @@ export default function ArenaNetwork({
     arenaNodeSelection.append('circle')
       .attr('r', (d: any) => arenaRadiusScale(d.uniqueArrangers) + 3)
       .attr('fill', 'none')
-      .attr('stroke', '#ff6632')
+      .attr('stroke', '#fb531a')
       .attr('stroke-width', 1.5)
       .attr('stroke-dasharray', '3,2');
 
@@ -172,18 +172,18 @@ export default function ArenaNetwork({
     // Arena icon (small inner dot)
     arenaNodeSelection.append('circle')
       .attr('r', 3)
-      .attr('fill', '#ff6632');
+      .attr('fill', '#fb531a');
 
     // Hover on arena groups
     arenaNodeSelection
       .on('mouseover', function (event: any, d: any) {
         d3.select(this).selectAll('circle').filter((_: any, i: number) => i === 1)
-          .attr('stroke', '#ff6632').attr('stroke-width', 2.5);
+          .attr('stroke', '#fb531a').attr('stroke-width', 2.5);
         link
           .attr('stroke-opacity', (l: any) =>
             l.source.id === d.id || l.target.id === d.id ? 0.7 : 0.03)
           .attr('stroke', (l: any) =>
-            l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#999');
+            l.source.id === d.id || l.target.id === d.id ? '#fb531a' : '#999');
         orgNodeSelection
           .attr('r', (o: any) =>
             simEdges.some((e: any) =>

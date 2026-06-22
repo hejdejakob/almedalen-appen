@@ -1,0 +1,569 @@
+[
+ {
+  "eventId": 25686,
+  "fit": 5,
+  "niche": "Flyktingar / rätt till skydd / UNHCR",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "UNHCR-arrangerat om flyktingkonventionen och rätten till skydd – absolut kärna för Better Shelter (flyktingbostäder, partnerskap med UNHCR). Perfekt match: skydd för människor på flykt i en osäker värld.",
+  "pitch": "Better Shelter och UNHCR: vad innebär rätten till skydd konkret när det gäller boende för miljontals fördrivna?"
+ },
+ {
+  "eventId": 34887,
+  "fit": 5,
+  "niche": "Humanitärt bistånd / flyktingar / humanitär finansiering",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "WFP och UNHCR – facit-guld – om Sudans katastrof: 14 miljoner på flykt, 19 miljoner i akut hunger. Kärnan är hur humanitära organisationer arbetar när behoven är skyhöga och finansieringen krymper, en fråga som direkt rör Better Shelters humanitära finansierings- och partnerskapsperspektiv.",
+  "pitch": "WFP och UNHCR om Sudan: skyhöga behov, krympande finansiering. Humanitär finansiering i praktiken."
+ },
+ {
+  "eventId": 25093,
+  "fit": 5,
+  "niche": "Humanitärt bistånd / de mest utsatta",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Renodlat Sida-samtal om humanitärt arbete för de mest utsatta – minska fattigdom och förtryck, stärka MR. Kärnan i Better Shelters uppdrag; perfekt forum att lyfta socialt företagande som levererar samhällsnytta i kris.",
+  "pitch": "Hjärtat av Better Shelters mission: humanitär hjälp där behoven är som störst."
+ },
+ {
+  "eventId": 25618,
+  "fit": 5,
+  "niche": "flykting/migration",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "UNHCR om humanitärt arbete i Mellanöstern när konflikten fördjupas och resurserna minskar — exakt Better Shelters kärna (flyktingskydd, UNHCR-partnerskap).",
+  "pitch": "Johan Mast om hur nödbostäder fyller gapet när humanitära resurser krymper i Mellanöstern."
+ },
+ {
+  "eventId": 35453,
+  "fit": 5,
+  "niche": "humanitärt-bistånd",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Arrangeras av UNHCR, Better Shelters partner, om biståndets framtid mitt i krig och flyktingkris — den mest precisa humanitära matchen i urvalet.",
+  "pitch": "UNHCR om svenskt biståndets vägval i en tid av krig, klimatkris och flyktingbehov — guldläge för Better Shelter."
+ },
+ {
+  "eventId": 35652,
+  "fit": 5,
+  "niche": "flykting/migration",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "UNHCR-arrangerat pass om flyktingars vardag och verklighet – Better Shelters nödbostäder är just det som formar den vardagen, och UNHCR är kärnpartner. Guld.",
+  "pitch": "Better Shelter och UNHCR delar fält: Johan Mast kan konkretisera hur boendet ser ut för människorna bakom flyktingstatistiken."
+ },
+ {
+  "eventId": 35223,
+  "fit": 5,
+  "niche": "Humanitär finansiering och systemreform",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Rakt in i Better Shelters kärna: rekordhöga humanitära behov mot krympande finansiering, svenskt bistånd i en ny kontext, med UNHCR (FN:s flyktingorgan), World Vision och Läkarmissionen i panelen. Better Shelter som socialt företag och leverantör av nödbostäder lever mitt i exakt denna prioriterings- och finansieringsdebatt.",
+  "pitch": "Johan Mast kan tala om hur sociala företag och innovativa leveransmodeller (skydd istället för tält, partnerskap med UNHCR/WFP) kan göra det humanitära systemet mer kostnadseffektivt när biståndet krymper."
+ },
+ {
+  "eventId": 35813,
+  "fit": 5,
+  "niche": "Ekonomisk inkludering i flyktingsituationer",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Utdragna flyktingsituationer, beroende av humanitär hjälp och hållbar självförsörjning vid krympande biståndsbudgetar — träffar Better Shelters kärna och tema socialt företagande som skalar samhällsnytta.",
+  "pitch": "Better Shelter kan exemplifiera hur ett socialt företag kombinerar humanitär leverans med marknadslogik och partnerskap för att skapa hållbara förutsättningar i utdragna flyktingsituationer."
+ },
+ {
+  "eventId": 25619,
+  "fit": 5,
+  "niche": "Humanitärt bistånd / konflikt",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Sida om Mellanöstern i kris – exakt det facit pekar ut som JA (Mellanöstern, UNHCR/Sida). Konflikt- och katastrofrespons med utvecklingssamarbete som ram; idealt forum för Better Shelters humanitära skydd för fördrivna i regionen.",
+  "pitch": "Sida + Mellanöstern i kris = kärnan i Better Shelters humanitära uppdrag."
+ },
+ {
+  "eventId": 35551,
+  "fit": 5,
+  "niche": "humanitärt-bistånd",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Pass om biståndets roll i en värld präglad av kriser, med uttalad spänning kring bistånd som används för export och migrationsbegränsning – exakt den humanitära kärnan Better Shelter verkar i.",
+  "pitch": "Johan Mast ger fältröst om hur humanitärt bistånd faktiskt levereras till fördrivna – och vad ett socialt företag bidrar med när biståndsdebatten dras mot export och migration."
+ },
+ {
+  "eventId": 25545,
+  "fit": 4,
+  "niche": "Biståndspolitik / barn i kris och konflikt",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Rädda Barnen om svensk biståndspolitik och barn som växer upp i krig och konflikt – tydlig humanitär förankring. Better Shelter kan koppla nödbostäder och humanitär finansiering till skydd för fördrivna familjer och barn.",
+  "pitch": "Hur svensk biståndspolitik avgör om fördrivna barn får tak över huvudet – Better Shelter om skydd i humanitära kriser."
+ },
+ {
+  "eventId": 25625,
+  "fit": 4,
+  "niche": "Humanitär logistik / katastrofrespons",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Direkt om hur humanitär hjälp levereras i ett land i krig – samordning, transport och att få fram rätt resurser. Detta är Better Shelters operativa verklighet (leverans av nödbostäder i konfliktzoner).",
+  "pitch": "Better Shelter kan tala om logistiken bakom att få humanitära skydd att nå fram i krigszoner – komplex samordning under tidspress."
+ },
+ {
+  "eventId": 25626,
+  "fit": 4,
+  "niche": "Flyktingmottagande i kris",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Mottagande och stöd åt miljontals flyktingar från kriget – kärnan i flyktingrespons. Better Shelter har relevant perspektiv på hur skydd och tidigt mottagande av fördrivna kan organiseras.",
+  "pitch": "Jämförelse av flyktingmottagande i Norden – Better Shelter kan koppla till hur akut skydd och värdiga boendelösningar formar etablering."
+ },
+ {
+  "eventId": 34263,
+  "fit": 4,
+  "niche": "Utvecklingssamarbete / svenskt bistånd",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Direkt på Better Shelters kärna: svenskt bistånd som finansierar humanitärt arbete (skolor, vård, rättigheter) i kris och utvecklingsländer. När biståndet rasar blir frågan om hur humanitär verksamhet kan finansieras och skalas högaktuell — perfekt arena för bistånd x handel x socialt företagande som komplement till krympande offentliga medel.",
+  "pitch": "Johan Mast kan lyfta hur sociala företag som Better Shelter levererar humanitär samhällsnytta när det traditionella biståndet krymper."
+ },
+ {
+  "eventId": 34639,
+  "fit": 4,
+  "niche": "Evakuering och skydd av civilbefolkning ur krigszon – fyra års ukrainska erfarenheter av att hantera fördrivna i konflikt.",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Vad fördrivna civila behöver direkt efter evakuering: säkert, snabbt uppställt boende. Better Shelter som alternativ till tält i konflikt- och katastrofrespons, kopplat till evakueringskedjan.",
+  "pitch": "Direkt konflikt- och katastrofrespons för fördrivna civila – exakt Better Shelters humanitära kärna. Toppmatch trots litet format."
+ },
+ {
+  "eventId": 34677,
+  "fit": 4,
+  "niche": "Skärningspunkten bistånd × migration/återvändande – vad som fungerar för fördrivna och vad Sverige kan lära av andra.",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Boende och ekonomisk inkludering i flykting- och återvändandesituationer; hur socialt företagande och humanitärt bistånd samverkar i migrationskedjan.",
+  "pitch": "Bistånd × migration i ett uttalat humanitärt sammanhang (EBA/Delmi) – ligger mitt i facits JA-spår om ekonomisk inkludering i flyktingsituationer. Toppmatch."
+ },
+ {
+  "eventId": 34838,
+  "fit": 4,
+  "niche": "Bistånd × migration / utvecklingssamarbete",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "EBA och Delmi om kopplingen mellan bistånd och migration – effektivitet, prioriteringar och målkonflikter. Bistånd är kärnrelevant för Better Shelter och vinkeln bistånd×migrationspolitik ligger nära facits ekonomisk-inkludering-i-flyktingsituationer-spår. Partiernas linje inför valet ger policyrelevans.",
+  "pitch": "Bistånd används allt oftare för migrationspolitiska mål – hur vill partierna forma politiken? EBA och Delmi reder ut målkonflikterna."
+ },
+ {
+  "eventId": 34845,
+  "fit": 4,
+  "niche": "Flyktingmottagande / asylpolitik",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Delmi om EU:s solidaritetsmodell för fördelning av asylmottagande. Tydligt flykting- och asylfokus med forskningsförankring i samma migrations-tält. Relevant för Better Shelters flykting- och migrationsperspektiv, om än mer EU-mekanik än ren kris-respons.",
+  "pitch": "EU:s nya solidaritetsmodell ska fördela asylmottagandet mellan medlemsstaterna – hur påverkas Sverige? Delmi förklarar."
+ },
+ {
+  "eventId": 25091,
+  "fit": 4,
+  "niche": "Ukraina humanitärt / återuppbyggnad / bistånd×handel",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Sida-samtal som uttryckligen handlar om akut hjälp till krigsdrabbade, samhällsviktig infrastruktur och bättre förutsättningar för handel – exakt Better Shelters skärningspunkt mellan humanitärt och socialt företagande.",
+  "pitch": "Vinkel: nödbostäder och bistånd×handel som del av Ukrainas akuta hjälp och återuppbyggnad."
+ },
+ {
+  "eventId": 25095,
+  "fit": 4,
+  "niche": "humanitärt-bistånd",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Sidas pass om humanitärt bistånd och grön omställning för de mest utsatta ligger rakt i Better Shelters fält av katastrofrespons och biståndsfinansierad nödhjälp.",
+  "pitch": "Sida om bistånd som ska nå de hårdast drabbade i klimatkrisen — direkt humanitär biståndsarena för Better Shelter."
+ },
+ {
+  "eventId": 35144,
+  "fit": 4,
+  "niche": "socialt-företag×bistånd",
+  "room": "hög",
+  "tier": "topp",
+  "angle": "Reach for Change om hur sociala företag skalar samhällsnytta — Better Shelter är ett socialt företag som skalar humanitär nytta globalt (facit-JA).",
+  "pitch": "Johan Mast som levande exempel: ett svenskt socialt företag som skalat flyktingskydd via UNHCR/WFP."
+ },
+ {
+  "eventId": 25140,
+  "fit": 4,
+  "niche": "Humanitärt bistånd till Ukraina",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Passet handlar uttryckligen om humanitärt bistånd, utvecklingssamarbete och återuppbyggnad i Ukraina. Better Shelter kan koppla nödbostäder/temporära skydd för fördrivna till frågan om effektivt, långsiktigt humanitärt stöd – och hur ett socialt företag bidrar med innovation och partnerskap inom det humanitära.",
+  "pitch": "Vd Johan Mast om hur ett svenskt socialt företag levererar boende till fördrivna ukrainare – och vad effektivt, långsiktigt humanitärt bistånd kräver."
+ },
+ {
+  "eventId": 25163,
+  "fit": 4,
+  "niche": "Utvecklingssamarbete / Sida",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Sida-arrangerat om svenskt utvecklingssamarbete med Ukraina och Östafrika – guld enligt kriterierna. Better Shelter kan tala om humanitär finansiering, bistånd×handel och hur sociala företag skalar samhällsnytta i flykting- och kriskontexter.",
+  "pitch": "Better Shelter som exempel på hur svenskt utvecklingssamarbete och socialt företagande möts i fält – Ukraina till Östafrika."
+ },
+ {
+  "eventId": 25118,
+  "fit": 4,
+  "niche": "Flyktingmottagande / massflykt i kris",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Massflyktsdirektivet handlar om snabbt skydd åt miljontals fördrivna – Better Shelters kärna är just akut skydd i flyktingsituationer. Vass humanitär match mot mottagande av människor på flykt från krig.",
+  "pitch": "Skydd och mottagande av fördrivna i praktiken – Better Shelter kan bidra med erfarenhet av att leverera akut boende åt människor på flykt."
+ },
+ {
+  "eventId": 35313,
+  "fit": 4,
+  "niche": "Humanitär katastrofrespons (Gaza)",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Gaza är en av Better Shelters faktiska leveranskontexter. Passet handlar om den humanitära katastrofen, läget på plats och vilka insatser som görs - exakt den katastrof-/konfliktrespons där nödbostäder behövs. Stark humanitär förankring.",
+  "pitch": "Better Shelter kan ge konkret bild av humanitära behov och boendelösningar på plats i Gaza, och vad Sverige som biståndsgivare kan möjliggöra."
+ },
+ {
+  "eventId": 25127,
+  "fit": 4,
+  "niche": "Flyktingar / migration i kris",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Direkt om flyktingar och tillfälligt skydd – återvändande, integration och Sveriges ansvar. Migration i kris är Better Shelters andra kärnben; tydlig humanitär flyktingvinkel.",
+  "pitch": "Flyktingfrågan i fokus; Better Shelter kan koppla tillfälligt skydd till temporära bostadslösningar och värdig mottagning."
+ },
+ {
+  "eventId": 36081,
+  "fit": 4,
+  "niche": "Utvecklingssamarbete / humanitär finansiering",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "EBA-samtal om hur biståndslandskapet förändras när västliga givare drar sig tillbaka och Sveriges/EU:s roll i ett fragmenterat utvecklingslandskap. I ett migration-och-bistånd-tält; central för humanitär finansiering och nya partnerskapsmodeller.",
+  "pitch": "Better Shelter som exempel på hur socialt företagande och nya finansieringsmodeller kan fylla vakuum när traditionella givare drar sig tillbaka."
+ },
+ {
+  "eventId": 36105,
+  "fit": 4,
+  "niche": "Skydd av civila / UNHCR",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Arrangeras av UNHCR (FN:s flyktingorgan) tillsammans med RefugeeHope och Ukrainska Hubben, om skydd av civila och fördrivna i kriget. UNHCR-partnerskap är guld för Better Shelter; humanitär civilskyddsvinkel.",
+  "pitch": "UNHCR-samanhang – naturlig arena för Better Shelter att tala om skydd och värdigt boende för fördrivna civila."
+ },
+ {
+  "eventId": 36522,
+  "fit": 4,
+  "niche": "Humanitärt / migration",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Migration i ett rättssäkerhets- och humanitärt perspektiv, med International Rescue Committee (RESCUE) och Act Svenska Kyrkan som arrangörer – två tunga flykting-/biståndsaktörer. Plats för Better Shelter att koppla skydd för fördrivna till hållbar migrationspolitik.",
+  "pitch": "Humanitär migration med RESCUE i panelen – flyktingvinkel, inte byggvinkel."
+ },
+ {
+  "eventId": 36199,
+  "fit": 4,
+  "niche": "Humanitärt / konfliktförebyggande",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Arrangörerna är guld: UNHCR, World Food Program, International Rescue Committee och ONE Campaign. Trots försvars-/säkerhetstema är ramen konfliktförebyggande och humanitär – Better Shelter kan lyfta skydd för fördrivna som del av humanitär respons i konflikt.",
+  "pitch": "UNHCR + WFP + RESCUE i panelen – humanitär konfliktrespons, inte ren säkerhetspolitik."
+ },
+ {
+  "eventId": 35306,
+  "fit": 4,
+  "niche": "flykting/migration",
+  "room": "medel",
+  "tier": "topp",
+  "angle": "Renodlat asyl-/flyktingpass från Delmi om dem som söker skydd undan förföljelse — Better Shelters målgrupp av fördrivna och asylsökande.",
+  "pitch": "Asyl och flyktingskäl i fokus — kärnan i den population Better Shelter bygger skydd för."
+ },
+ {
+  "eventId": 25470,
+  "fit": 4,
+  "niche": "Humanitärt bistånd / utvecklingssamarbete",
+  "room": "låg",
+  "tier": "topp",
+  "angle": "Kärnfråga om svenskt bistånd och fattigdomsbekämpning vs egenintresse (migration/export), arrangerat av Diakonia. Direkt i Better Shelters humanitära kärna; öppnar för vinkel bistånd×handel och humanitär finansiering.",
+  "pitch": "Biståndets framtid – Better Shelter som socialt företag visar hur bistånd och handel kan kombineras för att skala humanitär samhällsnytta."
+ },
+ {
+  "eventId": 25090,
+  "fit": 4,
+  "niche": "Svenskt bistånd / utvecklingssamarbete",
+  "room": "låg",
+  "tier": "topp",
+  "angle": "Sida-arrangerat partipanel om biståndets prioriteringar (Ukraina, migration, klimat). Ge Better Shelter en plats i samtalet om var svenska biståndskronor gör störst humanitär nytta och hur socialt företagande kan komplettera offentligt bistånd.",
+  "pitch": "Johan Mast kan koppla biståndsdebatten till hur ett svenskt socialt företag levererar konkret humanitär nytta för fördrivna."
+ },
+ {
+  "eventId": 24828,
+  "fit": 3,
+  "niche": "Civilsamhälle / volontärer i humanitärt stöd",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Humanitärt stöd till Ukraina med fokus på hur insatserna blir mer hållbara och effektiva i mottagarländer – konfliktrespons via civilsamhälle. Volontärfokus gör det bredare/svagare (bubblare), men förankrat i humanitärt stöd snarare än säkerhet/affärer.",
+  "pitch": "Hur humanitära insatser blir hållbara och effektiva – Better Shelter om strukturerat stöd bortom volontärkraften."
+ },
+ {
+  "eventId": 24830,
+  "fit": 3,
+  "niche": "Humanitärt partnerskap / civilsamhälle",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Om samverkan mellan offentlig sektor och volontärorganisationer för humanitär hjälp och återuppbyggnad. Relevant partnerskaps- och humanitär vinkel, men bredare/svagare än de rena flyktingpassen.",
+  "pitch": "Partnerskap mellan offentligt och civilsamhälle i humanitärt stöd – Better Shelter kan bidra med perspektiv på samverkan kring akut skydd."
+ },
+ {
+  "eventId": 25448,
+  "fit": 3,
+  "niche": "Humanitärt bistånd och återuppbyggnad Ukraina",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Tar uttryckligen upp humanitärt bistånd och återuppbyggnad jämte försvar. Tyngdpunkten ligger dock på partistöd och säkerhet, vilket gör den humanitära förankringen tunnare — bubblare snarare än topp. Återuppbyggnad/humanitärt stöd i krigskontext ligger nära Better Shelters Ukraina-leveranser.",
+  "pitch": "Möjlig ingång om panelen får en tydlig humanitär/återuppbyggnadsvinkel snarare än ren partidebatt om försvar."
+ },
+ {
+  "eventId": 34256,
+  "fit": 3,
+  "niche": "Konflikt, fördrivning och kvinnors roll i kris",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Handlar om väpnade konflikter och att fler kvinnor och flickor lever nära våld — alltså konflikt- och fördrivningskontexten där Better Shelter verkar. Vinkeln är dock främst freds- och jämställdhetspolitik (Operation 1325), inte humanitär bistånds-/bostadsleverans, vilket gör den till bubblare.",
+  "pitch": "Bredare humanitär-konfliktarena; relevant om samtalet rör behov hos fördrivna kvinnor och flickor i kris snarare än enbart fredsförhandling."
+ },
+ {
+  "eventId": 34316,
+  "fit": 3,
+  "niche": "Investeringar och samverkan för att driva verklig förändring i en tid av kriser, klimat, konflikter och ojämlikhet – social impact i bred mening.",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Better Shelter som socialt företag som skalar samhällsnytta i humanitära kriser – exempel på sektorsövergripande samverkan (design, handel, partnerskap med UNHCR/WFP) som ökar nyttan för flest möjliga människor.",
+  "pitch": "Techarena Global Impact är en bubblare: bred social-impact-vinkel utan explicit humanitär förankring, men berör konflikter och nytta för flest möjliga – passar Better Shelters berättelse om socialt företagande som löser kris."
+ },
+ {
+  "eventId": 25202,
+  "fit": 3,
+  "niche": "Sveriges långsiktiga stöd till Ukraina – militärt, ekonomiskt och humanitärt – arrangerat av en flyktingorganisation.",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Det humanitära spåret i Ukrainastödet: behov av tak över huvudet för fördrivna, och hur socialt företagande kan komplettera statligt bistånd i en utdragen kris.",
+  "pitch": "Ukrainapass med tyngdpunkt på säkerhet och politiska prioriteringar, men humanitärt stöd nämns explicit och arrangören RefugeeHope är flyktingfokuserad – därför bubblare, inte topp."
+ },
+ {
+  "eventId": 34820,
+  "fit": 3,
+  "niche": "Konfliktrespons / hållbar fred",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "På UNHCR Global Dialogue Garden om varför verklig fred uteblir trots fredsavtal, och om grupper som lämnas utanför processerna. Konflikt- och fördrivningsnära, på UNHCR:s scen, men bredare och mer principiellt än ren humanitär respons – därav bubblare.",
+  "pitch": "Varför uteblir freden trots fredsavtal, och vem lämnas utanför? Samtal på UNHCR:s scen om hållbar fred i komplexa konflikter."
+ },
+ {
+  "eventId": 34832,
+  "fit": 3,
+  "niche": "Flyktingmottagande / asylpolitik",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Migrationsverket om hur EU:s asylpakt påverkar det svenska mottagandet av skyddssökande. Flyktingmottagande står i fokus, vilket är relevant, men vinkeln är EU-lagstiftning och irreguljär migration snarare än humanitär kris-respons, och eventet har bara en talare – bubblare.",
+  "pitch": "EU:s migrations- och asylpakt har trätt i kraft – hur påverkas det svenska flyktingmottagandet? Migrationsverket reder ut."
+ },
+ {
+  "eventId": 35174,
+  "fit": 3,
+  "niche": "Humanitär respons för fördrivna barn (Ukraina)",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Humanitär förankring i krig och fördrivning: ukrainska barn som lever i krig, trauma och displacement, och deras återhämtning kopplat till återuppbyggnad. Ukraina är en av Better Shelters kontexter, men passet fokuserar på barns välbefinnande snarare än skydd/boende - därav bubblare.",
+  "pitch": "Better Shelter kan tala om hur värdiga boendelösningar för fördrivna familjer är en grund för barns trygghet och återhämtning i krig."
+ },
+ {
+  "eventId": 25094,
+  "fit": 3,
+  "niche": "Utvecklingssamarbete / regionalt bistånd",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Sida-samtal om biståndets möjligheter att stödja MR och ekonomisk tillväxt i Latinamerika. Bredare utvecklingsspår snarare än ren kris-/flyktingrespons – relevant men svagare för Better Shelter.",
+  "pitch": "Bredare biståndsvinkel; passar om Better Shelter vill bredda bortom akut kris till hållbar utveckling."
+ },
+ {
+  "eventId": 25139,
+  "fit": 3,
+  "niche": "Partnerskap / återuppbyggnad i kris",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Partnerskap för stöd under kriget och långsiktig återuppbyggnad. Berör samverkan och resursdelning i kris, men tyngdpunkt på kommunal vänortssamverkan snarare än humanitär kärna.",
+  "pitch": "Partnerskapsvinkel; Better Shelter levererar via partnerskap (UNHCR/WFP) och kan tala om hur sådana skalar i kris."
+ },
+ {
+  "eventId": 25207,
+  "fit": 3,
+  "niche": "Ukraina-stöd / civilsamhälle",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Nätverkande om långsiktigt stöd till Ukraina där civilsamhälle och näringsliv lyfts fram. Bredare stöd-/opinionsvinkel; humanitär förankring finns men är inte central – bubblare.",
+  "pitch": "Bred Ukraina-arena; möjlighet att positionera socialt företagande som del av civilsamhällets långsiktiga stöd."
+ },
+ {
+  "eventId": 24575,
+  "fit": 3,
+  "niche": "flykting/migration",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Tvångsförflyttade och fördrivna barn i konflikt – humanitär flykting-/skyddsvinkel med OperationAid i arrangörsledet.",
+  "pitch": "Skydd och värdiga boenden för fördrivna familjer hör ihop med kampen för deras rättigheter."
+ },
+ {
+  "eventId": 25630,
+  "fit": 3,
+  "niche": "flykting/migration",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Arrangeras av UNHCR (Better Shelters viktigaste partner) men temat är bredare empati/krisnarrativ i Norden snarare än flyktingrespons direkt — möjlig in-väg via UNHCR-relationen, därav bubblare.",
+  "pitch": "UNHCR-scenen är Better Shelters naturliga hemmaplan — koppla empatikrisen till de fördrivna människor som bor i deras nödbostäder."
+ },
+ {
+  "eventId": 24587,
+  "fit": 3,
+  "niche": "katastrof/konflikt",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Brett humanitärt stöd till ukrainare i en pågående konflikt – med OperationAid och flera hjälporganisationer som arrangörer.",
+  "pitch": "Konkret humanitärt skydd som en del av Sveriges långsiktiga stöd till fördrivna ukrainare."
+ },
+ {
+  "eventId": 24832,
+  "fit": 3,
+  "niche": "humanitärt-bistånd",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Humanitärt stöd till Ukraina ur organisationernas perspektiv — relevant men brett och tunt besatt (1 talare).",
+  "pitch": "Var står de humanitära organisationerna i Ukraina-stödet — och var finns rollen för svenska sociala företag inom skydd?"
+ },
+ {
+  "eventId": 25108,
+  "fit": 3,
+  "niche": "humanitärt-bistånd",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Ukrainapass med tydlig humanitär flyktingvinkel (RefugeeHope, OperationAid, Ukraine Help Center) snarare än militärt/affärer; relevant kring partnerskap för humanitärt stöd, men brett och samverkansfokuserat.",
+  "pitch": "Humanitärt Ukrainastöd med flyktingorganisationer – partnerskaps- och samverkansvinkel."
+ },
+ {
+  "eventId": 35143,
+  "fit": 3,
+  "niche": "katastrof/konflikt",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Krisrespons och samverkansmodeller mellan stat, näringsliv och civilsamhälle (Ukraina) — nära Better Shelters partnerskapsmodell, men bredare/resiliens-fokuserat än flykting/bostad.",
+  "pitch": "Johan Mast om hur privat-humanitära partnerskap (UNHCR/WFP) levererar skydd i konfliktzoner."
+ },
+ {
+  "eventId": 25109,
+  "fit": 3,
+  "niche": "flykting/migration",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Handlar om fördrivna ukrainare i exil med flyktingorganisationer i arrangörsledet; relevant flyktingkontext men fokus ligger på kultur, inte humanitärt skydd.",
+  "pitch": "Miljoner ukrainare i exil och RefugeeHope som arrangör — flyktingvinkeln finns, men temat är kultur/identitet snarare än skydd."
+ },
+ {
+  "eventId": 24586,
+  "fit": 3,
+  "niche": "katastrof/konflikt",
+  "room": "hög",
+  "tier": "bubblare",
+  "angle": "Konflikt-/krigsrespons i Ukraina med RefugeeHope m.fl. i arrangörsledet; humanitär närhet finns men passet är demokrati/resiliens-tematiskt, inte flykting-/bostadsfokuserat.",
+  "pitch": "Ukrainsk konfliktrespons och återuppbyggnad med flyktingorganisationer som arrangör — möjlig krok, men temat är resiliens snarare än humanitärt skydd."
+ },
+ {
+  "eventId": 24597,
+  "fit": 3,
+  "niche": "Civilsamhälle / NGO i konfliktrespons",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Konflikt- och katastrofrespons via civilsamhälle och NGO:er i Ukraina, med fokus på samordning och återhämtning. Bredare än ren flyktingfråga men genuint humanitärt – Better Shelter kan tala om partnerskap inom det humanitära och hur sociala företag kompletterar NGO-insatser.",
+  "pitch": "Hur sociala företag och NGO:er tillsammans möter humanitära behov i krig – Better Shelters perspektiv på samordning."
+ },
+ {
+  "eventId": 24826,
+  "fit": 3,
+  "niche": "Nödhjälp / NGO-samverkan i konflikt",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Handlar uttryckligen om nödhjälpsbehoven och NGO-samverkan för en krigsdrabbad by – humanitär respons i konflikt. Smal och platsspecifik, därav bubblare, men genuint inom det humanitära fältet där nödbostäder/temporära skydd är relevanta.",
+  "pitch": "Nödhjälp och boendelösningar för en krigsdrabbad by – hur kommuner, NGO:er och sociala företag kan samverka."
+ },
+ {
+  "eventId": 24594,
+  "fit": 3,
+  "niche": "Flyktingbarn / integration i kris",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Handlar om fördrivna ukrainska barns trygghet och integration i en osäker tillvaro. Flykting-/humanitär förankring finns, men fokus ligger på skola/utbildning snarare än akut skydd – därför bubblare.",
+  "pitch": "Fördrivna barns trygghet och framtid – Better Shelter kan koppla värdigt mottagande och boende till barns integration."
+ },
+ {
+  "eventId": 34602,
+  "fit": 3,
+  "niche": "Hur svensk utvecklings-/biståndspolitik och säkerhetspolitik kopplas samman för att möta globala utmaningar.",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Var humanitärt bistånd och socialt företagande hamnar när bistånd allt mer styrs av säkerhetsintressen – Better Shelter som konkret exempel på bistånd levererat via handel och partnerskap.",
+  "pitch": "Utvecklingssamarbete är i kärnan, men passet är tungt vinklat mot säkerhetspolitik och svenska intressen snarare än humanitär respons – relevant bubblare."
+ },
+ {
+  "eventId": 25116,
+  "fit": 3,
+  "niche": "Ukraina humanitärt / återuppbyggnad",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Ukrainas återuppbyggnad och fördrivna, arrangerat av flykting- och biståndsorganisationer. Humanitär förankring finns men passet lutar mot återuppbyggnad/ekonomi/politik snarare än akut nödbostadsbehov.",
+  "pitch": "Better Shelter kan koppla temporära skydd till tidiga återuppbyggnadsfaser i Ukraina och rollen för sociala företag i humanitär respons."
+ },
+ {
+  "eventId": 25119,
+  "fit": 3,
+  "niche": "Ukraina humanitärt / partnerskap",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Partnerskap mellan offentlig sektor och civilsamhälle för humanitärt stöd och återuppbyggnad i Ukraina — relevant för Better Shelters partnerskapslogik, men brett och inte specifikt nödbostäder.",
+  "pitch": "Better Shelter kan belysa hur sociala företag stärker humanitärt stöd och återuppbyggnad genom partnerskap med myndigheter och civilsamhälle."
+ },
+ {
+  "eventId": 24810,
+  "fit": 3,
+  "niche": "Humanitärt bistånd och stöd till krigsdrabbad/fördriven befolkning i Ukraina",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Passet drivs av en bred ukrainsk humanitär biståndskoalition (RefugeeHope UA&SE, OperationAid, Power Up Ukraine, EnerAid, Ukraine Help Center) och handlar om att säkra en hållbar framtid för en krigsdrabbad befolkning i ett konfliktområde. Det ger Better Shelter en naturlig ingång att tala om humanitär respons, skydd och partnerskap för fördrivna i Ukraina. Bredare/kulturarvsbetonad vinkel snarare än ren nödbostads-/flyktingfråga, därför bubblare och inte topp.",
+  "pitch": "Koppla Better Shelters roll som leverantör av nödbostäder och humanitärt skydd i Ukraina till samtalet om hur man bygger framtidstro och resiliens för en krigsdrabbad befolkning."
+ },
+ {
+  "eventId": 25525,
+  "fit": 3,
+  "niche": "Konflikt / civilbefolkning",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Civilbefolkningens utsatthet vid höga konfliktnivåer globalt – nära Better Shelters fält (fördrivna i konflikt). Akademisk (Uppsala universitet) och utan uttalad flykting-/biståndsleveransvinkel, därav bubblare snarare än topp.",
+  "pitch": "Konfliktens påverkan på civila – relevant ram men akademisk, ej explicit flykting/leverans."
+ },
+ {
+  "eventId": 36455,
+  "fit": 3,
+  "niche": "Ukraina / migration & återuppbyggnad",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Migration och återuppbyggnad efter kriget med ett brett ukrainskt humanitärt nätverk (Ukrainska Hubben, Beredskapslyftet, OperationAid m.fl.). Migrationsvinkeln och det humanitära Ukraina-ramverket gör den relevant, men tyngdpunkten ligger på arbetsmarknad och investeringar – därav bubblare.",
+  "pitch": "Ukrainsk humanitär hubb + migration, men fokus arbetsmarknad/investering – breddare match."
+ },
+ {
+  "eventId": 24834,
+  "fit": 3,
+  "niche": "flykting/migration",
+  "room": "medel",
+  "tier": "bubblare",
+  "angle": "Migration/asyl är en relevant nisch, men passet är en inhemsk moral- och migrationspolitisk debatt om utvisningar snarare än humanitär kris-/skyddsrespons — därav bubblare.",
+  "pitch": "Migrations- och asylpolitikens gränser — kontext för flyktingfrågan Better Shelter arbetar med, men inte direkt skydd/bistånd."
+ }
+]

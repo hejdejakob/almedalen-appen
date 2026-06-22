@@ -1,0 +1,1051 @@
+[
+ {
+  "id": 699,
+  "name": "Viktor Barth-Kron",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.9
+   }
+  ]
+ },
+ {
+  "id": 4044,
+  "name": "Anna Bellman",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.9
+   },
+   {
+    "category": "VD:ar i media/byrå/kommunikation",
+    "confidence": 0.3
+   }
+  ]
+ },
+ {
+  "id": 778,
+  "name": "Jan Wifstrand",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 1244,
+  "name": "Maria Stockhaus",
+  "cats": []
+ },
+ {
+  "id": 5822,
+  "name": "Rickard Nordin",
+  "cats": []
+ },
+ {
+  "id": 1495,
+  "name": "Göran Hägglund",
+  "cats": [
+   {
+    "category": "Svängdörrslistan",
+    "confidence": 0.85
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.5
+   },
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.5
+   }
+  ]
+ },
+ {
+  "id": 2775,
+  "name": "Ellinor Persson",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.9
+   }
+  ]
+ },
+ {
+  "id": 3907,
+  "name": "Sharon Jåma",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 2012,
+  "name": "Josefin Malmqvist",
+  "cats": []
+ },
+ {
+  "id": 2573,
+  "name": "Karin Olsson",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.85
+   },
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.5
+   }
+  ]
+ },
+ {
+  "id": 721,
+  "name": "Martin Ådahl",
+  "cats": []
+ },
+ {
+  "id": 824,
+  "name": "Mikael Damberg",
+  "cats": []
+ },
+ {
+  "id": 1208,
+  "name": "Pontus Herin",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.6
+   }
+  ]
+ },
+ {
+  "id": 1134,
+  "name": "Helena Storckenfeldt",
+  "cats": []
+ },
+ {
+  "id": 1248,
+  "name": "Lennart Ekdal",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 1630,
+  "name": "Linda Nyberg",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 2039,
+  "name": "Janine Alm Ericson",
+  "cats": []
+ },
+ {
+  "id": 3655,
+  "name": "Niels Paarup-Petersen",
+  "cats": []
+ },
+ {
+  "id": 37,
+  "name": "Lennart Weiss",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.4
+   }
+  ]
+ },
+ {
+  "id": 849,
+  "name": "Ulrika Westerlund",
+  "cats": []
+ },
+ {
+  "id": 1568,
+  "name": "Andreas Johansson",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 5872,
+  "name": "Fredrik Olovsson",
+  "cats": []
+ },
+ {
+  "id": 3145,
+  "name": "Larry Söder",
+  "cats": []
+ },
+ {
+  "id": 776,
+  "name": "Anders Åkesson",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.85
+   },
+   {
+    "category": "Svängdörrslistan",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 822,
+  "name": "Patrik Kronqvist",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 1926,
+  "name": "Åsa Domeij",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.75
+   }
+  ]
+ },
+ {
+  "id": 1820,
+  "name": "Anders Lindberg",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.85
+   },
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.6
+   }
+  ]
+ },
+ {
+  "id": 3143,
+  "name": "Johan Löfstrand",
+  "cats": []
+ },
+ {
+  "id": 9388,
+  "name": "David Josefsson",
+  "cats": []
+ },
+ {
+  "id": 3387,
+  "name": "Johan Winsborn",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 1344,
+  "name": "Anna Denell",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 2874,
+  "name": "Magnus Nikkarinen",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 517,
+  "name": "Magnus Lindgren",
+  "cats": []
+ },
+ {
+  "id": 1909,
+  "name": "Toivo Sjörén",
+  "cats": []
+ },
+ {
+  "id": 2143,
+  "name": "Karin Hübinette",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 2590,
+  "name": "Stina Liljekvist",
+  "cats": [
+   {
+    "category": "Kommunikationschefer",
+    "confidence": 0.7
+   },
+   {
+    "category": "CMO & marknadschefer",
+    "confidence": 0.45
+   }
+  ]
+ },
+ {
+  "id": 6345,
+  "name": "Kristina Ljungros",
+  "cats": []
+ },
+ {
+  "id": 9459,
+  "name": "Erik Högström",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.4
+   }
+  ]
+ },
+ {
+  "id": 815,
+  "name": "Anna Herdenstam",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 576,
+  "name": "Minou Sadeghpour",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 877,
+  "name": "Hans Winberg",
+  "cats": []
+ },
+ {
+  "id": 903,
+  "name": "Marie Nilsson",
+  "cats": []
+ },
+ {
+  "id": 1379,
+  "name": "Åke Holmgren",
+  "cats": []
+ },
+ {
+  "id": 3407,
+  "name": "Elise Grosse",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 731,
+  "name": "Ulrika Modéer",
+  "cats": []
+ },
+ {
+  "id": 3271,
+  "name": "Lisa Kirsebom",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 680,
+  "name": "Pernilla Baralt",
+  "cats": []
+ },
+ {
+  "id": 767,
+  "name": "Helena Gissén",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.9
+   }
+  ]
+ },
+ {
+  "id": 1122,
+  "name": "Cecilia Garme",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 1803,
+  "name": "Karin Lexén",
+  "cats": []
+ },
+ {
+  "id": 2224,
+  "name": "Kent Persson",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.75
+   },
+   {
+    "category": "Svängdörrslistan",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 2359,
+  "name": "Anton Holmlund",
+  "cats": []
+ },
+ {
+  "id": 2607,
+  "name": "Willy Silberstein",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.85
+   },
+   {
+    "category": "VD:ar i media/byrå/kommunikation",
+    "confidence": 0.3
+   }
+  ]
+ },
+ {
+  "id": 914,
+  "name": "Janne Elvelid",
+  "cats": [
+   {
+    "category": "Big Tech: PA & policy",
+    "confidence": 0.95
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 919,
+  "name": "Diamant Salihu",
+  "cats": []
+ },
+ {
+  "id": 5731,
+  "name": "Ulrika Liljeberg",
+  "cats": []
+ },
+ {
+  "id": 519,
+  "name": "Charlotte Rydh",
+  "cats": []
+ },
+ {
+  "id": 798,
+  "name": "Marie Trogstam",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.45
+   }
+  ]
+ },
+ {
+  "id": 1182,
+  "name": "Mia Odabas",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.4
+   }
+  ]
+ },
+ {
+  "id": 1784,
+  "name": "Niklas Johansson",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.85
+   },
+   {
+    "category": "Svängdörrslistan",
+    "confidence": 0.4
+   }
+  ]
+ },
+ {
+  "id": 2870,
+  "name": "Jan Scherman",
+  "cats": []
+ },
+ {
+  "id": 6484,
+  "name": "Niklas Lindh",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 6635,
+  "name": "Alexander Christiansson",
+  "cats": []
+ },
+ {
+  "id": 6709,
+  "name": "Katarina Tracz",
+  "cats": [
+   {
+    "category": "Byråfolk (reklam/PR)",
+    "confidence": 0.75
+   },
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 1987,
+  "name": "Sara Övreby",
+  "cats": [
+   {
+    "category": "Big Tech: PA & policy",
+    "confidence": 0.9
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.65
+   }
+  ]
+ },
+ {
+  "id": 2090,
+  "name": "Lina Håkansdotter",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.8
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.75
+   },
+   {
+    "category": "Kommunikationsdirektörer & CCO",
+    "confidence": 0.45
+   }
+  ]
+ },
+ {
+  "id": 3150,
+  "name": "Daniel Akenine",
+  "cats": []
+ },
+ {
+  "id": 4111,
+  "name": "Mattias Johansson",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.85
+   },
+   {
+    "category": "Byråfolk (reklam/PR)",
+    "confidence": 0.5
+   }
+  ]
+ },
+ {
+  "id": 6190,
+  "name": "Daniel Ingmo",
+  "cats": []
+ },
+ {
+  "id": 7337,
+  "name": "Calle Fleur",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 683,
+  "name": "Anna Karin Hildingson Boqvist",
+  "cats": []
+ },
+ {
+  "id": 881,
+  "name": "David Samuelsson",
+  "cats": []
+ },
+ {
+  "id": 2616,
+  "name": "Sara Gorton",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 4595,
+  "name": "Fredrik Svedjetun",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 6532,
+  "name": "Ameli Norling",
+  "cats": [
+   {
+    "category": "Sverige- & landschefer",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 1544,
+  "name": "Lorentz Tovatt",
+  "cats": []
+ },
+ {
+  "id": 2135,
+  "name": "Anders Berger",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 6002,
+  "name": "Gunnar Ardelius",
+  "cats": []
+ },
+ {
+  "id": 5,
+  "name": "Frida Boisen",
+  "cats": []
+ },
+ {
+  "id": 475,
+  "name": "Marcus Hartmann",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.8
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.75
+   }
+  ]
+ },
+ {
+  "id": 774,
+  "name": "Johanna Hållén",
+  "cats": []
+ },
+ {
+  "id": 888,
+  "name": "Magnus Demervall",
+  "cats": []
+ },
+ {
+  "id": 1258,
+  "name": "Sakine Madon",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 1746,
+  "name": "Mikael Salo",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 2040,
+  "name": "Mats Persson",
+  "cats": []
+ },
+ {
+  "id": 4555,
+  "name": "Liza Manestam",
+  "cats": [
+   {
+    "category": "Kommunikationsdirektörer & CCO",
+    "confidence": 0.8
+   },
+   {
+    "category": "CMO & marknadschefer",
+    "confidence": 0.75
+   }
+  ]
+ },
+ {
+  "id": 499,
+  "name": "Felicia Ferreira",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 773,
+  "name": "Anders Blanck",
+  "cats": [
+   {
+    "category": "Byråfolk (reklam/PR)",
+    "confidence": 0.75
+   },
+   {
+    "category": "Life science-kommunikation",
+    "confidence": 0.7
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.6
+   }
+  ]
+ },
+ {
+  "id": 2087,
+  "name": "Niclas Sigholm",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.6
+   }
+  ]
+ },
+ {
+  "id": 3361,
+  "name": "Silvia Kakembo",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 3967,
+  "name": "Anna Olin Kardell",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.8
+   },
+   {
+    "category": "Byråfolk (reklam/PR)",
+    "confidence": 0.35
+   }
+  ]
+ },
+ {
+  "id": 1091,
+  "name": "Fredrik Christensson",
+  "cats": []
+ },
+ {
+  "id": 1304,
+  "name": "Sofia Camnerin",
+  "cats": []
+ },
+ {
+  "id": 1476,
+  "name": "Matilda Westerman",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 4878,
+  "name": "Kaj Török",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "name": "Johan Lilja",
+  "cats": []
+ },
+ {
+  "id": 366,
+  "name": "Gunnar Brundin",
+  "cats": []
+ },
+ {
+  "id": 1033,
+  "name": "Anna Wikland",
+  "cats": [
+   {
+    "category": "Sverige- & landschefer",
+    "confidence": 0.85
+   },
+   {
+    "category": "Big Tech: PA & policy",
+    "confidence": 0.35
+   }
+  ]
+ },
+ {
+  "id": 1187,
+  "name": "Stig-Björn Ljunggren",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.75
+   },
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.45
+   }
+  ]
+ },
+ {
+  "id": 1319,
+  "name": "Jenny Engström",
+  "cats": [
+   {
+    "category": "Pressansvariga & talespersoner",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 1353,
+  "name": "Karin Svanberg",
+  "cats": []
+ },
+ {
+  "id": 3147,
+  "name": "Mikael Eskilandersson",
+  "cats": []
+ },
+ {
+  "id": 5050,
+  "name": "Ulrik Åshuvud",
+  "cats": []
+ },
+ {
+  "id": 6000,
+  "name": "Tina Thorsell",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 6056,
+  "name": "Caroline Thunved",
+  "cats": [
+   {
+    "category": "VD:ar i media/byrå/kommunikation",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 6187,
+  "name": "Tove Lifvendahl",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.85
+   },
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.55
+   }
+  ]
+ },
+ {
+  "id": 6988,
+  "name": "Erik Helmerson",
+  "cats": [
+   {
+    "category": "Moderatorer & programledare",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 11302,
+  "name": "Alex Voronov",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 12078,
+  "name": "Caroline Asserup",
+  "cats": []
+ },
+ {
+  "id": 255,
+  "name": "Marlene Burwick",
+  "cats": [
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.85
+   },
+   {
+    "category": "Svängdörrslistan",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 444,
+  "name": "Rikard Silverfur",
+  "cats": [
+   {
+    "category": "Hållbarhets-/CSR-kommunikatörer",
+    "confidence": 0.6
+   },
+   {
+    "category": "Public Affairs & lobbyister",
+    "confidence": 0.55
+   }
+  ]
+ },
+ {
+  "id": 530,
+  "name": "Birgitta Losman",
+  "cats": []
+ },
+ {
+  "id": 1580,
+  "name": "Jenny Vinglid",
+  "cats": []
+ },
+ {
+  "id": 1724,
+  "name": "Lotta Sjöström Becker",
+  "cats": []
+ },
+ {
+  "id": 1727,
+  "name": "Peter Fellman",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.9
+   }
+  ]
+ },
+ {
+  "id": 1765,
+  "name": "Per Långsved",
+  "cats": [
+   {
+    "category": "Sverige- & landschefer",
+    "confidence": 0.8
+   }
+  ]
+ },
+ {
+  "id": 1817,
+  "name": "Frida Wallnor",
+  "cats": [
+   {
+    "category": "Kommentatorer & krönikörer",
+    "confidence": 0.7
+   }
+  ]
+ },
+ {
+  "id": 2007,
+  "name": "Josephine Sundqvist",
+  "cats": []
+ },
+ {
+  "id": 2299,
+  "name": "Åsa Uhlin",
+  "cats": [
+   {
+    "category": "Mediechefer & chefredaktörer",
+    "confidence": 0.85
+   }
+  ]
+ },
+ {
+  "id": 2859,
+  "name": "Erik Larsson",
+  "cats": []
+ }
+]

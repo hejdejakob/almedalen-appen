@@ -10,7 +10,7 @@ export default function InsikterPage() {
           fontSize: 'clamp(2rem, 6vw, 3.5rem)',
           margin: 0,
           lineHeight: 1.05,
-          color: '#ff6632',
+          color: '#fb531a',
         }}>
           10 SPANINGAR FRÅN ALMEDALSDATA
         </h1>
@@ -137,7 +137,7 @@ function Spaning({ nr, rubrik, text, siffra, siffraLabel }: {
         <div style={{
           fontFamily: 'var(--font-formula)',
           fontSize: '2.5rem',
-          color: '#ff6632',
+          color: '#fb531a',
           lineHeight: 1,
           flexShrink: 0,
           width: '2.5rem',
@@ -175,7 +175,7 @@ function Spaning({ nr, rubrik, text, siffra, siffraLabel }: {
             <span style={{
               fontFamily: 'var(--font-formula)',
               fontSize: '1.3rem',
-              color: '#ff6632',
+              color: '#fb531a',
             }}>
               {siffra}
             </span>

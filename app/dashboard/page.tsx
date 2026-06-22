@@ -96,7 +96,7 @@ export default function DashboardPage() {
         backgroundColor: '#000',
         color: '#fff',
         padding: '2rem',
-        borderBottom: '4px solid #ff6632',
+        borderBottom: '4px solid #fb531a',
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
@@ -411,7 +411,7 @@ function TopicsView({ data }: { data: any }) {
                     labels: years,
                     datasets: [{
                       data: sparkData,
-                      borderColor: t.overallChange > 0 ? '#2a9d8f' : t.overallChange < 0 ? '#e63946' : '#ff6632',
+                      borderColor: t.overallChange > 0 ? '#2a9d8f' : t.overallChange < 0 ? '#e63946' : '#fb531a',
                       backgroundColor: t.overallChange > 0 ? 'rgba(42, 157, 143, 0.1)' : t.overallChange < 0 ? 'rgba(230, 57, 70, 0.1)' : 'rgba(255, 102, 50, 0.1)',
                       fill: true,
                       tension: 0.3,
@@ -449,7 +449,7 @@ function SentimentView({ data }: { data: any }) {
     datasets: [{
       label: 'Genomsnittligt sentiment',
       data: yearData.map((y: any) => y.avgScore),
-      borderColor: '#ff6632',
+      borderColor: '#fb531a',
       backgroundColor: 'rgba(255, 102, 50, 0.15)',
       fill: true,
       tension: 0.3,
@@ -588,13 +588,13 @@ function SpeakersView({ data }: { data: any }) {
                 borderBottom: '1px solid #eee',
                 backgroundColor: i < 3 ? 'rgba(255, 102, 50, 0.05)' : 'transparent',
               }}>
-                <td style={{ padding: '0.6rem 0.5rem', color: i < 3 ? '#ff6632' : '#999', fontWeight: 700, fontSize: '1rem' }}>{i + 1}</td>
+                <td style={{ padding: '0.6rem 0.5rem', color: i < 3 ? '#fb531a' : '#999', fontWeight: 700, fontSize: '1rem' }}>{i + 1}</td>
                 <td style={{ padding: '0.6rem 0.5rem', fontWeight: 600 }}>{s.name}</td>
                 <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.title || '–'}</td>
                 <td style={{ padding: '0.6rem 0.5rem', color: '#666', fontSize: '0.85rem' }}>{s.org || '–'}</td>
                 <td style={{ textAlign: 'center', padding: '0.6rem 0.5rem' }}>
                   <span style={{
-                    backgroundColor: '#ff6632',
+                    backgroundColor: '#fb531a',
                     color: '#fff',
                     padding: '0.2rem 0.6rem',
                     borderRadius: '12px',

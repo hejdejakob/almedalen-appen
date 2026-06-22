@@ -1,0 +1,374 @@
+[
+ {
+  "id": 16043,
+  "name": "Clara Orstadius",
+  "cats": []
+ },
+ {
+  "id": 16045,
+  "name": "Helena Norrman",
+  "cats": [
+   {"category": "Kommunikationsdirektörer & CCO", "confidence": 0.8}
+  ]
+ },
+ {
+  "id": 16055,
+  "name": "Terese Raymond",
+  "cats": []
+ },
+ {
+  "id": 16146,
+  "name": "Sverker Olofsson",
+  "cats": [
+   {"category": "Moderatorer & programledare", "confidence": 0.75}
+  ]
+ },
+ {
+  "id": 16190,
+  "name": "Lisa Löfgren",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 16194,
+  "name": "Amanda von Schinkel",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 16198,
+  "name": "Lina Håkansdotter Palm",
+  "cats": []
+ },
+ {
+  "id": 16199,
+  "name": "Maral Keyvani",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.9}
+  ]
+ },
+ {
+  "id": 16219,
+  "name": "Hanna Gunnarsson (V)",
+  "cats": []
+ },
+ {
+  "id": 16234,
+  "name": "Jeanette \"Peppe\" Öhman",
+  "cats": []
+ },
+ {
+  "id": 16237,
+  "name": "Matilda Karlsson",
+  "cats": [
+   {"category": "Public Affairs & lobbyister", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 16251,
+  "name": "Stefan Berggren",
+  "cats": []
+ },
+ {
+  "id": 16283,
+  "name": "Susanna Stubberöd",
+  "cats": [
+   {"category": "Kommunikationschefer", "confidence": 0.8},
+   {"category": "CMO & marknadschefer", "confidence": 0.6}
+  ]
+ },
+ {
+  "id": 16286,
+  "name": "Christoffer Larsson",
+  "cats": []
+ },
+ {
+  "id": 16317,
+  "name": "Jessica W Sandberg",
+  "cats": [
+   {"category": "Byråfolk (reklam/PR)", "confidence": 0.9},
+   {"category": "VD:ar i media/byrå/kommunikation", "confidence": 0.8},
+   {"category": "Pressansvariga & talespersoner", "confidence": 0.55}
+  ]
+ },
+ {
+  "id": 16410,
+  "name": "Johan Krallis Anell",
+  "cats": [
+   {"category": "Public Affairs & lobbyister", "confidence": 0.6}
+  ]
+ },
+ {
+  "id": 16520,
+  "name": "Elisabet Jamal Bergström",
+  "cats": []
+ },
+ {
+  "id": 16522,
+  "name": "Hermine Holm",
+  "cats": []
+ },
+ {
+  "id": 16535,
+  "name": "Anna Carlsson Sigstedt",
+  "cats": []
+ },
+ {
+  "id": 16549,
+  "name": "Åsa Liliegren",
+  "cats": [
+   {"category": "Mediechefer & chefredaktörer", "confidence": 0.9}
+  ]
+ },
+ {
+  "id": 16669,
+  "name": "Fredrik Moen",
+  "cats": [
+   {"category": "Public Affairs & lobbyister", "confidence": 0.85},
+   {"category": "Life science-kommunikation", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 16685,
+  "name": "Anna Yng",
+  "cats": [
+   {"category": "Public Affairs & lobbyister", "confidence": 0.8},
+   {"category": "Life science-kommunikation", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 16687,
+  "name": "Oscar Helleday",
+  "cats": []
+ },
+ {
+  "id": 16753,
+  "name": "Beatrice Clarke",
+  "cats": []
+ },
+ {
+  "id": 16831,
+  "name": "Maritha Sandberg Lööf",
+  "cats": []
+ },
+ {
+  "id": 16895,
+  "name": "Tobias Karlsson",
+  "cats": []
+ },
+ {
+  "id": 16978,
+  "name": "Eva Englund",
+  "cats": []
+ },
+ {
+  "id": 16990,
+  "name": "Teresa Vieglins",
+  "cats": []
+ },
+ {
+  "id": 17001,
+  "name": "Erik Hörstadius",
+  "cats": []
+ },
+ {
+  "id": 17115,
+  "name": "Malin Ekelund",
+  "cats": []
+ },
+ {
+  "id": 17226,
+  "name": "Charlotte Arnell",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 17230,
+  "name": "Hanne Setane",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 17238,
+  "name": "Pelle Bengtsberg",
+  "cats": [
+   {"category": "Public Affairs & lobbyister", "confidence": 0.55}
+  ]
+ },
+ {
+  "id": 17471,
+  "name": "Margareta Planting-Bergloo",
+  "cats": [
+   {"category": "Kommunikationschefer", "confidence": 0.55}
+  ]
+ },
+ {
+  "id": 17748,
+  "name": "Axel Björklund",
+  "cats": [
+   {"category": "Mediechefer & chefredaktörer", "confidence": 0.9}
+  ]
+ },
+ {
+  "id": 17802,
+  "name": "Sara Pallander",
+  "cats": []
+ },
+ {
+  "id": 17868,
+  "name": "Bonny Laurén",
+  "cats": []
+ },
+ {
+  "id": 17900,
+  "name": "Lasse Wierup",
+  "cats": [
+   {"category": "Kommentatorer & krönikörer", "confidence": 0.4}
+  ]
+ },
+ {
+  "id": 17951,
+  "name": "Peter Hovstadius",
+  "cats": []
+ },
+ {
+  "id": 17963,
+  "name": "Emilia Hagberg",
+  "cats": []
+ },
+ {
+  "id": 17971,
+  "name": "Johanna Wester, moderator",
+  "cats": []
+ },
+ {
+  "id": 18153,
+  "name": "Helena Kaiser de Carolis",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85},
+   {"category": "VD:ar i media/byrå/kommunikation", "confidence": 0.3}
+  ]
+ },
+ {
+  "id": 18265,
+  "name": "Filippa Fernqvist",
+  "cats": [
+   {"category": "Moderatorer & programledare", "confidence": 0.5}
+  ]
+ },
+ {
+  "id": 18321,
+  "name": "Veronica Almstedt",
+  "cats": []
+ },
+ {
+  "id": 18344,
+  "name": "Max Hjelm",
+  "cats": [
+   {"category": "Kommentatorer & krönikörer", "confidence": 0.9}
+  ]
+ },
+ {
+  "id": 18362,
+  "name": "Ulrika Sundholm",
+  "cats": []
+ },
+ {
+  "id": 18380,
+  "name": "Maja Risholm",
+  "cats": [
+   {"category": "Kommunikationschefer", "confidence": 0.6}
+  ]
+ },
+ {
+  "id": 18413,
+  "name": "Davor Vuleta",
+  "cats": [
+   {"category": "Pressansvariga & talespersoner", "confidence": 0.45}
+  ]
+ },
+ {
+  "id": 18522,
+  "name": "Emil Rapp",
+  "cats": []
+ },
+ {
+  "id": 18536,
+  "name": "Per Gustafsson",
+  "cats": [
+   {"category": "Sverige- & landschefer", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 18576,
+  "name": "Erika Jangen",
+  "cats": []
+ },
+ {
+  "id": 18625,
+  "name": "Johan Rahm",
+  "cats": []
+ },
+ {
+  "id": 18644,
+  "name": "Mehri Mir",
+  "cats": []
+ },
+ {
+  "id": 18665,
+  "name": "Louise Fielder Frisk",
+  "cats": []
+ },
+ {
+  "id": 18680,
+  "name": "Dr. Waldo Rocha Flores",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 18733,
+  "name": "Magnus Kirchhoff",
+  "cats": []
+ },
+ {
+  "id": 18919,
+  "name": "Stephan Wilson",
+  "cats": [
+   {"category": "Moderatorer & programledare", "confidence": 0.55}
+  ]
+ },
+ {
+  "id": 19062,
+  "name": "Christine Cederberg",
+  "cats": [
+   {"category": "Big 4-konsulter", "confidence": 0.85}
+  ]
+ },
+ {
+  "id": 19082,
+  "name": "Cecilia Scharp",
+  "cats": []
+ },
+ {
+  "id": 19099,
+  "name": "Pernilla Åhrlin",
+  "cats": [
+   {"category": "Public Affairs & lobbyister", "confidence": 0.55}
+  ]
+ },
+ {
+  "id": 19266,
+  "name": "Timur Uman",
+  "cats": []
+ },
+ {
+  "id": 19285,
+  "name": "Niklas Orrenius",
+  "cats": []
+ }
+]

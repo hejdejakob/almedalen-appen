@@ -35,7 +35,7 @@ export async function GET() {
             style={{
               fontSize: '110px',
               fontWeight: 900,
-              color: '#ff6632',
+              color: '#fb531a',
               letterSpacing: '-2px',
               lineHeight: 1,
               textTransform: 'uppercase',
@@ -80,7 +80,7 @@ export async function GET() {
                         width: '6px',
                         height: '6px',
                         borderRadius: '50%',
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                       }}
                     />
                   )}
@@ -98,7 +98,7 @@ export async function GET() {
             )}
           </div>
           {/* Orange accent line */}
-          <div style={{ width: '120px', height: '4px', backgroundColor: '#ff6632' }} />
+          <div style={{ width: '120px', height: '4px', backgroundColor: '#fb531a' }} />
         </div>
       </div>
     ),

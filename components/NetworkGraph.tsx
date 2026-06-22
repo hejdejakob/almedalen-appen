@@ -117,7 +117,7 @@ export default function NetworkGraph({
           l.source.id === d.id || l.target.id === d.id ? 0.8 : 0.03
         )
         .attr('stroke', (l: any) =>
-          l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#999'
+          l.source.id === d.id || l.target.id === d.id ? '#fb531a' : '#999'
         );
 
       // Show labels for connected nodes

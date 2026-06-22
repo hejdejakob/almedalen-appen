@@ -48,5 +48,7 @@ export const config = {
     '/api/speakers/:path*',
     '/api/arrangers',
     '/api/arrangers/:path*',
+    '/api/schedule',
+    '/api/schedule/:path*',
   ],
 };

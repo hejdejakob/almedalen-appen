@@ -1,0 +1,3010 @@
+[
+ {
+  "namn": "Anna Bellman",
+  "titel": "Moderator, föreläsare och talartränare (grundare)",
+  "org": "Bellacom Speaking Partner AB",
+  "listad_sem": 67,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Bostadspolitik.se",
+    "title": "Ras på börsen - vart går fastighetsmarknaden?"
+   },
+   {
+    "year": 2022,
+    "arr": "Bostadspolitik.se",
+    "title": "Vilken bostadspolitik har de olika blocken?"
+   },
+   {
+    "year": 2022,
+    "arr": "Cisco, Atea Sverige",
+    "title": "Det hybrida mötet"
+   },
+   {
+    "year": 2022,
+    "arr": "Veidekke",
+    "title": "Får planprocesserna ta så lång tid?"
+   },
+   {
+    "year": 2022,
+    "arr": "Veidekke",
+    "title": "Varför skenar byggkostnaderna och vad kan vi göra åt saken?"
+   },
+   {
+    "year": 2022,
+    "arr": "Veidekke",
+    "title": "Alla vill ha fossilfri el, men hur ska det gå till?"
+   },
+   {
+    "year": 2022,
+    "arr": "Veidekke",
+    "title": "Så kan byggbranschen bidra till klimatomställningen"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Tvärstopp i bostadsbyggandet – nu krävs nya grepp"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Bostadskris – vilken nytta gör kreditrestriktionerna nu?"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Hoten mot hyresrätten – förslumning och byggstopp"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Bostadskrisen – hur ska byggandet komma igång och hur ska ef"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2023,
+    "arr": "CGI",
+    "title": "Vad innebär en robust sjukvård och vad kan svenska sjukvårde"
+   },
+   {
+    "year": 2023,
+    "arr": "Veidekke",
+    "title": "Så bryter vi boendesegregationen - effekter av ändrat bostad"
+   },
+   {
+    "year": 2023,
+    "arr": "Veidekke",
+    "title": "Kriminaliteten inom byggbranschen - var befinner vi oss och "
+   },
+   {
+    "year": 2023,
+    "arr": "Veidekke, Sveriges Kommuner och Regioner",
+    "title": "Grönt industriskifte i norr - men vem tar risken och kommer "
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Tillväxtmotorerna hotas av bostadsbristen"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Så kan kriminaliteten i byggsektorn bekämpas – konkreta init"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Hushållens skulder – är riskerna överdrivna?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Skärpta klimatkrav från EU – hur påverkas fastighetsbransche"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Riva, renovera eller ingenting i utsatta områden– vad funger"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Makroanalys – vart är världen och Sverige på väg?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Bostadskraschen – hur ökar vi byggandet av småhus och bostad"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Bostadskraschen – hur ökar vi byggandet av hyresrätter?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Kan investeringsviljan komma tillbaka?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Har vi råd med en social bostadspolitik? Har vi råd att vara"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Det friska boendet - hälsosam stadsutveckling och social hål"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Hur hanterar regeringen bostadskrisen – vad kan vi vänta oss"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Fler småhus – hur ska det gå till?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2024,
+    "arr": "Cisco Sverige",
+    "title": "Hur kan vi arbeta hållbart både på kontoret och på distans?"
+   },
+   {
+    "year": 2024,
+    "arr": "Cisco Sverige",
+    "title": "Cybersårbarhet ur ett kommunalt perspektiv"
+   },
+   {
+    "year": 2024,
+    "arr": "Cisco Sverige",
+    "title": "Hur kan vi göra svenska elnät smartare?"
+   },
+   {
+    "year": 2024,
+    "arr": "Cisco Sverige",
+    "title": "Digital infrastruktur när krisen kommer"
+   },
+   {
+    "year": 2024,
+    "arr": "Cisco Sverige are",
+    "title": "Hur får vi en hög gemensam cybersäkerhetsnivå?"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Hur ska de yngre komma in på bostadsmarknaden?"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Kriminalitet, skjutningar, sprängningar – hur skapar vi tryg"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Hur många 100-årsregn klarar Sverige?"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Hur tjänar vi pengar på social hållbarhet i bostadsbranschen"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens, Hemvist Förvaltning",
+    "title": "Hur ska bostadspolitiken förbättras?"
+   },
+   {
+    "year": 2025,
+    "arr": "Cisco",
+    "title": "Hur får vi en hög gemensam cybersäkerhetsnivå med nya cybers"
+   },
+   {
+    "year": 2025,
+    "arr": "Cisco",
+    "title": "Hur kan kommunerna bli bättre på cybersäkerhet?"
+   },
+   {
+    "year": 2025,
+    "arr": "Cisco",
+    "title": "Hur framtidssäkrar vi arbetsplatsen för säkerhet, flexibilit"
+   },
+   {
+    "year": 2025,
+    "arr": "Cisco",
+    "title": "Digital infrastruktur när krisen kommer – från ord till hand"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam",
+    "title": "Bostadspolitiken efter valet – vad kan vi vänta oss?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam",
+    "title": "Bostadspolitiken efter valet – vad kan vi vänta oss?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommu",
+    "title": "Det kommunala godtycket – hur ser det ut och vad kan vi göra"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "EU:s bostadsplan – hur ska, kan och bör Sverige hantera den?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Hyresmarknaden – går det att få bättre balans?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Makroanalys – vart är världen på väg och hur påverkar det de"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Social hållbarhet för bostadsbolag: Hur vet vi att vi satsar"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Fastighetssektorns roll om eller när fienden kommer?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Behöver vi veta vem som bor i lägenheten?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Tomträttsfrågan: Rättsosäkert och oförutsägbart – dags för f"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Vilken bostadspolitik står partierna för?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Den demografiska utmaningen: Var och hur ska de äldre bo?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Få fart på bostadsbyggandet – med en annan riskdelning?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Hur minskar vi klimatavtrycket i nyproduktion – går det att "
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Småhusets roll i framtidens bostadsförsörjning"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, K2A Fastigheter, Mariestads kommun",
+    "title": "Arbetslivskriminalitet i byggsektorn – fungerar den svenska "
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, K2A Fastigheter, Mariestads kommun",
+    "title": "Hur får vi fart på nyproduktionen av bostäder – och hur myck"
+   },
+   {
+    "year": 2026,
+    "arr": "Cisco",
+    "title": "Digital suveränitet – en nyckel till innovation?"
+   },
+   {
+    "year": 2026,
+    "arr": "Cisco",
+    "title": "Molnet, makten och framtiden – vad tycker nästa generation?"
+   },
+   {
+    "year": 2026,
+    "arr": "Cisco",
+    "title": "Vem äger cybersäkerheten? Ansvar och samverkan i kommuner oc"
+   },
+   {
+    "year": 2026,
+    "arr": "Cisco",
+    "title": "Från AI-piloter till nationell kapacitet"
+   },
+   {
+    "year": 2026,
+    "arr": "K2A Fastigheter, Obos, Riksbyggen, Rikshem, Wallenstam, Veidekke, Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, Mariestads kommun",
+    "title": "Tre månader med de nya bolånereglerna"
+   }
+  ]
+ },
+ {
+  "namn": "Anders Åkesson",
+  "titel": "Senior Advisor",
+  "org": "Rud Pedersen Public Affairs",
+  "listad_sem": 33,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Aerospace Almedalen",
+    "title": "Politiken och flygets roll i samhället"
+   },
+   {
+    "year": 2022,
+    "arr": "AstraZeneca",
+    "title": "KOL – en bortglömd och växande folksjukdom"
+   },
+   {
+    "year": 2022,
+    "arr": "Biogen",
+    "title": "Svenska ordförandeskapet i EU - en möjlighet att förbättra l"
+   },
+   {
+    "year": 2022,
+    "arr": "Einride",
+    "title": "Hur kan autonoma och självkörande fordon bidra till att lösa"
+   },
+   {
+    "year": 2022,
+    "arr": "Gotlands Trafikråd",
+    "title": "Kommunikationer som ger Gotland fortsatt växtkraft"
+   },
+   {
+    "year": 2022,
+    "arr": "GSK (GlaxoSmithKline )",
+    "title": "Hur vi sätter prevention i fokus - beredskap inför gamla och"
+   },
+   {
+    "year": 2022,
+    "arr": "Mobility Sweden, Motorbranschens Riksförbund",
+    "title": "Övergång från fossila till alternativa drivmedel"
+   },
+   {
+    "year": 2022,
+    "arr": "Novartis Sverige AB",
+    "title": ", t i Hjärt-kärlsjukdomar – högst som dödsorsak men lågt i d"
+   },
+   {
+    "year": 2022,
+    "arr": "Pfizer",
+    "title": "Ny antibiotika och minskad resistens - hur når vi dit?"
+   },
+   {
+    "year": 2022,
+    "arr": "Sigtuna kommun",
+    "title": "Arlandas framtid – globalt nav eller nya Bromma?"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Leading Health Care (LHC), Läkemedelsindustriföreningen (Lif), Swedish Medtech, Arena Tillsammans",
+    "title": "Ämnen: Alla Tillgänglighet: Alla Vad vill politikerna ska sk"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Leading Health Care (LHC), Läkemedelsindustriföreningen (Lif), Swedish Medtech, Arena Tillsammans",
+    "title": "Hur hanteras mellanrum i framtidens hälso-och sjukvård?"
+   },
+   {
+    "year": 2022,
+    "arr": "Tågföretagen",
+    "title": "k, Nya beräkningar visar bättre lönsamhet för att bygga ny j"
+   },
+   {
+    "year": 2022,
+    "arr": "Tågföretagen",
+    "title": "Transporteffektivitet – hur får vi ett energisnålt transport"
+   },
+   {
+    "year": 2022,
+    "arr": "Vätgas Sverige",
+    "title": "Renare och billigare transporter redan idag – vad väntar vi "
+   },
+   {
+    "year": 2023,
+    "arr": "1,6 och 2,6miljonerklubben",
+    "title": "Förmaksflimmer ökar kraftigt risken för stroke orsakad av en"
+   },
+   {
+    "year": 2023,
+    "arr": "Initiativet \"3 miljarder slag\", Amgen, Novo Nordisk",
+    "title": "Bristfällig uppföljning i primärvården – vem hjälper hjärtin"
+   },
+   {
+    "year": 2023,
+    "arr": "Novartis",
+    "title": "Kan ett systemfel inom sjukvården vara orsaken till den sven"
+   },
+   {
+    "year": 2023,
+    "arr": "Svensk sjuksköterskeförening",
+    "title": "Så mycket bättre - vinster för patienter genom sjukskötersko"
+   },
+   {
+    "year": 2024,
+    "arr": "AstraZeneca",
+    "title": "Statlig sjukvård – ett botemedel mot ojämlik vård?"
+   },
+   {
+    "year": 2024,
+    "arr": "Folkhälsodalen, Riksförbundet HjärtLung, Reumatikerförbundet, Astma-och Allergiförbundet, Neuroförbundet",
+    "title": "Statlig eller delvis statlig vård, hur påverkar det patiente"
+   },
+   {
+    "year": 2024,
+    "arr": "GSK",
+    "title": "När får Sverige ett nationellt vaccinationsprogram för äldre"
+   },
+   {
+    "year": 2024,
+    "arr": "Initiativet ”3 miljarder slag”, Amgen, Novo Nordisk",
+    "title": "Den ojämlika hjärtsjukvården – krävs en nationell strategi f"
+   },
+   {
+    "year": 2024,
+    "arr": "Novartis",
+    "title": "Följ hjärtat – goda exempel på preventiv behandling av högri"
+   },
+   {
+    "year": 2025,
+    "arr": "Medtronic AB, Resmed Sweden AB",
+    "title": "Sjukhusvård i hemmet – nyckeln till en jämlik och effektiv s"
+   },
+   {
+    "year": 2025,
+    "arr": "Novartis",
+    "title": "Vårdens vägval - vem tar ansvaret?"
+   },
+   {
+    "year": 2025,
+    "arr": "Riksförbundet HjärtLung, Reumatikerförbundet, Neuroförbundet, Astma och Allergiförbundet",
+    "title": "Hur påverkar Vårdansvarskommitténs förslag patienterna?"
+   },
+   {
+    "year": 2025,
+    "arr": "Roche AB",
+    "title": "När luften tar slut – är KOL den glömda folksjukdomen?"
+   },
+   {
+    "year": 2025,
+    "arr": "Sanofi AB",
+    "title": "Prevention i primärvården – bara läpparnas bekännelse?"
+   },
+   {
+    "year": 2026,
+    "arr": "Astma- och Allergiförbundet, Riksförbundet HjärtLung, Neuroförbundet, Reumatikerförbundet",
+    "title": "Hur kan sjukvården förbättras för personer som lever med kro"
+   },
+   {
+    "year": 2026,
+    "arr": "Biogen",
+    "title": "Vilka reformer behöver Sverige för att förbättra livet för p"
+   },
+   {
+    "year": 2026,
+    "arr": "GSK",
+    "title": "Från kostnadsbesparingar till fler friska år – vaccination s"
+   },
+   {
+    "year": 2026,
+    "arr": "Viatris",
+    "title": "Hur stärker vi läkemedelsberedskapen i hela Sverige?"
+   }
+  ]
+ },
+ {
+  "namn": "Anders Lindberg",
+  "titel": "Politisk chefredaktör",
+  "org": "Aftonbladet",
+  "listad_sem": 31,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Futurion",
+    "title": "Oro eller hopp – vad avgör valet?"
+   },
+   {
+    "year": 2022,
+    "arr": "LKAB",
+    "title": "Århundradets kompetensutmaning i norra Sverige"
+   },
+   {
+    "year": 2022,
+    "arr": "Region Norrbotten, Norrbotniabanegruppen",
+    "title": "Så skapar vi en infrastruktur som matchar den industriella b"
+   },
+   {
+    "year": 2022,
+    "arr": "Svemin",
+    "title": "Brytningstid i Sverige – klimatomställning och mineralpoliti"
+   },
+   {
+    "year": 2023,
+    "arr": "Arlandaregionen",
+    "title": "Utan flyget - har Sverige en framtid ?"
+   },
+   {
+    "year": 2023,
+    "arr": "Combitech",
+    "title": "Företagen behövs i totalförsvaret. Det är dags att lämna sta"
+   },
+   {
+    "year": 2023,
+    "arr": "Facken i välfärden",
+    "title": "Så klarar vi kompetensutmaningen inom välfärdsjobben"
+   },
+   {
+    "year": 2023,
+    "arr": "Fastighetsvärlden",
+    "title": "Samhällsbygget och välfärdshålet"
+   },
+   {
+    "year": 2023,
+    "arr": "Folk och Försvar",
+    "title": "Sverige i NATO"
+   },
+   {
+    "year": 2023,
+    "arr": "Fossilfritt Sverige",
+    "title": "Svindyrt och utsläpp som bara ökar - svenskarnas okunskap om"
+   },
+   {
+    "year": 2023,
+    "arr": "Handelsanställdas förbund",
+    "title": "Lön att leva på – stopp för otrygga jobb"
+   },
+   {
+    "year": 2023,
+    "arr": "LO",
+    "title": "Krissamtal om plånboken – hur räddar vi vanligt folks liv?"
+   },
+   {
+    "year": 2023,
+    "arr": "LO",
+    "title": "Krissamtal om välfärden – hur räddar vi välfärden från kolla"
+   },
+   {
+    "year": 2023,
+    "arr": "Natur & Kultur, Almedalsbiblioteket",
+    "title": "akob Är Sveriges rättssystem bättre rustat idag än när Olof "
+   },
+   {
+    "year": 2023,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Är hädelse fel?"
+   },
+   {
+    "year": 2024,
+    "arr": "Act Svenska kyrkan",
+    "title": "Hur debatteras den svenska biståndspolitiken i media och på "
+   },
+   {
+    "year": 2024,
+    "arr": "Dagens industri",
+    "title": "Politikens centrum eller avdankat event - vad kan vi vänta o"
+   },
+   {
+    "year": 2024,
+    "arr": "Islams Ahmadiyya församling",
+    "title": "Röster för fred - Sverige går med i Nato"
+   },
+   {
+    "year": 2024,
+    "arr": "Kommissionen för skattenytta",
+    "title": "Två år in i mandatperioden – vad har regeringen åstadkommit?"
+   },
+   {
+    "year": 2024,
+    "arr": "Länsförsäkringar",
+    "title": "Ekonomisk polarisering i Sverige - utmaningar och lösningar"
+   },
+   {
+    "year": 2024,
+    "arr": "Region Norrbotten",
+    "title": "Bilden av Norrbotten s"
+   },
+   {
+    "year": 2024,
+    "arr": "Teknikföretagen",
+    "title": "Duell om framtidens arbetsmarknad"
+   },
+   {
+    "year": 2025,
+    "arr": "Expressen",
+    "title": "Hur odlas nya politiska talanger?"
+   },
+   {
+    "year": 2025,
+    "arr": "Föreningen Vårdföretagarna",
+    "title": "Behöver vården och omsorgen en ny privatiseringsvåg?"
+   },
+   {
+    "year": 2025,
+    "arr": "Hanaholmen, Finlands ambassad, Nordiska ministerrådet",
+    "title": "Hur agerar vi kraftfullt i det höga Norden, för att maximera"
+   },
+   {
+    "year": 2025,
+    "arr": "Livsmedelsföretagen",
+    "title": "Vad är viktigast: att maten är svensk eller billig?"
+   },
+   {
+    "year": 2025,
+    "arr": "Svenska Röda Korset",
+    "title": "Vad kan vi lära av humanitärt arbete i Ukraina?"
+   },
+   {
+    "year": 2025,
+    "arr": "Trä & Möbelföretagen, Skogsindustrierna",
+    "title": "Mark - en bristvara eller det enda vi har gott om i Sverige?"
+   },
+   {
+    "year": 2026,
+    "arr": "Hanaholmen, Finlands ambassad",
+    "title": "Blått, vitt och gult – hur ska den svensk-finska relationen "
+   },
+   {
+    "year": 2026,
+    "arr": "Reputation and Trust Analytics",
+    "title": "När mediernas förtroende prövas, vad händer med demokratin?"
+   },
+   {
+    "year": 2026,
+    "arr": "Sveriges Lärare",
+    "title": "Vad kostar ett skolmisslyckande?"
+   }
+  ]
+ },
+ {
+  "namn": "Anna Denell",
+  "titel": "Hållbarhetschef",
+  "org": "Vasakronan",
+  "listad_sem": 28,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Business Arena",
+    "title": "Hur hanterar samhället problemet med byggmaterial?"
+   },
+   {
+    "year": 2022,
+    "arr": "Nordic Climate Group",
+    "title": "Så kan kyla användas för att värma våra bostäder och minska "
+   },
+   {
+    "year": 2022,
+    "arr": "Nordiska ministerrådet",
+    "title": "Klimatboven blir grön - byggbranschens roll och ansvar för a"
+   },
+   {
+    "year": 2022,
+    "arr": "Smart Housing Småland",
+    "title": "Klimatdeklarationer som påverkar hur vi bygger"
+   },
+   {
+    "year": 2022,
+    "arr": "Solelkommissionen, Ekobanken, Social",
+    "title": "Kan solparker bli en del av Sveriges elproduktion?"
+   },
+   {
+    "year": 2023,
+    "arr": "Aktuell Hållbarhet",
+    "title": "Därför hoppar hållbarhetscheferna av"
+   },
+   {
+    "year": 2023,
+    "arr": "Energieffektiviseringsföretagen (Eneff)",
+    "title": "Hur kan vi ta tillvara på kraften och potentialen i energief"
+   },
+   {
+    "year": 2023,
+    "arr": "Liljewall, Urban Agenda",
+    "title": "Bo och leva - framtidens klimatneutrala samhälle 2050"
+   },
+   {
+    "year": 2023,
+    "arr": "Lunds universitet",
+    "title": "Cirkulärt byggande – hur når vi dit?"
+   },
+   {
+    "year": 2023,
+    "arr": "Ramboll, EstateLogs, Hydda Group, Brunswick Real Estate, Fråga Lou AB",
+    "title": "Hur kan teknisk fastighetsförvaltning driva fastighetsvärde "
+   },
+   {
+    "year": 2023,
+    "arr": "Sustainable Innovation",
+    "title": "Klimatneutralt byggande i praktiken – vikten av att mäta för"
+   },
+   {
+    "year": 2023,
+    "arr": "Tarkett",
+    "title": "Cirkulärt byggande. Hur kan politik och företag samverka för"
+   },
+   {
+    "year": 2024,
+    "arr": "Återvinningsindustrierna",
+    "title": "Cirkulärt byggande - myt eller möjlighet?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Skärpta klimatkrav från EU – hur påverkas fastighetsbransche"
+   },
+   {
+    "year": 2024,
+    "arr": "Klimatkollen, 2050 Consulting",
+    "title": "Hur bidrar bättre klimatrapportering till en snabbare omstäl"
+   },
+   {
+    "year": 2024,
+    "arr": "Nordic Climate Group AB",
+    "title": "Den hållbara kalkylen – när lönsamheten blir en hållbarhetsm"
+   },
+   {
+    "year": 2024,
+    "arr": "Ramboll Sverige",
+    "title": "Hur inkluderar vi den biologiska mångfalden i fastigheters v"
+   },
+   {
+    "year": 2024,
+    "arr": "Skogsindustrierna, Jernkontoret, Byggmaterialindustrierna",
+    "title": "Är krav på återvunnet innehåll lösningen för den cirkulär ek"
+   },
+   {
+    "year": 2024,
+    "arr": "Stiftelsen Byggekologi",
+    "title": "Cirkulär stadsbyggnad – hur bygger vi vidare på det vi redan"
+   },
+   {
+    "year": 2024,
+    "arr": "Sustainable Innovation, Klimatarena Stockholm, Lokal färdplan för en klimatneutral bygg- & anläggningssektor i Malmö 2030 (LFM30), Hållbart Stockholm 30 (HS30), Östergötland Bygger Klimatneutralt (ÖBKN), Husbyggnadsvaror (HBV)",
+    "title": "Hur skalar vi upp den cirkulära byggprocessen och industrial"
+   },
+   {
+    "year": 2024,
+    "arr": "UN Global Compact Network Sweden",
+    "title": "Höj ambitionen - så ser svenska företag på möjligheter och u"
+   },
+   {
+    "year": 2025,
+    "arr": "2050 Consulting, Klimatkollen",
+    "title": "Storbolagens klimatutsläpp - vilka företag når Parisavtalet?"
+   },
+   {
+    "year": 2025,
+    "arr": "Skanska",
+    "title": "Från tradition till innovation – en byggsektor i ständig för"
+   },
+   {
+    "year": 2025,
+    "arr": "Svefa, Fastighetshubben, Set Up, Värderingsdata, Fråga Lou",
+    "title": "Från utredning till handling – klimatanpassningens framtid i"
+   },
+   {
+    "year": 2025,
+    "arr": "Swegon",
+    "title": "Ingen tid att förlora - så accelererar vi återbruk inom fast"
+   },
+   {
+    "year": 2026,
+    "arr": "Eneff, Energieffektiviseringsföretagen, Energicentrum Gotland, Clima Energy Nordic, Nordic Climate Group, Econans , Rejlers",
+    "title": "Vem tar ansvar för energislösande fastigheter – bankerna, ma"
+   },
+   {
+    "year": 2026,
+    "arr": "Social Venture Network Sweden, Plant",
+    "title": "Gränsvärden för byggnaders klimatpåverkan – vad krävs nu?"
+   },
+   {
+    "year": 2026,
+    "arr": "Svensk Solenergi",
+    "title": "12 000 stora tak kan producera el - hur går vi från potentia"
+   }
+  ]
+ },
+ {
+  "namn": "Magnus Nikkarinen",
+  "titel": "Hållbarhetsansvarig",
+  "org": "Svensk Handel",
+  "listad_sem": 27,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Aktuell Hållbarhet, Emmaus Stockholm",
+    "title": "Så kan due diligence för mänskliga rättigheter och miljö stä"
+   },
+   {
+    "year": 2022,
+    "arr": "Erikshjälpen, Studieförbundet Bilda, Equmeniakyrkan",
+    "title": "Vi tar inte ansvar för din klimatångest – second hand vill ä"
+   },
+   {
+    "year": 2022,
+    "arr": "Svensk Handel",
+    "title": "Kläder sorteras inte ut från det övriga avfallet idag – Vad "
+   },
+   {
+    "year": 2022,
+    "arr": "Svensk Handel",
+    "title": "Svenska handelsföretag tar ansvar för verksamheter i produkt"
+   },
+   {
+    "year": 2023,
+    "arr": "H&M Sverige",
+    "title": "Hållbar resursanvändning i en cirkulär framtid – vem ska få "
+   },
+   {
+    "year": 2023,
+    "arr": "PwC",
+    "title": "ta. Klimatkompensation - greenwashing eller en viktig insats"
+   },
+   {
+    "year": 2023,
+    "arr": "Svensk Handel, EY",
+    "title": "Hållbar handel – omställning i en osäker tid"
+   },
+   {
+    "year": 2023,
+    "arr": "Svensk Handel, GS1 Sweden",
+    "title": "Nu blir handeln cirkulär – är din verksamhet redo för produk"
+   },
+   {
+    "year": 2023,
+    "arr": "Svensk Handel, Södra, Sysav",
+    "title": "Från tråd till affär - hur ska Sverige sy ihop det?"
+   },
+   {
+    "year": 2024,
+    "arr": "GS1 Sweden",
+    "title": "QR-revolution inom retail – hur fyrkantigt kan bli cirkulärt"
+   },
+   {
+    "year": 2024,
+    "arr": "GS1 Sweden",
+    "title": "Ledartröja eller tvångströja? Möt nya hållbarhetskrav effekt"
+   },
+   {
+    "year": 2024,
+    "arr": "HUI Research",
+    "title": "Hur får vi till cirkulära affärsmodeller som går att skala?"
+   },
+   {
+    "year": 2024,
+    "arr": "Svensk Handel",
+    "title": "EU:s hållbarhetslagstiftning – ökad regelbörda eller konkurr"
+   },
+   {
+    "year": 2024,
+    "arr": "Svensk Handel",
+    "title": "75% av konsumenterna vill köpa secondhand – hur ska handelsl"
+   },
+   {
+    "year": 2024,
+    "arr": "Sysav, Sydskånes avfallsaktiebolag",
+    "title": "Hur blir kläder till ny råvara för modeindustrin?"
+   },
+   {
+    "year": 2024,
+    "arr": "TEKO, Sveriges Textil-och Modeföretag",
+    "title": "Svensk textilindustri i omställning"
+   },
+   {
+    "year": 2024,
+    "arr": "Telge Återvinning",
+    "title": "Vem har ansvar över textilierna?"
+   },
+   {
+    "year": 2025,
+    "arr": "El-Kretsen",
+    "title": "Elektrifierade samhällets baksida - mer farligt avfall och f"
+   },
+   {
+    "year": 2025,
+    "arr": "GS1 Sweden",
+    "title": "Taggat, spårbart och cirkulärt – förbered dina produkter inf"
+   },
+   {
+    "year": 2025,
+    "arr": "Naturskyddsföreningen",
+    "title": "Ultrafast eller långlivat? Konsument och politik på en markn"
+   },
+   {
+    "year": 2025,
+    "arr": "NEST, Borås INK (Inkubatorn i Borås AB)",
+    "title": "Svensk textil och mode möter tech – en gamechanger för hållb"
+   },
+   {
+    "year": 2025,
+    "arr": "Svensk Handel",
+    "title": "Tsunamin av paket snedvrider konkurrensen och urholkar hållb"
+   },
+   {
+    "year": 2025,
+    "arr": "Svensk Handel, Högskolan i Borås, TEKO",
+    "title": "Textilhandelns gröna omställning – vad krävs för ett klädsam"
+   },
+   {
+    "year": 2025,
+    "arr": "Svenskt Vatten, Energiföretagen Sverige, Energigas Sverige, Avfall Sverige",
+    "title": "Hur minskar vi plast och PFAS i textilier och textilavfall s"
+   },
+   {
+    "year": 2025,
+    "arr": "Textile & Fashion 2030 vid Högskolan i Borås",
+    "title": "Green Deal – hur tänker konsumenterna i Europa?"
+   },
+   {
+    "year": 2025,
+    "arr": "Textile & Fashion 2030 vid Högskolan i Borås",
+    "title": "Textilrevolutionen - så syr vi ihop en hållbar modebransch"
+   },
+   {
+    "year": 2026,
+    "arr": "Svensk Handel",
+    "title": "Att producera ett producentansvar för textil – detta behöver"
+   }
+  ]
+ },
+ {
+  "namn": "Karin Hübinette",
+  "titel": "Moderator och journalist (egen verksamhet); kommunikationsansvarig Folk och Försvar",
+  "org": "Folk och Försvar / egen verksamhet",
+  "listad_sem": 26,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "LKAB",
+    "title": "Så klarar vi hoten mot omställningen"
+   },
+   {
+    "year": 2022,
+    "arr": "LKAB",
+    "title": "Århundradets kompetensutmaning i norra Sverige"
+   },
+   {
+    "year": 2022,
+    "arr": "Region Norrbotten, Norrbotniabanegruppen",
+    "title": "Så skapar vi en infrastruktur som matchar den industriella b"
+   },
+   {
+    "year": 2023,
+    "arr": "LKAB",
+    "title": "Ämnen: Alla Tillgänglighet: Alla Elbehov och framtidens ener"
+   },
+   {
+    "year": 2023,
+    "arr": "LKAB",
+    "title": "Klimat, konkurrenskraft och energi - hur blir omställningen "
+   },
+   {
+    "year": 2023,
+    "arr": "LKAB",
+    "title": "Hur ger vi energi till omställningen?"
+   },
+   {
+    "year": 2023,
+    "arr": "Region Norrbotten",
+    "title": "Ämnen: Alla Tillgänglighet: Alla Flyttström norrut - från po"
+   },
+   {
+    "year": 2023,
+    "arr": "Region Norrbotten",
+    "title": "Ny modell för samhällsbygge i norra Sverige"
+   },
+   {
+    "year": 2024,
+    "arr": "AI Sweden",
+    "title": "Omvärlden kapprustar om AI – har Sverige tappat stinget?"
+   },
+   {
+    "year": 2024,
+    "arr": "AI Sweden",
+    "title": "Hur tar Sverige nästa steg i AI-utvecklingen?"
+   },
+   {
+    "year": 2024,
+    "arr": "LKAB",
+    "title": "Från kraftslag till handslag - hur bygger vi det fossilfria "
+   },
+   {
+    "year": 2024,
+    "arr": "LKAB",
+    "title": "I omställningens spår - hur bygger vi motståndskraft i norr?"
+   },
+   {
+    "year": 2024,
+    "arr": "Region Norrbotten",
+    "title": "Bilden av Norrbotten s"
+   },
+   {
+    "year": 2024,
+    "arr": "Region Norrbotten",
+    "title": "Beredskap och infrastruktur i strategiskt viktiga Norrbotten"
+   },
+   {
+    "year": 2024,
+    "arr": "Region Norrbotten",
+    "title": "Ungas perspektiv på den gröna omställningen"
+   },
+   {
+    "year": 2024,
+    "arr": "Region Norrbotten, Luleå Tekniska Universitet",
+    "title": "ska Industriomställningen i Norrbottens samhällsvinster"
+   },
+   {
+    "year": 2025,
+    "arr": "AI Sweden",
+    "title": "Hur maximerar vi nordisk handlingsförmåga och konkurrenskraf"
+   },
+   {
+    "year": 2025,
+    "arr": "LKAB",
+    "title": "Den globala mineralrushen är i full fart – hur säkrar vi kon"
+   },
+   {
+    "year": 2025,
+    "arr": "Region Norrbotten",
+    "title": "Staten och kommunerna — vem ska ta risken?"
+   },
+   {
+    "year": 2025,
+    "arr": "Region Norrbotten",
+    "title": "Nordens viktigaste järnväg"
+   },
+   {
+    "year": 2025,
+    "arr": "Region Norrbotten",
+    "title": "Kultur - nyckeln till levande, attraktiva och hållbara samhä"
+   },
+   {
+    "year": 2025,
+    "arr": "Region Norrbotten",
+    "title": "Kan Norrbottens och Sveriges gruvor vara avgörande för Europ"
+   },
+   {
+    "year": 2025,
+    "arr": "Region Norrbotten, Luleå tekniska universitet, LKAB",
+    "title": "Industrins omställning sker nu"
+   },
+   {
+    "year": 2026,
+    "arr": "AI Sweden",
+    "title": "AI och jobben – en arbetsmarknad i rörelse, hur möter Sverig"
+   },
+   {
+    "year": 2026,
+    "arr": "Region Norrbotten",
+    "title": "Norrbotten – Sveriges Arktis"
+   },
+   {
+    "year": 2026,
+    "arr": "Region Norrbotten, Luleå tekniska universitet, LKAB",
+    "title": "Norrbottens industriella omställning, Sverige och framtiden"
+   }
+  ]
+ },
+ {
+  "namn": "Kent Persson",
+  "titel": "Samhällspolitisk chef (deltid); rådgivare/public affairs (eget bolag)",
+  "org": "Heimstaden / Kent Persson AB",
+  "listad_sem": 22,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Bostadspolitik.se",
+    "title": "Hemlösa, utsatta barn och ekonomiskt svaga blir allt fler – "
+   },
+   {
+    "year": 2022,
+    "arr": "Bostadspolitik.se",
+    "title": "Vilken bostadspolitik har de olika blocken?"
+   },
+   {
+    "year": 2022,
+    "arr": "Business Arena",
+    "title": "Kan vi nå fram till en bostadspolitik som gör skillnad?"
+   },
+   {
+    "year": 2022,
+    "arr": "Coreco AB",
+    "title": "Hur genomför vi hållbara renoveringar av hyresbeståndet, uta"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Hoten mot hyresrätten – förslumning och byggstopp"
+   },
+   {
+    "year": 2023,
+    "arr": "Bostadspolitik.se",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2023,
+    "arr": "Fastighetsägarna",
+    "title": "Tvärnit i bostadsbyggandet – går det att påverka hur lång pa"
+   },
+   {
+    "year": 2023,
+    "arr": "OBOS, Arenan Stadsutvecklingsdagarna365, A Beautiful Soup",
+    "title": "Nytänkande, samarbete och mod - hur får vi fart på samhällsb"
+   },
+   {
+    "year": 2024,
+    "arr": "A Beautiful Soup",
+    "title": "Så lyfter Västsverige svensk omställning och konkurrenskraft"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Tillväxtmotorerna hotas av bostadsbristen"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Bostadskraschen – hur ökar vi byggandet av hyresrätter?"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Hur hanterar regeringen bostadskrisen – vad kan vi vänta oss"
+   },
+   {
+    "year": 2024,
+    "arr": "Bostadspolitik.se, Besqab, Coreco, HSB, Fastighetsägarna, Magnolia Bostad, SBAB, Wallenstam",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2024,
+    "arr": "Stockholms Stadsmission",
+    "title": "Så kan en socialt hållbar bostadsförsörjning bli verklighet "
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Heba, HSB, Rikshem, Evidens, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Hur ska bostadsministern förbättra situationen på den svensk"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Makroanalys – en ny världsordning, vad betyder det för den s"
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Accelerera digitalisering och AI inom fastighetsbranschen – "
+   },
+   {
+    "year": 2025,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Brixly, Fastighetsägarna, HS 30, Olov Lindgren, Riksbyggen, SBAB, Sveriges Allmännytta, Willhem, Veidekke, Obos, Heimstaden, Hemvist Förvaltning, Wallenstam, Coreco, Einar Mattsson, Heba, HSB, Rikshem, Evidens",
+    "title": "Hur ska bostadspolitiken förbättras?"
+   },
+   {
+    "year": 2025,
+    "arr": "Business Region Örebro, Örebro kommun",
+    "title": "När klimatmål blir konkurrensfördel – snack eller verkstad?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam",
+    "title": "Vilken sida har den bästa bostadspolitiken?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Vilken bostadspolitik står partierna för?"
+   }
+  ]
+ },
+ {
+  "namn": "Marie Trogstam",
+  "titel": "Chef för hållbarhet och infrastruktur",
+  "org": "Svenskt Näringsliv",
+  "listad_sem": 20,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Svenskt Näringsliv",
+    "title": "Teknik och pengar finns. Det är politik som bromsar klimatom"
+   },
+   {
+    "year": 2023,
+    "arr": "Hand in Hand Sweden",
+    "title": "Kan business och bistånd gå hand i hand?"
+   },
+   {
+    "year": 2023,
+    "arr": "Länsförsäkringar",
+    "title": "Hur löser vi klimatkrisen?"
+   },
+   {
+    "year": 2023,
+    "arr": "PwC",
+    "title": "Omställning, hållbarhet och lönsam tillväxt - går den ekvati"
+   },
+   {
+    "year": 2023,
+    "arr": "Statsvetenskapliga förbundet (Swepsa)",
+    "title": "Sveriges EU-ordförandeskap - hur gick det egentligen med fok"
+   },
+   {
+    "year": 2023,
+    "arr": "We Effect, Fairtrade Sverige",
+    "title": "Handel - mål eller medel för fattigdomsbekämpning?"
+   },
+   {
+    "year": 2024,
+    "arr": "ClimateView - Electric Garden",
+    "title": "Sveriges roll i den globala gröna omställningen"
+   },
+   {
+    "year": 2024,
+    "arr": "EY",
+    "title": "I en hållbar värld är vi lika bra på framtid som på historia"
+   },
+   {
+    "year": 2024,
+    "arr": "Hitachi Energy",
+    "title": "Infrastrukturen – Sveriges akilleshäl?"
+   },
+   {
+    "year": 2024,
+    "arr": "RWE Renewables Sverige AB, Arena energi",
+    "title": "Industrin behöver mer energi nu!"
+   },
+   {
+    "year": 2024,
+    "arr": "Skandia",
+    "title": "Hur kan de hållbara pensionsmiljarderna göra skillnad?"
+   },
+   {
+    "year": 2025,
+    "arr": "Consilio International, Beyond Intent",
+    "title": "Resilient Supply Chains in a Turbulent World"
+   },
+   {
+    "year": 2025,
+    "arr": "Foxway, Dagens industri, Aktuell Hållbarhet",
+    "title": "Vad är hållbar tech på riktigt?"
+   },
+   {
+    "year": 2025,
+    "arr": "Giva Sverige",
+    "title": "När hållbarhetsarbetet utmanas – vad gör företag, politik oc"
+   },
+   {
+    "year": 2025,
+    "arr": "Länsförsäkringar",
+    "title": "På andra sidan Paris – vilka risker står vi inför och hur ha"
+   },
+   {
+    "year": 2025,
+    "arr": "SEB",
+    "title": "Vad händer med klimatomställningen i den nya geopolitiska ve"
+   },
+   {
+    "year": 2025,
+    "arr": "Skandia",
+    "title": "Klimatfärdplan och hållbarhet i politisk turbulens"
+   },
+   {
+    "year": 2026,
+    "arr": "GlobeLife, SweDev",
+    "title": "Global hälsa i klimatförändringens tid - vilken roll spelar "
+   },
+   {
+    "year": 2026,
+    "arr": "Lunds universitet, Mistra BIOPATH",
+    "title": "Kapacitet och resiliens i en tid av naturkris och geopolitis"
+   },
+   {
+    "year": 2026,
+    "arr": "SEB, UNGC Sverige",
+    "title": "Hur får vi ny fart på investeringarna i klimatomställningen?"
+   }
+  ]
+ },
+ {
+  "namn": "Niklas Johansson",
+  "titel": "Senior Vice President Public Affairs and External Relations",
+  "org": "LKAB",
+  "listad_sem": 20,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Folk och Försvar, Säkerhet och Försvar: Arena för öppen debatt",
+    "title": "Säkerhetspolitiska dilemman i klimatomställningens spår"
+   },
+   {
+    "year": 2022,
+    "arr": "Luleå Energi, Arenaenergi",
+    "title": "Den fossilfria industriomställningen i Norr pågår med full k"
+   },
+   {
+    "year": 2022,
+    "arr": "Luleå kommun, Region Norrbotten",
+    "title": "Innovativ planering för snabbare kraftförsörjning"
+   },
+   {
+    "year": 2022,
+    "arr": "Luleå tekniska universitet",
+    "title": "Vätgasens betydelse för den gröna omställningen"
+   },
+   {
+    "year": 2023,
+    "arr": "Dagens industri, Alstom",
+    "title": "Vart är vi på väg – långa köer eller hållbar järnväg som bin"
+   },
+   {
+    "year": 2023,
+    "arr": "Energispektrum, Arena Energi",
+    "title": "Vad vill partierna i energipolitiken?"
+   },
+   {
+    "year": 2023,
+    "arr": "Industriekonomerna, Teknikföretagen, Industriarbetsgivarna, Techarenan",
+    "title": "Investeringsboomen i Sverige – vad krävs för att förverkliga"
+   },
+   {
+    "year": 2023,
+    "arr": "Region Norrbotten",
+    "title": "Ämnen: Alla Tillgänglighet: Alla Flyttström norrut - från po"
+   },
+   {
+    "year": 2024,
+    "arr": "Dagens industri, Nordion Energi",
+    "title": "Vätgas och den gröna omställningen - går det att både rädda "
+   },
+   {
+    "year": 2024,
+    "arr": "Fortum Sverige AB, Arena energi",
+    "title": "Omställning - var god dröj?"
+   },
+   {
+    "year": 2024,
+    "arr": "Hitachi Energy",
+    "title": "Energiomställningen sker globalt, Sverige halkar efter"
+   },
+   {
+    "year": 2024,
+    "arr": "Region Skåne, Region Västerbotten",
+    "title": "Ny infrastruktur behövs för hela landet"
+   },
+   {
+    "year": 2025,
+    "arr": "Green Cargo",
+    "title": "Grön omställning och stärkt tillväxt – genom effektiva godst"
+   },
+   {
+    "year": 2025,
+    "arr": "Hanaholmen, Finlands ambassad",
+    "title": "Livslinjer mellan Sverige och Finland - hur stärker vi infra"
+   },
+   {
+    "year": 2025,
+    "arr": "Industriarbetsgivarna",
+    "title": "Basindustrins nyckelroll i försörjningsberedskapen"
+   },
+   {
+    "year": 2025,
+    "arr": "Omtag Svensk Järnväg, Tågföretagen, IKEA, Öresundsbron",
+    "title": "Transportinfrastruktur som stärker svensk tillväxt"
+   },
+   {
+    "year": 2025,
+    "arr": "Region Norrbotten",
+    "title": "Nordens viktigaste järnväg"
+   },
+   {
+    "year": 2025,
+    "arr": "Svemin",
+    "title": "Hur säkrar vi Sveriges tillgång till kritiska metaller och m"
+   },
+   {
+    "year": 2026,
+    "arr": "Arlandaregionen",
+    "title": "Framtidens flyg för Sveriges och Arlandas konkurrenskraft"
+   },
+   {
+    "year": 2026,
+    "arr": "Uniper",
+    "title": "Klimat, konflikter och konkurrenskraft – Europas energival i"
+   }
+  ]
+ },
+ {
+  "namn": "Thord Eriksson",
+  "titel": "Chefredaktör och ansvarig utgivare (deltid)",
+  "org": "Biblioteksbladet (Svensk biblioteksförening)",
+  "listad_sem": 19,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Biblioteksbladet, Biblioteken på Gotland, Svensk biblioteksförening",
+    "title": "Hur lång är en arm?"
+   },
+   {
+    "year": 2023,
+    "arr": "Biblioteksbladet, Biblioteken på Gotland, Svensk biblioteksförening",
+    "title": "Hur mycket algoritmer tål demokratin? ,"
+   },
+   {
+    "year": 2023,
+    "arr": "Biblioteksbladet, Biblioteken på Gotland, Svensk biblioteksförening",
+    "title": "Därför satsar Malmö på bibliotek och förbjudna böcker"
+   },
+   {
+    "year": 2023,
+    "arr": "Biblioteksbladet, Biblioteken på Gotland, Svensk biblioteksförening",
+    "title": "Skolbibliotek på varje skola – hur ska kommunerna gå med på "
+   },
+   {
+    "year": 2024,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening",
+    "title": "Hur mycket kan folkbiblioteken blöda?"
+   },
+   {
+    "year": 2024,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening",
+    "title": "Första steget mot ett angiverisamhälle?"
+   },
+   {
+    "year": 2024,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening",
+    "title": "Stärkta skolbibliotek – hur och till vilken nytta?"
+   },
+   {
+    "year": 2024,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening",
+    "title": "Ett förlorat kulturarv"
+   },
+   {
+    "year": 2024,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening",
+    "title": "Vilken betydelse kan biblioteken ha i en kris?"
+   },
+   {
+    "year": 2024,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening ,",
+    "title": "Vetenskap för miljarder"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Biblioteken på Gotland",
+    "title": "Är det möjligt att lösa läskrisen utan att älska litteratur?"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Biblioteken på Gotland",
+    "title": "Hur kan vi stötta bibliotek, arkiv och museer i Ukraina?"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Region Gotland",
+    "title": "Alla älskar folkbiblioteken – så varför behandlas de inte bä"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Region Gotland",
+    "title": "Så kan biblioteken stärka den svenska AI-kompetensen"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Region Gotland",
+    "title": "Hur säkert är kulturarvet?"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Region Gotland",
+    "title": "Ett dummare Sverige?"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Region Gotland",
+    "title": "Hur farliga kan orden vara?"
+   },
+   {
+    "year": 2025,
+    "arr": "Biblioteksbladet, Svensk biblioteksförening, Region Gotland",
+    "title": "Hur ska alla nya skolbibliotek bemannas?"
+   },
+   {
+    "year": 2026,
+    "arr": "Svensk Biblioteksförening, Svensk Live, Svensk Scenkonst, Sveriges Museer",
+    "title": "Svenskarna har talat: Kultur spelar roll"
+   }
+  ]
+ },
+ {
+  "namn": "Mattias Johansson",
+  "titel": "Director (Public Affairs)",
+  "org": "Brunswick Group",
+  "listad_sem": 19,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Delegationen för unga och nyanlända till arbete (Dua)",
+    "title": "Arbetskraftsbrist – och samtidigt 160 000 långtidsarbetslösa"
+   },
+   {
+    "year": 2022,
+    "arr": "Ledarna, Almega, Fossilfritt Sverige",
+    "title": "Rusta för omställning - vilken kompetens behöver chefer och "
+   },
+   {
+    "year": 2022,
+    "arr": "Mobility Sweden, Motorbranschens ch Riksförbund",
+    "title": "Hur kan framtidens fordon bli mer cirkulära, med fokus på ba"
+   },
+   {
+    "year": 2022,
+    "arr": "SSAB",
+    "title": "Vilken roll har hållbarhetschefen i en omställd värld?"
+   },
+   {
+    "year": 2023,
+    "arr": "Energimarknadsinspektionen",
+    "title": "Kan EU:s elmarknadsreform lösa framtida elkriser? ? Är"
+   },
+   {
+    "year": 2023,
+    "arr": "Ericsson",
+    "title": "Energisektorns digitalisering avgör den gröna omställningen "
+   },
+   {
+    "year": 2023,
+    "arr": "Folksamgruppen, We Effect",
+    "title": "Miljöbrott, korruption och kränkningar – vem har ansvar i vä"
+   },
+   {
+    "year": 2023,
+    "arr": "Installatörsföretagen",
+    "title": "Hur ökar vi takten på energieffektivisering?"
+   },
+   {
+    "year": 2023,
+    "arr": "Region Jönköpings län, Mötesplats Jönköpings län",
+    "title": "Spåra till gröna städer"
+   },
+   {
+    "year": 2023,
+    "arr": "Swegon",
+    "title": "Är fastighetsbranschen redo att bli cirkulär på riktigt?"
+   },
+   {
+    "year": 2023,
+    "arr": "Teknikföretagen, Techarenan",
+    "title": "Industrin står för investeringarna i forskning och innovatio"
+   },
+   {
+    "year": 2024,
+    "arr": "Kommuninvest i Sverige AB",
+    "title": "Framtidens hållbara och gröna investeringar i kommunsektorn"
+   },
+   {
+    "year": 2024,
+    "arr": "KPMG",
+    "title": "Har svensk fastighetsmarknad återhämtat sig?"
+   },
+   {
+    "year": 2024,
+    "arr": "Ratio Näringslivets forskningsinstitut",
+    "title": "En svensk arbetsmarknad i en öppen och digital ekonomi?"
+   },
+   {
+    "year": 2024,
+    "arr": "Svenskt Näringsliv, SKR",
+    "title": "Kortare arbetstid - en kostsam investering eller en lönsam a"
+   },
+   {
+    "year": 2025,
+    "arr": "Business Sweden",
+    "title": "Hur säkrar vi Sveriges industriella konkurrenskraft med resi"
+   },
+   {
+    "year": 2025,
+    "arr": "KPMG",
+    "title": "Svensk fastighetsmarknad - har återhämtningen kommit av sig?"
+   },
+   {
+    "year": 2025,
+    "arr": "Mobility Sweden",
+    "title": "Hur säkras fordonsindustrins konkurrenskraft?"
+   },
+   {
+    "year": 2025,
+    "arr": "Polar Structure AB",
+    "title": "Hur kan kommuner realisera kritisk infrastruktur när statlig"
+   }
+  ]
+ },
+ {
+  "namn": "Sara Övreby",
+  "titel": "Samhällspolitisk chef",
+  "org": "Google Sverige",
+  "listad_sem": 19,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Entreprenörskapsforum",
+    "title": "Digital spetskompetens – vad är det, vem behöver det och hur"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": "Svensk teknik i världen - hur ökar vi innovationstakten?"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": "Den digitala accelerationen - hur håller vi ångan uppe?"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": "Livslångt lärande - från snack till verkstad?"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": "Hur skapas tillit i en digital tid?"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": ", Hur kan data lösa samhällsutmaningar?"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": "Vilka är hindren för att maximera kraften i data?"
+   },
+   {
+    "year": 2022,
+    "arr": "Google",
+    "title": "Hållbar digitalisering av myndigheter och företag-vilken rol"
+   },
+   {
+    "year": 2022,
+    "arr": "Google, Höj Röstens Politikerskola",
+    "title": "Vilken framtid kan vi bygga tillsammans genom politiken?"
+   },
+   {
+    "year": 2023,
+    "arr": "Google",
+    "title": "Hur väl rustat är Sverige mot cyberattacker?"
+   },
+   {
+    "year": 2023,
+    "arr": "Google",
+    "title": "Vad är sant eller falskt när informationsflödet är större än"
+   },
+   {
+    "year": 2023,
+    "arr": "Myndigheten för psykologiskt försvar, MPF",
+    "title": "Hur påverkar AI våra åsikter?"
+   },
+   {
+    "year": 2023,
+    "arr": "Nyföretagarcentrum Sverige",
+    "title": "Vilka är de som startar företag och varför?"
+   },
+   {
+    "year": 2023,
+    "arr": "Ratio - Näringslivets forskningsinstitut",
+    "title": "Kompetens och matchning på framtidens arbetsmarknad. Ny tekn"
+   },
+   {
+    "year": 2023,
+    "arr": "Vinnova, Google",
+    "title": "Hur ser framtiden ut? Ta del av fem spaningar om vad som vän"
+   },
+   {
+    "year": 2024,
+    "arr": "Digitalidag-en del av Post-och telestyrelsen (PTS)",
+    "title": "Framtidens digitala inkludering"
+   },
+   {
+    "year": 2024,
+    "arr": "Tankesmedjan Futurion",
+    "title": "AI-revolutionen - hur framtidssäkrar vi Sveriges konkurrensk"
+   },
+   {
+    "year": 2025,
+    "arr": "Sparbankernas Riksförbund, Savantic",
+    "title": "AI-revolutionen är här – är Sverige redo?"
+   },
+   {
+    "year": 2026,
+    "arr": "Doings",
+    "title": "Från AI-strategi till affärsvärde - vad krävs i praktiken?"
+   }
+  ]
+ },
+ {
+  "namn": "Fredrik Svedjetun",
+  "titel": "Chefredaktör och ansvarig utgivare",
+  "org": "Market & Dagligvarunytt (Bonnier News)",
+  "listad_sem": 18,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Arla, Lantmännen, LRF, Svenskt Kött, Växa, HK Scan, DeLaval, Yara, Dagens industri, Dagligvarunytt",
+    "title": "Bonden och de globala klimatmålen – vilka investeringar behö"
+   },
+   {
+    "year": 2022,
+    "arr": "Dagens industri, Dagligvarunytt, Di Weekend",
+    "title": "Gastronomi med närodlat, lokalt och grönt på tallriken – stj"
+   },
+   {
+    "year": 2022,
+    "arr": "Dagens industri, Dagligvarunytt, Di Weekend",
+    "title": "Innovation och produktutveckling - en smak av framtidens hål"
+   },
+   {
+    "year": 2022,
+    "arr": "Dagens industri, Dagligvarunytt, Di Weekend",
+    "title": "Trenderna som förändrar hur vi äter och lagar mat"
+   },
+   {
+    "year": 2022,
+    "arr": "Picadeli, Dagens industri, Dagligvarunytt, Di Weekend",
+    "title": "Hälsosam mat – ett privilegium eller en rättighet?"
+   },
+   {
+    "year": 2022,
+    "arr": "Svenskt Kött, Dagens industri, Dagligvarunytt",
+    "title": "Hur säkrar vi maten innan krisen är här?"
+   },
+   {
+    "year": 2025,
+    "arr": "Dagens industri, Dagligvarunytt, Norwegian Seafood Council",
+    "title": "Framtidens mat finns i havet"
+   },
+   {
+    "year": 2025,
+    "arr": "Dagens Samhälle, Market",
+    "title": "Det otrygga Sverige - är samhällskontraktet på glid?"
+   },
+   {
+    "year": 2025,
+    "arr": "Google, Market, Dagens industri",
+    "title": "Framtidens kundupplevelse - hur möter vi nästa generations k"
+   },
+   {
+    "year": 2025,
+    "arr": "Hälsoarenan",
+    "title": "Kan livsmedelsbranschen bidra till bättre kostvanor?"
+   },
+   {
+    "year": 2025,
+    "arr": "Market, Dagligvarunytt, Aktuell Hållbarhet",
+    "title": "Valet mellan hållbarhet och lågpris - bara en prisfråga?"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagens industri, Elvenite",
+    "title": "AI ritar om spelplanen – ledarskap i en ny teknisk världsord"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagligvarunytt / Market",
+    "title": "När handeln flyttar till Kina – vad händer med Sverige?"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagligvarunytt / Market",
+    "title": "När butiksdöden hotar stadskärnan"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagligvarunytt / Market",
+    "title": "När Ai tar över handeln – behöver konsumentskyddet stärkas?"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagligvarunytt, Norwegian Seafood Council",
+    "title": "Mer mat från havet på framtidens matbord"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagligvarunytt, Picadeli",
+    "title": "Halverad matmoms – till vilket pris och på vems bekostnad"
+   },
+   {
+    "year": 2026,
+    "arr": "Market, Google",
+    "title": "Hur förändrar AI-styrd handel vår konsumtion och detaljhande"
+   }
+  ]
+ },
+ {
+  "namn": "Anders Berger",
+  "titel": "Director Public Affairs",
+  "org": "Volvo Group (AB Volvo)",
+  "listad_sem": 17,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Circle K Sverige",
+    "title": "Får alla ägg plats i elektrifieringskorgen? Transportsektorn"
+   },
+   {
+    "year": 2022,
+    "arr": "Göteborg Energi, Arenaenergi",
+    "title": "Elektrifieringsracet – hur tar vi täten i omställningen?"
+   },
+   {
+    "year": 2023,
+    "arr": "Hållbar Energi 2030, Öresundskraft",
+    "title": "Transportsektorn måste elektrifieras, men hur ska elen, effe"
+   },
+   {
+    "year": 2024,
+    "arr": "Chalmers tekniska högskola",
+    "title": "Teknikens roll - vår undergång eller räddning?"
+   },
+   {
+    "year": 2024,
+    "arr": "Drivkraft Sverige",
+    "title": "Biodrivmedlens framtida roll i vägtrafiken"
+   },
+   {
+    "year": 2024,
+    "arr": "E.ON, Dagens industri",
+    "title": "Treriksröset till Valetta – så ser vi till att tunga elektri"
+   },
+   {
+    "year": 2024,
+    "arr": "Ellevio, Arena energi",
+    "title": "Rätt steg i taget – Prioriteringar i bygget av ett nytt elsy"
+   },
+   {
+    "year": 2024,
+    "arr": "Energiföretagen Sverige, Ellevio, Göteborg Energi, OX2, E.ON, Energigas Sverige, Statkraft, Studsvi Vattenfall",
+    "title": "Vad vill partierna i energipolitiken?"
+   },
+   {
+    "year": 2024,
+    "arr": "Mobility Sweden",
+    "title": "Framtidens laddinfrastruktur för tunga fordon - hur ser vi t"
+   },
+   {
+    "year": 2024,
+    "arr": "MRF Motorbranchsens Riksförbund",
+    "title": "Vad innebär resultatet i valet till europaparlamentet för Eu"
+   },
+   {
+    "year": 2025,
+    "arr": "Circle K Sverige",
+    "title": "Sveriges fordonsflottor i förändring – men rullar vi åt rätt"
+   },
+   {
+    "year": 2025,
+    "arr": "CLOSER vid Lindholmen Science Park, Skogforsk, Lindholmen Science Park e-Mobility",
+    "title": "Ellastbilarna står redo – vad krävs av politiken för att de "
+   },
+   {
+    "year": 2025,
+    "arr": "Dagens industri, OKQ8, Skellefteå Kraft",
+    "title": "Elbilar på vägarna 2030 – är politiken redo att möta klimatu"
+   },
+   {
+    "year": 2025,
+    "arr": "Ellevio AB",
+    "title": "Effekt, konkurrenskraft och självförsörjning – kan Sverige m"
+   },
+   {
+    "year": 2025,
+    "arr": "Hagainitiativet, Teknikföretagen, Fossilfritt Sverige, Energiföretagen",
+    "title": "Stark beredskap kräver grön utveckling"
+   },
+   {
+    "year": 2025,
+    "arr": "Hydri",
+    "title": "Vätgas: Hjälten vi behöver mer av – elektrifieringens kinder"
+   },
+   {
+    "year": 2026,
+    "arr": "Lindholmen Science Park e-Mobility",
+    "title": "Elektrifiering av långväga transporter – mer än en omställni"
+   }
+  ]
+ },
+ {
+  "namn": "Anders Blanck",
+  "titel": "Senior konsult/rådgivare (tidigare vd Lif)",
+  "org": "Gullers Group",
+  "listad_sem": 16,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Bristol Myers Squibb",
+    "title": "Vilka har varit årets viktigaste frågor för en innovativ och"
+   },
+   {
+    "year": 2022,
+    "arr": "Dagens Samhälle, Njurfonden, Njurförbundet",
+    "title": "Systemfel – trots forskningsframsteg får patienter inte ange"
+   },
+   {
+    "year": 2022,
+    "arr": "GSK (GlaxoSmithKline )",
+    "title": "Hur vi sätter prevention i fokus - beredskap inför gamla och"
+   },
+   {
+    "year": 2022,
+    "arr": "Lif - de forskande läkemedelsföretagen",
+    "title": "Så skapar vi en hållbar life science-bransch"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Forska Utan Djurförsök, Vetenskap & Allmänhet",
+    "title": "Forskning utan djurförsök - vad krävs för att nå dit?"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Leading Health Care (LHC), Läkemedelsindustriföreningen (Lif), Swedish Medtech, Arena Tillsammans",
+    "title": "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Leading Health Care (LHC), Läkemedelsindustriföreningen (Lif), Swedish Medtech, Arena Tillsammans",
+    "title": "Vad vill politikerna ska ske inom hälso-och sjukvårdsområdet"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Leading Health Care (LHC), Läkemedelsindustriföreningen (Lif), Swedish Medtech, Arena Tillsammans",
+    "title": "Ämnen: Alla Tillgänglighet: Alla Vad vill politikerna ska sk"
+   },
+   {
+    "year": 2022,
+    "arr": "Stiftelsen Leading Health Care (LHC), Läkemedelsindustriföreningen (Lif), Swedish Medtech, Arena Tillsammans",
+    "title": "Hur hanteras mellanrum i framtidens hälso-och sjukvård?"
+   },
+   {
+    "year": 2022,
+    "arr": "Uppsala universitet",
+    "title": "Kliniska prövningar i vården – hur gör vi det?"
+   },
+   {
+    "year": 2023,
+    "arr": "Lif - de forskande läkemedelsföretagen, Leading Health Care, Swedish Medtech, Medtech4Health",
+    "title": "EU sätter spelplanen för life science i Sverige"
+   },
+   {
+    "year": 2025,
+    "arr": "Chiesi Pharma AB",
+    "title": "Vi ställer om för miljön – när ställer samhället om för håll"
+   },
+   {
+    "year": 2025,
+    "arr": "Ipsen",
+    "title": "Från vision till verklighet: Så blir god och nära vård verkl"
+   },
+   {
+    "year": 2025,
+    "arr": "Novartis",
+    "title": "Nationella strategin för Life Science – hur ökar vi takten i"
+   },
+   {
+    "year": 2026,
+    "arr": "Novartis",
+    "title": "Framtidens kunskapsstyrning – från administrativ pappersprod"
+   },
+   {
+    "year": 2026,
+    "arr": "Sobi, Njurförbundet",
+    "title": "Att rädda och spara njurar – så möter vi bristen på njurar f"
+   }
+  ]
+ },
+ {
+  "namn": "Anna Olin Kardell",
+  "titel": "Moderator, programledare och kommunikationsrådgivare",
+  "org": "Anna Olin BC AB (egen verksamhet)",
+  "listad_sem": 15,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Verifiera",
+    "title": "Så infiltrerar organiserad brottslighet företag och myndighe"
+   },
+   {
+    "year": 2023,
+    "arr": "Telia",
+    "title": "Energi och telekom – så skapas nya allianser för framtidens "
+   },
+   {
+    "year": 2023,
+    "arr": "Vattenfall, Arena Energi",
+    "title": "Vägen till nyindustrialisering för Sverige – en färdplan för"
+   },
+   {
+    "year": 2024,
+    "arr": "Spotify",
+    "title": "AI-gapet och bryggan över"
+   },
+   {
+    "year": 2024,
+    "arr": "Spotify",
+    "title": "Hur kan AI bidra till att skapa den kultur samt det näringsl"
+   },
+   {
+    "year": 2024,
+    "arr": "Spotify",
+    "title": "Hur gör vi Sverige AB attraktivt och konkurrenskraftigt även"
+   },
+   {
+    "year": 2024,
+    "arr": "Spotify",
+    "title": "Sveriges långsiktiga framgång som kulturexportör - tar vi de"
+   },
+   {
+    "year": 2024,
+    "arr": "Spotify",
+    "title": "Framtidens kreativa landskap - mångfaldens kraft"
+   },
+   {
+    "year": 2024,
+    "arr": "Telia",
+    "title": "Digitaliseringens roll i nyindustrialiseringen av norra Sver"
+   },
+   {
+    "year": 2024,
+    "arr": "Telia, Ericsson, MSB",
+    "title": "Privat-offentlig samverkan – nyckeln till ), nästa generatio"
+   },
+   {
+    "year": 2025,
+    "arr": "Arena energi, Nordion Energi",
+    "title": "Hur kan el, vätgas och biogas tillsammans öka försörjningstr"
+   },
+   {
+    "year": 2025,
+    "arr": "Telia",
+    "title": "Digital resiliens – så stärker vi motståndskraften hos aktör"
+   },
+   {
+    "year": 2025,
+    "arr": "Telia",
+    "title": "Det krisar i relationen mellan USA och Europa – hur påverkar"
+   },
+   {
+    "year": 2025,
+    "arr": "Telia, Försvarsmakten",
+    "title": "5G, cloud och AI i frontlinjen - hur kan ny teknik stärka Sv"
+   },
+   {
+    "year": 2026,
+    "arr": "Telia , Telia Cygate",
+    "title": "Från potential till praktik: när nya tekniker som AI blir sa"
+   }
+  ]
+ },
+ {
+  "namn": "Jenny Engström",
+  "titel": "Presschef",
+  "org": "Svenska Turistföreningen (STF)",
+  "listad_sem": 14,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Right To Play Sverige",
+    "title": "Hållbara anställningar till unga för att nå de globala målen"
+   },
+   {
+    "year": 2022,
+    "arr": "Svenska Turistföreningen",
+    "title": "Friluftsliv utan egen bil - hur gör vi Sveriges natur tillgä"
+   },
+   {
+    "year": 2023,
+    "arr": "Handelshögskolan i Stockholm",
+    "title": "Vad händer om offentlig sektor delar kontor med varandra?"
+   },
+   {
+    "year": 2024,
+    "arr": "EY",
+    "title": "I en hållbar värld är vi lika bra på framtid som på historia"
+   },
+   {
+    "year": 2024,
+    "arr": "Vinnova",
+    "title": "Från ord till handling - nu accelererar vi för en hållbar oc"
+   },
+   {
+    "year": 2025,
+    "arr": "Chalmers tekniska högskola, KTH, Kungliga Tekniska högskolan",
+    "title": "Ansvarsfull AI – en svensk konkurrensfördel?"
+   },
+   {
+    "year": 2025,
+    "arr": "Humtank",
+    "title": "Vad är och gör en humanistisk innovation?"
+   },
+   {
+    "year": 2025,
+    "arr": "Impact Innovation",
+    "title": "Hur bygger vi ett fortsatt framgångsrikt och stabilt Sverige"
+   },
+   {
+    "year": 2025,
+    "arr": "Uppsala universitet, klimatledarskap",
+    "title": "Barnperspektiv på klimatomställningen - ett alternativt förh"
+   },
+   {
+    "year": 2025,
+    "arr": "Worklife Group, Tenant and Partner",
+    "title": "Från kontor till konkurrenskraft – arbetsplatsen som nyckel "
+   },
+   {
+    "year": 2026,
+    "arr": "Impact Innovation",
+    "title": "Soft power i en hård värld – kan mjuk innovationskraft förfl"
+   },
+   {
+    "year": 2026,
+    "arr": "Impact Innovation",
+    "title": "Innovation som kraft för omställning – har vi råd att tänka "
+   },
+   {
+    "year": 2026,
+    "arr": "Svenska Turistföreningen",
+    "title": "Gillar alla allemansrätten och kolbullar?"
+   },
+   {
+    "year": 2026,
+    "arr": "Vinnova, Sveriges innovationsmyndighet",
+    "title": "Så kan du uppmärksamma signalerna i Almedalen som pekar på v"
+   }
+  ]
+ },
+ {
+  "namn": "Erik Helmerson",
+  "titel": "Ledarskribent/krönikör",
+  "org": "Tidningen Dagen",
+  "listad_sem": 13,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Kan Gud göra något åt gängen?"
+   },
+   {
+    "year": 2023,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Varför är Putin och Kirill i ohelig allians?"
+   },
+   {
+    "year": 2023,
+    "arr": "Studieförbundet Bilda",
+    "title": "Att veta men inte göra – varför fixar vi inte klimatet och a"
+   },
+   {
+    "year": 2024,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Religion som privatsak – alltför djupt i folksjälen?"
+   },
+   {
+    "year": 2024,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Är AI en person?"
+   },
+   {
+    "year": 2025,
+    "arr": "(G) som i Gud, Frälsningsarmén, Pingst FFS, Evangeliska frikyrkan",
+    "title": "Tro på trend? Är Jesus tillbaka i folkhemmet?"
+   },
+   {
+    "year": 2025,
+    "arr": "(G) som i Gud, Tidningen Dagen, Frälsningsarmén, Pingst FFS, Evangeliska frikyrkan",
+    "title": "Är Donald Trump kristen (och kyrkan woke)?"
+   },
+   {
+    "year": 2025,
+    "arr": "(G) som i Gud, Tidningen Dagen, Frälsningsarmén, Pingst FFS, Evangeliska frikyrkan",
+    "title": "Lite hädelse får väl lättkränkta religiösa ändå stå ut med?"
+   },
+   {
+    "year": 2025,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Universella värden eller svenska värderingar – vilken är den"
+   },
+   {
+    "year": 2025,
+    "arr": "Newmaninstitutet, Tidskriften Signum, Studieförbundet Bilda",
+    "title": "Algoritmer och demokrati – möjligheter och hot i ett nytt me"
+   },
+   {
+    "year": 2026,
+    "arr": "(G) som i Gud",
+    "title": "Existentiell hälsa, tro och skola – vad är barnens rätt?"
+   },
+   {
+    "year": 2026,
+    "arr": "(G) som i Gud",
+    "title": "Könstillhörighetslagen – gick riksdagen för långt?"
+   },
+   {
+    "year": 2026,
+    "arr": "Jesu Kristi Kyrka av Sista Dagars Heliga",
+    "title": "Människa eller maskin – vad formar vår inre kompass?"
+   }
+  ]
+ },
+ {
+  "namn": "Peter Fellman",
+  "titel": "Chefredaktör",
+  "org": "Dagens industri (Di)",
+  "listad_sem": 12,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Dagens industri",
+    "title": "Latest geopolitical developments facing the world"
+   },
+   {
+    "year": 2022,
+    "arr": "Sveriges Kommunikatörer",
+    "title": "Att stärka och skydda varumärken i en oviss tid - vilka risk"
+   },
+   {
+    "year": 2023,
+    "arr": "Dagens industri",
+    "title": "Om att regera i motvind - ekonomin, Nato och opinionen"
+   },
+   {
+    "year": 2023,
+    "arr": "Dagens industri, Citi",
+    "title": "Geopolitical and economic developments – navigating a new gl"
+   },
+   {
+    "year": 2023,
+    "arr": "Region Norrbotten",
+    "title": "Ny modell för samhällsbygge i norra Sverige"
+   },
+   {
+    "year": 2024,
+    "arr": "Dagens industri",
+    "title": "Hur investera rätt i en vilsen tid?"
+   },
+   {
+    "year": 2024,
+    "arr": "Dagens industri",
+    "title": "Att leda ett land i med och motgång"
+   },
+   {
+    "year": 2024,
+    "arr": "Europaforum Norra Sverige, Region Västerbotten, North Sweden European Office",
+    "title": "Går det så bra nu att det går åt skogen i alla fall för norr"
+   },
+   {
+    "year": 2025,
+    "arr": "Business Arena",
+    "title": "Hur ska Stockholm hävda sig i global konkurrens?"
+   },
+   {
+    "year": 2025,
+    "arr": "Dagens industri, Citi",
+    "title": "Navigating a New World Order"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagens industri, Citigroup",
+    "title": "Resilience and Growth in a New World Order - Geopolitical an"
+   },
+   {
+    "year": 2026,
+    "arr": "Dagens Samhälle",
+    "title": "Bästa vägvalen för att investera rätt i en föränderlig omvär"
+   }
+  ]
+ },
+ {
+  "namn": "Suzanne Håkansson",
+  "titel": "Chef för samhällskontakter",
+  "org": "AstraZeneca",
+  "listad_sem": 12,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Swecare",
+    "title": "Outnyttjad potential att ytterligare öka den svenska hälsoex"
+   },
+   {
+    "year": 2023,
+    "arr": "Nollvision Cancer, Lungcancerföreningen, AstraZeneca",
+    "title": "Sveriges dödligaste cancer – så tar vi klivet till screening"
+   },
+   {
+    "year": 2024,
+    "arr": "Hemsö Fastighets AB",
+    "title": "Världsmästare i hälsa - så tar Stockholm och Sverige täten i"
+   },
+   {
+    "year": 2024,
+    "arr": "Nollvision cancer - Testbed Sweden Precision Health Cancer Cancer",
+    "title": "Cancer mission hubs etableras nu i alla t medlemsländer i EU"
+   },
+   {
+    "year": 2024,
+    "arr": "Virus-och pandemifonden",
+    "title": "Samhällets beredskap efter covid-19 – finns den?"
+   },
+   {
+    "year": 2025,
+    "arr": "AstraZeneca",
+    "title": "Hur tar vi action på det höga trycket"
+   },
+   {
+    "year": 2025,
+    "arr": "Folk och Försvar, Kommerskollegium, Totalförsvarets forskningsinstitut (FOI)",
+    "title": "Utrikeshandelns roll för Sveriges säkerhet"
+   },
+   {
+    "year": 2025,
+    "arr": "Nollvision cancer - Testbed Sweden, AstraZeneca, Elekta, Siemens Healthineers, Karolinska CCC",
+    "title": "Innovation och jämlik hälsa – vad kräver framtidens cancervå"
+   },
+   {
+    "year": 2025,
+    "arr": "Nollvision cancer - Testbed Sweden, Nätverket mot Cancer, Genomic Medicine Sweden (GMS), SciLifeLab, Handelshögskolan, Karolinska CCC, All.Can, Barncancerfonden, Ung Cancer, AstraZeneca, Bristol Myers Squibb, Elekta, Pfizer, Roche, Siemens Healthineers, Läkemedelsindustriföreningen, Swedish Medtech",
+    "title": "Geopolitik, konkurrenskraft och modern cancervård – nya krav"
+   },
+   {
+    "year": 2026,
+    "arr": "AstraZeneca AB",
+    "title": "Insikter som blir handling för bättre patientnytta i svensk "
+   },
+   {
+    "year": 2026,
+    "arr": "AstraZeneca AB",
+    "title": "Från vision till verkstad – en hållbar hälso- och sjukvård"
+   },
+   {
+    "year": 2026,
+    "arr": "Swelife",
+    "title": "Från strategi till resultat – hur kan Sverige stärkas som li"
+   }
+  ]
+ },
+ {
+  "namn": "Per Klingvall",
+  "titel": "Chef SSF ideella och oberoende verksamhet",
+  "org": "SSF Stöldskyddsföreningen",
+  "listad_sem": 12,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Säkerhetsarenan",
+    "title": "Har samhället förmåga att skapa trygghet och säkerhet?"
+   },
+   {
+    "year": 2023,
+    "arr": "Säkerhetsarenan",
+    "title": "Hur bygger vi cyberhygien i samhället?"
+   },
+   {
+    "year": 2024,
+    "arr": "Säkerhetsarenan, SäkerhetsBranschen, Stöldskyddsföreningen, Brandskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen, Företagsuniversitetet",
+    "title": "Hur skapar vi cybersäkerhet för mindre företag?"
+   },
+   {
+    "year": 2024,
+    "arr": "Säkerhetsarenan, SäkerhetsBranschen, Stöldskyddsföreningen, Brandskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen, Företagsuniversitetet",
+    "title": "Hur skapar vi trygghet och säkerhet i Sverige?"
+   },
+   {
+    "year": 2024,
+    "arr": "Säkerhetsarenan, SäkerhetsBranschen, Stöldskyddsföreningen, Brandskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen, Företagsuniversitetet",
+    "title": "Ett starkt totalförsvar - Hur stärker vi vårt samhälle vid k"
+   },
+   {
+    "year": 2025,
+    "arr": "SäkerhetsBranschen, Stöldskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen",
+    "title": "Hur får vi tillbaka säkerhet och trygghet i Sverige?"
+   },
+   {
+    "year": 2025,
+    "arr": "Stöldskyddsföreningen",
+    "title": "Hur får vi mindre företag att överleva en cyberattack?"
+   },
+   {
+    "year": 2025,
+    "arr": "Stöldskyddsföreningen , Brandskyddsföreningen",
+    "title": "Tillsammans för trygghet, grannsamarbete för vardag och kris"
+   },
+   {
+    "year": 2026,
+    "arr": "SäkerhetsBranschen, SSF Stöldskyddsföreningen, Brandskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen, Företagsuniversitetet",
+    "title": "Säkerhet och samverkan – hur skapar vi framtidens trygghet?"
+   },
+   {
+    "year": 2026,
+    "arr": "SäkerhetsBranschen, SSF Stöldskyddsföreningen, Brandskyddsföreningen, Stiftelsen Tryggare Sverige, Almega Säkerhetsföretagen, Företagsuniversitetet, Säkerhets- och Försvarsföretagen",
+    "title": "Säkerhet i förändring: hur möter vi brott mot människor, för"
+   },
+   {
+    "year": 2026,
+    "arr": "SSF Stöldskyddsföreningen",
+    "title": "Vem tar ansvar för de mindre företagens cybersäkerhet?"
+   },
+   {
+    "year": 2026,
+    "arr": "SSF Stöldskyddsföreningen",
+    "title": "Cybersäkerhet står högt på agendan, men hur stärker vi kompe"
+   }
+  ]
+ },
+ {
+  "namn": "Johan Kreicbergs",
+  "titel": "Chefsekonom och samhällspolitisk chef",
+  "org": "Sveriges Ingenjörer",
+  "listad_sem": 11,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Sveriges Tandläkarförbund",
+    "title": "Hur får vi en levande glesbygd?"
+   },
+   {
+    "year": 2023,
+    "arr": "Migrationsverket",
+    "title": "Stärkt konkurrenskraft? Hur kan det bli lättare för internat"
+   },
+   {
+    "year": 2023,
+    "arr": "Sveriges Ingenjörer",
+    "title": "Vem kan egentligen ta del av omställningsstudiestödet?"
+   },
+   {
+    "year": 2023,
+    "arr": "Swedbank",
+    "title": "AI som samhällsomvandlare - så påverkas företagen, ekonomin "
+   },
+   {
+    "year": 2024,
+    "arr": "Arena Energi, Energiföretagen",
+    "title": "Utan kompetens ingen omställning"
+   },
+   {
+    "year": 2024,
+    "arr": "Liberala Kvinnor",
+    "title": "Hur når vi drömmen om ett jämställt föräldraskap?"
+   },
+   {
+    "year": 2024,
+    "arr": "Swedbank",
+    "title": "Kvinnors finansiella hälsa - nyckeln till ett tryggt och sjä"
+   },
+   {
+    "year": 2025,
+    "arr": "Fabege",
+    "title": "Internationella kontorstrender"
+   },
+   {
+    "year": 2025,
+    "arr": "PwC Sverige",
+    "title": "Har akademisk kunskap något reellt värde på den framtida arb"
+   },
+   {
+    "year": 2025,
+    "arr": "Sveriges Ingenjörer",
+    "title": "Kan Sverige fortsatt vara en ledande tekniknation när vi tap"
+   },
+   {
+    "year": 2026,
+    "arr": "Industrirådet",
+    "title": "Gymnasievalet – för tidigt och för svårt?"
+   }
+  ]
+ },
+ {
+  "namn": "Thomas Frostberg",
+  "titel": "Affärskrönikör och näringslivsreporter",
+  "org": "Sydsvenskan (Bonnier News)",
+  "listad_sem": 10,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "Aktuell Hållbarhet, Dell Technologies",
+    "title": "Digitalisering och digifiering - hur får vi stärkt hållbarhe"
+   },
+   {
+    "year": 2022,
+    "arr": "Aktuell Hållbarhet, Emmaus Stockholm",
+    "title": "Så kan due diligence för mänskliga rättigheter och miljö stä"
+   },
+   {
+    "year": 2022,
+    "arr": "Aktuell Hållbarhet, Haglöfs",
+    "title": "Tillväxten och klimatet i luven på varandra - hur ska de sam"
+   },
+   {
+    "year": 2022,
+    "arr": "Aktuell Hållbarhet, Skellefteå Kraft",
+    "title": "Hur lyckas Skellefteå skapa hållbar samhällsutveckling när t"
+   },
+   {
+    "year": 2022,
+    "arr": "Di Digital, Combitech",
+    "title": "Säkerhetskedjan. Det viktigaste för en motståndskraftig verk"
+   },
+   {
+    "year": 2022,
+    "arr": "Lunds universitet",
+    "title": "Chip in – helhjärtat för halvledare"
+   },
+   {
+    "year": 2023,
+    "arr": "Oxfam Sverige",
+    "title": "Ojämlikhetens ansikte – statistiken, mediebilden, och konsek"
+   },
+   {
+    "year": 2024,
+    "arr": "Giva Sverige, Dagens industri",
+    "title": "Förmögenheter och filantroper – hur gör givandet mest nytta?"
+   },
+   {
+    "year": 2024,
+    "arr": "Tele2",
+    "title": "Greenhushing – är minskad transparens det nya hotet mot håll"
+   },
+   {
+    "year": 2026,
+    "arr": "Lunds universitet",
+    "title": "Från fossilt till framtid – så ställer flyget om"
+   }
+  ]
+ },
+ {
+  "namn": "Malin Thorsén",
+  "titel": "Hållbarhetskonsult och moderator (strategisk kommunikation)",
+  "org": "Bright Planet / Hållbarhetsteamet",
+  "listad_sem": 10,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "E.ON, Arenaenergi",
+    "title": "Kan Sveriges fjärr-och kraftvärme klara nettonollutsläpp och"
+   },
+   {
+    "year": 2022,
+    "arr": "E.ON, Arenaenergi",
+    "title": "Kapacitet för hela Sverige - hur löser vi flaskhalsarna för "
+   },
+   {
+    "year": 2022,
+    "arr": "Energispektrum, Arenaenergi",
+    "title": "Vad vill politiken i energifrågorna?"
+   },
+   {
+    "year": 2023,
+    "arr": "Arena Energi, Stockholm Exergi, Mälarenergi, Söderenergi, Tekniska verken i Linköping",
+    "title": "Energiåtervinning av avfall – klimatbov eller hjälte?"
+   },
+   {
+    "year": 2023,
+    "arr": "E.ON, Arena Energi",
+    "title": "Tillväxt, klimat och konkurrenskraftig energiförsörjning – k"
+   },
+   {
+    "year": 2023,
+    "arr": "Energispektrum, Arena Energi",
+    "title": "Vad vill partierna i energipolitiken?"
+   },
+   {
+    "year": 2024,
+    "arr": "Ellevio, Arena energi",
+    "title": "Rätt steg i taget – Prioriteringar i bygget av ett nytt elsy"
+   },
+   {
+    "year": 2024,
+    "arr": "Ellevio, Arena energi",
+    "title": "Elrevolutionen - vem betalar notan?"
+   },
+   {
+    "year": 2024,
+    "arr": "Tekniska verken i Linköping, Stockholm Exergi, Mälarenergi, Söderenergi, Karlstads Energi",
+    "title": "Alla pratar plast – hur kan olika branscher samverka för min"
+   },
+   {
+    "year": 2026,
+    "arr": "Fair Action, Solidaritetshuset",
+    "title": "Kan cirkulära affärsmodeller skalas upp i modeindustrin?"
+   }
+  ]
+ },
+ {
+  "namn": "Niklas Kilberg",
+  "titel": "Public Affairs Manager",
+  "org": "",
+  "listad_sem": 10,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "EY",
+    "title": "Klimatomställningens skuggsida – respekteras mänskliga rätti"
+   },
+   {
+    "year": 2022,
+    "arr": "EY",
+    "title": "Framtidens arbete – en hybridmodell som möjliggör jämställda"
+   },
+   {
+    "year": 2022,
+    "arr": "Tarkett",
+    "title": "Cirkulär omställning är nödvändig för att klara klimatet – h"
+   },
+   {
+    "year": 2023,
+    "arr": "Power Circle, Volvo Cars",
+    "title": "När blir elbilarna en tillgång i energisystemet?"
+   },
+   {
+    "year": 2024,
+    "arr": "Energicentrum Gotland",
+    "title": "Nya flexibla elnätstariffer för ett smartare nyttjande av de"
+   },
+   {
+    "year": 2024,
+    "arr": "EY",
+    "title": "Hur ser framtidens arbete ut i en ekonomiskt, miljömässigt o"
+   },
+   {
+    "year": 2024,
+    "arr": "PwC t vill",
+    "title": "Vem borde vilja betala för förebyggande insatser och socialt"
+   },
+   {
+    "year": 2024,
+    "arr": "TechAlliansen",
+    "title": "EU-lagstiftning inom digitaliseringsområdet - vad väntar und"
+   },
+   {
+    "year": 2025,
+    "arr": "Ragn-Sells",
+    "title": "Hur kan svensk industri ställa om? En ny syn på avfall – avf"
+   },
+   {
+    "year": 2025,
+    "arr": "Zaptec",
+    "title": "V2G och V2X – hur blir det lönsamt, och för vem?"
+   }
+  ]
+ },
+ {
+  "namn": "Helena Hånell McKelvey",
+  "titel": "Head of Public Policy, Nordics",
+  "org": "Amazon",
+  "listad_sem": 9,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Amazon Sverige",
+    "title": "Så främjar vi svenska företags konkurrenskraft, innovation o"
+   },
+   {
+    "year": 2023,
+    "arr": "Hållbar E-handel",
+    "title": "E-handel som nyckel till hållbara lösningar"
+   },
+   {
+    "year": 2023,
+    "arr": "Techarenan",
+    "title": "AI och framtidens kompetens"
+   },
+   {
+    "year": 2024,
+    "arr": "Amazon",
+    "title": "Från start-up till global succé - så ger digitaliseringen sv"
+   },
+   {
+    "year": 2024,
+    "arr": "HUI Research & Amazon",
+    "title": "Så har e-handeln stärkt svenskarnas köpkraft i lågkonjunktur"
+   },
+   {
+    "year": 2024,
+    "arr": "TechAlliansen",
+    "title": "Halvvägs in i mandatperioden – är regeringen på rätt väg ino"
+   },
+   {
+    "year": 2025,
+    "arr": "Amazon, Företagarna, Ung Företagsamhet",
+    "title": "Färre företagare – vad händer då med Sveriges tillväxt?"
+   },
+   {
+    "year": 2026,
+    "arr": "Amazon Sverige",
+    "title": "Från svenskt fenomen till global hype – hur ska fler varumär"
+   },
+   {
+    "year": 2026,
+    "arr": "Ung Företagsamhet i Sverige",
+    "title": "När AI möter yrkesprogrammen – var föds nästa generations en"
+   }
+  ]
+ },
+ {
+  "namn": "Håkan Larsson",
+  "titel": "Samhällspolitisk chef",
+  "org": "Sveriges Allmännytta",
+  "listad_sem": 9,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Installatörsföretagen",
+    "title": "Hur ökar vi takten på energieffektivisering?"
+   },
+   {
+    "year": 2023,
+    "arr": "Miljömärkning Sverige/Svanen",
+    "title": "Hur kan EU förenkla de hållbara valen av byggprodukter?"
+   },
+   {
+    "year": 2024,
+    "arr": "Ngenic, Energieffektiviseringsföreningen,",
+    "title": "Vem ansvarar för att energieffektiviseringen blir av i Sveri"
+   },
+   {
+    "year": 2025,
+    "arr": "Arena Energi",
+    "title": "Ska det behövas en doktorsexamen för att förstå sin elräknin"
+   },
+   {
+    "year": 2025,
+    "arr": "Arena energi, Ellevio, Villaägarna",
+    "title": "I elkundens skor – hur skapar vi acceptans i energiomställni"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Hyresmarknaden – går det att få bättre balans?"
+   },
+   {
+    "year": 2026,
+    "arr": "Bostadspolitik.se, Besqab, Bostadsrätterna, Fastighetsägarna, HS30, Sveriges Allmännytta, SBAB, Botrygg, Brixly, Coreco, Einar Mattsson, Evidens, Heba, Heimstaden, Hemvist Förvaltning, HSB, K2A Fastigheter, Obos, Riksbyggen, Rikshem, Veidekke, Wallenstam, Mariestads kommun",
+    "title": "Fastighetssektorns roll om eller när fienden kommer?"
+   },
+   {
+    "year": 2026,
+    "arr": "Byggnads",
+    "title": "Från bostadsbrist till samhällsbygge – hur moderniserar vi b"
+   },
+   {
+    "year": 2026,
+    "arr": "Svefa, Fastighetshubben, Set Up, Värderingsdata, Fråga Lou",
+    "title": "Riva, bygga om eller utveckla vidare – hur fattas rätt beslu"
+   }
+  ]
+ },
+ {
+  "namn": "Christoffer Lindström",
+  "titel": "Marknadschef / marknads- och affärsutvecklingschef",
+  "org": "Swegon Sverige",
+  "listad_sem": 9,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Svensk Ventilation",
+    "title": "Hur bygger vi energieffektiva och hälsosamma byggnader med l"
+   },
+   {
+    "year": 2023,
+    "arr": "Swegon",
+    "title": "Är fastighetsbranschen redo att bli cirkulär på riktigt?"
+   },
+   {
+    "year": 2024,
+    "arr": "Byggmaterialindustrierna",
+    "title": "Hur kan beställarkrav ställas för att främja byggsektorns hå"
+   },
+   {
+    "year": 2024,
+    "arr": "Swegon",
+    "title": "Återbruk säljer - men vem betalar?"
+   },
+   {
+    "year": 2025,
+    "arr": "Svensk Ventilation",
+    "title": "Hur och kan man återbruka installationer i praktiken utan at"
+   },
+   {
+    "year": 2025,
+    "arr": "Swegon",
+    "title": "Hur får gröna fastigheter medvetna användare? Så blir hyresg"
+   },
+   {
+    "year": 2026,
+    "arr": "Svensk Ventilation",
+    "title": "Hur får vi fart på byggandet och de nödvändiga energirenover"
+   },
+   {
+    "year": 2026,
+    "arr": "Swegon",
+    "title": "Kan fastigheter bli Sveriges nästa beredskapsresurs - genom "
+   },
+   {
+    "year": 2026,
+    "arr": "Swegon Group",
+    "title": "EU:s kommande renoveringskrav – guldgruva eller klimatkatast"
+   }
+  ]
+ },
+ {
+  "namn": "Susanne Nyström",
+  "titel": "Ledarskribent",
+  "org": "Dagens Nyheter",
+  "listad_sem": 8,
+  "seminarier": [
+   {
+    "year": 2022,
+    "arr": "TCO",
+    "title": "som Framtidens politik kräver fler kompromisser"
+   },
+   {
+    "year": 2022,
+    "arr": "TCO",
+    "title": "Förlöjligad, osynliggjord och bortglömd? Medelklassens betyd"
+   },
+   {
+    "year": 2023,
+    "arr": "Almega",
+    "title": "Vad mer skulle det privata kunna ta över?"
+   },
+   {
+    "year": 2023,
+    "arr": "Majblommans Riksförbund",
+    "title": "Barn i ekonomisk utsatthet hårt exponerade för lågkonjunktur"
+   },
+   {
+    "year": 2023,
+    "arr": "TCO",
+    "title": "Framtidens politik kräver fler kompromisser"
+   },
+   {
+    "year": 2024,
+    "arr": "Almega",
+    "title": "Hur uppstår vinst i välfärdsföretag?"
+   },
+   {
+    "year": 2024,
+    "arr": "Sveriges Stadsmissioner, Bris, Svenska Röda Korset, Civilsamhällesarenan",
+    "title": "Leva eller överleva - vad är skäligt?"
+   },
+   {
+    "year": 2026,
+    "arr": "EU-kommissionen",
+    "title": "EU som klickbete – vad tycker journalisterna?"
+   }
+  ]
+ },
+ {
+  "namn": "Karin Vajta Engström",
+  "titel": "Head of Communications",
+  "org": "AI Sweden",
+  "listad_sem": 8,
+  "seminarier": [
+   {
+    "year": 2023,
+    "arr": "Humtank naler",
+    "title": "Kan AI ersätta humanister?"
+   },
+   {
+    "year": 2023,
+    "arr": "Svensk PR, MyNewsdesk",
+    "title": "Jakten på sanningen"
+   },
+   {
+    "year": 2023,
+    "arr": "Sveriges Kommunikatörer",
+    "title": "AI:s påverkan på kommunikatörer – verktyg eller hot?"
+   },
+   {
+    "year": 2024,
+    "arr": "Atea Sverige AB",
+    "title": "AI - frälsare eller förgörare?"
+   },
+   {
+    "year": 2024,
+    "arr": "Resumé",
+    "title": "Effektivisera mera med AI i reklam – men vart går gränsen?"
+   },
+   {
+    "year": 2024,
+    "arr": "Samsung Electronics",
+    "title": "Hur förbereder vi oss på att AI flyttar in?"
+   },
+   {
+    "year": 2025,
+    "arr": "Reklamombudsmannen, Advokatfirman MarLaw, IAB Sverige",
+    "title": "AI-driven marknadsföring – vad är deepfake?"
+   },
+   {
+    "year": 2025,
+    "arr": "Svenskt Kvalitetsindex (SKI), SIQ - Swedish Institute for Quality",
+    "title": "AI – ett år senare - har det hänt något?"
+   }
+  ]
+ },
+ {
+  "namn": "Tobias Nilsson",
+  "titel": "Seniorkonsult (Life Science)",
+  "org": "Gullers Grupp",
+  "listad_sem": 8,
+  "seminarier": [
+   {
+    "year": 2024,
+    "arr": "AbbVie",
+    "title": "Migrän – var god dröj"
+   },
+   {
+    "year": 2024,
+    "arr": "Gedeon Richter",
+    "title": "Hur viktigt är miljöhänsyn vid val av läkemedel?"
+   },
+   {
+    "year": 2024,
+    "arr": "Ilmatar",
+    "title": "Storskalig solenergi i praktiken - hur kan vi gemensamt nå e"
+   },
+   {
+    "year": 2025,
+    "arr": "Dagens Medicin Agenda, Gedeon Richter",
+    "title": "Varför hamnar kvinnors hälsa sist i vårdkön?"
+   },
+   {
+    "year": 2025,
+    "arr": "Gedeon Richter",
+    "title": "Endometrios - från dold kvinnosjukdom till politisk priorite"
+   },
+   {
+    "year": 2025,
+    "arr": "Novartis",
+    "title": "Nationella strategin för Life Science – hur ökar vi takten i"
+   },
+   {
+    "year": 2026,
+    "arr": "Nordic Infucare",
+    "title": "Från vision till verklighet: Så accelererar vi personanpassa"
+   },
+   {
+    "year": 2026,
+    "arr": "Novartis",
+    "title": "Framtidens kunskapsstyrning – från administrativ pappersprod"
+   }
+  ]
+ }
+]

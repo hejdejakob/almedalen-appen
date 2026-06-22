@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Footer from '@/components/Footer';
+import SchemaTab from '@/components/SchemaTab';
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
@@ -163,9 +164,10 @@ function SpeakersContent() {
   const initialId = searchParams.get('id');
   const initialTab = searchParams.get('tab');
 
-  const [mode, setMode] = useState<'search' | 'amnen' | 'aktorer'>(() => {
+  const [mode, setMode] = useState<'search' | 'amnen' | 'aktorer' | 'schema'>(() => {
     if (initialTab === 'amnen') return 'amnen';
     if (initialTab === 'aktorer') return 'aktorer';
+    if (initialTab === 'schema') return 'schema';
     return 'search';
   });
 
@@ -174,10 +176,11 @@ function SpeakersContent() {
     initialTab === 'aktorer' && searchParams.get('id') ? parseInt(searchParams.get('id')!) : null
   );
 
-  const switchMode = (m: 'search' | 'amnen' | 'aktorer') => {
+  const switchMode = (m: 'search' | 'amnen' | 'aktorer' | 'schema') => {
     setMode(m);
     if (m === 'amnen') router.replace('/speakers?tab=amnen', { scroll: false });
     else if (m === 'aktorer') router.replace('/speakers?tab=aktorer', { scroll: false });
+    else if (m === 'schema') router.replace('/speakers?tab=schema', { scroll: false });
     else router.replace('/speakers', { scroll: false });
     setProfile(null);
     setEventDetail(null);
@@ -315,21 +318,21 @@ function SpeakersContent() {
         backgroundColor: '#000',
         color: '#fff',
         padding: isMobile ? '1.25rem 0' : '2rem 0',
-        borderBottom: '4px solid #ff6632',
+        borderBottom: '4px solid #fb531a',
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1 style={{ fontFamily: 'var(--font-formula)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: 0 }}>
-              {mode === 'amnen' ? 'ÄMNESSÖK' : mode === 'aktorer' ? 'AKTÖRSSÖK' : 'TALARSÖK'}
+              {mode === 'amnen' ? 'ÄMNESSÖK' : mode === 'aktorer' ? 'AKTÖRSSÖK' : mode === 'schema' ? 'FÖLJ PERSON' : 'TALARSÖK'}
             </h1>
             {!isMobile && (
               <p style={{ fontSize: '1rem', opacity: 0.7, marginTop: '0.5rem' }}>
-                {mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
+                {mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : mode === 'schema' ? 'Var är personen i Almedalen 2026 – dag för dag, timme för timme' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
               </p>
             )}
           </div>
           <a href="/" style={{
-            color: '#ff6632',
+            color: '#fb531a',
             textDecoration: 'none',
             fontSize: isMobile ? '0.8rem' : '0.9rem',
             fontWeight: 600,
@@ -355,6 +358,7 @@ function SpeakersContent() {
             { key: 'search' as const, label: 'Talarsök' },
             { key: 'amnen' as const, label: 'Ämnessök' },
             { key: 'aktorer' as const, label: 'Aktörssök' },
+            { key: 'schema' as const, label: 'Schema / Följ' },
           ]).map(tab => (
             <button
               key={tab.key}
@@ -367,7 +371,7 @@ function SpeakersContent() {
                 fontSize: '0.95rem',
                 fontWeight: mode === tab.key ? 700 : 500,
                 color: mode === tab.key ? '#000' : '#666',
-                borderBottom: mode === tab.key ? '3px solid #ff6632' : '3px solid transparent',
+                borderBottom: mode === tab.key ? '3px solid #fb531a' : '3px solid transparent',
                 marginBottom: '-2px',
                 fontFamily: 'var(--body-text)',
                 flexShrink: 0,
@@ -469,7 +473,7 @@ function SpeakersContent() {
                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                             <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>{s.name}</div>
                             <span style={{
-                              backgroundColor: '#ff6632',
+                              backgroundColor: '#fb531a',
                               color: '#fff',
                               padding: '0.15rem 0.5rem',
                               borderRadius: '10px',
@@ -534,6 +538,9 @@ function SpeakersContent() {
                   else router.replace('/speakers?tab=aktorer', { scroll: false });
                 }}
               />
+            )}
+            {mode === 'schema' && (
+              <SchemaTab />
             )}
           </>
         )}
@@ -664,12 +671,12 @@ function PoliticalProfileSection({ profile, label, sector }: {
             />
           )}
           {/* This org/person dot */}
-          <circle cx={toX(profile.lrecon)} cy={toY(profile.galtan)} r="10" fill="#ff6632" stroke="#fff" strokeWidth="2.5" />
+          <circle cx={toX(profile.lrecon)} cy={toY(profile.galtan)} r="10" fill="#fb531a" stroke="#fff" strokeWidth="2.5" />
         </svg>
         {/* Legend */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '0.5rem', fontSize: '0.75rem', color: '#666' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ff6632', display: 'inline-block', flexShrink: 0 }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#fb531a', display: 'inline-block', flexShrink: 0 }} />
             Denna organisation
           </span>
           {sectorAvg && sector && (
@@ -725,7 +732,7 @@ function ProfileView({
         style={{
           background: 'none',
           border: 'none',
-          color: '#ff6632',
+          color: '#fb531a',
           fontWeight: 600,
           fontSize: '0.95rem',
           cursor: 'pointer',
@@ -783,7 +790,7 @@ function ProfileView({
               textAlign: 'center',
               border: '1px solid #e0dcc8',
             }}>
-              <div style={{ fontFamily: 'var(--font-formula)', fontSize: '1.8rem', color: '#ff6632', fontWeight: 700 }}>
+              <div style={{ fontFamily: 'var(--font-formula)', fontSize: '1.8rem', color: '#fb531a', fontWeight: 700 }}>
                 {item.value}
               </div>
               <div style={{ fontSize: '0.75rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.25rem' }}>
@@ -812,7 +819,7 @@ function ProfileView({
                     <div style={{
                       width: '100%',
                       height: `${Math.max(height * 0.5, count > 0 ? 4 : 0)}px`,
-                      backgroundColor: count > 0 ? '#ff6632' : '#e0dcc8',
+                      backgroundColor: count > 0 ? '#fb531a' : '#e0dcc8',
                       borderRadius: '2px 2px 0 0',
                       minHeight: count > 0 ? '4px' : '2px',
                     }} />
@@ -900,7 +907,7 @@ function ProfileView({
                       <span
                         onClick={() => onOpenEvent(s.id)}
                         style={{ cursor: 'pointer', borderBottom: '1px solid #ccc' }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = '#ff6632'; e.currentTarget.style.borderColor = '#ff6632'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = '#fb531a'; e.currentTarget.style.borderColor = '#fb531a'; }}
                         onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
                       >
                         {s.title}
@@ -999,7 +1006,7 @@ function ProfileView({
                   )}
                 </div>
                 <span style={{
-                  backgroundColor: '#ff6632',
+                  backgroundColor: '#fb531a',
                   color: '#fff',
                   padding: '0.15rem 0.5rem',
                   borderRadius: '10px',
@@ -1063,7 +1070,7 @@ function ProfileView({
                   <span style={{ fontWeight: 600 }}>{org.name}</span>
                 </div>
                 <span style={{
-                  backgroundColor: '#ff6632',
+                  backgroundColor: '#fb531a',
                   color: '#fff',
                   padding: '0.15rem 0.5rem',
                   borderRadius: '10px',
@@ -1237,7 +1244,7 @@ function EventDetailView({
         style={{
           background: 'none',
           border: 'none',
-          color: '#ff6632',
+          color: '#fb531a',
           fontWeight: 600,
           fontSize: '0.95rem',
           cursor: 'pointer',
@@ -1377,7 +1384,7 @@ function EventDetailView({
         {/* Source URL */}
         {event.url && (
           <div style={{ marginTop: '1rem' }}>
-            <a href={event.url} target="_blank" rel="noopener noreferrer" style={{ color: '#ff6632', fontSize: '0.85rem', fontWeight: 600 }}>
+            <a href={event.url} target="_blank" rel="noopener noreferrer" style={{ color: '#fb531a', fontSize: '0.85rem', fontWeight: 600 }}>
               Visa på almedalsveckan.info →
             </a>
           </div>
@@ -1627,7 +1634,7 @@ function AmnesTab({
           style={{
             background: 'none',
             border: 'none',
-            color: '#ff6632',
+            color: '#fb531a',
             fontWeight: 600,
             fontSize: '0.95rem',
             cursor: 'pointer',
@@ -1679,7 +1686,7 @@ function AmnesTab({
                             <div style={{
                               width: '100%',
                               height: `${Math.max(height * 0.7, count > 0 ? 4 : 0)}px`,
-                              backgroundColor: count > 0 ? '#ff6632' : '#e0dcc8',
+                              backgroundColor: count > 0 ? '#fb531a' : '#e0dcc8',
                               borderRadius: '2px 2px 0 0',
                               minHeight: count > 0 ? '4px' : '2px',
                             }} />
@@ -1791,7 +1798,7 @@ function AmnesTab({
                         )}
                       </div>
                       <span style={{
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                         color: '#fff',
                         padding: '0.15rem 0.5rem',
                         borderRadius: '10px',
@@ -1874,7 +1881,7 @@ function AmnesTab({
                         )}
                       </div>
                       <span style={{
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                         color: '#fff',
                         padding: '0.15rem 0.5rem',
                         borderRadius: '10px',
@@ -2001,7 +2008,7 @@ type ArrangerProfileData = {
     agendaPower: number;
   };
   perYear: { year: number; events: number; panelSlotsGiven: number }[];
-  seminars: { id: number; year: number; title: string; topic: string | null; location: string | null }[];
+  seminars: { id: number; year: number; title: string; topic: string | null; location: string | null; role: string }[];
   topTopics: { topic: string; count: number }[];
   topSpeakers: { id: number; name: string; title: string | null; org: string | null; category: string | null; sharedEvents: number }[];
   topArenas: { name: string; eventCount: number }[];
@@ -2115,7 +2122,7 @@ function AktorerTab({
           style={{
             background: 'none',
             border: 'none',
-            color: '#ff6632',
+            color: '#fb531a',
             fontWeight: 600,
             fontSize: '0.95rem',
             cursor: 'pointer',
@@ -2171,7 +2178,7 @@ function AktorerTab({
                     textAlign: 'center',
                     border: '1px solid #e0dcc8',
                   }}>
-                    <div style={{ fontFamily: 'var(--font-formula)', fontSize: '1.8rem', color: '#ff6632', fontWeight: 700 }}>
+                    <div style={{ fontFamily: 'var(--font-formula)', fontSize: '1.8rem', color: '#fb531a', fontWeight: 700 }}>
                       {item.value}
                     </div>
                     <div style={{ fontSize: '0.75rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.25rem' }}>
@@ -2190,7 +2197,7 @@ function AktorerTab({
                       Seminarier per år
                     </div>
                     <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '60px' }}>
-                      {[2022, 2023, 2024, 2025].map(year => {
+                      {[...arrangerProfile.perYear.map(p => p.year)].sort((a, b) => a - b).map(year => {
                         const entry = arrangerProfile.perYear.find(p => p.year === year);
                         const count = entry?.events || 0;
                         const height = count > 0 ? (count / maxEvents) * 100 : 0;
@@ -2202,7 +2209,7 @@ function AktorerTab({
                             <div style={{
                               width: '100%',
                               height: `${Math.max(height * 0.5, count > 0 ? 4 : 0)}px`,
-                              backgroundColor: count > 0 ? '#ff6632' : '#e0dcc8',
+                              backgroundColor: count > 0 ? '#fb531a' : '#e0dcc8',
                               borderRadius: '2px 2px 0 0',
                               minHeight: count > 0 ? '4px' : '2px',
                             }} />
@@ -2218,7 +2225,7 @@ function AktorerTab({
 
             {/* Seminars list */}
             {arrangerProfile.seminars && arrangerProfile.seminars.length > 0 && (() => {
-              const arrangerYears = [2022, 2023, 2024, 2025];
+              const arrangerYears = [...new Set(arrangerProfile.seminars.map(s => s.year))].sort((a, b) => a - b);
               const filteredArrangerSeminars = arrangerSelectedYear
                 ? arrangerProfile.seminars.filter(s => s.year === arrangerSelectedYear)
                 : arrangerProfile.seminars;
@@ -2292,13 +2299,18 @@ function AktorerTab({
                           {filteredArrangerSeminars.map((s, i) => (
                             <tr key={`${s.id}-${i}`} style={{ borderBottom: '1px solid #eee' }}>
                               <td style={{ padding: '0.5rem', fontWeight: 600, whiteSpace: 'nowrap' }}>{s.year}</td>
-                              <td style={{ padding: '0.5rem' }}>{s.title}</td>
+                              <td style={{ padding: '0.5rem' }}>
+                                {s.title}
+                                {s.role === 'medarrangör' && (
+                                  <span style={{ marginLeft: '0.5rem', fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', color: '#8a1f1f', border: '1px solid #8a1f1f', borderRadius: '10px', padding: '1px 6px', whiteSpace: 'nowrap' }}>medarr.</span>
+                                )}
+                              </td>
                               <td style={{ padding: '0.5rem', whiteSpace: 'nowrap' }}>
                                 {s.topic ? (
                                   <span
                                     onClick={() => onOpenTopic(s.topic!)}
                                     style={{ cursor: 'pointer', borderBottom: '1px solid #ccc' }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.color = '#ff6632'; e.currentTarget.style.borderColor = '#ff6632'; }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.color = '#fb531a'; e.currentTarget.style.borderColor = '#fb531a'; }}
                                     onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; e.currentTarget.style.borderColor = '#ccc'; }}
                                   >
                                     {formatTopic(s.topic)}
@@ -2420,7 +2432,7 @@ function AktorerTab({
                         )}
                       </div>
                       <span style={{
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                         color: '#fff',
                         padding: '0.15rem 0.5rem',
                         borderRadius: '10px',
@@ -2484,7 +2496,7 @@ function AktorerTab({
                         <span style={{ fontWeight: 600 }}>{org.name}</span>
                       </div>
                       <span style={{
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                         color: '#fff',
                         padding: '0.15rem 0.5rem',
                         borderRadius: '10px',
@@ -2626,7 +2638,7 @@ function AktorerTab({
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                   <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>{a.name}</div>
                   <span style={{
-                    backgroundColor: '#ff6632',
+                    backgroundColor: '#fb531a',
                     color: '#fff',
                     padding: '0.15rem 0.5rem',
                     borderRadius: '10px',

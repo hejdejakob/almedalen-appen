@@ -6,8 +6,11 @@ import { usePathname } from 'next/navigation';
 const CORRECT_PASSWORD = 'ReformSociety2026';
 const STORAGE_KEY = 'rs-auth';
 
-// Pages that are PUBLIC (no password)
-const PUBLIC_PATHS = ['/', '/om', '/dashboard', '/arenaguiden', '/integritetspolicy'];
+// Pages that are PUBLIC for klient-grinden (no lightbox).
+// /speakers skyddas redan server-side av middleware.ts (HTTP Basic Auth) — den
+// gatar även API:erna. Klient-lightboxen där var en andra, redundant ruta, så
+// /speakers undantas: en enda lösenordsruta (Basic Auth) gäller där.
+const PUBLIC_PATHS = ['/', '/om', '/dashboard', '/arenaguiden', '/integritetspolicy', '/speakers', '/better-shelter'];
 
 const SELL_POINTS = [
   'Sök bland 16 500+ talare och 3 000+ organisationer',
@@ -74,7 +77,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
         {/* Lightbox */}
         <div style={{
           backgroundColor: '#000',
-          border: '2px solid #ff6632',
+          border: '2px solid #fb531a',
           borderRadius: '8px',
           boxShadow: '0 0 60px rgba(255, 102, 50, 0.2)',
           padding: 'clamp(1.25rem, 3vw, 2.5rem)',
@@ -89,7 +92,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
           <div style={{
             fontFamily: 'var(--font-formula)',
             fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
-            color: '#ff6632',
+            color: '#fb531a',
             marginBottom: '0.15rem',
             letterSpacing: '0.05em',
           }}>
@@ -122,7 +125,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
                 color: '#ccc',
                 lineHeight: 1.4,
               }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', backgroundColor: '#ff6632', flexShrink: 0, marginTop: '5px' }} />
+                <span style={{ width: 5, height: 5, borderRadius: '50%', backgroundColor: '#fb531a', flexShrink: 0, marginTop: '5px' }} />
                 {point}
               </div>
             ))}
@@ -165,7 +168,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
             )}
             <button type="submit" style={{
               padding: '0.6rem 2rem',
-              backgroundColor: '#ff6632',
+              backgroundColor: '#fb531a',
               color: '#fff',
               border: 'none',
               borderRadius: '4px',
@@ -191,7 +194,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
             lineHeight: 1.5,
           }}>
             Ingen tillgång?{' '}
-            <a href="mailto:jakob.ohlsson@reformsociety.se" style={{ color: '#ff6632', textDecoration: 'none', fontWeight: 600 }}>
+            <a href="mailto:jakob.ohlsson@reformsociety.se" style={{ color: '#fb531a', textDecoration: 'none', fontWeight: 600 }}>
               Kontakta Jakob Ohlsson
             </a>
           </div>

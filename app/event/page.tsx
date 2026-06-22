@@ -161,7 +161,7 @@ export default function EventPage() {
           fontSize: '0.75rem',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
-          color: '#ff6632',
+          color: '#fb531a',
           marginBottom: '0.75rem',
           fontWeight: 600,
         }}>
@@ -290,7 +290,7 @@ export default function EventPage() {
               <div style={{
                 fontFamily: 'var(--font-formula)',
                 fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-                color: '#ff6632',
+                color: '#fb531a',
                 lineHeight: 1,
               }}>
                 {s.value}
@@ -415,7 +415,7 @@ export default function EventPage() {
                     onClick={() => setExpandedCardId(isExpanded ? null : node.id)}
                     style={{
                       backgroundColor: isExpanded ? '#222' : '#1a1a1a',
-                      border: `1px solid ${isExpanded ? '#ff6632' : '#333'}`,
+                      border: `1px solid ${isExpanded ? '#fb531a' : '#333'}`,
                       borderRadius: '10px',
                       padding: 'clamp(0.75rem, 2vw, 1rem)',
                       transition: 'border-color 0.2s, background-color 0.2s',
@@ -501,7 +501,7 @@ export default function EventPage() {
                                       {[spk.title, spk.org].filter(Boolean).join(', ')}
                                     </span>
                                   )}
-                                  <span style={{ color: '#ff6632', marginLeft: '0.4rem', fontSize: '0.65rem' }}>
+                                  <span style={{ color: '#fb531a', marginLeft: '0.4rem', fontSize: '0.65rem' }}>
                                     {spk.events} event
                                   </span>
                                 </div>
@@ -526,7 +526,7 @@ export default function EventPage() {
                                   color: '#ccc',
                                   border: '1px solid #3a3a3a',
                                 }}>
-                                  {conn.name} <span style={{ color: '#ff6632' }}>({conn.weight})</span>
+                                  {conn.name} <span style={{ color: '#fb531a' }}>({conn.weight})</span>
                                 </span>
                               ))}
                               {connections.length > 8 && (
@@ -546,7 +546,7 @@ export default function EventPage() {
                             display: 'inline-block',
                             marginTop: '0.3rem',
                             fontSize: '0.75rem',
-                            color: '#ff6632',
+                            color: '#fb531a',
                             textDecoration: 'none',
                             fontWeight: 600,
                           }}
@@ -571,7 +571,7 @@ export default function EventPage() {
           <h2 style={{
             fontFamily: 'var(--font-formula)',
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-            color: '#ff6632',
+            color: '#fb531a',
             marginBottom: '1.5rem',
           }}>
             ERA FRÅGOR
@@ -598,7 +598,7 @@ export default function EventPage() {
                       <div style={{
                         width: `${(t.events / maxEvents) * 100}%`,
                         height: '100%',
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                         borderRadius: '4px',
                         minWidth: '4px',
                       }} />
@@ -623,7 +623,7 @@ export default function EventPage() {
           <h2 style={{
             fontFamily: 'var(--font-formula)',
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-            color: '#ff6632',
+            color: '#fb531a',
             marginBottom: '1.5rem',
           }}>
             PERSONEN SOM BINDER ER SAMMAN
@@ -640,7 +640,7 @@ export default function EventPage() {
                     color: 'inherit',
                     backgroundColor: '#1a1a1a',
                     border: '1px solid #333',
-                    borderLeft: isHero ? '4px solid #ff6632' : '1px solid #333',
+                    borderLeft: isHero ? '4px solid #fb531a' : '1px solid #333',
                     padding: isHero ? '1.5rem' : '1.25rem',
                     borderRadius: '8px',
                     transition: 'border-color 0.2s',
@@ -663,7 +663,7 @@ export default function EventPage() {
                   </div>
                   <div style={{
                     fontSize: isHero ? '0.85rem' : '0.75rem',
-                    color: '#ff6632',
+                    color: '#fb531a',
                     fontWeight: 600,
                     marginBottom: '0.4rem',
                   }}>
@@ -692,7 +692,7 @@ export default function EventPage() {
           <h2 style={{
             fontFamily: 'var(--font-formula)',
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-            color: '#ff6632',
+            color: '#fb531a',
             marginBottom: '1.5rem',
           }}>
             TRENDER &mdash; VEM V&Auml;XER?
@@ -736,7 +736,7 @@ export default function EventPage() {
                         <div style={{
                           width: '100%',
                           height: `${(values[i] / maxVal) * 36}px`,
-                          backgroundColor: '#ff6632',
+                          backgroundColor: '#fb531a',
                           borderRadius: '2px',
                           minHeight: values[i] > 0 ? '3px' : '0',
                         }} />
@@ -760,7 +760,7 @@ export default function EventPage() {
           <h2 style={{
             fontFamily: 'var(--font-formula)',
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-            color: '#ff6632',
+            color: '#fb531a',
             marginBottom: '1.5rem',
           }}>
             TONL&Auml;GE
@@ -829,7 +829,7 @@ export default function EventPage() {
         lineHeight: 1.6,
       }}>
         <div style={{ marginBottom: '0.5rem' }}>
-          Data: <span style={{ color: '#ff6632' }}>Almedalsdata.se</span> — Reform Society, 2026
+          Data: <span style={{ color: '#fb531a' }}>Almedalsdata.se</span> — Reform Society, 2026
         </div>
         <div>
           Baserat p{'\u00e5'} 9 407 seminarier, 16 509 talare, 2022–2025.
@@ -845,7 +845,7 @@ function EdgeDetailPanel({ edge, onClose }: { edge: SelectedEdge; onClose: () =>
   return (
     <div style={{
       backgroundColor: '#1a1a1a',
-      borderLeft: '3px solid #ff6632',
+      borderLeft: '3px solid #fb531a',
       borderRadius: '8px',
       padding: '1.5rem',
       marginTop: '1rem',
@@ -858,8 +858,8 @@ function EdgeDetailPanel({ edge, onClose }: { edge: SelectedEdge; onClose: () =>
           </div>
           <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 700 }}>
             {edge.sharedSpeakers.length} gemensamma talare mellan{' '}
-            <span style={{ color: '#ff6632' }}>{edge.sourceName}</span> och{' '}
-            <span style={{ color: '#ff6632' }}>{edge.targetName}</span>
+            <span style={{ color: '#fb531a' }}>{edge.sourceName}</span> och{' '}
+            <span style={{ color: '#fb531a' }}>{edge.targetName}</span>
           </h3>
         </div>
         <button
@@ -923,7 +923,7 @@ function NodeDetailPanel({
   return (
     <div style={{
       backgroundColor: '#1a1a1a',
-      borderLeft: '3px solid #ff6632',
+      borderLeft: '3px solid #fb531a',
       borderRadius: '8px',
       padding: '1.5rem',
       marginTop: '1rem',
@@ -1015,7 +1015,7 @@ function NodeDetailPanel({
                   </span>
                 )}
                 {spk.events && (
-                  <span style={{ color: '#ff6632', marginLeft: '0.5rem', fontSize: '0.7rem' }}>
+                  <span style={{ color: '#fb531a', marginLeft: '0.5rem', fontSize: '0.7rem' }}>
                     {spk.events} event
                   </span>
                 )}
@@ -1041,7 +1041,7 @@ function NodeDetailPanel({
                 color: '#ccc',
                 border: '1px solid #3a3a3a',
               }}>
-                {conn.name} <span style={{ color: '#ff6632' }}>({conn.weight})</span>
+                {conn.name} <span style={{ color: '#fb531a' }}>({conn.weight})</span>
               </span>
             ))}
           </div>
@@ -1054,7 +1054,7 @@ function NodeDetailPanel({
         style={{
           display: 'inline-block',
           fontSize: '0.85rem',
-          color: '#ff6632',
+          color: '#fb531a',
           textDecoration: 'none',
           fontWeight: 600,
         }}
@@ -1165,7 +1165,7 @@ function NetworkGraph({
             l.source.id === d.id || l.target.id === d.id ? 0.8 : 0.03
           )
           .attr('stroke', (l: any) =>
-            l.source.id === d.id || l.target.id === d.id ? '#ff6632' : '#555'
+            l.source.id === d.id || l.target.id === d.id ? '#fb531a' : '#555'
           );
 
         edgeLabel.attr('opacity', (l: any) =>
@@ -1462,8 +1462,8 @@ function VenueMapSection({ venueData }: { venueData: VenueItem[] }) {
           const radius = Math.sqrt(v.events) * 3;
           L.circleMarker([matched.lat, matched.lng], {
             radius: Math.max(radius, 4),
-            fillColor: '#ff6632',
-            color: '#ff6632',
+            fillColor: '#fb531a',
+            color: '#fb531a',
             weight: 1,
             opacity: 0.8,
             fillOpacity: 0.6,
@@ -1494,7 +1494,7 @@ function VenueMapSection({ venueData }: { venueData: VenueItem[] }) {
       <h2 style={{
         fontFamily: 'var(--font-formula)',
         fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-        color: '#ff6632',
+        color: '#fb531a',
         marginBottom: '1.5rem',
       }}>
         VAR I VISBY?

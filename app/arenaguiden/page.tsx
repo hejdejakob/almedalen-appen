@@ -92,7 +92,7 @@ function YearSparkline({ yearlyEvents }: { yearlyEvents: Record<string, number> 
           title={`${year}: ${values[i]} events`}
           style={{
             flex: 1,
-            backgroundColor: values[i] > 0 ? '#ff6632' : '#e5e0d3',
+            backgroundColor: values[i] > 0 ? '#fb531a' : '#e5e0d3',
             height: `${Math.max((values[i] / max) * 100, values[i] > 0 ? 8 : 4)}%`,
             borderRadius: '2px 2px 0 0',
             minHeight: values[i] > 0 ? '4px' : '2px',
@@ -190,7 +190,7 @@ function ArenaCard({ arena, onClick }: { arena: ArenaData; onClick: () => void }
       {/* Stats row */}
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '50px' }}>
-          <span style={{ fontFamily: 'var(--font-formula)', fontSize: '1.35rem', color: '#ff6632', lineHeight: 1 }}>
+          <span style={{ fontFamily: 'var(--font-formula)', fontSize: '1.35rem', color: '#fb531a', lineHeight: 1 }}>
             {arena.totalEvents}
           </span>
           <span style={{ fontSize: '0.7rem', color: '#666', marginTop: '2px' }}>events</span>
@@ -270,7 +270,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
         style={{
           background: 'none',
           border: 'none',
-          color: '#ff6632',
+          color: '#fb531a',
           fontSize: '0.95rem',
           fontWeight: 600,
           cursor: 'pointer',
@@ -301,7 +301,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
         <span style={{
           fontFamily: 'var(--font-formula)',
           fontSize: '1.1rem',
-          color: '#ff6632',
+          color: '#fb531a',
         }}>
           {detail.totalEvents} events totalt
         </span>
@@ -314,11 +314,11 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
               const val = detail.perYear[year] || 0;
               return (
                 <div key={year} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%', justifyContent: 'flex-end' }}>
-                  <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ff6632', marginBottom: '4px' }}>{val}</span>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#fb531a', marginBottom: '4px' }}>{val}</span>
                   <div style={{
                     width: '100%',
                     maxWidth: '60px',
-                    backgroundColor: val > 0 ? '#ff6632' : '#e5e0d3',
+                    backgroundColor: val > 0 ? '#fb531a' : '#e5e0d3',
                     height: `${Math.max((val / maxYearVal) * 100, val > 0 ? 8 : 4)}%`,
                     borderRadius: '4px 4px 0 0',
                     minHeight: val > 0 ? '6px' : '3px',
@@ -363,7 +363,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
                   {SECTOR_LABELS[sector] || sector}
                 </span>
                 <span style={{
-                  backgroundColor: '#ff6632',
+                  backgroundColor: '#fb531a',
                   color: '#fff',
                   padding: '0.15rem 0.5rem',
                   borderRadius: '10px',
@@ -425,7 +425,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
                 {arr.name}
               </span>
               <span style={{
-                backgroundColor: '#ff6632',
+                backgroundColor: '#fb531a',
                 color: '#fff',
                 padding: '0.15rem 0.5rem',
                 borderRadius: '10px',
@@ -478,7 +478,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
                 {formatTopic(t.topic)}
               </span>
               <span style={{
-                backgroundColor: '#ff6632',
+                backgroundColor: '#fb531a',
                 color: '#fff',
                 padding: '0.15rem 0.5rem',
                 borderRadius: '10px',
@@ -536,7 +536,7 @@ function ArenaDetailView({ detail, onClose }: { detail: ArenaDetail; onClose: ()
                 )}
               </div>
               <span style={{
-                backgroundColor: '#ff6632',
+                backgroundColor: '#fb531a',
                 color: '#fff',
                 padding: '0.15rem 0.5rem',
                 borderRadius: '10px',
@@ -606,8 +606,8 @@ export default function ArenaGuidenPage() {
   const filterBtnStyle = (active: boolean): React.CSSProperties => ({
     padding: '0.4rem 0.9rem',
     borderRadius: '20px',
-    border: active ? '2px solid #ff6632' : '2px solid #ddd',
-    backgroundColor: active ? '#ff6632' : '#fff',
+    border: active ? '2px solid #fb531a' : '2px solid #ddd',
+    backgroundColor: active ? '#fb531a' : '#fff',
     color: active ? '#fff' : '#444',
     fontWeight: active ? 700 : 400,
     fontSize: '0.85rem',
@@ -636,11 +636,11 @@ export default function ArenaGuidenPage() {
         backgroundColor: '#000',
         color: '#fff',
         padding: '2rem 0',
-        borderBottom: '4px solid #ff6632',
+        borderBottom: '4px solid #fb531a',
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
           <a href="/" style={{
-            color: '#ff6632',
+            color: '#fb531a',
             textDecoration: 'none',
             fontSize: '0.9rem',
             fontWeight: 600,
@@ -743,8 +743,8 @@ export default function ArenaGuidenPage() {
                 fontFamily: 'inherit',
                 fontWeight: !sectorFilter ? 700 : 400,
                 transition: 'all 0.15s',
-                border: !sectorFilter ? '2px solid #ff6632' : '2px solid #ddd',
-                backgroundColor: !sectorFilter ? '#ff6632' : '#fff',
+                border: !sectorFilter ? '2px solid #fb531a' : '2px solid #ddd',
+                backgroundColor: !sectorFilter ? '#fb531a' : '#fff',
                 color: !sectorFilter ? '#fff' : '#444',
               }}
             >
@@ -821,7 +821,7 @@ export default function ArenaGuidenPage() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#ff6632',
+                  color: '#fb531a',
                   fontSize: '0.95rem',
                   fontWeight: 600,
                   cursor: 'pointer',

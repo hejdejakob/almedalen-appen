@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-rs-orange: #ff6632;
+  --color-rs-orange: #fb531a;
   --color-rs-lila: #8671ff;
   --color-rs-gron: #02bb4a;
   --color-rs-guld: #9e8c58;
@@ -13,7 +13,7 @@
 }
 
 :root {
-  --rs-orange: #ff6632;
+  --rs-orange: #fb531a;
   --rs-lila: #8671ff;
   --rs-grön: #02bb4a;
   --rs-guld: #9e8c58;

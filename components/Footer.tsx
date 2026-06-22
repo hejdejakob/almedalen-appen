@@ -42,7 +42,7 @@ export default function Footer() {
         <div style={{ fontSize: '0.85rem', lineHeight: 1.8, color: '#ccc' }}>
           <div>Hornsgatan 54, 118 21 Stockholm</div>
           <div>
-            <a href="mailto:info@reformsociety.se" style={{ color: '#ff6632', textDecoration: 'none' }}>
+            <a href="mailto:info@reformsociety.se" style={{ color: '#fb531a', textDecoration: 'none' }}>
               info@reformsociety.se
             </a>
           </div>

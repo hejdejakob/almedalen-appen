@@ -82,7 +82,7 @@ const RS_TEAM = [
   { id: 136, name: 'Kim Nilke Nordlund', title: null, panels: 2, role: 'VD' },
 ];
 
-function MiniSparkline({ data, color = '#ff6632' }: { data: Record<string, number>; color?: string }) {
+function MiniSparkline({ data, color = '#fb531a' }: { data: Record<string, number>; color?: string }) {
   const years = ['2022', '2023', '2024', '2025'];
   const values = years.map(y => data[y] || 0);
   const max = Math.max(...values, 1);
@@ -146,7 +146,7 @@ function TopicBar({ topic, count, maxCount }: { topic: string; count: number; ma
         <div style={{
           width: `${pct}%`,
           height: '100%',
-          backgroundColor: '#ff6632',
+          backgroundColor: '#fb531a',
           borderRadius: '3px',
           transition: 'width 0.5s ease',
         }} />
@@ -183,7 +183,7 @@ export default function TeamPage() {
             width: '32px',
             height: '32px',
             border: '3px solid #333',
-            borderTopColor: '#ff6632',
+            borderTopColor: '#fb531a',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite',
             margin: '0 auto 1rem',
@@ -223,7 +223,7 @@ export default function TeamPage() {
           fontSize: '0.75rem',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
-          color: '#ff6632',
+          color: '#fb531a',
           marginBottom: '0.75rem',
           fontWeight: 600,
         }}>
@@ -267,7 +267,7 @@ export default function TeamPage() {
                 fontSize: '0.65rem',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: '#ff6632',
+                color: '#fb531a',
                 marginBottom: '0.5rem',
                 fontWeight: 600,
               }}>
@@ -293,9 +293,9 @@ export default function TeamPage() {
                 display: 'inline-block',
                 fontSize: '0.75rem',
                 fontWeight: 600,
-                color: '#ff6632',
+                color: '#fb531a',
                 textDecoration: 'none',
-                border: '1px solid #ff6632',
+                border: '1px solid #fb531a',
                 padding: '0.4rem 1rem',
                 borderRadius: '4px',
                 whiteSpace: 'nowrap',
@@ -376,7 +376,7 @@ export default function TeamPage() {
                       <div style={{
                         width: `${((data.perYear[y] || 0) / Math.max(...Object.values(data.perYear), 1)) * 100}%`,
                         height: '100%',
-                        backgroundColor: '#ff6632',
+                        backgroundColor: '#fb531a',
                         borderRadius: '2px',
                       }} />
                     </div>
@@ -517,7 +517,7 @@ export default function TeamPage() {
                   transition: 'border-color 0.15s, background-color 0.15s',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = '#ff6632';
+                  e.currentTarget.style.borderColor = '#fb531a';
                   e.currentTarget.style.backgroundColor = '#1a1a1a';
                 }}
                 onMouseLeave={e => {
@@ -533,7 +533,7 @@ export default function TeamPage() {
                 }}>
                   {member.name}
                 </p>
-                <p style={{ fontSize: '0.75rem', color: '#ff6632', margin: '0 0 0.5rem', fontWeight: 500 }}>
+                <p style={{ fontSize: '0.75rem', color: '#fb531a', margin: '0 0 0.5rem', fontWeight: 500 }}>
                   {member.role}
                 </p>
                 <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>
