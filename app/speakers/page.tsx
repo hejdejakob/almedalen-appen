@@ -327,7 +327,7 @@ function SpeakersContent() {
             </h1>
             {!isMobile && (
               <p style={{ fontSize: '1rem', opacity: 0.7, marginTop: '0.5rem' }}>
-                {mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : mode === 'schema' ? 'Var är personen i Almedalen 2026 – dag för dag, timme för timme' : 'Sök bland 16 509 paneldeltagare från Almedalsveckan 2022–2025'}
+                {mode === 'amnen' ? 'Vad pratar Almedalen om?' : mode === 'aktorer' ? 'Vem gör vad i Almedalen?' : mode === 'schema' ? 'Var är personen i Almedalen 2026 – dag för dag, timme för timme' : 'Sök bland 16 500+ paneldeltagare från Almedalsveckan 2022–2026'}
               </p>
             )}
           </div>
@@ -1663,7 +1663,7 @@ function AmnesTab({
                 {formatTopic(detail.topic)}
               </h2>
               <p style={{ color: '#666', margin: 0, fontSize: '1.05rem' }}>
-                {detail.totalEvents} seminarier totalt (2022–2025)
+                {detail.totalEvents} seminarier totalt (2022–2026)
               </p>
 
               {/* Per-year bars */}
@@ -1675,7 +1675,7 @@ function AmnesTab({
                       Seminarier per år
                     </div>
                     <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '80px' }}>
-                      {[2022, 2023, 2024, 2025].map(year => {
+                      {[...detail.perYear.map(p => p.year)].sort((a, b) => a - b).map(year => {
                         const entry = detail.perYear.find(p => p.year === year);
                         const count = entry?.count || 0;
                         const height = count > 0 ? (count / maxCount) * 100 : 0;

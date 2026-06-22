@@ -1462,9 +1462,12 @@ async function getSpeakerGuide() {
 }
 
 async function getTopicDetail(topic: string) {
+  // Ämnesvyn ska visa 2026 (topic_year_stats har 2026). Lokalt år-set så att
+  // resten av dashboard-endpointen (trendsidorna) lämnas på avslutade år.
+  const TOPIC_YEARS = [...VISIBLE_YEARS, 2026];
   // 1. perYear from topic_year_stats
   const perYearData = await fetchAll('topic_year_stats', 'topic, year, event_count', q =>
-    q.eq('topic', topic).in('year', VISIBLE_YEARS)
+    q.eq('topic', topic).in('year', TOPIC_YEARS)
   );
   const perYear = perYearData
     .map((r: any) => ({ year: r.year, count: r.event_count }))
@@ -1485,7 +1488,7 @@ async function getTopicDetail(topic: string) {
 
   const eventYear = new Map(events.map((e: any) => [e.id, e.year]));
   const visibleEventIds = new Set(
-    events.filter((e: any) => VISIBLE_YEARS.includes(e.year)).map((e: any) => e.id)
+    events.filter((e: any) => TOPIC_YEARS.includes(e.year)).map((e: any) => e.id)
   );
 
   // Event IDs matching this topic in visible years
