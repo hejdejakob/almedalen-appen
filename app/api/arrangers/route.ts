@@ -7,7 +7,9 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
+// 2026 inkluderat: arranger_stats innehåller 2026 och kundvyn ska visa årets pass.
+// (Endast arrangörsvyn — dashboard/galtan/nätverk lämnas på avslutade år tills vidare.)
+const VISIBLE_YEARS = [2022, 2023, 2024, 2025, 2026];
 
 // CHES 2024 Swedish party scores
 const CHES_SCORES: Record<string, { lrecon: number; galtan: number }> = {
