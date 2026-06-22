@@ -720,7 +720,7 @@ function ProfileView({
   }
 
   const { speaker, stats, seminars, coPanelists, topOrganizations, topTopics, topArenas, politicalProfile } = profile;
-  const years = [2022, 2023, 2024, 2025];
+  const years = [...new Set(seminars.map(s => s.year))].sort((a, b) => a - b);
   const maxPanels = Math.max(...stats.perYear.map(s => s.panel_count), 1);
   const filteredSeminars = selectedYear
     ? seminars.filter(s => s.year === selectedYear)
