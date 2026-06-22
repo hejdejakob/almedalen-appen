@@ -202,15 +202,20 @@ async function getArrangerProfile(arrangerId: number) {
   const agendaPower = (yearStats || []).reduce((sum: number, s: any) => sum + (s.agenda_power_index || 0), 0);
 
   // 3. Get all events for this arranger (fetched once, reused below)
-  const eventArrangerLinks = await fetchAll('event_arrangers', 'event_id', q =>
+  const eventArrangerLinks = await fetchAll('event_arrangers', 'event_id, is_primary', q =>
     q.eq('arranger_id', arrangerId)
   );
   const eventIds = eventArrangerLinks.map((ea: any) => ea.event_id);
+  // is_primary === false ⇒ medarrangör; annars huvudarrangör. (Datan länkar varje
+  // org till sina egna OCH sina samarrangerade pass, med is_primary som markör.)
+  const isHuvudByEvent = new Map<number, boolean>(
+    eventArrangerLinks.map((ea: any) => [ea.event_id, ea.is_primary !== false])
+  );
 
   let visibleEventIds: number[] = [];
   let topTopics: { topic: string; count: number }[] = [];
   let topArenas: { name: string; eventCount: number }[] = [];
-  let seminars: { id: number; year: number; title: string; topic: string | null; location: string | null }[] = [];
+  let seminars: { id: number; year: number; title: string; topic: string | null; location: string | null; role: string }[] = [];
   if (eventIds.length > 0) {
     // Filter to visible years, include location_name for arena aggregation
     const events = await fetchAll('events', 'id, year, location_name, title', q =>
@@ -252,6 +257,7 @@ async function getArrangerProfile(arrangerId: number) {
           title: e.title,
           topic: topicMap.get(e.id) || null,
           location: e.location_name || null,
+          role: isHuvudByEvent.get(e.id) === false ? 'medarrangör' : 'arrangör',
         }))
         .sort((a: any, b: any) => b.year - a.year || a.title.localeCompare(b.title));
     }
