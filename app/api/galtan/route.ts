@@ -7,7 +7,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
+const VISIBLE_YEARS = [2022, 2023, 2024, 2025, 2026]; // 2026 komplett klassat → med i trender
 
 async function fetchAll(table: string, columns: string, filter?: (q: any) => any) {
   const rows: any[] = [];

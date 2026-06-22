@@ -325,7 +325,7 @@ function TopicsView({ data }: { data: any }) {
 
   return (
     <section>
-      <SectionHeader title="ÄMNEN & TRENDER" subtitle="Hur Almedalens ämneslandskap förändrats 2022–2025" />
+      <SectionHeader title="ÄMNEN & TRENDER" subtitle="Hur Almedalens ämneslandskap förändrats 2022–2026" />
 
       <Card style={{ marginBottom: '2rem' }}>
         <h3 style={{ marginBottom: '0.5rem', fontWeight: 700 }}>Ämnesflöde (alluvial)</h3>
@@ -517,7 +517,7 @@ function SentimentView({ data }: { data: any }) {
             <thead>
               <tr>
                 <th style={{ textAlign: 'left', padding: '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>Sektor</th>
-                {[2022, 2023, 2024, 2025].map(y => (
+                {[2022, 2023, 2024, 2025, 2026].map(y => (
                   <th key={y} style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>{y}</th>
                 ))}
               </tr>

@@ -567,7 +567,7 @@ export default function GaltanPage() {
           </h4>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', color: '#666', lineHeight: 1.6, margin: 0 }}>
             Varje organisations position beräknas som ett viktat medelvärde av CHES 2024-poäng för de riksdagspartier vars
-            företrädare medverkat i organisationens Almedalsseminarier 2022–2025. Organisationer med färre än 3 unika
+            företrädare medverkat i organisationens Almedalsseminarier 2022–2026. Organisationer med färre än 3 unika
             politikertalare exkluderas. Positionen visar politisk exponering, inte nödvändigtvis ideologisk hemvist.
           </p>
         </div>

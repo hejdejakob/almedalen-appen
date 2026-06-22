@@ -80,7 +80,7 @@ function SectorBar({ breakdown }: { breakdown: Record<string, number> }) {
 }
 
 function YearSparkline({ yearlyEvents }: { yearlyEvents: Record<string, number> }) {
-  const years = [2022, 2023, 2024, 2025];
+  const years = [2022, 2023, 2024, 2025, 2026];
   const values = years.map(y => yearlyEvents[String(y)] || 0);
   const max = Math.max(...values, 1);
 
@@ -237,10 +237,10 @@ function ArenaCard({ arena, onClick }: { arena: ArenaData; onClick: () => void }
 
       {/* Year sparkline */}
       <div>
-        <div style={{ fontSize: '0.72rem', color: '#888', marginBottom: '4px' }}>Events per år (2022–2025)</div>
+        <div style={{ fontSize: '0.72rem', color: '#888', marginBottom: '4px' }}>Events per år (2022–2026)</div>
         <YearSparkline yearlyEvents={arena.yearlyEvents} />
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
-          {[2022, 2023, 2024, 2025].map(y => (
+          {[2022, 2023, 2024, 2025, 2026].map(y => (
             <span key={y} style={{ fontSize: '0.6rem', color: '#aaa' }}>{y}</span>
           ))}
         </div>
@@ -886,7 +886,7 @@ export default function ArenaGuidenPage() {
               </div>
               <p style={{ margin: '1rem 0 0', fontSize: '0.78rem', color: '#888' }}>
                 Typ definieras av dominansprocent: Pluralistisk = dominant sektor &lt;35% av events,
-                Dominerad = &gt;60%, Blandad = däremellan. Baserat på data 2022–2025.
+                Dominerad = &gt;60%, Blandad = däremellan. Baserat på data 2022–2026.
               </p>
             </div>
           </>

@@ -40,6 +40,10 @@ fi
 node build-almedalen-all.js  || { echo "!! build-almedalen-all MISSLYCKADES"; exit 1; }
 node ingest.js               || { echo "!! ingest MISSLYCKADES"; exit 1; }
 node load-participants-v2.js || { echo "!! load-participants MISSLYCKADES"; exit 1; }
+# Deterministisk ämnesmappning (topic_pdf_original → topic_primary). Gratis, ingen LLM.
+# Håller event_topics ikapp nyscrapade pass så ämnesvyn/-trenderna inte halkar efter.
+# OBS: sentiment + arrangör-sektor kräver LLM (subagenter, ej launchd) — körs vid behov manuellt.
+node map-topics.js           || echo "!! map-topics misslyckades (ämnen ej uppdaterade)"
 node build-aggregates.js     || echo "!! build-aggregates misslyckades (aggregat ej uppdaterade; events/deltagare OK)"
 
 echo "===== $(date '+%Y-%m-%d %H:%M:%S') REFRESH KLAR ====="

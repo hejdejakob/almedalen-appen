@@ -9,7 +9,7 @@ const supabase = createClient(
 
 const RS_ARRANGER_ID = 10769;
 const GORAN_SPEAKER_ID = 1495;
-const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
+const VISIBLE_YEARS = [2022, 2023, 2024, 2025, 2026]; // 2026 komplett klassat → med i trender
 
 async function fetchAll(table: string, columns: string, filter?: (q: any) => any) {
   const rows: any[] = [];

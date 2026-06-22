@@ -6,7 +6,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
+const VISIBLE_YEARS = [2022, 2023, 2024, 2025, 2026]; // 2026 komplett klassat → med i trender
 
 // Hardcoded arranger IDs from event-org-matches.json (only those with matched_id != null)
 const EVENT_ARRANGER_IDS = [

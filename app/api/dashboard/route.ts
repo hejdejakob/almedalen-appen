@@ -10,7 +10,7 @@ const supabase = createClient(
 );
 
 // Years to show in frontend (2026 data exists but is incomplete)
-const VISIBLE_YEARS = [2022, 2023, 2024, 2025];
+const VISIBLE_YEARS = [2022, 2023, 2024, 2025, 2026]; // 2026 komplett klassat → med i trender
 
 async function fetchAll(table: string, columns: string, filter?: (q: any) => any) {
   const rows: any[] = [];
@@ -1464,7 +1464,7 @@ async function getSpeakerGuide() {
 async function getTopicDetail(topic: string) {
   // Ämnesvyn ska visa 2026 (topic_year_stats har 2026). Lokalt år-set så att
   // resten av dashboard-endpointen (trendsidorna) lämnas på avslutade år.
-  const TOPIC_YEARS = [...VISIBLE_YEARS, 2026];
+  const TOPIC_YEARS = VISIBLE_YEARS; // global VISIBLE_YEARS inkluderar nu 2026
   // 1. perYear from topic_year_stats
   const perYearData = await fetchAll('topic_year_stats', 'topic, year, event_count', q =>
     q.eq('topic', topic).in('year', TOPIC_YEARS)

@@ -717,7 +717,7 @@ function TopicsView({ data, topicDeep, isMobile }: { data: any; topicDeep: any; 
 
   return (
     <section>
-      <SectionHeader title="ÄMNEN & TRENDER" subtitle="Hur Almedalens ämneslandskap förändrats 2022–2025" />
+      <SectionHeader title="ÄMNEN & TRENDER" subtitle="Hur Almedalens ämneslandskap förändrats 2022–2026" />
       <p style={{ fontSize: '0.9rem', color: '#444', lineHeight: '1.6', marginBottom: '2rem', maxWidth: '900px' }}>
         Alla seminarier har klassificerats i 21 ämneskluster. För data från 2022 till 2024, där de officiella
         PDF-katalogerna redan innehöll ämnestaggar, har de ursprungliga taggarna kartlagts mot vår taxonomi.
@@ -1112,7 +1112,7 @@ function SentimentView({ data, isMobile }: { data: any; isMobile?: boolean }) {
             <thead>
               <tr>
                 <th style={{ textAlign: 'left', padding: isMobile ? '0.4rem' : '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>Sektor</th>
-                {[2022, 2023, 2024, 2025].map(y => (
+                {[2022, 2023, 2024, 2025, 2026].map(y => (
                   <th key={y} style={{ textAlign: 'center', padding: isMobile ? '0.4rem' : '0.75rem', borderBottom: '3px solid #000', fontWeight: 700 }}>{y}</th>
                 ))}
               </tr>
